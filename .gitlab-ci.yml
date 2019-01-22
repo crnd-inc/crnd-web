@@ -38,7 +38,7 @@ flake8:
 pylint:
     stage: static-test
     script:
-        - odoo-helper lint pylint "--license_allowed=OPL-1" .
+        - odoo-helper lint pylint .
 
 stylelint:
     stage: static-test
@@ -68,7 +68,7 @@ tests:
         - odoo-helper link .
     script:
         - odoo-helper --use-unbuffer test --coverage --create-test-db --dir .
-        - odoo-helper exec coverage report --fail-under=90
+        #- odoo-helper exec coverage report --fail-under=90
     coverage: '/^TOTAL\s+\d+\s+\d+\s+(\d+\%)/'
 
 migration_tests:
@@ -86,14 +86,13 @@ migration_tests:
         - odoo-helper --use-unbuffer addons uninstall --db $ODOO_DB_NAME $(git show -q $CI_COMMIT_SHA:./removed_addons.txt 2>/dev/null)
         - git checkout $CI_COMMIT_SHA
         - git clean -fdx
-        - rm -rf $(cat ./removed_addons.txt)
+        #- rm -rf $(cat ./removed_addons.txt)
         - odoo-helper link .
         - odoo-helper --use-unbuffer addons update-list
         - odoo-helper --use-unbuffer addons update --db $ODOO_DB_NAME --dir .
-        - echo "---"
     script:
         - odoo-helper --use-unbuffer test --fail-on-warn --coverage --dir .
-        - odoo-helper exec coverage report --fail-under=90
+        #- odoo-helper exec coverage report --fail-under=90
     coverage: '/^TOTAL\s+\d+\s+\d+\s+(\d+\%)/'
     only:
         - /^11.0-.*$/   # only branches that started with '11.0-'
@@ -124,8 +123,6 @@ translation_rate_ru:
     variables:
     before_script:
         - ci-review-app init
-        - ci-review-app dep https://github.com/crnd-inc/generic-addons "$SERIES_BRANCH"
-        - ci-review-app dep https://github.com/straga/odoo_vik_main "$SERIES_BRANCH"
     script:
         - ci-review-app start
     tags:
