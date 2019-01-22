@@ -1,6 +1,6 @@
 {
     "name": "CRND Web Button Box Fullwidth",
-    "version": "11.0.0.0.1",
+    "version": "11.0.0.0.2",
     "author": "Center of Research & Development",
     "website": "https://crnd.pro",
     "license": "LGPL-3",
@@ -11,7 +11,7 @@
     'data': [
         'views/assets.xml',
     ],
-    'images': [],
+    'images': ['static/description/banner.png'],
     'installable': True,
     'auto_install': False,
 }
