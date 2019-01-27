@@ -1,6 +1,6 @@
 {
     "name": "CRND Web Image Popup Widget",
-    "version": "11.0.0.0.1",
+    "version": "11.0.0.0.2",
     "author": "Center of Research and Development",
     "website": "https://crnd.pro",
     "license": "LGPL-3",

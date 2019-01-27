@@ -29,7 +29,7 @@ odoo.define('crnd_web_widget_popup_image.ImagePopup', function (require) {
                 if (this.mode !== 'edit'){
                     event.stopPropagation();
                     return this.popup();
-                };
+                }
             }
         }),
 
