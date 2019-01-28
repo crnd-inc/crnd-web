@@ -3,10 +3,10 @@
     <template id="assets_backend" name="crnd_web_image_popup_widget" inherit_id="web.assets_backend">
         <xpath expr="//script[last()]" position="after">
             <link rel="stylesheet" href="/crnd_web_widget_popup_image/static/lib/magnific_popup/magnific-popup.css"/>
-            <link rel="stylesheet" href="/crnd_web_widget_popup_image/static/src/less/image_on_treeview.less"/>
-
-            <script type="text/javascript" src="/crnd_web_widget_popup_image/static/src/js/image_popup.js"/>
             <script type="text/javascript" src="/crnd_web_widget_popup_image/static/lib/magnific_popup/jquery.magnific-popup.min.js"/>
+
+            <link rel="stylesheet" href="/crnd_web_widget_popup_image/static/src/less/image_on_treeview.less"/>
+            <script type="text/javascript" src="/crnd_web_widget_popup_image/static/src/js/image_popup.js"/>
         </xpath>
     </template>
 </odoo>
