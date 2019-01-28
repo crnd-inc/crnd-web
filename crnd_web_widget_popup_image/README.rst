@@ -18,13 +18,13 @@ Widget allows you to popup images from the binary fields. It is available on the
 
 How it works:
 
-1. Announce widget on the form view:
+1. Define a widget on the form view:
 
     .. code:: xml
 
         <field name="image_test" widget="image_popup" class="oe_avatar"/>
 
-2. You can also announce widget on the tree view:
+2. You can also define a widget on the tree view:
 
     .. code:: xml
 
