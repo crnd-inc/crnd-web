@@ -14,7 +14,7 @@ CRnD Widget Popup Image
 
 |badge2| |badge5|
 
-Widget allows you to popup images from the binary fields. It is available on the tree view.
+Widget allows you to popup images from the binary fields. It is available on the form and tree views.
 
 How it works:
 
