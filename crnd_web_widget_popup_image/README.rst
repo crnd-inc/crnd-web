@@ -14,21 +14,25 @@ CRnD Widget Popup Image
 
 |badge2| |badge5|
 
-Widget allows you to popup images from binary fields. It is available on tree view.
+Widget allows you to popup images from the binary fields. It is available on the form and tree views.
 
 How it works:
 
-Announce widget on form view:
+1. Define a widget on the form view:
 
-    <field name="image_test" widget="image_popup" class="oe_avatar"/>
+    .. code:: xml
 
-You can also announce widget on tree view:
+        <field name="image_test" widget="image_popup" class="oe_avatar"/>
 
-    <field name="image_test" widget="image_popup" class="ot_image"/>
+2. You can also define a widget on the tree view:
 
-CSS class ot_image resizes the image for tree view. (You can use your own class.)
+    .. code:: xml
 
-In edit mode it works as a standard image widget.
+        <field name="image_test" widget="image_popup" class="ot_image"/>
+
+  The `ot_image` CSS class resizes the image for the tree view (you can use your own class).
+
+In the edit mode it works as a standard image widget.
 
 
 Launch your own ITSM system in 60 seconds:

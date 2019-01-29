@@ -10,42 +10,59 @@
 
 <section style="margin: 0 auto; max-width: 896px;">
 <div>
-<p>CRnD Widget Popup Image is a module developed by the <a href="https://crnd.pro/">Center of Research &amp; Development</a> company. Widget allows you to popup images from binary fields. It is available on tree view.<br/></p>
-    <p>How it works:<br/></p>
-    <p>Announce widget on form view:</p>
+<p>CRnD Widget Popup Image is a module developed by the <a href="https://crnd.pro/">Center of Research &amp; Development</a> company. This widget allows you to popup images from the binary fields. It is available on the form and tree views.</p>
+<p style="font-size: 120%;">
+<i><b>How it works:</b></i></p>
+<ul>
+<li>Define a widget on the form view:
+<pre><code>&lt;group&gt;
+    &lt;field name="image_test" widget="image_popup" class="oe_avatar"/&gt;
+&lt;/group&gt;
+</code></pre>
+</li>
+<li>If necessary, define a widget on the tree view:
+<pre><code>&lt;tree&gt;
+    &lt;field name="test_field"/&gt;
+    &lt;field name="image_test" widget="image_popup" class="ot_image"/&gt;
+&lt;/tree&gt;
+</code></pre>
+<p>The <code>ot_image</code> CSS class resizes the image for the tree view (you can use your own class.)</p>
+</li>
+</ul>
+<p style="font-size: 120%;">
+<i><b>As a result:</b></i></p>
+<ul>
+<li>
+<p style="font-size: 110%;">Form view</p>
+<div align="center">
+<img src="image_form_view.png" alt="Widget on form" style="max-width: 100%">
+<p><br></p>
 </div>
-    <div align="center">
-        <img src="widget_announce_form_view.png" alt="Widget announce form" style="max-width: 100%">
-        <p><br></p>
-    </div>
-    <p>And/Or/Not announce widget on tree view:</p>
-    <div align="center">
-        <img src="widget_announce_tree_view.png" alt="Widget announce tree" style="max-width: 100%">
-        <p><br></p>
-    </div>
-    <p>CSS class ot_image resizes the image for tree view. (You can use your own class.)</p>
-    <p>Rezults:</p>
-    <p>Form:</p>
-    <div align="center">
-        <img src="image_form_view.png" alt="Widget on form" style="max-width: 100%">
-        <p><br></p>
-    </div>
-    <p>Tree:</p>
-    <div align="center">
-        <img src="image_tree_view.png" alt="Widget on tree" style="max-width: 100%">
-        <p><br></p>
-    </div>
-    <p>Popup:</p>
-    <div align="center">
-        <img src="image_popup.png" alt="Widget popup" style="max-width: 100%">
-        <p><br></p>
-    </div>
-    <p>Edit mode:<br/></p>
-    <p>In edit mode it works as a standard image widget.</p>
-    <div align="center">
-        <img src="edit_mode_image.png" alt="Widget edit mode" style="max-width: 100%">
-        <p><br></p>
-    </div>
+</li>
+<li>
+<p style="font-size: 110%;">Tree view</p>
+<div align="center">
+<img src="image_tree_view.png" alt="Widget on tree" style="max-width: 100%">
+<p><br></p>
+</div>
+</li>
+<li>
+<p style="font-size: 110%;">Popup</p>
+<div align="center">
+<img src="image_popup.png" alt="Widget popup" style="max-width: 100%">
+<p><br></p>
+</div>
+</li>
+<li>
+<p style="font-size: 110%;">Edit mode<br/></p>
+<p>In the edit mode, it works as a standard image widget.</p>
+<div align="center">
+<img src="edit_mode_image.png" alt="Widget edit mode" style="max-width: 100%">
+<p><br></p>
+</div>
+</li>
+</ul>
+</div>
 </section>
 
 <section style="max-width: 896px; margin: 0 auto;">
