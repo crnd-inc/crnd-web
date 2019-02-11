@@ -1,8 +1,9 @@
 {
     "name": "CRND Web Button Box Fullwidth",
-    "version": "12.0.0.0.4",
+    "version": "12.0.0.0.5",
     "author": "Center of Research and Development",
     "website": "https://crnd.pro",
+    'summary': 'Button_box at the top of the form',
     "license": "LGPL-3",
     'category': 'Technical Settings',
     'depends': [

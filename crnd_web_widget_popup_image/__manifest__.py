@@ -3,6 +3,7 @@
     "version": "12.0.0.0.6",
     "author": "Center of Research and Development",
     "website": "https://crnd.pro",
+    'summary': 'Popup images from the binary fields',
     "license": "LGPL-3",
     'category': 'Technical Settings',
     'depends': [
