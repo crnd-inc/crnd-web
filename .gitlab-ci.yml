@@ -1,4 +1,4 @@
-image: registry.crnd.pro/crnd/docker/odoo-ci-x:12.0-simple-maao
+image: registry.crnd.pro/crnd/docker/odoo-ci-x:12.0-simple
 
 variables:
     SERIES_BRANCH: '12.0'
@@ -61,8 +61,7 @@ check-versions:
         - /^12.0-.*$/   # only branches that started with '12.0-'
 
 tests:
-    image: registry.crnd.pro/crnd/docker/odoo-ci-x:12.0-ci-maao
-    stage: test
+    image: registry.crnd.pro/crnd/docker/odoo-ci-x:12.0-ci
     <<: *pip_cache_definition
     before_script:
         - odoo-helper link .
@@ -72,7 +71,7 @@ tests:
     coverage: '/^TOTAL\s+\d+\s+\d+\s+(\d+\%)/'
 
 #migration_tests:
-    #image: registry.crnd.pro/crnd/docker/odoo-ci-x:12.0-ci-maao
+    #image: registry.crnd.pro/crnd/docker/odoo-ci-x:12.0-ci
     #stage: test
     #variables:
         #ODOO_DB_NAME: test-db
@@ -98,8 +97,7 @@ tests:
         #- /^12.0-.*$/   # only branches that started with '12.0-'
 
 translation_rate_ua:
-    image: registry.crnd.pro/crnd/docker/odoo-ci-x:12.0-ci-maao
-    stage: translation 
+    image: registry.crnd.pro/crnd/docker/odoo-ci-x:12.0-ci
     <<: *pip_cache_definition
     before_script:
         - odoo-helper link .
@@ -108,7 +106,7 @@ translation_rate_ua:
     coverage: '/^TOTAL\s+\|\s+\d+\s+\|\s+\d+\s+|\s+(\d+\.\d+)/'
 
 translation_rate_ru:
-    image: registry.crnd.pro/crnd/docker/odoo-ci-x:12.0-ci-maao
+    image: registry.crnd.pro/crnd/docker/odoo-ci-x:12.0-ci
     stage: translation
     <<: *pip_cache_definition
     before_script:
