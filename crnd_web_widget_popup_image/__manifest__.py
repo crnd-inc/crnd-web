@@ -1,6 +1,6 @@
 {
-    "name": "CRND Web Button Box Fullwidth",
-    "version": "12.0.0.0.4",
+    "name": "CRND Web Image Popup Widget",
+    "version": "12.0.0.0.6",
     "author": "Center of Research and Development",
     "website": "https://crnd.pro",
     "license": "LGPL-3",
@@ -9,7 +9,7 @@
         'web',
     ],
     'data': [
-        'views/assets.xml',
+        'views/assets_backend.xml',
     ],
     'images': ['static/description/banner.gif'],
     'installable': True,
