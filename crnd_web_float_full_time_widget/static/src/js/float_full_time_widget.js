@@ -10,6 +10,24 @@ odoo.define('crnd_web_float_full_time_widget.FullFloatTime', function (require) 
 
     var FloatTimeDuration = basic_fields.FieldFloat.extend({
 
+        /**
+        * Widget implies:
+        * the integer part of float represents seconds, the fractional part represents milliseconds
+        * For example: 94225.22 => 94225 seconds and 22 milliseconds.
+        * Full template has view: 0d 00:00:00.000 where Dd hh:mm:ss,msc
+        * D - days, d - literal (days, can be translated), h - hours, m - minutes, s - seconds, msc - milliseconds.
+        * For example: 1d 02:10:25,220 to float 94225.22
+        * Widget has options:
+        * round_off - true, display template without milliseconds (false by default),
+        * time_only - true, display template without days (false by default).
+        * For example:
+        * round_off: false, time_only: false: 0d 00:00:00.000 (94225.22 to template 1d 02:10:25,220)
+        * round_off: true, time_only: false: 0d 00:00:00 (94225.22 to template 1d 02:10:25)
+        * round_off: true, time_only: true: 00:00:00 (94225.22 to template 26:10:25)
+        * round_off: false, time_only: true: 00:00:00,000 (94225.22 to template 26:10:25,220)
+        * It simplifying operations with time.
+        */
+
         init: function () {
             this._super.apply(this, arguments);
             this.round_off = this.nodeOptions.round_off;
@@ -122,6 +140,21 @@ odoo.define('crnd_web_float_full_time_widget.FullFloatTime', function (require) 
 
     var FloatFullTime = FloatTimeDuration.extend({
 
+        /**
+        * Widget based on FloatTimeDuration widget.
+        * It implies: represents float as time of twenty-four hours.
+        * Widget restrict inputting data.
+        * Data can be from 00:00:00,000 to 23:59:59,999 and only positive value.
+        * It has the same options, but time_only all times is true (except days).
+        * It can be used for marking the time of start or stop any process.
+        * It means that it will contains the quantity of seconds from the start of the day.
+        * For example:
+        * 00:00:00,000 in float 0 (midnight)
+        * start_at = 01:22:30,220 (in float 4950.22 seconds from midnight)
+        * stop_at = 04:45:15,560 (in float 17115.56 seconds from midnight)
+        * It simplifying operations with time.
+        */
+
         init: function () {
             this._super.apply(this, arguments);
             this.round_off = this.nodeOptions.round_off;
@@ -130,11 +163,11 @@ odoo.define('crnd_web_float_full_time_widget.FullFloatTime', function (require) 
 
         isValid: function () {
             this._super.apply(this, arguments);
-            if (Math.abs(this.value) > 86399.999) {
+            if (this.value > 86399.999 || this.value < 0) {
                 this.do_warn(
                     _t('The value of the field: ') +
                     this.field.string +
-                    _t(', can not be more than 23:59:59,999 sec! Please check it!')
+                    _t(', can not be more than 23:59:59,999 sec and less than 0 sec! Please check it!')
                 );
 
                 this._isValid = false;
