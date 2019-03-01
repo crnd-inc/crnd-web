@@ -22,7 +22,7 @@ Widget has two chapters: Float Time Duration and Float Full Time.
 
     For example: 94225.22 => 94225 seconds and 22 milliseconds.
 
-    Full template has view: 0d 00:00:00.000 where Dd hh:mm:ss,msc, where:
+    Full template is: 0d 00:00:00.000 where Dd hh:mm:ss,msc, where:
 
     * D - days, d - literal (days, can be translated), h - hours, m - minutes, s - seconds, msc - milliseconds.
 
@@ -44,23 +44,23 @@ Widget has two chapters: Float Time Duration and Float Full Time.
 
     * round_off: false, time_only: true: 00:00:00,000 (94225.22 to template 26:10:25,220)
 
-    It simplifying operations with time.
+    It simplifies operations with time.
 
 2. Float Full Time
 
     Widget based on Float Time Duration widget.
 
-    It implies: represents float as time of twenty-four hours.
+    Represents float as time of twenty-four hours.
 
-    Widget restrict inputting data.
+    Widget restrict input.
 
     Data can be from 00:00:00,000 to 23:59:59,999 and only positive value.
 
-    It has the same options, but time_only all times is true (except days).
+    It has the same options, but time_only always is true (except days).
 
     It can be used for marking the time of start or stop any process.
 
-    It means that it will contains the quantity of seconds from the start of the day.
+    It means that it will contains the number of seconds from the start of the day.
 
     For example:
 
@@ -70,7 +70,7 @@ Widget has two chapters: Float Time Duration and Float Full Time.
 
     * stop_at = 04:45:15,560 (in float 17115.56 seconds from midnight)
 
-    It simplifying operations with time.
+    It simplifies operations with time.
 
 How it works:
 

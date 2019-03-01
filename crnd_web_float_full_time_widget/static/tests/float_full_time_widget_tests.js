@@ -1,9 +1,9 @@
-/* eslint no-undef: 0 */
 odoo.define('crnd_web_float_full_time_widget.tests', function (require) {
     "use strict";
 
     var FullFloatTime = require(
         'crnd_web_float_full_time_widget.FullFloatTime');
+    var QUnit = window.QUnit;
 
     QUnit.module('crnd_web_float_full_time_widget', {}, function () {
 
