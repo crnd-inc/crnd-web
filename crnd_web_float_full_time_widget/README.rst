@@ -14,21 +14,21 @@ Full Float Time Widget
 
 |badge2| |badge5|
 
-Widget has two chapters: Float Time Duration and Float Full Time.
+Widget consists of two parts: Float Time Duration and Float Full Time.
 
 1. Float Time Duration
 
-    Widget implies: the integer part of float represents seconds, the fractional part represents milliseconds.
+    Widget implies: the integer part of a float represents seconds, the fractional part represents milliseconds.
 
     For example: 94225.22 => 94225 seconds and 22 milliseconds.
 
-    Full template is: 0d 00:00:00.000 where Dd hh:mm:ss,msc, where:
+    Full template is: 0d 00:00:00.000 where Dd hh:mm:ss,msc are:
 
     * D - days, d - literal (days, can be translated), h - hours, m - minutes, s - seconds, msc - milliseconds.
 
     For example: 1d 02:10:25,220 to float 94225.22.
 
-    Widget has options:
+    Widget has the following options:
 
     * round_off - true, display template without milliseconds (false by default),
 
@@ -50,9 +50,9 @@ Widget has two chapters: Float Time Duration and Float Full Time.
 
     Widget based on Float Time Duration widget.
 
-    Represents float as time of twenty-four hours.
+    Represents a float as a twenty-four hours time.
 
-    Widget restrict input.
+    Widget restricts inappropriate input.
 
     Data can be from 00:00:00,000 to 23:59:59,999 and only positive value.
 
@@ -76,13 +76,13 @@ How it works:
 
 Float Time Duration
 
-1. Define a field 'float' in the model:
+1. Define the 'float' field in the model:
 
     .. code:: python
 
         duration = fields.Float()
 
-2. Define a widget Float Time Duration on the form or tree view:
+2. Define the Float Time Duration widget on the form or tree view:
 
     .. code:: xml
 

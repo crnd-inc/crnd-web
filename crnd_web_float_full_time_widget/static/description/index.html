@@ -3,30 +3,24 @@
         <h1 style="color:#875A7B;">CRnD Full Float Time Widget</h1>
     </div>
     <div align="center">
-        <p><a href="http://www.gnu.org/licenses/lgpl-3.0-standalone.html"><img alt="License: LGPL-3"
-                                                                               src="https://img.shields.io/badge/license-LGPL--3-blue.png"/></a>
-            <a href="https://crnd.pro/"><img alt="CR&amp;D"
-                                             src="https://img.shields.io/badge/maintainer-CR&amp;D-purple.png"/></a></p>
+        <p><a href="http://www.gnu.org/licenses/lgpl-3.0-standalone.html"><img alt="License: LGPL-3" src="https://img.shields.io/badge/license-LGPL--3-blue.png"/></a> <a href="https://crnd.pro/"><img alt="CR&amp;D" src="https://img.shields.io/badge/maintainer-CR&amp;D-purple.png"/></a></p>
         <p><br></p>
     </div>
 </section>
 
 <section style="margin: 0 auto; max-width: 896px;">
     <div>
-        <p>CRnD Full Float Time Widget is a module developed by the <a href="https://crnd.pro/">Center of Research &amp;
-            Development</a> company.</p>
-        <p>Widget has two chapters: Float Time Duration and Float Full Time.</p>
+        <p>CRnD Full Float Time Widget is a module developed by the <a href="https://crnd.pro/">Center of Research &amp; Development</a> company.</p>
+        <p>Widget consists of two parts: <i>Float Time Duration</i> and <i>Float Full Time</i>.</p>
         <ol>
             <li>
                 <p><strong>Float Time Duration</strong></p>
-                <p>Widget implies: the integer part of float represents seconds, the fractional part represents
-                    milliseconds.<br>
-                    For example: 94225.22 => 94225 seconds and 22 milliseconds.<br>
-                    Full template is: 0d 00:00:00.000 where Dd hh:mm:ss,msc, where:<br>
-                    D - days, d - literal (days, can be translated), h - hours, m - minutes, s - seconds, msc -
-                    milliseconds.<br>
-                    For example: 1d 02:10:25,220 to float 94225.22.</p>
-                <p>Widget has options:<br>
+                <p>Widget implies: the integer part of a float represents seconds, the fractional part - milliseconds.<br>
+                For example: 94225.22 => 94225 seconds and 22 milliseconds.<br>
+                Full template is: 0d 00:00:00.000 where Dd hh:mm:ss,msc are:<br>
+                D - days, d - literal (days, can be translated), h - hours, m - minutes, s - seconds, msc - milliseconds.<br>
+                For example: 1d 02:10:25,220 to float 94225.22.</p>
+                <p>Widget has the following options:<br>
                 <ul>
                     <li>
                         round_off - true, display template without milliseconds (false by default),
@@ -51,19 +45,20 @@
                         round_off: false, time_only: true: 00:00:00,000 (94225.22 to template 26:10:25,220)
                     </li>
                 </ul>
+                </p>
                 <p>
                     It simplifies operations with time.
                 </p>
             </li>
             <li>
                 <p><strong>Float Full Time</strong></p>
-                <p>Widget based on Float Time Duration widget.<br>
-                    Represents float as time of twenty-four hours.<br>
-                    Widget restrict input.<br>
-                    Data can be from 00:00:00,000 to 23:59:59,999 and only positive value.<br>
-                    It has the same options, but time_only always is true (except days).</p>
-                It can be used for marking the time of start or stop any process.</p>
-                It means that it will contains the number of seconds from the start of the day.</p>
+                <p>Widget based on the Float Time Duration widget.<br>
+                Represents a float as a twenty-four hours time.<br>
+                Widget restricts inappropriate input.<br>
+                Data can be from 00:00:00,000 to 23:59:59,999 and only positive value.<br>
+                It has the same options, but time_only always is true (except days).</p>
+                <p>It can be used to make the start or stop time of any process.</p>
+                <p>It means that it will contain the number of seconds from the start of the day.</p>
                 <p>For example:<br>
                 <ul>
                     <li>
@@ -76,6 +71,7 @@
                         stop_at = 04:45:15,560 (in float 17115.56 seconds from midnight)
                     </li>
                 </ul>
+                </p>
                 <p>
                     It simplifies operations with time.
                 </p>
@@ -85,27 +81,26 @@
             <i><b>How it works:</b></i></p>
         <p>Float Time Duration</p>
         <ul>
-            <li>Define a field 'float' in the model:
+            <li>Define the 'float' field in the model:
                 <pre><code>duration = fields.Float()</code></pre>
             </li>
-            <li>Define a widget Float Time Duration on the form or tree view:
+            <li>Define the Float Time Duration widget on the form or tree view:
                 <pre><code>&lt;group&gt;
     &lt;field name="duration" widget="float_time_duration" options="{'round_off': True, 'time_only': True}"/&gt;
 &lt;/group&gt;
-</code></pre>
+                </code></pre>
             </li>
         </ul>
-
         <p>Float Full Time</p>
         <ul>
-            <li>Define a field 'float' in the model:
+            <li>Define the 'float' field in the model:
                 <pre><code>duration = fields.Float()</code></pre>
             </li>
-            <li>Define a widget Float Time Duration on the form or tree view:
+            <li>Define the Float Time Duration widget on the form or tree view:
                 <pre><code>&lt;group&gt;
     &lt;field name="start_at" widget="float_full_time" options="{'round_off': True}"/&gt;
 &lt;/group&gt;
-</code></pre>
+                </code></pre>
             </li>
         </ul>
         <p style="font-size: 120%;">
@@ -150,9 +145,7 @@
 <section align="center" style="max-width: 896px; margin: 0 auto;">
     <div>
         <h2 style="color:#875A7B;">Launch your own ITSM system in 60 seconds:</h2>
-        <p>Create your own <a href="https://yodoo.systems/saas/template/itsm-16">Bureaucrat ITSM</a> database
-            <a href="https://yodoo.systems"><img alt="yodoo.systems"
-                                                 src="https://img.shields.io/badge/powered%20by-yodoo.systems-00a09d.png"/></a>
+        <p>Create your own <a href="https://yodoo.systems/saas/template/itsm-16">Bureaucrat ITSM</a> database <a href="https://yodoo.systems"><img alt="yodoo.systems" src="https://img.shields.io/badge/powered%20by-yodoo.systems-00a09d.png"/></a>
         </p>
     </div>
 </section>

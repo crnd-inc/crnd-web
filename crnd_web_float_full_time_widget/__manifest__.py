@@ -1,8 +1,9 @@
 {
     "name": "CRND Web Float Full Time Widget",
-    "version": "11.0.0.0.1",
+    "version": "11.0.0.0.2",
     "author": "Center of Research and Development",
     "website": "https://crnd.pro",
+    'summary': 'Float Time Duration Widget',
     "license": "LGPL-3",
     'category': 'Technical Settings',
     'depends': [
@@ -11,7 +12,7 @@
     'data': [
         'views/assets_backend.xml',
     ],
-    'images': ['static/description/banner.png'],
+    'images': ['static/description/banner.gif'],
     'installable': True,
     'auto_install': False,
 }
