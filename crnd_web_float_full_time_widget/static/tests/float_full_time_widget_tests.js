@@ -22,14 +22,20 @@ odoo.define('crnd_web_float_full_time_widget.tests', function (require) {
         });
 
         QUnit.test('format float full time', function (assert) {
-            assert.expect(5);
+            assert.expect(10);
 
-            assert.strictEqual(FullFloatTime.format.float_full_time(0, false, false), "0d 00:00:00,000");
+            assert.strictEqual(FullFloatTime.format.float_full_time(0, false, false, null), "00:00:00,000");
+            assert.strictEqual(FullFloatTime.format.float_full_time(0, false, false, 'edit'), "0d 00:00:00,000");
 
-            assert.strictEqual(FullFloatTime.format.float_full_time(303639.999, false, false), "3d 12:20:39,999");
-            assert.strictEqual(FullFloatTime.format.float_full_time(303639, false, true), "3d 12:20:39");
-            assert.strictEqual(FullFloatTime.format.float_full_time(303639.999, true, false), "84:20:39,999");
-            assert.strictEqual(FullFloatTime.format.float_full_time(303639, true, true), "84:20:39");
+            assert.strictEqual(FullFloatTime.format.float_full_time(303639.999, false, false, null), "3d 12:20:39,999");
+            assert.strictEqual(FullFloatTime.format.float_full_time(303639, false, true, null), "3d 12:20:39");
+            assert.strictEqual(FullFloatTime.format.float_full_time(303639.999, true, false, null), "84:20:39,999");
+            assert.strictEqual(FullFloatTime.format.float_full_time(303639, true, true, null), "84:20:39");
+
+            assert.strictEqual(FullFloatTime.format.float_full_time(44439.999, false, false, null), "12:20:39,999");
+            assert.strictEqual(FullFloatTime.format.float_full_time(44439.999, false, false, 'edit'), "0d 12:20:39,999");
+            assert.strictEqual(FullFloatTime.format.float_full_time(44439, false, true, null), "12:20:39");
+            assert.strictEqual(FullFloatTime.format.float_full_time(44439, false, true, 'edit'), "0d 12:20:39");
 
         });
     });

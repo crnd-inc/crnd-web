@@ -36,9 +36,25 @@ Widget consists of two parts: Float Time Duration and Float Full Time.
 
     For example:
 
-    * round_off: false, time_only: false: 0d 00:00:00.000 (94225.22 to template 1d 02:10:25,220)
+    * round_off: false, time_only: false:
+
+        edit mode:
+
+        0d 00:00:00.000 (94225.22 to template 1d 02:10:25,220, 44439.999 to template 0d 12:20:39,999)
+
+        normal mode:
+
+        0d 00:00:00.000 (94225.22 to template 1d 02:10:25,220, 44439.999 to template 12:20:39,999)
 
     * round_off: true, time_only: false: 0d 00:00:00 (94225.22 to template 1d 02:10:25)
+
+        edit mode:
+
+        0d 00:00:00 (94225.22 to template 1d 02:10:25, 44439.999 to template 0d 12:20:39)
+
+        normal mode:
+
+        0d 00:00:00 (94225.22 to template 1d 02:10:25, 44439.999 to template 12:20:39)
 
     * round_off: true, time_only: true: 00:00:00 (94225.22 to template 26:10:25)
 

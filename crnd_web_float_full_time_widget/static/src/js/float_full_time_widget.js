@@ -1,5 +1,5 @@
 odoo.define('crnd_web_float_full_time_widget.FullFloatTime', function (require) {
-"use strict";
+    "use strict";
 
     var registry = require('web.field_registry');
     var basic_fields = require('web.basic_fields');
@@ -8,53 +8,73 @@ odoo.define('crnd_web_float_full_time_widget.FullFloatTime', function (require) 
 
     var _t = core._t;
 
-    function formatFloatFullTime(value, time_only, round_off) {
+    function formatFloatFullTime (value, time_only, round_off, mode) {
+
         /**
-        * round_off - true, display template without milliseconds (false by default),
-        * time_only - true, display template without days (false by default).
+        * Description:
+        * round_off - true:
+        *   display template without milliseconds (false by default),
+        * time_only - true:
+        *   display template without days (false by default).
+        * mode - 'edit', 'readonly', e.t.c., if mode === 'edit',
+        * days are represented in template in any way,
+        * else days are not represented on view (even if time_only !== true).
         */
-        var pattern = '%02d:%02d:%02d';
-        if (time_only !== true) {
-            pattern = '%01d' + _t('d') + ' ' + pattern;
-        }
-        if (round_off !== true) {
-            pattern += ',%03d';
-        }
+
+        var parent_prefix = '';
         var in_value = value;
         if (value < 0) {
             in_value = Math.abs(value);
-            pattern = '-' + pattern;
+            parent_prefix = '-';
         }
         var total_sec = Math.floor(in_value);
         var milliseconds = Math.round(in_value % 1 * 1000);
-        if (milliseconds === 1000){
+        if (milliseconds === 1000) {
             milliseconds = 0;
             total_sec += 1;
         }
+
+        var minutes = Math.floor(total_sec / 60);
+        var seconds = Math.floor(total_sec % 60);
+
+        var hours = Math.floor(minutes / 60);
+        minutes = Math.floor(minutes % 60);
+
         var days = 0;
-        var hours = Math.floor(in_value / 3600);
-        var hours_in_sec = hours * 3600;
-        var minutes = Math.floor((total_sec - hours_in_sec) / 60);
-        var seconds = Math.floor(total_sec%60);
         if (time_only !== true) {
             days = Math.floor(hours / 24);
-            hours -= days * 24;
+            hours = Math.floor(hours % 24);
         }
-        if (round_off === true && time_only === true) {
-            return _.str.sprintf(pattern, hours, minutes, seconds);
-        } else if (round_off === true && time_only !== true) {
-            return _.str.sprintf(pattern, days, hours, minutes, seconds);
-        } else if (round_off !== true && time_only === true) {
-            return _.str.sprintf(pattern, hours, minutes, seconds, milliseconds);
+
+        var pattern = '%2$02d:%3$02d:%4$02d';
+        if (time_only !== true) {
+            if (days !== 0 || mode === 'edit') {
+                pattern = '%1$01d' + _t('d') + ' ' + pattern;
+            }
         }
-        return _.str.sprintf(pattern, days, hours, minutes, seconds, milliseconds);
+        if (round_off !== true) {
+            pattern += ',%5$03d';
+        }
+
+        pattern = parent_prefix + pattern;
+
+        return _.str.sprintf(
+            pattern, days, hours, minutes, seconds, milliseconds);
     }
 
-    function parseFloatFullTime(value, time_only, round_off) {
+    function parseFloatFullTime (value, time_only, round_off) {
+
         /**
+        * Description:
         * round_off - true, template excludes milliseconds (false by default),
         * time_only - true, template excludes days (false by default).
+        * Magic integer:
+        * 1000 - milliseconds in second,
+        * 60 - seconds in minute,
+        * 3600 - seconds in hour,
+        * 86400 - seconds in day.
         */
+
         var parse_integer = field_utils.parse.integer;
         var factor = 1;
         var in_value = value;
@@ -63,7 +83,7 @@ odoo.define('crnd_web_float_full_time_widget.FullFloatTime', function (require) 
             factor = -1;
         }
         var float_time_pair = in_value.split(/,| |:/);
-        if (float_time_pair.length < 3){
+        if (float_time_pair.length < 3) {
             return factor * field_utils.parse.float(value);
         }
         var days = 0;
@@ -99,19 +119,37 @@ odoo.define('crnd_web_float_full_time_widget.FullFloatTime', function (require) 
 
         /**
         * Widget implies:
-        * the integer part of float represents seconds, the fractional part represents milliseconds
+        * the integer part of float represents seconds,
+        * the fractional part represents milliseconds
         * For example: 94225.22 => 94225 seconds and 22 milliseconds.
         * Full template is: 0d 00:00:00.000 where Dd hh:mm:ss,msc
-        * D - days, d - literal (days, can be translated), h - hours, m - minutes, s - seconds, msc - milliseconds.
+        * D - days, d - literal (days, can be translated),
+        * h - hours, m - minutes, s - seconds, msc - milliseconds.
         * For example: 1d 02:10:25,220 to float 94225.22
         * Widget has options:
-        * round_off - true, display template without milliseconds (false by default),
-        * time_only - true, display template without days (false by default).
+        * round_off - true,
+        *   display template without milliseconds (false by default),
+        * time_only - true,
+        *   display template without days (false by default).
         * For example:
-        * round_off: false, time_only: false: 0d 00:00:00.000 (94225.22 to template 1d 02:10:25,220)
-        * round_off: true, time_only: false: 0d 00:00:00 (94225.22 to template 1d 02:10:25)
-        * round_off: true, time_only: true: 00:00:00 (94225.22 to template 26:10:25)
-        * round_off: false, time_only: true: 00:00:00,000 (94225.22 to template 26:10:25,220)
+        * round_off: false, time_only: false:
+        * edit mode:
+        *   0d 00:00:00.000 (94225.22 to template 1d 02:10:25,220,
+        *                    44439.999 to template 0d 12:20:39,999)
+        * any_excepted_edit mode:
+        *   00:00:00.000 (94225.22 to template 1d 02:10:25,220,
+        *                 44439.999 to template 12:20:39,999)
+        * round_off: true, time_only: false:
+        * edit mode:
+        *   0d 00:00:00 (94225.22 to template 1d 02:10:25,
+        *                44439.999 to template 0d 12:20:39)
+        * any_excepted_edit mode:
+        *   00:00:00 (94225.22 to template 1d 02:10:25,
+        *             44439.999 to template 12:20:39)
+        * round_off: true, time_only: true:
+        *   00:00:00 (94225.22 to template 26:10:25)
+        * round_off: false, time_only: true:
+        *   00:00:00,000 (94225.22 to template 26:10:25,220)
         * It simplifies operations with time.
         */
 
@@ -122,7 +160,8 @@ odoo.define('crnd_web_float_full_time_widget.FullFloatTime', function (require) 
         },
 
         _formatValue: function (value) {
-            return formatFloatFullTime(value, this.time_only, this.round_off);
+            return formatFloatFullTime(
+                value, this.time_only, this.round_off, this.mode);
         },
 
         _parseValue: function (value) {
@@ -140,7 +179,8 @@ odoo.define('crnd_web_float_full_time_widget.FullFloatTime', function (require) 
         * Data can be from 00:00:00,000 to 23:59:59,999 and only positive value.
         * It has the same options, but time_only always is true (except days).
         * It can be used for marking the time of start or stop any process.
-        * It means that it will contains the number of seconds from the start of the day.
+        * It means that it will contains the number of seconds from
+        * the start of the day.
         * For example:
         * 00:00:00,000 in float 0 (midnight)
         * start_at = 01:22:30,220 (in float 4950.22 seconds from midnight)
