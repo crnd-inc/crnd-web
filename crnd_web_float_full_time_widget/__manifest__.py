@@ -1,9 +1,9 @@
 {
-    "name": "CRND Web Image Popup Widget",
-    "version": "12.0.0.0.7",
+    "name": "CRND Web Float Full Time Widget",
+    "version": "12.0.0.0.2",
     "author": "Center of Research and Development",
     "website": "https://crnd.pro",
-    'summary': 'Popup images from the binary fields',
+    'summary': 'Float Time Duration Widget',
     "license": "LGPL-3",
     'category': 'Technical Settings',
     'depends': [

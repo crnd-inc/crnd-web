@@ -1,18 +1,17 @@
 {
-    "name": "CRND Web Image Popup Widget",
-    "version": "12.0.0.0.7",
+    "name": "CRND Web Diagram Fix",
+    "version": "12.0.0.0.1",
     "author": "Center of Research and Development",
     "website": "https://crnd.pro",
-    'summary': 'Popup images from the binary fields',
+    'summary': 'Fix for web diagram view',
     "license": "LGPL-3",
     'category': 'Technical Settings',
     'depends': [
-        'web',
+        'web_diagram',
     ],
     'data': [
-        'views/assets_backend.xml',
     ],
-    'images': ['static/description/banner.gif'],
+    'images': ['static/description/banner.png'],
     'installable': True,
     'auto_install': False,
 }
