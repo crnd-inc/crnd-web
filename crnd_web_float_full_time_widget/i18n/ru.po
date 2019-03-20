@@ -24,14 +24,14 @@ msgstr "д"
 
 #. module: crnd_web_float_full_time_widget
 #. openerp-web
-#: code:addons/crnd_web_float_full_time_widget/static/src/js/float_full_time_widget.js:203
+#: code:addons/crnd_web_float_full_time_widget/static/src/js/float_full_time_widget.js:211
 #, python-format
 msgid ", can not be more than 23:59:59,999 sec and less than 0 sec! Please check it!"
 msgstr ", должно находиться в пределах от 00:00:00,000 до 23:59:59,999! Проверьте, пожалуйста!"
 
 #. module: crnd_web_float_full_time_widget
 #. openerp-web
-#: code:addons/crnd_web_float_full_time_widget/static/src/js/float_full_time_widget.js:201
+#: code:addons/crnd_web_float_full_time_widget/static/src/js/float_full_time_widget.js:213
 #, python-format
 msgid "The value of the field: "
 msgstr "Значение поля: "

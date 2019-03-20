@@ -3,7 +3,7 @@ odoo.define('crnd_web_float_full_time_widget.FullFloatTime', function (require) 
 
     var registry = require('web.field_registry');
     var basic_fields = require('web.basic_fields');
-    var field_utils = require('web.field_utils');
+    var FieldUtils = require('web.field_utils');
     var core = require('web.core');
 
     var _t = core._t;
@@ -75,7 +75,7 @@ odoo.define('crnd_web_float_full_time_widget.FullFloatTime', function (require) 
         * 86400 - seconds in day.
         */
 
-        var parse_integer = field_utils.parse.integer;
+        var parse_integer = FieldUtils.parse.integer;
         var factor = 1;
         var in_value = value;
         if (value[0] === '-') {
@@ -84,7 +84,7 @@ odoo.define('crnd_web_float_full_time_widget.FullFloatTime', function (require) 
         }
         var float_time_pair = in_value.split(/,| |:/);
         if (float_time_pair.length < 3) {
-            return factor * field_utils.parse.float(value);
+            return factor * FieldUtils.parse.float(value);
         }
         var days = 0;
         var hours = 0;
@@ -115,7 +115,14 @@ odoo.define('crnd_web_float_full_time_widget.FullFloatTime', function (require) 
         return factor * (days + hours + minutes + seconds + milliseconds);
     }
 
+    FieldUtils.format.float_time_duration = formatFloatFullTime;
+    FieldUtils.format.float_full_time = formatFloatFullTime;
+    FieldUtils.parse.float_time_duration = parseFloatFullTime;
+    FieldUtils.parse.float_full_time = parseFloatFullTime;
+
     var FloatTimeDuration = basic_fields.FieldFloat.extend({
+
+        formatType: 'float_time_duration',
 
         /**
         * Widget implies:
@@ -160,17 +167,20 @@ odoo.define('crnd_web_float_full_time_widget.FullFloatTime', function (require) 
         },
 
         _formatValue: function (value) {
-            return formatFloatFullTime(
-                value, this.time_only, this.round_off, this.mode);
+            return FieldUtils.format[this.formatType](
+            value, this.time_only, this.round_off, this.mode);
         },
 
         _parseValue: function (value) {
-            return parseFloatFullTime(value, this.time_only, this.round_off);
+            return FieldUtils.parse[this.formatType](
+            value, this.time_only, this.round_off);
         },
 
     });
 
     var FloatTimeFull = FloatTimeDuration.extend({
+
+        formatType: 'float_full_time',
 
         /**
         * Widget based on FloatTimeDuration widget.
@@ -215,11 +225,5 @@ odoo.define('crnd_web_float_full_time_widget.FullFloatTime', function (require) 
     return {
         FloatTimeDuration: FloatTimeDuration,
         FloatTimeFull: FloatTimeFull,
-        format: {
-            float_full_time: formatFloatFullTime,
-        },
-        parse: {
-            float_full_time: parseFloatFullTime,
-        },
     };
 });
