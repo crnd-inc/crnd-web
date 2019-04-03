@@ -11,8 +11,11 @@ Full Float Time Widget
 .. |badge5| image:: https://img.shields.io/badge/maintainer-CR&D-purple.png
     :target: https://crnd.pro/
 
+.. |badge6| image:: https://img.shields.io/badge/GitHub-CRnD_Web_Full_Float_Time_Widget-green.png
+    :target: https://github.com/crnd-inc/crnd-web/tree/11.0/crnd_web_float_full_time_widget
 
-|badge2| |badge5|
+
+|badge2| |badge5| |badge6|
 
 Widget consists of two parts: Float Time Duration and Float Full Time.
 
