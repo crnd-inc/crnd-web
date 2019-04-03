@@ -10,9 +10,12 @@ CRnD Button Box Full Width
     
 .. |badge5| image:: https://img.shields.io/badge/maintainer-CR&D-purple.png
     :target: https://crnd.pro/
+
+.. |badge6| image:: https://img.shields.io/badge/GitHub-CRnD_Button_Box_Full_Width-green.png
+    :target: https://github.com/crnd-inc/crnd-web/tree/11.0/crnd_web_button_box_full_width
     
 
-|badge2| |badge5|
+|badge2| |badge5| |badge6|
 
 When this module is installed, button_box will be displayed at the top of the form.
 
