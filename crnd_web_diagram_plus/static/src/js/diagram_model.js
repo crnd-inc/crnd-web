@@ -1,68 +1,69 @@
 odoo.define('web_diagram_plus.DiagramPlusModel', function (require) {
-"use strict";
+    "use strict";
 
-var AbstractModel = require('web.AbstractModel');
-
-/**
- * DiagramModel
- */
-var DiagramPlusModel = AbstractModel.extend({
-    //--------------------------------------------------------------------------
-    // Public
-    //--------------------------------------------------------------------------
+    var AbstractModel = require('web.AbstractModel');
 
     /**
-     * @override
-     * @returns {Object}
+     * DiagramModel
      */
-    get: function () {
-        return $.extend(true, {}, {
-            labels: this.labels,
-            nodes: this.datanodes,
-            edges: this.edges,
-            node_model: this.node_model,
-            parent_field: this.parent_field,
-            res_id: this.res_id,
-            connector_model: this.connector_model,
-            connectors: this.connectors,
-        });
-    },
-    /**
-     * @override
-     * @param {Object} params
-     * @returns {Deferred}
-     */
-    load: function (params) {
-        this.modelName = params.modelName;
-        this.res_id = params.res_id;
-        this.node_model = params.node_model;
-        this.connector_model = params.connector_model;
-        this.connectors = params.connectors;
-        this.nodes = params.nodes;
-        this.visible_nodes = params.visible_nodes;
-        this.invisible_nodes = params.invisible_nodes;
-        this.node_fields_string = params.node_fields_string;
-        this.connector_fields_string = params.connector_fields_string;
-        this.labels = params.labels;
+    var DiagramPlusModel = AbstractModel.extend({
+        // --------------------------------------------------------------------
+        // Public
+        // --------------------------------------------------------------------
 
-        return this._fetchDiagramInfo();
-    },
-    reload: function () {
-        return this._fetchDiagramInfo();
-    },
+        /**
+         * @override
+         * @returns {Object}
+         */
+        get: function () {
+            return $.extend(true, {}, {
+                labels: this.labels,
+                nodes: this.datanodes,
+                edges: this.edges,
+                node_model: this.node_model,
+                parent_field: this.parent_field,
+                res_id: this.res_id,
+                connector_model: this.connector_model,
+                connectors: this.connectors,
+            });
+        },
 
-    //--------------------------------------------------------------------------
-    // Private
-    //--------------------------------------------------------------------------
+        /**
+         * @override
+         * @param {Object} params
+         * @returns {Deferred}
+         */
+        load: function (params) {
+            this.modelName = params.modelName;
+            this.res_id = params.res_id;
+            this.node_model = params.node_model;
+            this.connector_model = params.connector_model;
+            this.connectors = params.connectors;
+            this.nodes = params.nodes;
+            this.visible_nodes = params.visible_nodes;
+            this.invisible_nodes = params.invisible_nodes;
+            this.node_fields_string = params.node_fields_string;
+            this.connector_fields_string = params.connector_fields_string;
+            this.labels = params.labels;
 
-    /**
-     * @private
-     * @param {any} record
-     * @returns {Deferred}
-     */
-    _fetchDiagramInfo: function () {
-        var self = this;
-        return this._rpc({
+            return this._fetchDiagramInfo();
+        },
+        reload: function () {
+            return this._fetchDiagramInfo();
+        },
+
+        // --------------------------------------------------------------------
+        // Private
+        // --------------------------------------------------------------------
+
+        /**
+         * @private
+         * @param {any} record
+         * @returns {Deferred}
+         */
+        _fetchDiagramInfo: function () {
+            var self = this;
+            return this._rpc({
                 route: '/web_diagram_plus/diagram/get_diagram_info',
                 params: {
                     id: this.res_id,
@@ -81,14 +82,13 @@ var DiagramPlusModel = AbstractModel.extend({
                     node_fields_string: this.node_fields_string,
                     connector_fields_string: this.connector_fields_string,
                 },
-            })
-            .then(function (data) {
+            }).then(function (data) {
                 self.datanodes = data.nodes;
                 self.edges = data.conn;
                 self.parent_field = data.parent_field;
             });
-    },
-});
+        },
+    });
 
-return DiagramPlusModel;
+    return DiagramPlusModel;
 });
