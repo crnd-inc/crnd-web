@@ -1,7 +1,7 @@
 {
     'name': 'CRND Web Diagram Plus',
     'category': 'Hidden',
-    'description': """
+    'summary': """
         Odoo Web Diagram view from CRND.
     """,
     'author': "Center of Research & Development",
@@ -15,4 +15,5 @@
         'static/src/xml/*.xml',
     ],
     'auto_install': True,
+    'license': 'Other proprietary',
 }

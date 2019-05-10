@@ -1,16 +1,14 @@
 <template>
+    <t t-name="DiagramPlusView.buttons">
+        <div t-if="widget.is_action_enabled('create')">
+            <button type="button" class="btn btn-primary btn-sm o_diagram_plus_new_button">
+                New Node
+            </button>
+        </div>
+    </t>
 
-<t t-name="DiagramPlusView.buttons">
-	<div t-if="widget.is_action_enabled('create')">
-        <button type="button" class="btn btn-primary btn-sm o_diagram_plus_new_button">
-            New Node
-        </button>
-    </div>
-</t>
-
-<t t-name="DiagramPlusView">
-	<div class="o_diagram_plus_header"/>
-    <div class="o_diagram_plus"/>
-</t>
-
+    <t t-name="DiagramPlusView">
+        <div class="o_diagram_plus_header"/>
+        <div class="o_diagram_plus"/>
+    </t>
 </template>
