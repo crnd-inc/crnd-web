@@ -7,6 +7,7 @@ from odoo import models, fields, api, _
 
 
 class IrUiView(models.Model):
+    # pylint: disable=too-many-locals
 
     _inherit = 'ir.ui.view'
 
@@ -22,7 +23,7 @@ class IrUiView(models.Model):
             return super(IrUiView, self).postprocess_and_fields(
                 model, node, view_id)
 
-        fields = {}
+        _fields = {}
         color_fields = {}
         if model not in self.env:
             self.raise_view_error(
@@ -39,8 +40,8 @@ class IrUiView(models.Model):
                 node.getchildren()[0].get('bg_color_field'),
                 node.getchildren()[0].get('fg_color_field'),
             ])
-            fields.update(color_fields)
-            fields.update(node_fields)
+            _fields.update(color_fields)
+            _fields.update(node_fields)
             if (not node.get("create") and
                     not node_model.check_access_rights(
                         'create', raise_exception=False) or
@@ -50,7 +51,7 @@ class IrUiView(models.Model):
         if node.getchildren()[1].tag == 'arrow':
             arrow_fields = self.env[
                 node.getchildren()[1].get('object')].fields_get(None)
-            fields.update(arrow_fields)
+            _fields.update(arrow_fields)
 
         node = self.add_on_change(model, node)
 
@@ -59,14 +60,14 @@ class IrUiView(models.Model):
             editable = self.env.context.get('view_is_editable', True)
             attrs_fields = self.get_attrs_field_names(node, Model, editable)
 
-        fields_def = self.postprocess(model, node, view_id, False, fields)
+        fields_def = self.postprocess(model, node, view_id, False, _fields)
         arch = etree.tostring(node, encoding="unicode").replace('\t', '')
-        for k in list(fields):
+        for k in list(_fields):
             if k not in fields_def:
-                del fields[k]
+                del _fields[k]
         # Ensure there are color fields
         for c_f in color_fields:
-            if c_f not in fields:
+            if c_f not in _fields:
                 message = _(
                     "Field `%(field_name)s` must be present in"
                     " diagram_plus[node][field], because it present in"
@@ -74,15 +75,15 @@ class IrUiView(models.Model):
                 ) % dict(field_name=c_f)
                 self.raise_view_error(message, view_id)
         for field in fields_def:
-            if field in fields:
-                fields[field].update(fields_def[field])
+            if field in _fields:
+                _fields[field].update(fields_def[field])
             else:
                 message = _(
                     "Field `%(field_name)s` does not exist"
                 ) % dict(field_name=field)
                 self.raise_view_error(message, view_id)
 
-        missing = [item for item in attrs_fields if item[0] not in fields]
+        missing = [item for item in attrs_fields if item[0] not in _fields]
         if missing:
             msg_lines = []
             msg_fmt = _("Field %r used in attributes must be"
@@ -97,4 +98,4 @@ class IrUiView(models.Model):
                     msg_lines.append(line_fmt % line)
             self.raise_view_error("\n".join(msg_lines), view_id)
 
-        return arch, fields
+        return arch, _fields
