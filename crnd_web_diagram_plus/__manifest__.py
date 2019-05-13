@@ -4,9 +4,10 @@
     'summary': """
         Odoo Web Diagram view by CRnD.
     """,
-    'author': "Center of Research and Development",
-    'support': 
-    'website': "https://crnd.pro",
+    'author': 'Center of Research and Development',
+    'support': 'info@crnd.pro',
+    'website': 'https://crnd.pro',
+    'license': 'LGPL-3',
     'version': '11.0.0.0.5',
     'depends': ['web'],
     'data': [
@@ -16,6 +17,4 @@
         'static/src/xml/*.xml',
     ],
     'auto_install': False,
-    'license': 'LGPL-3',
-    'support': 'info@crnd.pro',
 }
