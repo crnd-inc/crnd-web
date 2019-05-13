@@ -168,12 +168,12 @@ odoo.define('crnd_web_float_full_time_widget.FullFloatTime', function (require) 
 
         _formatValue: function (value) {
             return FieldUtils.format[this.formatType](
-            value, this.time_only, this.round_off, this.mode);
+                value, this.time_only, this.round_off, this.mode);
         },
 
         _parseValue: function (value) {
             return FieldUtils.parse[this.formatType](
-            value, this.time_only, this.round_off);
+                value, this.time_only, this.round_off);
         },
 
     });
@@ -210,7 +210,8 @@ odoo.define('crnd_web_float_full_time_widget.FullFloatTime', function (require) 
                 this.do_warn(
                     _t('The value of the field: ') +
                     this.field.string +
-                    _t(', can not be more than 23:59:59,999 sec and less than 0 sec! Please check it!')
+                    _t(', can not be more than 23:59:59,999 sec and' +
+                       ' less than 0 sec! Please check it!')
                 );
 
                 this._isValid = false;
