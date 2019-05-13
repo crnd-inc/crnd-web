@@ -51,7 +51,7 @@ bandit:
     before_script:
         - odoo-helper pip install bandit
     script:
-        - odoo-helper exec bandit -r .
+        - odoo-helper exec bandit -r --skip=B410 .
 
 check-versions:
     stage: static-test

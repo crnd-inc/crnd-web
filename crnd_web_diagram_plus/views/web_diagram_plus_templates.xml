@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="assets_backend" name="crnd_web_diagram_plus assets" inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">
+            <link rel="stylesheet" href="/crnd_web_diagram_plus/static/src/less/diagram_view.less"/>
+            <script type="text/javascript" src="/crnd_web_diagram_plus/static/src/js/vec2.js"></script>
+            <script type="text/javascript" src="/crnd_web_diagram_plus/static/src/js/graph.js"></script>
+            <script type="text/javascript" src="/crnd_web_diagram_plus/static/src/js/diagram_model.js"></script>
+            <script type="text/javascript" src="/crnd_web_diagram_plus/static/src/js/diagram_controller.js"></script>
+            <script type="text/javascript" src="/crnd_web_diagram_plus/static/src/js/diagram_renderer.js"></script>
+            <script type="text/javascript" src="/crnd_web_diagram_plus/static/src/js/diagram_view.js"></script>
+            <script type="text/javascript" src="/crnd_web_diagram_plus/static/src/js/view_registry.js"></script>
+        </xpath>
+    </template>
+
+    <template id="qunit_suite" name="crnd_web_diagram_plus tests" inherit_id="web.qunit_suite">
+        <xpath expr="//script[contains(@src, '/web/static/tests/views/kanban_tests.js')]" position="after">
+            <script type="text/javascript" src="/crnd_web_diagram_plus/static/tests/diagram_tests.js"></script>
+        </xpath>
+    </template>
+</odoo>

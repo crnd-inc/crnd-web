@@ -10,9 +10,12 @@ CRnD Widget Popup Image
     
 .. |badge5| image:: https://img.shields.io/badge/maintainer-CR&D-purple.png
     :target: https://crnd.pro/
+
+.. |badge6| image:: https://img.shields.io/badge/GitHub-CRnD_Widget_Popup_Image-green.png
+    :target: https://github.com/crnd-inc/crnd-web/tree/11.0/crnd_web_widget_popup_image
     
 
-|badge2| |badge5|
+|badge2| |badge5| |badge6|
 
 Widget allows you to popup images from the binary fields. It is available on the form and tree views.
 
