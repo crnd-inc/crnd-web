@@ -3,7 +3,7 @@
         <h1 style="color:#875A7B;">CRnD Full Float Time Widget</h1>
     </div>
     <div align="center">
-        <p><a href="http://www.gnu.org/licenses/lgpl-3.0-standalone.html"><img alt="License: LGPL-3" src="https://img.shields.io/badge/license-LGPL--3-blue.png"/></a> <a href="https://crnd.pro/"><img alt="CR&amp;D" src="https://img.shields.io/badge/maintainer-CR&amp;D-purple.png"/></a></p>
+        <p><a href="http://www.gnu.org/licenses/lgpl-3.0-standalone.html"><img alt="License: LGPL-3" src="https://img.shields.io/badge/license-LGPL--3-blue.png"/></a> <a href="https://crnd.pro/"><img alt="CR&amp;D" src="https://img.shields.io/badge/maintainer-CR&amp;D-purple.png"/></a> <a href="https://github.com/crnd-inc/crnd-web/tree/11.0/crnd_web_float_full_time_widget"><img alt="GitHub" src="https://img.shields.io/badge/GitHub-CRnD_Web_Full_Float_Time_Widget-green.png"/></a></p>
         <p><br></p>
     </div>
 </section>
@@ -33,10 +33,14 @@
                 <p>For example:<br>
                 <ul>
                     <li>
-                        round_off: false, time_only: false: 0d 00:00:00.000 (94225.22 to template 1d 02:10:25,220)
+                        round_off: false, time_only: false:<br>
+                        edit mode: 0d 00:00:00.000 (94225.22 to template 1d 02:10:25,220, 44439.999 to template 0d 12:20:39,999)<br>
+                        normal mode: 0d 00:00:00.000 (94225.22 to template 1d 02:10:25,220, 44439.999 to template 12:20:39,999)<br>
                     </li>
                     <li>
-                        round_off: true, time_only: false: 0d 00:00:00 (94225.22 to template 1d 02:10:25)
+                        round_off: true, time_only: false: 0d 00:00:00 (94225.22 to template 1d 02:10:25)<br>
+                        edit mode: 0d 00:00:00 (94225.22 to template 1d 02:10:25, 44439.999 to template 0d 12:20:39)<br>
+                        normal mode: 0d 00:00:00 (94225.22 to template 1d 02:10:25, 44439.999 to template 12:20:39)<br>
                     </li>
                     <li>
                         round_off: true, time_only: true: 00:00:00 (94225.22 to template 26:10:25)
