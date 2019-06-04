@@ -1,10 +1,12 @@
 /* eslint no-mixed-operators: 0 */
-(function (window) {
+odoo.define('web_diagram_plus.Graph', function (require) {
     "use strict";
 
-    var Vec2 = window.Vec2;
-    var BRect = window.BRect;
-    var BEllipse = window.BEllipse;
+    var Vec2D = require('web_diagram_plus.Vec2D');
+
+    var Vec2 = Vec2D.Vec2;
+    var BRect = Vec2D.BRect;
+    var BEllipse = Vec2D.BEllipse;
 
     // This serves as the end of an edge when creating a link
     function EdgeEnd (pos_x, pos_y) {
@@ -1204,10 +1206,11 @@
         return str.match(new RegExp(regex, 'g')).join(brk);
     }
 
-    window.CuteGraphPlus = Graph;
-    window.CuteNodePlus = GraphNode;
-    window.CuteEdgePlus = GraphEdge;
+    return {
+        CuteGraphPlus: Graph,
+        CuteNodePlus: GraphNode,
+        CuteEdgePlus: GraphEdge,
+        CuteGraphPlus_wordwrap: wordwrap,
+    };
 
-    window.CuteGraphPlus.wordwrap = wordwrap;
-
-}(window));
+});
