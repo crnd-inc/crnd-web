@@ -8,8 +8,11 @@
     'support': 'info@crnd.pro',
     'website': 'https://crnd.pro',
     'license': 'LGPL-3',
-    'version': '11.0.0.0.7',
-    'depends': ['web'],
+    'version': '11.0.0.1.0',
+    'depends': [
+        'web',
+        'web_diagram',
+    ],
     'data': [
         'views/web_diagram_plus_templates.xml',
     ],

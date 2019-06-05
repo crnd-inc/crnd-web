@@ -2,9 +2,12 @@ odoo.define('web_diagram_plus.DiagramPlusRenderer', function (require) {
     "use strict";
 
     var AbstractRenderer = require('web.AbstractRenderer');
-    var CuteGraphPlus = window.CuteGraphPlus;
-    var CuteNodePlus = window.CuteNodePlus;
-    var CuteEdgePlus = window.CuteEdgePlus;
+    var Graph = require('web_diagram_plus.Graph');
+
+    var CuteGraphPlus = Graph.CuteGraphPlus;
+    var CuteNodePlus = Graph.CuteNodePlus;
+    var CuteEdgePlus = Graph.CuteEdgePlus;
+    var CuteGraphPlus_wordwrap = Graph.CuteGraphPlus_wordwrap;
 
     /**
      * Diagram Renderer
@@ -97,7 +100,7 @@ odoo.define('web_diagram_plus.DiagramPlusRenderer', function (require) {
                     // FIXME the +50 should be in the layout algorithm
                     node.x + 50,
                     node.y + 50,
-                    CuteGraphPlus.wordwrap(node.name, 14),
+                    CuteGraphPlus_wordwrap(node.name, 14),
                     node.shape === 'rectangle' ? 'rect' : 'circle',
                     ['white', 'gray'].includes(node.color)
                         ? style[node.color] : node.color,
@@ -111,7 +114,7 @@ odoo.define('web_diagram_plus.DiagramPlusRenderer', function (require) {
             _.each(edges, function (edge) {
                 var e = new CuteEdgePlus(
                     graph,
-                    CuteGraphPlus.wordwrap(edge.signal, 32),
+                    CuteGraphPlus_wordwrap(edge.signal, 32),
                     id_to_node[edge.s_id],
                     // WORKAROUND
                     id_to_node[edge.d_id] || id_to_node[edge.s_id]);
