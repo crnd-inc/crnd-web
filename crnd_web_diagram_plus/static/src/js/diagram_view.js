@@ -19,14 +19,15 @@ odoo.define('web_diagram_plus.DiagramPlusView', function (require) {
         multi_record: false,
         searchable: false,
         jsLibs: [[
-            '/crnd_web_diagram_plus/static/lib/js/jquery.mousewheel.js',
-            '/crnd_web_diagram_plus/static/lib/js/raphael.js',
+            '/web_diagram/static/lib/js/jquery.mousewheel.js',
+            '/web_diagram/static/lib/js/raphael.js',
         ]],
         config: {
             Model: DiagramPlusModel,
             Renderer: DiagramPlusRenderer,
             Controller: DiagramPlusController,
         },
+        viewType: 'diagram_plus',
 
         /**
          * @override
