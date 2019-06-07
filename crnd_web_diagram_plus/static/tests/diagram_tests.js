@@ -1,4 +1,4 @@
-odoo.define('web_diagram_plus.diagram_tests', function (require) {
+odoo.define('crnd_web_diagram_plus.diagram_tests', function (require) {
     "use strict";
 
     var DiagramPlusView = require('web_diagram_plus.DiagramPlusView');
@@ -7,8 +7,10 @@ odoo.define('web_diagram_plus.diagram_tests', function (require) {
 
     var createAsyncView = testUtils.createAsyncView;
 
-    var CuteNodePlus = window.CuteNodePlus;
-    var CuteEdgePlus = window.CuteEdgePlus;
+    var Graph = require('web_diagram_plus.Graph');
+
+    var CuteNodePlus = Graph.CuteNodePlus;
+    var CuteEdgePlus = Graph.CuteEdgePlus;
 
     var QUnit = window.QUnit;
 
@@ -156,7 +158,7 @@ odoo.define('web_diagram_plus.diagram_tests', function (require) {
 
         QUnit.module('DiagramPlusView');
 
-        QUnit.test('simple diagram rendering', function (assert) {
+        QUnit.test('simple diagram plus rendering', function (assert) {
             assert.expect(6);
 
             var done = assert.async();
@@ -169,32 +171,32 @@ odoo.define('web_diagram_plus.diagram_tests', function (require) {
                 res_id: 1,
                 mockRPC: this.mockRPC,
             }).then(function (diagram) {
-                assert.strictEqual(diagram.$('.o_diagram svg').length, 1,
-                    "draw the diagram inside the .o_diagram div");
+                assert.strictEqual(diagram.$('.o_diagram_plus svg').length, 1,
+                    "draw the diagram inside the .o_diagram_plus div");
                 assert.strictEqual(
                     diagram.$(
-                        '.o_diagram path:not(#raphael-marker-block)'
+                        '.o_diagram_plus path:not(#raphael-marker-block)'
                     ).length, 3,
                     "diagram should contain 3 transitions");
                 assert.strictEqual(
-                    diagram.$('.o_diagram ellipse').length,
+                    diagram.$('.o_diagram_plus ellipse').length,
                     2,
                     "diagram should contain 2 'ellipse' nodes (nodes 2 and 3)"
                 );
                 // The -1 because the lib always generates a rect tag that
                 // isn't a node
                 assert.strictEqual(
-                    diagram.$('.o_diagram rect').length - 1,
+                    diagram.$('.o_diagram_plus rect').length - 1,
                     1,
                     "diagram should contain 1 'rectangle' node (node 1)"
                 );
                 assert.strictEqual(
-                    diagram.$('.o_diagram_header span').length,
+                    diagram.$('.o_diagram_plus_header span').length,
                     2,
                     "diagram should contain 2 header rows"
                 );
                 assert.strictEqual(
-                    diagram.$('.o_diagram_header span:eq(0)').text(),
+                    diagram.$('.o_diagram_plus_header span:eq(0)').text(),
                     'A first label',
                     "diagram label is correctly inserted"
                 );
@@ -203,7 +205,7 @@ odoo.define('web_diagram_plus.diagram_tests', function (require) {
             });
         });
 
-        QUnit.test('node creation', function (assert) {
+        QUnit.test('node plus creation', function (assert) {
             assert.expect(4);
 
             var done = assert.async();
@@ -218,7 +220,7 @@ odoo.define('web_diagram_plus.diagram_tests', function (require) {
                 mockRPC: this.mockRPC,
             }).then(function (diagram) {
                 assert.strictEqual(
-                    diagram.$('.o_diagram ellipse').length,
+                    diagram.$('.o_diagram_plus ellipse').length,
                     2,
                     "diagram should contain 2 'ellipse' nodes (nodes 2 and 3)"
                 );
@@ -228,16 +230,16 @@ odoo.define('web_diagram_plus.diagram_tests', function (require) {
                     "diagram should only have the default nodes at start"
                 );
 
-                diagram.$buttons.find('.o_diagram_new_button').click();
-                $('.modal .modal-body input:first').val('a new node').trigger(
+                diagram.$buttons.find('.o_diagram_plus_new_button').click();
+                $('.modal-body input:first').val('a new node').trigger(
                     'input'
                 );
-                $('.modal .modal-body input:last').val(1).trigger('input');
+                $('.modal-body input:last').val(1).trigger('input');
                 // Save
-                $('.modal .modal-footer button.btn-primary').click();
+                $('.modal-footer button.btn-primary').click();
 
                 assert.strictEqual(
-                    diagram.$('.o_diagram ellipse').length,
+                    diagram.$('.o_diagram_plus ellipse').length,
                     3,
                     "diagram should contain 3 'ellipse' nodes now" +
                     " (nodes 2, 3 and the new one)"
@@ -253,7 +255,7 @@ odoo.define('web_diagram_plus.diagram_tests', function (require) {
             });
         });
 
-        QUnit.test('node edition', function (assert) {
+        QUnit.test('node plus edition', function (assert) {
             assert.expect(2);
 
             var done = assert.async();
@@ -268,17 +270,17 @@ odoo.define('web_diagram_plus.diagram_tests', function (require) {
                 mockRPC: this.mockRPC,
             }).then(function (diagram) {
                 assert.strictEqual(
-                    diagram.$('.o_diagram text').first().text(),
+                    diagram.$('.o_diagram_plus text').first().text(),
                     'A first node',
                     "diagram first node should have default name at first"
                 );
 
                 CuteNodePlus.double_click_callback({id: 1});
-                $('.modal .modal-body input:first').val(
+                $('.modal-body input:first').val(
                     'An edited node'
                 ).trigger('input');
                 // Save
-                $('.modal .modal-footer button.btn-primary').click();
+                $('.modal-footer button.btn-primary').click();
 
                 assert.strictEqual(
                     diagram.$('text').first().text(),
@@ -291,7 +293,7 @@ odoo.define('web_diagram_plus.diagram_tests', function (require) {
             });
         });
 
-        QUnit.test('node deletion', function (assert) {
+        QUnit.test('node plus deletion', function (assert) {
             assert.expect(2);
 
             var done = assert.async();
@@ -305,24 +307,27 @@ odoo.define('web_diagram_plus.diagram_tests', function (require) {
                 mockRPC: this.mockRPC,
             }).then(function (diagram) {
                 assert.strictEqual(
-                    diagram.$('.o_diagram ellipse').length,
+                    diagram.$('.o_diagram_plus ellipse').length,
                     2,
                     "diagram should contain 2 'ellipse' nodes (nodes 2 and 3)"
                 );
 
                 CuteNodePlus.destruction_callback({id: 2});
                 // Confirm
-                $('.modal .modal-footer button.btn-primary').click();
+                $('.modal-footer button.btn-primary').click();
 
-                assert.strictEqual(diagram.$('.o_diagram ellipse').length, 1,
-                    "diagram should contain 1 'ellipse' nodes (node 2)");
+                assert.strictEqual(
+                    diagram.$('.o_diagram_plus ellipse').length,
+                    1,
+                    "diagram should contain 1 'ellipse' nodes (node 2)"
+                );
 
                 diagram.destroy();
                 done();
             });
         });
 
-        QUnit.test('edge creation', function (assert) {
+        QUnit.test('edge plus creation', function (assert) {
             assert.expect(4);
 
             var done = assert.async();
@@ -337,7 +342,7 @@ odoo.define('web_diagram_plus.diagram_tests', function (require) {
                 mockRPC: this.mockRPC,
             }).then(function (diagram) {
                 assert.strictEqual(
-                    diagram.$('.o_diagram path').length,
+                    diagram.$('.o_diagram_plus path').length,
                     4,
                     "diagram should contain 4 'path' nodes " +
                     "(#raphael-marker-block, and transitions 1, 2 and 3)"
@@ -360,14 +365,14 @@ odoo.define('web_diagram_plus.diagram_tests', function (require) {
                         },
                     }
                 );
-                $('.modal .modal-body input:first').val(
+                $('.modal-body input:first').val(
                     'a transition from 1 to 3'
                 ).trigger('input');
                 // Confirm
-                $('.modal .modal-footer button.btn-primary').click();
+                $('.modal-footer button.btn-primary').click();
 
                 assert.strictEqual(
-                    diagram.$('.o_diagram path').length,
+                    diagram.$('.o_diagram_plus path').length,
                     5,
                     "diagram should contain 4 'path' nodes" +
                     " (#raphael-marker-block, transitions 1, 2, 3," +
@@ -386,7 +391,7 @@ odoo.define('web_diagram_plus.diagram_tests', function (require) {
             });
         });
 
-        QUnit.test('edge edition', function (assert) {
+        QUnit.test('edge plus edition', function (assert) {
             assert.expect(4);
 
             var done = assert.async();
@@ -414,11 +419,11 @@ odoo.define('web_diagram_plus.diagram_tests', function (require) {
                 );
 
                 CuteEdgePlus.double_click_callback({id: 1});
-                $('.modal .modal-body input:first').val(
+                $('.modal-body input:first').val(
                     'An edited edge'
                 ).trigger('input');
                 // Save
-                $('.modal .modal-footer button.btn-primary').click();
+                $('.modal-footer button.btn-primary').click();
 
                 assert.strictEqual(
                     diagram.$(
@@ -438,7 +443,7 @@ odoo.define('web_diagram_plus.diagram_tests', function (require) {
             });
         });
 
-        QUnit.test('edge deletion', function (assert) {
+        QUnit.test('edge plus deletion', function (assert) {
             assert.expect(4);
 
             var done = assert.async();
@@ -452,7 +457,7 @@ odoo.define('web_diagram_plus.diagram_tests', function (require) {
                 mockRPC: this.mockRPC,
             }).then(function (diagram) {
                 assert.strictEqual(
-                    diagram.$('.o_diagram path').length,
+                    diagram.$('.o_diagram_plus path').length,
                     4,
                     "diagram should contain 4 'path' nodes" +
                     " (#raphael-marker-block, and transitions 1, 2 and 3)"
@@ -467,10 +472,10 @@ odoo.define('web_diagram_plus.diagram_tests', function (require) {
 
                 CuteEdgePlus.destruction_callback({id: 3});
                 // Confirm
-                $('.modal .modal-footer button.btn-primary').click();
+                $('.modal-footer button.btn-primary').click();
 
                 assert.strictEqual(
-                    diagram.$('.o_diagram path').length,
+                    diagram.$('.o_diagram_plus path').length,
                     3,
                     "diagram should contain 3 'path' nodes" +
                     " (#raphael-marker-block, and transitions 1 and 2)"

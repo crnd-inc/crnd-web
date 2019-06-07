@@ -1,5 +1,5 @@
 /* eslint no-mixed-operators: 0 */
-(function (window) {
+odoo.define('web_diagram_plus.Vec2D', function () {
     "use strict";
 
     // A Javascript 2D vector library
@@ -29,8 +29,6 @@
         this.x = x;
         this.y = y;
     }
-
-    window.Vec2 = Vec2;
 
     // Multiply a number expressed in radiant by rad2deg to convert it in
     // degrees
@@ -220,13 +218,8 @@
         }
         return true;
     };
-}(window));
 
-(function (window) {
-    "use strict";
     // A Bounding Shapes Library
-
-    var Vec2 = window.Vec2;
 
     // A Bounding Ellipse
     // cx,cy : center of the ellipse
@@ -254,7 +247,6 @@
         // Maximum x coordinate contained in the ellipse
         this.my = cy + ry;
     }
-    window.BEllipse = BEllipse;
 
     // Returns an unordered list of vector defining the positions of the
     // intersections between the ellipse's
@@ -338,7 +330,6 @@
         this.my = y + sy;
     }
 
-    window.BRect = BRect;
     // Static method creating a new bounding rectangle of
     // size (sx,sy) centered on (cx,cy)
     BRect.new_centered = function (cx, cy, sx, sy) {
@@ -416,4 +407,10 @@
         return this.contains(new Vec2(x, y));
     };
 
-}(window));
+    return {
+        BEllipse: BEllipse,
+        Vec2: Vec2,
+        BRect: BRect,
+    };
+
+});
