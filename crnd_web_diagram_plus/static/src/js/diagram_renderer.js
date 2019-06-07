@@ -102,7 +102,7 @@ odoo.define('web_diagram_plus.DiagramPlusRenderer', function (require) {
                     node.y + 50,
                     CuteGraphPlus_wordwrap(node.name, 14),
                     node.shape === 'rectangle' ? 'rect' : 'circle',
-                    ['white', 'gray'].includes(node.color)
+                    node.color === 'white' || node.color === 'gray'
                         ? style[node.color] : node.color,
                     node.fgcolor === false
                         ? style.node_label_color : node.fgcolor
