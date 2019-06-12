@@ -11,21 +11,44 @@
 <section style="margin: 0 auto; max-width: 896px;">
 <div>
 <p>CR&amp;D fork of <a href="https://github.com/odoo/odoo/tree/11.0/addons/web_diagram" target="_blank">web_diagram</a> addon.</p>
-<p>Changes:
+<p>Changes:</p>
 <ul>
-<li>Applied <a href="https://github.com/odoo/odoo/pull/18975">Pull Request</a>.</p></li>
-<li>Possible to specify background and foreground colors of nodes (via fields)</li>
-</ul></p>
+<li>Applied the following <a href="https://github.com/odoo/odoo/pull/18975">Pull Request</a> that fixes an error on the diagram view. It appears when the diagram object has 2 fields (one2many + many2one) that points to related nodes.</li>
+<li><p>Added possibility to specify background and foreground colors of nodes (via fields).</p>
+    <p><br></p>
+    <p>An example of internal usage:</p>
+    <pre>    &lt;record model="ir.ui.view" id="some_id"&gt;
+        &lt;field name="name"&gt;some_name&lt;/field&gt;
+        &lt;field name="model"&gt;model.name&lt;/field&gt;
+        &lt;field name="arch" type="xml"&gt;
+            &lt;diagram_plus&gt;
+                &lt;node object="name.of.model"
+                      bgcolor="from_old_diagram_non_priority"
+                      bg_color_field="name_of_field_bg_color"
+                      fg_color_field="name_of_field_fg_color"&gt;
+                    &lt;field name="name_of_label_field"/&gt;
+                    &lt;field name="field_for_bgcolor_expr"/&gt;
+                    &lt;field name="name_of_field_bg_color"/&gt;
+                    &lt;field name="name_of_field_fg_color"/&gt;
+                &lt;/node&gt;
+                &lt;arrow object="name.of.model"
+                       source="source_field(from)"
+                       destination="destination_field(to)"
+                       label="['name_of_label_field']"&gt;
+                    &lt;field name="source_field"/&gt;
+                    &lt;field name="destination_field"/&gt;
+                    &lt;field name="name_of_label_field"/&gt;
+                &lt;/arrow&gt;
+            &lt;/diagram_plus&gt;
+        &lt;/field&gt;
+    &lt;/record&gt;
+    </pre>
+</li>
+</ul>
+<div align="center">
+<img src="color_diagram.png" alt="colored diagram" style="max-width: 100%">
+<p><br></p>
 </div>
-<p><br></p>
-</section>
-
-<section style="max-width: 896px; margin: 0 auto;">
-<div>
-<h3>Bug Tracker</h3>
-<p>Bugs are tracked on <a href="https://crnd.pro/requests">https://crnd.pro/requests</a>. In case of trouble, please report there.
-</p>
-<p><br></p>
 </div>
 </section>
 
@@ -41,17 +64,24 @@
 <section align="center" style="max-width: 896px; margin: 0 auto;">
 <div>
 <h2 style="color: #138c33">Maintainer</h2>
-<a href="https://crnd.pro/"><img alt="CR&amp;D" src="https://crnd.pro/web/image/3699/300x140/crnd.png" /></a>
-<p>Our web site: <a href="https://crnd.pro">https://crnd.pro</a>
-</p>
+<a href="https://crnd.pro/"><img alt="CR&amp;D" src="https://crnd.pro/web/image/3699/300x140/crnd.png"/></a>
+<div align="center">
+<a class="btn btn-primary mb16" title="Website" href="https://crnd.pro"><i class="fa fa-globe"></i> Website</a>
+<a class="btn btn-primary mb16" title="Contact us" href="mailto:info@crnd.pro"><i class="fa fa-envelope"></i> Contact us</a>
+<a class="btn btn-primary mb16" title="Bug" href="https://crnd.pro/requests"><i class="fa fa-bug"></i> Bug</a>
+<a class="btn btn-primary mb16" title="Requests" href="https://crnd.pro/requests"><i class="fa fa-bullhorn"></i> Requests</a>
+</div>
+<div align="center">
+<a class="btn btn-primary mb16" title="Blog" href="https://crnd.pro/blog"><i class="fa fa-quote-right"></i> Blog</a>
+<a class="btn btn-primary mb16" title="Youtube Channel" href="https://www.youtube.com/channel/UCRSGFeR0NgqflPmzpDjL2tw"><i class="fa fa-youtube-play"></i> Youtube Channel</a>
+<p><br></p>
+</div>
+
 <p>This module is maintained by the <a href="https://crnd.pro/">Center of Research &amp; Development</a>
 company.
 </p>
 <p>
 We can provide you further Odoo Support, Odoo implementation, Odoo customization, Odoo 3rd Party development and integration software, consulting services. Our main goal is to provide the best quality product for you. 
-</p>
-<p>
-For any questions <a href="mailto:info@crnd.pro">contact us</a>.
 </p>
 </div>
 </section>
