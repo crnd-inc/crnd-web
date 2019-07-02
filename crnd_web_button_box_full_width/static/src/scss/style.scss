@@ -21,7 +21,7 @@
             left: 0 !important;
             right: auto !important;
             margin: 0 !important;
-            
+
             @media (min-width: 690px) and (max-width: 1160px) {
                 margin-right: -6px !important;
             }
@@ -32,5 +32,4 @@
     .oe_button_box + .oe_avatar + .oe_title {
         width: auto !important;
     }
-
 }
