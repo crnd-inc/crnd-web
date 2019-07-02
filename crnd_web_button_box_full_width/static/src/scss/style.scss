@@ -10,16 +10,20 @@
         margin-right: -16px;
         margin-top: -17px;
         margin-bottom: 16px;
-
+        
         .oe_stat_button {
             border-color: #c8c8d3;
             background-image: linear-gradient(320deg, #c8c8d3 9px, transparent 10px, transparent 12px, transparent 12px);
         }
 
         .dropdown-menu.o_dropdown_more.show {
+            top: 0px !important;
+            left: 0px !important;
             right: auto !important;
             margin: 0 !important;
-
+            @media (min-width: 690px) and (max-width: 1160px) {
+                margin-right: -6px !important;
+            }
         }
     }
 
