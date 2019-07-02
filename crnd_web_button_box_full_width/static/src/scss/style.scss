@@ -15,6 +15,12 @@
             border-color: #c8c8d3;
             background-image: linear-gradient(320deg, #c8c8d3 9px, transparent 10px, transparent 12px, transparent 12px);
         }
+
+        .dropdown-menu.o_dropdown_more.show {
+            right: auto !important;
+            margin: 0 !important;
+
+        }
     }
 
     .oe_button_box + .oe_title,
