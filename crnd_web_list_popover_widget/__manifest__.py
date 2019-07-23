@@ -1,5 +1,5 @@
 {
-    "name": "CRND Web List Tooltip Widget",
+    "name": "CRND Web List Popover Widget",
     "version": "11.0.0.0.1",
     "author": "Center of Research and Development",
     "website": "https://crnd.pro",

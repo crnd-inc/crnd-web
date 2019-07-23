@@ -1,2 +1,2 @@
-List Tooltip Widget
+List Popover Widget
 ===================
