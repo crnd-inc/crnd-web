@@ -23,12 +23,12 @@ How it works:
 
 For common user agents:
 
-![Screenshot](static/description/ellipsis_for_common_ua.png)
+![Alt Text](static/description/ellipsis_for_common_ua.png)
 
-![Screenshot](static/description/popover_for_common_ua.png)
+![Alt Text](static/description/popover_for_common_ua.png)
 
 For IE user agents:
 
-![Screenshot](static/description/ellipsis_for_IE_ua.png)
+![Alt Text](static/description/ellipsis_for_IE_ua.png)
 
-![Screenshot](static/description/popover_for_IE_ua.png)
+![Alt Text](static/description/popover_for_IE_ua.png)
