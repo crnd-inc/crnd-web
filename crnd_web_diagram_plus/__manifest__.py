@@ -8,7 +8,7 @@
     'support': 'info@crnd.pro',
     'website': 'https://crnd.pro',
     'license': 'LGPL-3',
-    'version': '12.0.0.1.1',
+    'version': '12.0.0.1.2',
     'depends': [
         'web',
         'web_diagram',
