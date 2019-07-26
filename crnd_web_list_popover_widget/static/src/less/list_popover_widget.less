@@ -1,6 +1,16 @@
-.o_list_view .o_data_cell.o_data_popover {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap !important;
-    max-width: 200px;
+.o_data_cell {
+    .o_popover {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 1;
+        max-width: 300px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .o_popover_ie {
+        display: inline-block;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
 }
