@@ -6,7 +6,7 @@ odoo.define('crnd_web_list_popover_widget.DynamicPopover', function (require) {
     var DynamicPopover = basic_fields.FieldText.extend({
         template: 'DynamicPopoverTemplate',
 
-        init: function (parent) {
+        init: function () {
             this._super.apply(this, arguments);
             this.maxWidth = this.nodeOptions.max_width;
             this.lineClamp = this.nodeOptions.line_clamp;
