@@ -4,37 +4,18 @@ odoo.define('crnd_web_list_popover_widget.DynamicPopover', function (require) {
     var basic_fields = require('web.basic_fields');
 
     var DynamicPopover = basic_fields.FieldText.extend({
-        // IE do not supports webkit, and we detected IE <=10, 11, 12
-        className: navigator.userAgent.search(/(MSIE|Trident|Edge)/) > -1
-            ? 'o_popover_ie' : 'o_popover',
-
-        events: _.extend({}, basic_fields.FieldText.prototype.events, {
-            'mouseover': function (event) {
-                if (this.mode !== 'edit') {
-                    $(event.currentTarget).popover({
-                        content: this.value,
-                        trigger: 'hover',
-                        placement: 'auto',
-                        container: 'body',
-                        html: false,
-                        animation: false,
-                    }).popover('show');
-                }
-            },
-        }),
+        template: 'DynamicPopoverTemplate',
 
         init: function () {
             this._super.apply(this, arguments);
             this.maxWidth = this.nodeOptions.max_width;
             this.lineClamp = this.nodeOptions.line_clamp;
+            // IE do not supports webkit, and we detected IE <=10, 11, 12
+            this.isIE = navigator.userAgent.search(/(MSIE|Trident|Edge)/) > -1;
         },
 
         start: function () {
-            var style = {
-                "max-width": this.maxWidth ? this.maxWidth : '300px',
-                "-webkit-line-clamp": this.lineClamp ? this.lineClamp : '1',
-            };
-            this.$el = this.$el.css(style);
+            this.$el.popover();
             return this._super();
         },
 
