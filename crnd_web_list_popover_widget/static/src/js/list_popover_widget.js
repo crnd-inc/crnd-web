@@ -9,19 +9,26 @@ odoo.define('crnd_web_list_popover_widget.DynamicPopover', function (require) {
             ? 'o_popover_ie' : 'o_popover',
 
         events: _.extend({}, basic_fields.FieldText.prototype.events, {
-            'mouseover': function (event) {
-                if (this.mode !== 'edit') {
-                    $(event.currentTarget).popover({
-                        content: this.value,
-                        trigger: 'hover',
-                        placement: 'auto',
-                        container: 'body',
-                        html: false,
-                        animation: false,
-                    }).popover('show');
-                }
-            },
+            'mouseover': '_show_popover',
+            'mousedown': '_destroy_popover',
         }),
+
+        _show_popover: function (event) {
+            if (this.mode !== 'edit') {
+                var cell_popover = $(event.currentTarget).popover({
+                    content: this.value,
+                    trigger: 'hover',
+                    placement: 'auto',
+                    container: 'body',
+                    html: false,
+                    animation: true,
+                }).popover('show');
+            }
+        },
+
+        _destroy_popover: function (event) {
+            $(event.currentTarget).popover('destroy');
+        },
 
         init: function () {
             this._super.apply(this, arguments);
