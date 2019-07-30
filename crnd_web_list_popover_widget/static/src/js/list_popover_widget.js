@@ -15,7 +15,7 @@ odoo.define('crnd_web_list_popover_widget.DynamicPopover', function (require) {
 
         _show_popover: function (event) {
             if (this.mode !== 'edit') {
-                var cell_popover = $(event.currentTarget).popover({
+                $(event.currentTarget).popover({
                     content: this.value,
                     trigger: 'hover',
                     placement: 'auto',
