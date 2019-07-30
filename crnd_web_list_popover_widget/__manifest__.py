@@ -12,6 +12,9 @@
     'data': [
         'views/assets_backend.xml',
     ],
+    'qweb': [
+        'static/src/xml/dynamic_popover.xml',
+    ],
     'images': [],
     'installable': True,
     'auto_install': False,
