@@ -5,7 +5,6 @@
               t-attf-data-placement="left"
               t-attf-data-trigger="hover"
               t-attf-data-content="#{widget.value}"
-              t-attf-data-container="false"
               t-attf-style="max-width: #{widget.maxWidth}; -webkit-line-clamp: #{widget.lineClamp};"
               t-att-class="(widget.isIE === 'true' ? 'o_popover_widget_ie' : 'o_popover_widget') + ' o_field_text'"/>
     </t>

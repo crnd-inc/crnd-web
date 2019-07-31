@@ -15,7 +15,7 @@ odoo.define('crnd_web_list_popover_widget.DynamicPopover', function (require) {
         },
 
         start: function () {
-            this.$el.popover();
+            this.$el.popover({container: this.$el});
             return this._super();
         },
 
