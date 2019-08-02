@@ -6,7 +6,7 @@ odoo.define('crnd_web_list_popover_widget.DynamicPopover', function (require) {
     var DynamicPopover = basic_fields.FieldText.extend({
 
         events: _.extend({}, basic_fields.FieldText.prototype.events, {
-            'mousedown': 'popover_destroy',
+            'mousedown': 'popover_hide',
         }),
 
         init: function () {
@@ -39,6 +39,15 @@ odoo.define('crnd_web_list_popover_widget.DynamicPopover', function (require) {
 
         popover_destroy: function () {
             $('div.popover').popover('destroy');
+        },
+
+        popover_hide: function () {
+            $('div.popover').popover('hide');
+        },
+
+        destroy: function () {
+            this.popover_destroy();
+            this._super.apply(this, arguments);
         },
 
         start: function () {
