@@ -23,6 +23,22 @@ Widget has the following options:
 
     * max_width - string, max-width for field view (default 300px),
 
+    * animation - string, 'True' or 'False'. Specifies whether to add a CSS fade transition effect when opening and closing the popover (default 'False'),
+
+    * placement - string, specifies the popover position (default "auto"):
+
+        "top" - Popover on top
+
+        "bottom" - Popover on bottom
+
+        "left" - Popover on left
+
+        "right" - Popover on right
+
+        "auto" - Lets the browser decide the position of the popover,
+
+    * allow_html - string, 'True' or 'False'. Specifies whether to accept HTML tags in the popover (default 'False'),
+
     * line_clamp - string, number of multi strings for field view (default 1).
 
         NOTE: line_clamp option is not work for IE, it always will be 1.
@@ -48,6 +64,20 @@ For IE user agents:
 ![Alt Text](static/description/ellipsis_for_IE_ua.png)
 
 ![Alt Text](static/description/popover_for_IE_ua.png)
+
+Allow HTML option:
+
+![Alt Text](static/description/allow_html.png)
+
+Edit mode:
+
+![Alt Text](static/description/edit_mode_1.png)
+
+![Alt Text](static/description/edit_mode_2.png)
+
+![Alt Text](static/description/edit_mode_3.png)
+
+![Alt Text](static/description/edit_mode_4.png)
 
 
 Launch your own ITSM system in 60 seconds:
