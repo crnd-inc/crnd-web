@@ -20,6 +20,46 @@ odoo.define('crnd_web_list_popover_widget.DynamicPopover', function (require) {
             this.isIE = navigator.userAgent.search(/(MSIE|Trident|Edge)/) > -1;
         },
 
+        start: function () {
+            if (this.mode === 'readonly') {
+                this.popover_init();
+            }
+            return this._super();
+        },
+
+        destroy: function () {
+            this.popover_destroy();
+            this._super.apply(this, arguments);
+        },
+
+        _renderReadonly: function () {
+            if (this.allow_html === true) {
+                this.$toEl = $('<div class="o_readonly"/>');
+                this.$toEl.html(this._textToHtml(this.value));
+                this.$toEl.appendTo(this.$el);
+            } else {
+                this._super();
+            }
+        },
+
+        _textToHtml: function (text) {
+            var value = text || "";
+            try {
+                // Crashes if text isn't html
+                // eslint-disable-next-line no-unused-expressions
+                $(text)[0].innerHTML;
+            } catch (e) {
+                if (value.match(/^\s*$/)) {
+                    value = '<p><br/></p>';
+                } else {
+                    value = "<p>" +
+                        value.replace(/</g, '&lt;').replace(/>/g, '&gt;') +
+                        "<p>";
+                }
+            }
+            return value;
+        },
+
         popover_init: function () {
             var style = {
                 "max-width": this.maxWidth,
@@ -27,8 +67,11 @@ odoo.define('crnd_web_list_popover_widget.DynamicPopover', function (require) {
             };
             this.$el = this.$el.css(style).addClass(
                 this.isIE ? 'o_popover_widget_ie' : 'o_popover_widget');
+            var content = this.allow_html === true
+                ? this._textToHtml(this.value)
+                : this.value;
             this.$el.popover({
-                content: this.value,
+                content: content,
                 trigger: 'hover',
                 placement: this.placement,
                 container: 'body',
@@ -43,18 +86,6 @@ odoo.define('crnd_web_list_popover_widget.DynamicPopover', function (require) {
 
         popover_hide: function () {
             $('div.popover').popover('hide');
-        },
-
-        destroy: function () {
-            this.popover_destroy();
-            this._super.apply(this, arguments);
-        },
-
-        start: function () {
-            if (this.mode === 'readonly') {
-                this.popover_init();
-            }
-            return this._super();
         },
 
     });
