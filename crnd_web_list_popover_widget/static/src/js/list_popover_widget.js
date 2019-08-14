@@ -1,17 +1,20 @@
 odoo.define('crnd_web_list_popover_widget.DynamicPopover', function (require) {
     "use strict";
-    var registry = require('web.field_registry');
-    var basic_fields = require('web.basic_fields');
+    var Registry = require('web.field_registry');
+    var BasicFields = require('web.basic_fields');
+    var Core = require('web.core');
+    var QWeb = Core.qweb;
 
-    var DynamicPopover = basic_fields.FieldText.extend({
+    var DynamicPopover = BasicFields.FieldText.extend({
 
-        events: _.extend({}, basic_fields.FieldText.prototype.events, {
+        events: _.extend({}, BasicFields.FieldText.prototype.events, {
             'mousedown': 'popover_hide',
         }),
 
         init: function () {
             this._super.apply(this, arguments);
             this.maxWidth = this.nodeOptions.max_width;
+            this.popoverMaxWidth = this.nodeOptions.popover_max_width;
             this.lineClamp = this.nodeOptions.line_clamp;
             this.placement = this.nodeOptions.placement || "auto";
             this.animation = this.nodeOptions.animation || false;
@@ -50,7 +53,7 @@ odoo.define('crnd_web_list_popover_widget.DynamicPopover', function (require) {
                 $(text)[0].innerHTML;
             } catch (e) {
                 if (value.match(/^\s*$/)) {
-                    value = '<p><br/></p>';
+                    value = '<p><br></p>';
                 } else {
                     value = "<p>" +
                         value.replace(/</g, '&lt;').replace(/>/g, '&gt;') +
@@ -67,10 +70,19 @@ odoo.define('crnd_web_list_popover_widget.DynamicPopover', function (require) {
             };
             this.$el = this.$el.css(style).addClass(
                 this.isIE ? 'o_popover_widget_ie' : 'o_popover_widget');
-            var content = this.allow_html === true
-                ? this._textToHtml(this.value)
-                : this.value;
+            var template = QWeb.render("PopoverTemplate",
+                {popover_style: "max-width: " + this.popoverMaxWidth + ";"}
+            );
+            var content = this.value;
+            if (this.allow_html === true) {
+                content = this._textToHtml(this.value);
+                // Except trumbowyg empty html field value
+                if (this.field.type === 'html' && content === '<p><br></p>') {
+                    content = '';
+                }
+            }
             this.$el.popover({
+                template: template,
                 content: content,
                 trigger: 'hover',
                 placement: this.placement,
@@ -90,6 +102,6 @@ odoo.define('crnd_web_list_popover_widget.DynamicPopover', function (require) {
 
     });
 
-    registry.add('dynamic_popover', DynamicPopover);
+    Registry.add('list.dynamic_popover', DynamicPopover);
     return DynamicPopover;
 });
