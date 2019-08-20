@@ -1,13 +1,13 @@
 odoo.define('crnd_web_list_popover_widget.DynamicPopover', function (require) {
     "use strict";
     var Registry = require('web.field_registry');
-    var BasicFields = require('web.basic_fields');
+    var FieldText = require('web.basic_fields').FieldText;
     var Core = require('web.core');
     var QWeb = Core.qweb;
 
-    var DynamicPopover = BasicFields.FieldText.extend({
+    var DynamicPopover = FieldText.extend({
 
-        events: _.extend({}, BasicFields.FieldText.prototype.events, {
+        events: _.extend({}, FieldText.prototype.events, {
             'mousedown': 'popover_hide',
         }),
 
