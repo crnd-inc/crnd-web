@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+     <menuitem name="CRND Web Tests"
+              id="crnd_web_tests"
+              sequence="10"
+              parent="base.menu_tests"/>
+
+    <menuitem name="Popover Widget Text"
+              id="popover_widget_text"
+              sequence="10"
+              parent="crnd_web_tests"
+              action="action_popover_widget_text_model"/>
+
+    <menuitem name="Popover Widget HTML"
+              id="popover_widget_html"
+              sequence="20"
+              parent="crnd_web_tests"
+              action="action_popover_widget_html_model"/>
+
+    <menuitem name="Popover Widget Char"
+              id="popover_widget_char"
+              sequence="30"
+              parent="crnd_web_tests"
+              action="action_popover_widget_char_model"/>
+</odoo>

@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--Simple text no html-->
+    <record id="pw_text_simple_text" model="popover.widget.text.model">
+        <field name="name">Text simple text</field>
+        <field name="text_field_simple">
+            Simple text for test widget.
+            Simple text for test widget.
+            Simple text for test widget.
+            Simple text for test widget.
+            Simple text for test widget.
+            Simple text for test widget.
+            Simple text for test widget.</field>
+        <field name="text_popover_widget_html">
+            Simple text for test widget.
+            Simple text for test widget.
+            Simple text for test widget.
+            Simple text for test widget.
+            Simple text for test widget.
+            Simple text for test widget.
+            Simple text for test widget.
+        </field>
+        <field name="text_popover_widget_no_html">
+            Simple text for test widget.
+            Simple text for test widget.
+            Simple text for test widget.
+            Simple text for test widget.
+            Simple text for test widget.
+            Simple text for test widget.
+            Simple text for test widget.
+        </field>
+        <field name="text_standard_html_widget">
+            Simple text for test widget.
+            Simple text for test widget.
+            Simple text for test widget.
+            Simple text for test widget.
+            Simple text for test widget.
+            Simple text for test widget.
+            Simple text for test widget.
+        </field>
+    </record>
+    <record id="pw_html_simple_text" model="popover.widget.html.model">
+        <field name="name">HTML simple text</field>
+        <field name="html_field_simple">
+            Simple text for test widget.
+            Simple text for test widget.
+            Simple text for test widget.
+            Simple text for test widget.
+            Simple text for test widget.
+            Simple text for test widget.
+            Simple text for test widget.
+        </field>
+        <field name="html_popover_widget_html">
+            Simple text for test widget.
+            Simple text for test widget.
+            Simple text for test widget.
+            Simple text for test widget.
+            Simple text for test widget.
+            Simple text for test widget.
+            Simple text for test widget.
+        </field>
+        <field name="html_popover_widget_no_html">
+            Simple text for test widget.
+            Simple text for test widget.
+            Simple text for test widget.
+            Simple text for test widget.
+            Simple text for test widget.
+            Simple text for test widget.
+            Simple text for test widget.
+        </field>
+        <field name="html_standard_html_widget">
+            Simple text for test widget.
+            Simple text for test widget.
+            Simple text for test widget.
+            Simple text for test widget.
+            Simple text for test widget.
+            Simple text for test widget.
+            Simple text for test widget.
+        </field>
+    </record>
+    <record id="pw_char_simple_text" model="popover.widget.char.model">
+        <field name="name">Char simple text</field>
+        <field name="char_field_simple">
+            Simple text for test widget.
+            Simple text for test widget.
+            Simple text for test widget.
+            Simple text for test widget.
+            Simple text for test widget.
+            Simple text for test widget.
+            Simple text for test widget.
+        </field>
+        <field name="char_popover_widget_html">
+            Simple text for test widget.
+            Simple text for test widget.
+            Simple text for test widget.
+            Simple text for test widget.
+            Simple text for test widget.
+            Simple text for test widget.
+            Simple text for test widget.
+        </field>
+        <field name="char_popover_widget_no_html">
+            Simple text for test widget.
+            Simple text for test widget.
+            Simple text for test widget.
+            Simple text for test widget.
+            Simple text for test widget.
+            Simple text for test widget.
+            Simple text for test widget.
+        </field>
+        <field name="char_standard_html_widget">
+            Simple text for test widget.
+            Simple text for test widget.
+            Simple text for test widget.
+            Simple text for test widget.
+            Simple text for test widget.
+            Simple text for test widget.
+            Simple text for test widget.
+        </field>
+    </record>
+
+    <!--HTML ok for small figure-->
+    <record id="pw_text_html_ok_small_figure" model="popover.widget.text.model">
+        <field name="name">Text HTML small figure</field>
+        <field name="text_field_simple">&lt;div style="width: 100px; height: 50px; background-color: green"/&gt;</field>
+        <field name="text_popover_widget_html">&lt;div style="width: 100px; height: 50px; background-color: green"/&gt;</field>
+        <field name="text_popover_widget_no_html">&lt;div style="width: 100px; height: 50px; background-color: green"/&gt;</field>
+        <field name="text_standard_html_widget">&lt;div style="width: 100px; height: 50px; background-color: green"/&gt;</field>
+    </record>
+    <record id="pw_html_html_ok_small_figure" model="popover.widget.html.model">
+        <field name="name">HTML HTML small figure</field>
+        <field name="html_field_simple">&lt;div style="width: 100px; height: 50px; background-color: green"/&gt;</field>
+        <field name="html_popover_widget_html">&lt;div style="width: 100px; height: 50px; background-color: green"/&gt;</field>
+        <field name="html_popover_widget_no_html">&lt;div style="width: 100px; height: 50px; background-color: green"/&gt;</field>
+        <field name="html_standard_html_widget">&lt;div style="width: 100px; height: 50px; background-color: green"/&gt;</field>
+    </record>
+    <record id="pw_char_html_ok_small_figure" model="popover.widget.char.model">
+        <field name="name">Char HTML small figure</field>
+        <field name="char_field_simple">&lt;div style="width: 100px; height: 50px; background-color: green"/&gt;</field>
+        <field name="char_popover_widget_html">&lt;div style="width: 100px; height: 50px; background-color: green"/&gt;</field>
+        <field name="char_popover_widget_no_html">&lt;div style="width: 100px; height: 50px; background-color: green"/&gt;</field>
+        <field name="char_standard_html_widget">&lt;div style="width: 100px; height: 50px; background-color: green"/&gt;</field>
+    </record>
+
+    <!--HTML ok for big figure-->
+    <record id="pw_text_html_ok_big_figure" model="popover.widget.text.model">
+        <field name="name">Text HTML small figure</field>
+        <field name="text_field_simple">&lt;div style="width: 250px; height: 100px; background-color: green"/&gt;</field>
+        <field name="text_popover_widget_html">&lt;div style="width: 250px; height: 100px; background-color: green"/&gt;</field>
+        <field name="text_popover_widget_no_html">&lt;div style="width: 250px; height: 100px; background-color: green"/&gt;</field>
+        <field name="text_standard_html_widget">&lt;div style="width: 250px; height: 100px; background-color: green"/&gt;</field>
+    </record>
+    <record id="pw_html_html_ok_big_figure" model="popover.widget.html.model">
+        <field name="name">HTML HTML small figure</field>
+        <field name="html_field_simple">&lt;div style="width: 250px; height: 100px; background-color: green"/&gt;</field>
+        <field name="html_popover_widget_html">&lt;div style="width: 250px; height: 100px; background-color: green"/&gt;</field>
+        <field name="html_popover_widget_no_html">&lt;div style="width: 250px; height: 100px; background-color: green"/&gt;</field>
+        <field name="html_standard_html_widget">&lt;div style="width: 250px; height: 100px; background-color: green"/&gt;</field>
+    </record>
+    <record id="pw_char_html_ok_big_figure" model="popover.widget.char.model">
+        <field name="name">Char HTML small figure</field>
+        <field name="char_field_simple">&lt;div style="width: 250px; height: 100px; background-color: green"/&gt;</field>
+        <field name="char_popover_widget_html">&lt;div style="width: 250px; height: 100px; background-color: green"/&gt;</field>
+        <field name="char_popover_widget_no_html">&lt;div style="width: 250px; height: 100px; background-color: green"/&gt;</field>
+        <field name="char_standard_html_widget">&lt;div style="width: 250px; height: 100px; background-color: green"/&gt;</field>
+    </record>
+
+    <!--HTML bad-->
+    <record id="pw_text_html_bad" model="popover.widget.text.model">
+        <field name="name">Text HTML bad</field>
+        <field name="text_field_simple">&lt;div style="width: 250px; height: 100px; background-color: green</field>
+        <field name="text_popover_widget_html">&lt;div style="width: 250px; height: 100px; background-color: green</field>
+        <field name="text_popover_widget_no_html">&lt;div style="width: 250px; height: 100px; background-color: green</field>
+        <field name="text_standard_html_widget">&lt;div style="width: 250px; height: 100px; background-color: green</field>
+    </record>
+    <record id="pw_html_html_bad" model="popover.widget.html.model">
+        <field name="name">HTML HTML bad</field>
+        <field name="html_field_simple">&lt;div style="width: 250px; height: 100px; background-color: green</field>
+        <field name="html_popover_widget_html">&lt;div style="width: 250px; height: 100px; background-color: green</field>
+        <field name="html_popover_widget_no_html">&lt;div style="width: 250px; height: 100px; background-color: green</field>
+        <field name="html_standard_html_widget">&lt;div style="width: 250px; height: 100px; background-color: green</field>
+    </record>
+    <record id="pw_char_html_bad" model="popover.widget.char.model">
+        <field name="name">Char HTML bad</field>
+        <field name="char_field_simple">&lt;div style="width: 250px; height: 100px; background-color: green</field>
+        <field name="char_popover_widget_html">&lt;div style="width: 250px; height: 100px; background-color: green</field>
+        <field name="char_popover_widget_no_html">&lt;div style="width: 250px; height: 100px; background-color: green</field>
+        <field name="char_standard_html_widget">&lt;div style="width: 250px; height: 100px; background-color: green</field>
+    </record>
+
+    <!--HTML ok-->
+    <record id="pw_text_html_simple" model="popover.widget.text.model">
+        <field name="name">Text HTML simple</field>
+        <field name="text_field_simple">&lt;h1&gt;TEST HTML&lt;/h1&gt;&lt;span&gt;Test text for HTML.&lt;/span&gt;&lt;span&gt;Test text for HTML.&lt;/span&gt;&lt;span&gt;Test text for HTML.&lt;/span&gt;</field>
+        <field name="text_popover_widget_html">&lt;h1&gt;TEST HTML&lt;/h1&gt;&lt;span&gt;Test text for HTML.&lt;/span&gt;&lt;span&gt;Test text for HTML.&lt;/span&gt;&lt;span&gt;Test text for HTML.&lt;/span&gt;</field>
+        <field name="text_popover_widget_no_html">&lt;h1&gt;TEST HTML&lt;/h1&gt;&lt;span&gt;Test text for HTML.&lt;/span&gt;&lt;span&gt;Test text for HTML.&lt;/span&gt;&lt;span&gt;Test text for HTML.&lt;/span&gt;</field>
+        <field name="text_standard_html_widget">&lt;h1&gt;TEST HTML&lt;/h1&gt;&lt;span&gt;Test text for HTML.&lt;/span&gt;&lt;span&gt;Test text for HTML.&lt;/span&gt;&lt;span&gt;Test text for HTML.&lt;/span&gt;</field>
+    </record>
+    <record id="pw_html_html_simple" model="popover.widget.html.model">
+        <field name="name">HTML HTML simple</field>
+        <field name="html_field_simple">&lt;h1&gt;TEST HTML&lt;/h1&gt;&lt;span&gt;Test text for HTML.&lt;/span&gt;&lt;span&gt;Test text for HTML.&lt;/span&gt;&lt;span&gt;Test text for HTML.&lt;/span&gt;</field>
+        <field name="html_popover_widget_html">&lt;h1&gt;TEST HTML&lt;/h1&gt;&lt;span&gt;Test text for HTML.&lt;/span&gt;&lt;span&gt;Test text for HTML.&lt;/span&gt;&lt;span&gt;Test text for HTML.&lt;/span&gt;</field>
+        <field name="html_popover_widget_no_html">&lt;h1&gt;TEST HTML&lt;/h1&gt;&lt;span&gt;Test text for HTML.&lt;/span&gt;&lt;span&gt;Test text for HTML.&lt;/span&gt;&lt;span&gt;Test text for HTML.&lt;/span&gt;</field>
+        <field name="html_standard_html_widget">&lt;h1&gt;TEST HTML&lt;/h1&gt;&lt;span&gt;Test text for HTML.&lt;/span&gt;&lt;span&gt;Test text for HTML.&lt;/span&gt;&lt;span&gt;Test text for HTML.&lt;/span&gt;</field>
+    </record>
+    <record id="pw_char_html_simple" model="popover.widget.char.model">
+        <field name="name">Char HTML simple</field>
+        <field name="char_field_simple">&lt;h1&gt;TEST HTML&lt;/h1&gt;&lt;span&gt;Test text for HTML.&lt;/span&gt;&lt;span&gt;Test text for HTML.&lt;/span&gt;&lt;span&gt;Test text for HTML.&lt;/span&gt;</field>
+        <field name="char_popover_widget_html">&lt;h1&gt;TEST HTML&lt;/h1&gt;&lt;span&gt;Test text for HTML.&lt;/span&gt;&lt;span&gt;Test text for HTML.&lt;/span&gt;&lt;span&gt;Test text for HTML.&lt;/span&gt;</field>
+        <field name="char_popover_widget_no_html">&lt;h1&gt;TEST HTML&lt;/h1&gt;&lt;span&gt;Test text for HTML.&lt;/span&gt;&lt;span&gt;Test text for HTML.&lt;/span&gt;&lt;span&gt;Test text for HTML.&lt;/span&gt;</field>
+        <field name="char_standard_html_widget">&lt;h1&gt;TEST HTML&lt;/h1&gt;&lt;span&gt;Test text for HTML.&lt;/span&gt;&lt;span&gt;Test text for HTML.&lt;/span&gt;&lt;span&gt;Test text for HTML.&lt;/span&gt;</field>
+    </record>
+</odoo>
