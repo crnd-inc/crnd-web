@@ -25,5 +25,8 @@ odoo.define('crnd_web_list_popover_widget.DynamicTextPopover', function (require
     });
 
     Registry.add('list.dynamic_popover_text', DynamicTextPopover);
+    // Add to registry with old name for backward compatibility.
+    // It should be removed in 13.0 version.
+    Registry.add('list.dynamic_popover', DynamicTextPopover);
     return DynamicTextPopover;
 });
