@@ -17,7 +17,15 @@ List Popover Widget
 
 |badge2| |badge5| |badge6|
 
-Widget allows you to get text-overflow: ellipsis and popover for long text fields on tree view.
+Widget allows you to get text-overflow: ellipsis and popover for long text, char or HTML fields on tree view.
+
+For different type of field used different widgets:
+
+    * char field: dynamic_popover_char,
+
+    * text field: dynamic_popover_text,
+
+    * HTML field: dynamic_popover_html.
 
 Widget has the following options:
 
@@ -37,8 +45,6 @@ Widget has the following options:
 
         "auto" - Lets the browser decide the position of the popover,
 
-    * allow_html - string, 'True' or 'False'. Specifies whether to accept HTML tags in the popover (default 'False'),
-
     * line_clamp - string, number of multi strings for field view (default 1).
 
         NOTE: line_clamp option is not work for IE, it always will be 1.
@@ -47,10 +53,28 @@ How it works:
 
 1. Define a widget on the list view:
 
+For text field:
+
     .. code:: xml
 
-        <field name="test_description" string="Description"
-               widget="dynamic_popover"
+        <field name="test_description_text" string="Description"
+               widget="dynamic_popover_text"
+               options="{'max_width': '350px', 'line_clamp': '3'}"/>
+
+For char field:
+
+    .. code:: xml
+
+        <field name="test_description_char" string="Description"
+               widget="dynamic_popover_char"
+               options="{'max_width': '350px', 'line_clamp': '3'}"/>
+
+For HTML field:
+
+    .. code:: xml
+
+        <field name="test_description_html" string="Description"
+               widget="dynamic_popover_html"
                options="{'max_width': '350px', 'line_clamp': '3'}"/>
 
 For common user agents:
@@ -65,9 +89,9 @@ For IE user agents:
 
 ![Alt Text](static/description/popover_for_IE_ua.png)
 
-Allow HTML option:
+For HTML fields:
 
-![Alt Text](static/description/allow_html.png)
+![Alt Text](static/description/html_field.png)
 
 Edit mode:
 
