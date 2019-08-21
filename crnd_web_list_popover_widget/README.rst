@@ -31,6 +31,8 @@ Widget has the following options:
 
     * max_width - string, max-width for field view (default 300px),
 
+    * popover_max_width - string, max-width for popover (default 276px),
+
     * animation - string, 'True' or 'False'. Specifies whether to add a CSS fade transition effect when opening and closing the popover (default 'False'),
 
     * placement - string, specifies the popover position (default "auto"):
