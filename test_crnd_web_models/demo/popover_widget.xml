@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <!--Simple text no html-->
+    <!--Simple text-->
     <record id="pw_text_simple_text" model="popover.widget.text.model">
         <field name="name">Text simple text</field>
         <field name="text_field_simple">
@@ -24,13 +24,7 @@
             Simple text for test widget.
             Simple text for test widget.
         </field>
-        <field name="html_popover_widget_html">
-            Simple text for test widget.
-            Simple text for test widget.
-            Simple text for test widget.
-            Simple text for test widget.
-        </field>
-        <field name="html_popover_widget_no_html">
+        <field name="html_popover_widget">
             Simple text for test widget.
             Simple text for test widget.
             Simple text for test widget.
@@ -56,12 +50,28 @@
     <record id="pw_html_html_simple" model="popover.widget.html.model">
         <field name="name">HTML HTML simple</field>
         <field name="html_field_simple">&lt;h1&gt;TEST HTML&lt;/h1&gt;&lt;span&gt;Test text 1 for HTML.&lt;/span&gt;&lt;span&gt;Test text 2 for HTML.&lt;/span&gt;&lt;span&gt;Test text 3 for HTML.&lt;/span&gt;&lt;span&gt;Test text 4 for HTML.&lt;/span&gt;&lt;span&gt;Test text 5 for HTML.&lt;/span&gt;&lt;span&gt;Test text 6 for HTML.&lt;/span&gt;</field>
-        <field name="html_popover_widget_html">&lt;h1&gt;TEST HTML&lt;/h1&gt;&lt;span&gt;Test text 1 for HTML.&lt;/span&gt;&lt;span&gt;Test text 2 for HTML.&lt;/span&gt;&lt;span&gt;Test text 3 for HTML.&lt;/span&gt;&lt;span&gt;Test text 4 for HTML.&lt;/span&gt;&lt;span&gt;Test text 5 for HTML.&lt;/span&gt;&lt;span&gt;Test text 6 for HTML.&lt;/span&gt;</field>
-        <field name="html_popover_widget_no_html">&lt;h1&gt;TEST HTML&lt;/h1&gt;&lt;span&gt;Test text 1 for HTML.&lt;/span&gt;&lt;span&gt;Test text 2 for HTML.&lt;/span&gt;&lt;span&gt;Test text 3 for HTML.&lt;/span&gt;&lt;span&gt;Test text 4 for HTML.&lt;/span&gt;&lt;span&gt;Test text 5 for HTML.&lt;/span&gt;&lt;span&gt;Test text 6 for HTML.&lt;/span&gt;</field>
+        <field name="html_popover_widget">&lt;h1&gt;TEST HTML&lt;/h1&gt;&lt;span&gt;Test text 1 for HTML.&lt;/span&gt;&lt;span&gt;Test text 2 for HTML.&lt;/span&gt;&lt;span&gt;Test text 3 for HTML.&lt;/span&gt;&lt;span&gt;Test text 4 for HTML.&lt;/span&gt;&lt;span&gt;Test text 5 for HTML.&lt;/span&gt;&lt;span&gt;Test text 6 for HTML.&lt;/span&gt;</field>
     </record>
     <record id="pw_char_html_simple" model="popover.widget.char.model">
         <field name="name">Char HTML simple</field>
         <field name="char_field_simple">&lt;h1&gt;TEST HTML&lt;/h1&gt;&lt;span&gt;Test text 1 for HTML.&lt;/span&gt;&lt;span&gt;Test text 2 for HTML.&lt;/span&gt;&lt;span&gt;Test text 3 for HTML.&lt;/span&gt;&lt;span&gt;Test text 4 for HTML.&lt;/span&gt;&lt;span&gt;Test text 5 for HTML.&lt;/span&gt;&lt;span&gt;Test text 6 for HTML.&lt;/span&gt;</field>
         <field name="char_popover_widget">&lt;h1&gt;TEST HTML&lt;/h1&gt;&lt;span&gt;Test text 1 for HTML.&lt;/span&gt;&lt;span&gt;Test text 2 for HTML.&lt;/span&gt;&lt;span&gt;Test text 3 for HTML.&lt;/span&gt;&lt;span&gt;Test text 4 for HTML.&lt;/span&gt;&lt;span&gt;Test text 5 for HTML.&lt;/span&gt;&lt;span&gt;Test text 6 for HTML.&lt;/span&gt;</field>
+    </record>
+
+    <!--Empty records-->
+        <record id="pw_text_empty" model="popover.widget.text.model">
+        <field name="name">Text empty</field>
+        <field name="text_field_simple"/>
+        <field name="text_popover_widget"/>
+    </record>
+    <record id="pw_html_empty" model="popover.widget.html.model">
+        <field name="name">HTML empty</field>
+        <field name="html_field_simple">&lt;p&gt;&lt;br&gt;&lt;/p&gt;</field>
+        <field name="html_popover_widget">&lt;p&gt;&lt;br&gt;&lt;/p&gt;</field>
+    </record>
+    <record id="pw_char_empty" model="popover.widget.char.model">
+        <field name="name">Char empty</field>
+        <field name="char_field_simple"/>
+        <field name="char_popover_widget"/>
     </record>
 </odoo>

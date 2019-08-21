@@ -8,12 +8,9 @@
             <tree>
                 <field name="name"/>
                 <field name="html_field_simple"/>
-                <field name="html_popover_widget_html"
+                <field name="html_popover_widget"
                        widget="dynamic_popover_html"
-                       options="{'max_width': '250px', 'line_clamp': '3', 'allow_html': true,}"/>
-                <field name="html_popover_widget_no_html"
-                       widget="dynamic_popover_html"
-                       options="{'max_width': '250px', 'line_clamp': '3', 'allow_html': false,}"/>
+                       options="{'max_width': '250px', 'line_clamp': '3',}"/>
             </tree>
         </field>
     </record>
@@ -29,8 +26,7 @@
                     </group>
                     <group>
                         <field name="html_field_simple"/>
-                        <field name="html_popover_widget_html"/>
-                        <field name="html_popover_widget_no_html"/>
+                        <field name="html_popover_widget"/>
                     </group>
                 </sheet>
             </form>
@@ -61,12 +57,9 @@
             <tree editable="bottom">
                 <field name="name"/>
                 <field name="html_field_simple"/>
-                <field name="html_popover_widget_html"
+                <field name="html_popover_widget"
                        widget="dynamic_popover_html"
-                       options="{'max_width': '250px', 'line_clamp': '3', 'allow_html': true,}"/>
-                <field name="html_popover_widget_no_html"
-                       widget="dynamic_popover_html"
-                       options="{'max_width': '250px', 'line_clamp': '3', 'allow_html': false,}"/>
+                       options="{'max_width': '250px', 'line_clamp': '3',}"/>
             </tree>
         </field>
     </record>

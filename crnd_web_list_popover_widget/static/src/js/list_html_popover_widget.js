@@ -11,7 +11,17 @@ odoo.define('crnd_web_list_popover_widget.DynamicHtmlPopover', function (require
         init: function () {
             this._super.apply(this, arguments);
             DynamicPopoverMixin.init.call(this, arguments);
-            this.allow_html = this.nodeOptions.allow_html || false;
+            this.allow_html = true;
+        },
+
+        get_popover_content: function () {
+            // Reject default data for an empty HTML field,
+            // because we should not see an empty popover
+            if (this.value === '<p><br></p>' ||
+                this.value === '<p><br/></p>') {
+                return false;
+            }
+            return DynamicPopoverMixin.get_popover_content.call(this);
         },
 
         start: function () {
