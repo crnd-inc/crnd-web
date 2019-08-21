@@ -9,13 +9,11 @@
                 <field name="name"/>
                 <field name="html_field_simple"/>
                 <field name="html_popover_widget_html"
-                       widget="dynamic_popover"
+                       widget="dynamic_popover_html"
                        options="{'max_width': '250px', 'line_clamp': '3', 'allow_html': true,}"/>
                 <field name="html_popover_widget_no_html"
-                       widget="dynamic_popover"
+                       widget="dynamic_popover_html"
                        options="{'max_width': '250px', 'line_clamp': '3', 'allow_html': false,}"/>
-                <field name="html_standard_html_widget"
-                       widget="html"/>
             </tree>
         </field>
     </record>
@@ -30,13 +28,9 @@
                         <field name="name"/>
                     </group>
                     <group>
-                        <group>
-                            <field name="html_field_simple"/>
-                            <field name="html_popover_widget_html"/>
-                            <field name="html_popover_widget_no_html"/>
-                            <field name="html_standard_html_widget"/>
-                        </group>
-                        <group/>
+                        <field name="html_field_simple"/>
+                        <field name="html_popover_widget_html"/>
+                        <field name="html_popover_widget_no_html"/>
                     </group>
                 </sheet>
             </form>
@@ -58,6 +52,30 @@
         <field name="res_model">popover.widget.html.model</field>
         <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="view_popover_widget_html_model_tree_editable" model="ir.ui.view">
+        <field name="name">view.popover.widget.html.model.tree.editable</field>
+        <field name="model">popover.widget.html.model</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom">
+                <field name="name"/>
+                <field name="html_field_simple"/>
+                <field name="html_popover_widget_html"
+                       widget="dynamic_popover_html"
+                       options="{'max_width': '250px', 'line_clamp': '3', 'allow_html': true,}"/>
+                <field name="html_popover_widget_no_html"
+                       widget="dynamic_popover_html"
+                       options="{'max_width': '250px', 'line_clamp': '3', 'allow_html': false,}"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_popover_widget_html_model_editable_tree" model="ir.actions.act_window">
+        <field name="name">Web HTML Model Editable Tree</field>
+        <field name="res_model">popover.widget.html.model</field>
+        <field name="view_type">form</field>
+        <field name="view_id" ref="view_popover_widget_html_model_tree_editable"/>
     </record>
 
 </odoo>
