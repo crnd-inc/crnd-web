@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+<t t-name="PopoverTemplate">
+    <div class="popover popover_widget" role="tooltip" t-att-style="popover_style">
+        <div class="arrow"></div>
+        <h3 class="popover-header"></h3>
+        <div class="popover-body"></div>
+    </div>
+</t>
+
+</templates>
