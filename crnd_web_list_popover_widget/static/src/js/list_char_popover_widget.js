@@ -3,7 +3,7 @@ odoo.define('crnd_web_list_popover_widget.DynamicCharPopover', function (require
     var Registry = require('web.field_registry');
     var FieldChar = require('web.basic_fields').FieldChar;
     var DynamicPopoverMixin = require(
-        'crnd_web_list_popover_widget.DynamicPopoverMixin');
+        'crnd_web_list_popover_widget.DynamicPopoverMixin').DynamicPopoverMixin;
 
     var DynamicCharPopover = FieldChar.extend(DynamicPopoverMixin, {
 

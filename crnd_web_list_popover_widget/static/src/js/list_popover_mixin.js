@@ -2,9 +2,10 @@ odoo.define('crnd_web_list_popover_widget.DynamicPopoverMixin', function (requir
     "use strict";
 
     var ListRenderer = require('web.ListRenderer');
-    var registry = require('web.field_registry');
-    var basic_fields = require('web.basic_fields');
     var pyUtils = require('web.py_utils');
+    var Core = require('web.core');
+    var QWeb = Core.qweb;
+
 
     ListRenderer.include({
         // Resolve troubles with opening record via keyboard
@@ -13,9 +14,6 @@ odoo.define('crnd_web_list_popover_widget.DynamicPopoverMixin', function (requir
             this._super.apply(this, arguments);
         },
     });
-
-    var Core = require('web.core');
-    var QWeb = Core.qweb;
 
     var DynamicPopoverMixin = {
 
@@ -43,7 +41,7 @@ odoo.define('crnd_web_list_popover_widget.DynamicPopoverMixin', function (requir
         },
 
         destroy: function () {
-            this.popover_destroy();
+            this.popover_dispose();
         },
 
         get_popover_template: function (template, style) {

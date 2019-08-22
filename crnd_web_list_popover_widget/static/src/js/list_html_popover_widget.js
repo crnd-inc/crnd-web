@@ -4,7 +4,7 @@ odoo.define('crnd_web_list_popover_widget.DynamicHtmlPopover', function (require
     var FieldTextHtmlSimple =
         require('web_editor.backend').FieldTextHtmlSimple;
     var DynamicPopoverMixin = require(
-        'crnd_web_list_popover_widget.DynamicPopoverMixin');
+        'crnd_web_list_popover_widget.DynamicPopoverMixin').DynamicPopoverMixin;
 
     var DynamicHtmlPopover = FieldTextHtmlSimple.extend(DynamicPopoverMixin, {
 
@@ -19,7 +19,7 @@ odoo.define('crnd_web_list_popover_widget.DynamicHtmlPopover', function (require
             // because we should not see an empty popover
             if (this.value === '<p><br></p>' ||
                 this.value === '<p><br/></p>') {
-                return false;
+                return '';
             }
             return DynamicPopoverMixin.get_popover_content.call(this);
         },
