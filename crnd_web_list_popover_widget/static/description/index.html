@@ -10,7 +10,7 @@
 
 <section style="margin: 0 auto; max-width: 896px;">
 <div>
-<p>Widget allows you to get text-overflow: ellipsis and popover for long text fields on tree view. You can also set maximum width and number of lines of text fields to show on the tree view.
+<p>Widget allows you to get text-overflow: ellipsis and popover for long Text, Char and HTML fields on the tree view. You can also set maximum width, number of text lines to show, popover position and fade animation on the tree view.
 </p>
 <p>Widget has the following options:</p>
 <ul>
@@ -18,75 +18,79 @@
     <li><i>animation</i> - string, 'True' or 'False'. Specifies whether to add a CSS fade transition effect when opening and closing the popover (default 'False'),</li>
     <li><i>placement</i> - string, specifies the popover position (default "auto"):
     <ul>
-        <li><i>"top"</i>- Popover on top</li>
-        <li><i>"bottom"</i>- Popover on bottom</li>
-        <li><i>"left"</i>- Popover on left</li>
-        <li><i>"right"</i>- Popover on right</li>
+        <li><i>"top"</i>- Popover at top</li>
+        <li><i>"bottom"</i>- Popover at bottom</li>
+        <li><i>"left"</i>- Popover left</li>
+        <li><i>"right"</i>- Popover right</li>
         <li><i>"auto"</i>- Lets the browser decide the position of the popover,</li>
     </ul>
     </li>
-    <li><i>allow_html</i> - - string, 'True' or 'False'. Specifies whether to accept HTML tags in the popover (default 'False'),</li>
+    <li><i>allow_html</i> - string, 'True' or 'False'. Specifies whether to accept HTML tags in the popover (default 'False'),</li>
     <li><i>line_clamp</i> - string, number of multi strings for field view (default 1)
-    <blockquote>NOTE: line_clamp option is not work for IE, it always will be 1.</blockquote>
+    <blockquote>NOTE: line_clamp option is not work for IE, it will always be 1.</blockquote>
     </li>
 </ul>
 <h3>How it works:</h3>
     <ol>
-        <li>Define a widget on the list view:
-        <pre>&lt;field name="test_description" string="Description"
-       widget="dynamic_popover"
-       options="{'max_width': '350px', 'line_clamp': '3'}"/&gt;
-        </pre>
+        <p></p>
+        <li>
+            <u>For Text fields</u>
+            <br/><br/>
+            Define a widget on the list view:
+            <pre>&lt;field name="test_description_text" string="Description"
+           widget="dynamic_popover_text"
+           options="{'max_width': '350px', 'line_clamp': '3'}"/&gt;
+            </pre>
+            <p>Standard text:</p>
+            <div align="center">
+                <img src="text_1.png" alt="ellipsis" style="max-width: 100%">
+                <p><br></p>
+            </div>
+            <p>Editable:</p>
+            <div align="center">
+                <img src="text_2.png" alt="edit mode" style="max-width: 100%">
+                <p><br></p>
+            </div>
+        </li>
+        <li>
+            <u>For Char fields</u>
+            <br/><br/>
+            Define a widget on the list view:
+            <pre>&lt;field name="test_description_char" string="Description"
+           widget="dynamic_popover_char"
+           options="{'max_width': '350px', 'line_clamp': '3'}"/&gt;
+            </pre>
+            <p>Standard text:</p>
+            <div align="center">
+                <img src="char_1.png" alt="ellipsis" style="max-width: 100%">
+                <p><br></p>
+            </div>
+            <p>Editable:</p>
+            <div align="center">
+                <img src="char_2.png" alt="edit mode" style="max-width: 100%">
+                <p><br></p>
+            </div>
+        </li>
+        <li>
+            <u>For HTML fields</u>
+            <br/><br/>
+            Define a widget on the list view:
+            <pre>&lt;field name="test_description_html" string="Description"
+           widget="dynamic_popover_html"
+           options="{'max_width': '350px', 'line_clamp': '3'}"/&gt;
+            </pre>
+            <p>Standard text:</p>
+            <div align="center">
+                <img src="html_1.png" alt="ellipsis" style="max-width: 100%">
+                <p><br></p>
+            </div>
+            <p>Editable:</p>
+            <div align="center">
+                <img src="html_2.png" alt="edit mode" style="max-width: 100%">
+                <p><br></p>
+            </div>
         </li>
     </ol>
-<div>
-    <p>For common user agents:</p>
-<div align="center">
-<img src="ellipsis_for_common_ua.png" alt="ellipsis" style="max-width: 100%">
-<p><br></p>
-</div>
-<div align="center">
-<img src="popover_for_common_ua.png" alt="popover" style="max-width: 100%">
-<p><br></p>
-</div>
-</div>
-<div>
-    <p>For IE user agents:</p>
-<div align="center">
-<img src="ellipsis_for_IE_ua.png" alt="ellipsis" style="max-width: 100%">
-<p><br></p>
-</div>
-<div align="center">
-<img src="popover_for_IE_ua.png" alt="popover" style="max-width: 100%">
-<p><br></p>
-</div>
-</div>
-    <div>
-        <p>Allow HTML option:</p>
-    <div align="center">
-<img src="allow_html.png" alt="allow_html" style="max-width: 100%">
-<p><br></p>
-    </div>
-</div>
-    <div>
-        <p>Edit mode:</p>
-    <div align="center">
-<img src="edit_mode_1.png" alt="edit_mode_1" style="max-width: 100%">
-<p><br></p>
-    </div>
-        <div align="center">
-<img src="edit_mode_2.png" alt="edit_mode_2" style="max-width: 100%">
-<p><br></p>
-    </div>
-        <div align="center">
-<img src="edit_mode_3.png" alt="edit_mode_3" style="max-width: 100%">
-<p><br></p>
-    </div>
-        <div align="center">
-<img src="edit_mode_4.png" alt="edit_mode_4" style="max-width: 100%">
-<p><br></p>
-    </div>
-</div>
 </div>
 </section>
 
