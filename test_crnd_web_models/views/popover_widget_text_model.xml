@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_popover_widget_text_model_tree" model="ir.ui.view">
+        <field name="name">view.popover.widget.text.model.tree</field>
+        <field name="model">popover.widget.text.model</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="text_field_simple"/>
+                <field name="text_popover_widget"
+                       widget="dynamic_popover_text"
+                       options="{'max_width': '350px', 'line_clamp': '3',}"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_popover_widget_text_model_form" model="ir.ui.view">
+        <field name="name">view.popover.widget.text.model.form</field>
+        <field name="model">popover.widget.text.model</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                    </group>
+                    <group>
+                        <field name="text_field_simple"/>
+                        <field name="text_popover_widget"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_popover_widget_text_model_search">
+        <field name="name">view.popover.widget.text.model.search</field>
+        <field name="model">popover.widget.text.model</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_popover_widget_text_model" model="ir.actions.act_window">
+        <field name="name">Web Text Model</field>
+        <field name="res_model">popover.widget.text.model</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="view_popover_widget_text_model_tree_editable" model="ir.ui.view">
+        <field name="name">view.popover.widget.text.model.tree</field>
+        <field name="model">popover.widget.text.model</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom">
+                <field name="name"/>
+                <field name="text_field_simple"/>
+                <field name="text_popover_widget"
+                       widget="dynamic_popover_text"
+                       options="{'max_width': '350px', 'line_clamp': '3',}"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_popover_widget_text_model_editable_tree" model="ir.actions.act_window">
+        <field name="name">Web Text Model Editable Tree</field>
+        <field name="res_model">popover.widget.text.model</field>
+        <field name="view_type">form</field>
+       <field name="view_id" ref="view_popover_widget_text_model_tree_editable"/>
+    </record>
+
+</odoo>

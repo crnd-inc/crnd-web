@@ -1,4 +1,4 @@
-odoo.define('crnd_web_list_popover_widget.DynamicPopover', function (require) {
+odoo.define('crnd_web_list_popover_widget.DynamicPopoverMixin', function (require) {
     "use strict";
 
     var ListRenderer = require('web.ListRenderer');
@@ -14,49 +14,70 @@ odoo.define('crnd_web_list_popover_widget.DynamicPopover', function (require) {
         },
     });
 
-    var DynamicPopover = basic_fields.FieldText.extend({
+    var Core = require('web.core');
+    var QWeb = Core.qweb;
 
-        events: _.extend({}, basic_fields.FieldText.prototype.events, {
+    var DynamicPopoverMixin = {
+
+        events: {
             'mousedown': 'popover_hide',
-        }),
+        },
 
         init: function () {
-            this._super.apply(this, arguments);
             this.maxWidth = this.nodeOptions.max_width;
+            this.popoverMaxWidth = this.nodeOptions.popover_max_width;
             this.lineClamp = this.nodeOptions.line_clamp;
             this.placement = this.nodeOptions.placement || "auto";
             this.animation = this.nodeOptions.animation
                 ? pyUtils.py_eval(this.nodeOptions.animation)
                 : false;
-            this.allow_html = this.nodeOptions.allow_html
-                ? pyUtils.py_eval(this.nodeOptions.allow_html)
-                : false;
+            this.allow_html = false;
             // IE do not supports webkit, and we detected IE <=10, 11, 12
             this.isIE = navigator.userAgent.search(/(MSIE|Trident|Edge)/) > -1;
         },
 
+        start: function () {
+            if (this.mode === 'readonly') {
+                this.popover_init();
+            }
+        },
+
+        destroy: function () {
+            this.popover_destroy();
+        },
+
+        get_popover_template: function (template, style) {
+            return QWeb.render(
+                template || "PopoverTemplate",
+                {popover_style:
+                    style || "max-width: " + this.popoverMaxWidth + ";"}
+            );
+        },
+
+        get_popover_content: function () {
+            return this.value;
+        },
+
+        get_popover_options: function () {
+            return {
+                template: this.get_popover_template(),
+                content: this.get_popover_content(),
+                trigger: 'hover',
+                placement: this.placement,
+                container: 'body',
+                html: this.allow_html,
+                animation: this.animation,
+            };
+        },
+
         popover_init: function () {
-            // Adds unique class "popover_widget" to standard template for the
-            // correct search popovers
-            var template = '<div class="popover popover_widget"' +
-                           'role="tooltip"><div class="arrow"></div>' +
-                           '<h3 class="popover-header"></h3>' +
-                           '<div class="popover-body"></div></div>';
             var style = {
                 "max-width": this.maxWidth,
                 "-webkit-line-clamp": this.lineClamp,
             };
             this.$el = this.$el.css(style).addClass(
                 this.isIE ? 'o_popover_widget_ie' : 'o_popover_widget');
-            this.$el.popover({
-                template: template,
-                content: this.value ? this.value : '',
-                trigger: 'hover',
-                placement: this.placement,
-                container: 'body',
-                html: this.allow_html,
-                animation: this.animation,
-            });
+            this.$el.popover(this.get_popover_options());
         },
 
         popover_dispose: function () {
@@ -66,24 +87,9 @@ odoo.define('crnd_web_list_popover_widget.DynamicPopover', function (require) {
         popover_hide: function () {
             $('div.popover_widget').popover('hide');
         },
-
-        destroy: function () {
-            this.popover_dispose();
-            this._super.apply(this, arguments);
-        },
-
-        start: function () {
-            if (this.mode === 'readonly') {
-                this.popover_init();
-            }
-            return this._super();
-        },
-
-    });
-
-    registry.add('dynamic_popover', DynamicPopover);
+    };
     return {
-        'DynamicPopover': DynamicPopover,
+        'DynamicPopoverMixin': DynamicPopoverMixin,
         'ListRenderer': ListRenderer,
     };
 });
