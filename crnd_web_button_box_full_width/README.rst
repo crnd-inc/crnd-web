@@ -23,7 +23,7 @@ When this module is installed, button_box will be displayed at the top of the fo
 Launch your own ITSM system in 60 seconds:
 ''''''''''''''''''''''''''''''''''''''''''
 
-Create your own `Bureaucrat ITSM <https://yodoo.systems/saas/template/itsm-16>`__ database
+Create your own `Bureaucrat ITSM <https://yodoo.systems/saas/template/bureaucrat-itsm-demo-data-95>`__ database
 
 |badge3| 
 
