@@ -1,6 +1,6 @@
 {
     "name": "CRND Web Button Box Fullwidth",
-    "version": "11.0.0.0.6",
+    "version": "11.0.0.0.7",
     "author": "Center of Research and Development",
     "website": "https://crnd.pro",
     'summary': 'Button_box at the top of the form',
