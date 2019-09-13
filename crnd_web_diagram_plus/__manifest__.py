@@ -20,5 +20,6 @@
         'static/src/xml/*.xml',
     ],
     'images': ['static/description/banner.png'],
+    'installable': False,
     'auto_install': False,
 }
