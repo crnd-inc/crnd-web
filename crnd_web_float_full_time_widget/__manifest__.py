@@ -1,6 +1,6 @@
 {
     "name": "CRND Web Float Full Time Widget",
-    "version": "11.0.0.0.7",
+    "version": "11.0.0.1.0",
     "author": "Center of Research and Development",
     "website": "https://crnd.pro",
     'summary': 'Float Time Duration Widget',
