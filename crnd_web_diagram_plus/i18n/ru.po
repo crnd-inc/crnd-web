@@ -4,10 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 11.0\n"
+"Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-12 15:46+0000\n"
-"PO-Revision-Date: 2019-09-12 15:46+0000\n"
+"POT-Creation-Date: 2019-09-16 10:21+0000\n"
+"PO-Revision-Date: 2019-09-16 10:21+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -19,7 +19,12 @@ msgstr ""
 #: code:addons/crnd_web_diagram_plus/models/ir_ui_view.py:91
 #, python-format
 msgid " - %r in %s=%r"
-msgstr " - %r in %s=%r"
+msgstr ""
+
+#. module: crnd_web_diagram_plus
+#: model:ir.model,name:crnd_web_diagram_plus.model_ir_actions_act_window_view
+msgid "Action Window View"
+msgstr "Вид окна действия"
 
 #. module: crnd_web_diagram_plus
 #. openerp-web
@@ -44,19 +49,32 @@ msgid "Are you sure you want to remove this transition?"
 msgstr "Вы уверены что хотите удалить это соединение?"
 
 #. module: crnd_web_diagram_plus
+#: selection:ir.actions.act_window.view,view_mode:0
+#: selection:ir.ui.view,type:0
+msgid "Calendar"
+msgstr "Календарь"
+
+#. module: crnd_web_diagram_plus
 #. openerp-web
 #: code:addons/crnd_web_diagram_plus/static/src/js/diagram_controller.js:80
 #: code:addons/crnd_web_diagram_plus/static/src/js/diagram_controller.js:117
 #, python-format
 msgid "Create:"
-msgstr "Создать:"
+msgstr "Создать"
+
+#. module: crnd_web_diagram_plus
+#: selection:ir.ui.view,type:0
+msgid "Diagram"
+msgstr "Диаграмма"
 
 #. module: crnd_web_diagram_plus
 #. openerp-web
 #: code:addons/crnd_web_diagram_plus/static/src/js/diagram_view.js:17
+#: selection:ir.actions.act_window.view,view_mode:0
+#: selection:ir.ui.view,type:0
 #, python-format
 msgid "DiagramPlus"
-msgstr "DiagramPlus"
+msgstr ""
 
 #. module: crnd_web_diagram_plus
 #: code:addons/crnd_web_diagram_plus/models/ir_ui_view.py:89
@@ -75,6 +93,30 @@ msgstr "Поле `%(field_name)s` не существует"
 #, python-format
 msgid "Field `%(field_name)s` must be present in diagram_plus[node][field], because it present in diagram_plus[node], but is missing."
 msgstr "Поле `%(field_name)s` должно быть в diagram_plus[node][field], потому что оно присутствует в diagram_plus[node]."
+
+#. module: crnd_web_diagram_plus
+#: selection:ir.actions.act_window.view,view_mode:0
+#: selection:ir.ui.view,type:0
+msgid "Form"
+msgstr "Форма"
+
+#. module: crnd_web_diagram_plus
+#: selection:ir.actions.act_window.view,view_mode:0
+#: selection:ir.ui.view,type:0
+msgid "Gantt"
+msgstr "Диаграмма Ганта"
+
+#. module: crnd_web_diagram_plus
+#: selection:ir.actions.act_window.view,view_mode:0
+#: selection:ir.ui.view,type:0
+msgid "Graph"
+msgstr "График"
+
+#. module: crnd_web_diagram_plus
+#: selection:ir.actions.act_window.view,view_mode:0
+#: selection:ir.ui.view,type:0
+msgid "Kanban"
+msgstr "Канбан"
 
 #. module: crnd_web_diagram_plus
 #: code:addons/crnd_web_diagram_plus/models/ir_ui_view.py:30
@@ -98,6 +140,22 @@ msgid "Open:"
 msgstr "Открыть:"
 
 #. module: crnd_web_diagram_plus
+#: selection:ir.actions.act_window.view,view_mode:0
+#: selection:ir.ui.view,type:0
+msgid "Pivot"
+msgstr "Центр"
+
+#. module: crnd_web_diagram_plus
+#: selection:ir.ui.view,type:0
+msgid "QWeb"
+msgstr ""
+
+#. module: crnd_web_diagram_plus
+#: selection:ir.ui.view,type:0
+msgid "Search"
+msgstr "Поиск"
+
+#. module: crnd_web_diagram_plus
 #. openerp-web
 #: code:addons/crnd_web_diagram_plus/static/src/js/diagram_controller.js:117
 #: code:addons/crnd_web_diagram_plus/static/src/js/diagram_controller.js:151
@@ -106,12 +164,19 @@ msgid "Transition"
 msgstr "Связь"
 
 #. module: crnd_web_diagram_plus
-#: model:ir.model,name:crnd_web_diagram_plus.model_ir_actions_act_window_view
-msgid "ir.actions.act_window.view"
-msgstr "ir.actions.act_window.view"
+#: selection:ir.actions.act_window.view,view_mode:0
+#: selection:ir.ui.view,type:0
+msgid "Tree"
+msgstr "Дерево"
 
 #. module: crnd_web_diagram_plus
 #: model:ir.model,name:crnd_web_diagram_plus.model_ir_ui_view
-msgid "ir.ui.view"
-msgstr "ir.ui.view"
+msgid "View"
+msgstr "Вид"
+
+#. module: crnd_web_diagram_plus
+#: model:ir.model.fields,field_description:crnd_web_diagram_plus.field_ir_actions_act_window_view__view_mode
+#: model:ir.model.fields,field_description:crnd_web_diagram_plus.field_ir_ui_view__type
+msgid "View Type"
+msgstr "Тип представления"
 
