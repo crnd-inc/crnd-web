@@ -1,6 +1,6 @@
 {
     "name": "CRND Web Image Popup Widget",
-    "version": "12.0.0.0.9",
+    "version": "12.0.0.1.0",
     "author": "Center of Research and Development",
     "website": "https://crnd.pro",
     'summary': 'Popup images from the binary fields',
