@@ -1,4 +1,5 @@
 import itertools
+from odoo.tools.view_validation import get_attrs_field_names
 
 from operator import itemgetter
 from lxml import etree
@@ -58,7 +59,7 @@ class IrUiView(models.Model):
         attrs_fields = []
         if self.env.context.get('check_field_names'):
             editable = self.env.context.get('view_is_editable', True)
-            attrs_fields = self.get_attrs_field_names(node, Model, editable)
+            attrs_fields = get_attrs_field_names(self.env, node, Model, editable)
 
         fields_def = self.postprocess(model, node, view_id, False, _fields)
         arch = etree.tostring(node, encoding="unicode").replace('\t', '')
