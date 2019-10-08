@@ -31,7 +31,7 @@ odoo.define('web_diagram_plus.DiagramPlusModel', function (require) {
         /**
          * @override
          * @param {Object} params
-         * @returns {Deferred}
+         * @returns {Promise}
          */
         load: function (params) {
             this.modelName = params.modelName;
@@ -59,7 +59,7 @@ odoo.define('web_diagram_plus.DiagramPlusModel', function (require) {
         /**
          * @private
          * @param {any} record
-         * @returns {Deferred}
+         * @returns {Promise}
          */
         _fetchDiagramInfo: function () {
             var self = this;

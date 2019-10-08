@@ -7,5 +7,4 @@ class TestJS(HttpCase):
 
     def test_01_js(self):
         self.phantom_js(
-            '/web/tests?module=Views%20>%20DiagramPlusView',
-            "", "", login='admin', timeout=1800)
+            '/web/tests?module=DiagramPlus', "", "", login='admin')

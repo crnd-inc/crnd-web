@@ -124,14 +124,14 @@ odoo.define('web_diagram_plus.Graph', function (require) {
 
             if (entity_type === "node") {
                 // eslint-disable-next-line no-use-before-define
-                $.when(GraphNode.destruction_callback(entity)).done(
+                Promise.resolve(GraphNode.destruction_callback(entity)).then(
                     function () {
                         entity.remove();
                     }
                 );
             } else if (entity_type === "edge") {
                 // eslint-disable-next-line no-use-before-define
-                $.when(GraphEdge.destruction_callback(entity)).done(
+                Promise.resolve(GraphEdge.destruction_callback(entity)).then(
                     function () {
                         entity.remove();
                     }
