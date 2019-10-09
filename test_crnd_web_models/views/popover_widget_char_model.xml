@@ -46,7 +46,6 @@
     <record id="action_popover_widget_char_model" model="ir.actions.act_window">
         <field name="name">Web Char Model</field>
         <field name="res_model">popover.widget.char.model</field>
-        <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
     </record>
 
@@ -67,7 +66,6 @@
     <record id="action_popover_widget_char_model_editable_tree" model="ir.actions.act_window">
         <field name="name">Web Char Model Editable Tree</field>
         <field name="res_model">popover.widget.char.model</field>
-        <field name="view_type">form</field>
         <field name="view_id" ref="view_popover_widget_char_model_tree_editable"/>
     </record>
 
