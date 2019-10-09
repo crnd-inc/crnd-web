@@ -1,7 +1,7 @@
-image: registry.crnd.pro/crnd/docker/odoo-ci-x:12.0-simple
+image: registry.crnd.pro/crnd/docker/odoo-ci-x:13.0-simple
 
 variables:
-    SERIES_BRANCH: '12.0'
+    SERIES_BRANCH: '13.0'
     ODOO_ADMIN_PASS: admin
 
     PIP_CACHE_DIR: "${CI_PROJECT_DIR}/.hidden-pip-cache"
@@ -58,10 +58,10 @@ check-versions:
     script:
         - odoo-helper ci check-versions-git . origin/$SERIES_BRANCH $CI_COMMIT_SHA
     only:
-        - /^12.0-.*$/   # only branches that started with '12.0-'
+        - /^13.0-.*$/   # only branches that started with '13.0-'
 
 tests:
-    image: registry.crnd.pro/crnd/docker/odoo-ci-x:12.0-ci
+    image: registry.crnd.pro/crnd/docker/odoo-ci-x:13.0-ci
     stage: test
     <<: *pip_cache_definition
     before_script:
@@ -71,7 +71,7 @@ tests:
     coverage: '/^TOTAL\s+\d+\s+\d+\s+(\d+\%)/'
 
 migration_tests:
-    image: registry.crnd.pro/crnd/docker/odoo-ci-x:12.0-ci
+    image: registry.crnd.pro/crnd/docker/odoo-ci-x:13.0-ci
     stage: test
     variables:
         ODOO_DB_NAME: test-db
@@ -91,10 +91,10 @@ migration_tests:
         - odoo-helper --use-unbuffer test --fail-on-warn --coverage-report --dir .
     coverage: '/^TOTAL\s+\d+\s+\d+\s+(\d+\%)/'
     only:
-        - /^12.0-.*$/   # only branches that started with '12.0-'
+        - /^13.0-.*$/   # only branches that started with '13.0-'
 
 translation_rate_ua:
-    image: registry.crnd.pro/crnd/docker/odoo-ci-x:12.0-ci
+    image: registry.crnd.pro/crnd/docker/odoo-ci-x:13.0-ci
     stage: translation 
     <<: *pip_cache_definition
     before_script:
@@ -102,9 +102,10 @@ translation_rate_ua:
     script:
         - odoo-helper --use-unbuffer tr rate --lang uk_UA --dir .
     coverage: '/^TOTAL\s+\|\s+\d+\s+\|\s+\d+\s+|\s+(\d+\.\d+)/'
+    allow_failure: true
 
 translation_rate_ru:
-    image: registry.crnd.pro/crnd/docker/odoo-ci-x:12.0-ci
+    image: registry.crnd.pro/crnd/docker/odoo-ci-x:13.0-ci
     stage: translation
     <<: *pip_cache_definition
     before_script:
@@ -112,6 +113,7 @@ translation_rate_ru:
     script:
         - odoo-helper --use-unbuffer tr rate --lang ru_RU --dir .
     coverage: '/^TOTAL\s+\|\s+\d+\s+\|\s+\d+\s+|\s+(\d+\.\d+)/'
+    allow_failure: true
 
 
 .deploy_review_definition: &deploy_review_definition
@@ -133,7 +135,7 @@ deploy_review_dev:
         url: http://$CI_ENVIRONMENT_SLUG-$CI_PROJECT_ID.ci3.crnd.pro
         on_stop: stop_review_dev
     only:
-        - /^12.0-.*$/   # only branches that started with '12.0-'
+        - /^13.0-.*$/   # only branches that started with '13.0-'
     when: manual
 
 stop_review_dev:
@@ -151,4 +153,4 @@ stop_review_dev:
         - review-apps
         - deploy
     only:
-        - /^12.0-.*$/   # only branches that started with '12.0-'
+        - /^13.0-.*$/   # only branches that started with '13.0-'
