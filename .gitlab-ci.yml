@@ -1,4 +1,4 @@
-image: registry.crnd.pro/crnd/docker/odoo-ci-x:11.0-simple-maao
+image: registry.crnd.pro/crnd/docker/odoo-ci-x:11.0-simple
 
 variables:
     SERIES_BRANCH: '11.0'
@@ -61,44 +61,40 @@ check-versions:
         - /^11.0-.*$/   # only branches that started with '11.0-'
 
 tests:
-    image: registry.crnd.pro/crnd/docker/odoo-ci-x:11.0-ci-maao
+    image: registry.crnd.pro/crnd/docker/odoo-ci-x:11.0-ci
     stage: test
     <<: *pip_cache_definition
     before_script:
         - odoo-helper link .
     script:
-        - odoo-helper --use-unbuffer test --coverage --create-test-db --dir .
-        #- odoo-helper exec coverage report --fail-under=90
+        - odoo-helper --use-unbuffer test --coverage-report --create-test-db --dir .
     coverage: '/^TOTAL\s+\d+\s+\d+\s+(\d+\%)/'
 
-#migration_tests:
-    #image: registry.crnd.pro/crnd/docker/odoo-ci-x:11.0-ci-maao
-    #stage: test
-    #variables:
-        #ODOO_DB_NAME: test-db
-    #<<: *pip_cache_definition
-    #before_script:
-        #- git checkout $SERIES_BRANCH
-        #- git pull
-        #- odoo-helper link .
-        #- odoo-helper --use-unbuffer db create --demo $ODOO_DB_NAME
-        #- odoo-helper --use-unbuffer addons install --db $ODOO_DB_NAME --dir .
-        #- odoo-helper --use-unbuffer addons uninstall --db $ODOO_DB_NAME $(git show -q $CI_COMMIT_SHA:./removed_addons.txt 2>/dev/null)
-        #- git checkout $CI_COMMIT_SHA
-        #- git clean -fdx
-        ##- rm -rf $(cat ./removed_addons.txt)
-        #- odoo-helper link .
-        #- odoo-helper --use-unbuffer addons update-list
-        #- odoo-helper --use-unbuffer addons update --db $ODOO_DB_NAME --dir .
-    #script:
-        #- odoo-helper --use-unbuffer test --fail-on-warn --coverage --dir .
-        ##- odoo-helper exec coverage report --fail-under=90
-    #coverage: '/^TOTAL\s+\d+\s+\d+\s+(\d+\%)/'
-    #only:
-        #- /^11.0-.*$/   # only branches that started with '11.0-'
+migration_tests:
+    image: registry.crnd.pro/crnd/docker/odoo-ci-x:11.0-ci
+    stage: test
+    variables:
+        ODOO_DB_NAME: test-db
+    <<: *pip_cache_definition
+    before_script:
+        - git checkout $SERIES_BRANCH
+        - git pull
+        - odoo-helper link .
+        - odoo-helper --use-unbuffer db create --demo $ODOO_DB_NAME
+        - odoo-helper --use-unbuffer addons install --db $ODOO_DB_NAME --dir .
+        - git checkout $CI_COMMIT_SHA
+        - git clean -fdx
+        - odoo-helper link .
+        - odoo-helper --use-unbuffer addons update-list
+        - odoo-helper --use-unbuffer addons update --db $ODOO_DB_NAME --dir .
+    script:
+        - odoo-helper --use-unbuffer test --fail-on-warn --coverage-report --dir .
+    coverage: '/^TOTAL\s+\d+\s+\d+\s+(\d+\%)/'
+    only:
+        - /^11.0-.*$/   # only branches that started with '11.0-'
 
 translation_rate_ua:
-    image: registry.crnd.pro/crnd/docker/odoo-ci-x:11.0-ci-maao
+    image: registry.crnd.pro/crnd/docker/odoo-ci-x:11.0-ci
     stage: translation 
     <<: *pip_cache_definition
     before_script:
@@ -108,7 +104,7 @@ translation_rate_ua:
     coverage: '/^TOTAL\s+\|\s+\d+\s+\|\s+\d+\s+|\s+(\d+\.\d+)/'
 
 translation_rate_ru:
-    image: registry.crnd.pro/crnd/docker/odoo-ci-x:11.0-ci-maao
+    image: registry.crnd.pro/crnd/docker/odoo-ci-x:11.0-ci
     stage: translation
     <<: *pip_cache_definition
     before_script:
