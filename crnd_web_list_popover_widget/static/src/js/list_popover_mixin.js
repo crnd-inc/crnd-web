@@ -53,7 +53,7 @@ odoo.define('crnd_web_list_popover_widget.DynamicPopoverMixin', function (requir
         },
 
         get_popover_content: function () {
-            return this.value;
+            return this.value || "";
         },
 
         get_popover_options: function () {
