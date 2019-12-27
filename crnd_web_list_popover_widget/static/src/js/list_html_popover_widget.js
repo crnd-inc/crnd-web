@@ -1,8 +1,7 @@
 odoo.define('crnd_web_list_popover_widget.DynamicHtmlPopover', function (require) {
     "use strict";
     var Registry = require('web.field_registry');
-    var FieldTextHtmlSimple =
-        require('web_editor.backend').FieldTextHtmlSimple;
+    var FieldTextHtmlSimple = require('web_editor.field.html');
     var DynamicPopoverMixin = require(
         'crnd_web_list_popover_widget.DynamicPopoverMixin').DynamicPopoverMixin;
 
