@@ -7,6 +7,7 @@ class DiagramViewFix(DiagramView):
 
     # Just Copy+Paste+Edit of original Odoo's method
     # pylint: disable=redefined-builtin,too-many-locals,too-many-statements
+    # pylint: disable=too-many-branches
     @http.route('/web_diagram/diagram/get_diagram_info',
                 type='json', auth='user')
     def get_diagram_info(self, id, model, node, connector,
