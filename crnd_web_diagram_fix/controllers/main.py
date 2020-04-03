@@ -1,17 +1,14 @@
-import logging
-import odoo.http as http
-
+from odoo import http
 from odoo.tools.safe_eval import safe_eval
+from odoo.addons.web_diagram.controllers.main import DiagramView
 
-_logger = logging.getLogger(__name__)
 
-
-class DiagramPlusView(http.Controller):
+class DiagramViewFix(DiagramView):
 
     # Just Copy+Paste+Edit of original Odoo's method
     # pylint: disable=redefined-builtin,too-many-locals,too-many-statements
     # pylint: disable=too-many-branches
-    @http.route('/web_diagram_plus/diagram/get_diagram_info',
+    @http.route('/web_diagram/diagram/get_diagram_info',
                 type='json', auth='user')
     def get_diagram_info(self, id, model, node, connector,
                          src_node, des_node, label, **kw):
@@ -24,8 +21,6 @@ class DiagramPlusView(http.Controller):
         bgcolors = {}
         shapes = {}
         bgcolor = kw.get('bgcolor', '')
-        bg_color_field = kw.get('bg_color_field', '')
-        fg_color_field = kw.get('fg_color_field', '')
         shape = kw.get('shape', '')
 
         if bgcolor:
@@ -109,15 +104,9 @@ class DiagramPlusView(http.Controller):
                 color='white',
                 options={}
             )
-            # -- CRND FIX: to set color of node bg and fg
-            if not bg_color_field:
-                for color, expr in bgcolors.items():
-                    if safe_eval(expr, act):
-                        n['color'] = color
-            else:
-                n['color'] = act[bg_color_field]
-            n['fgcolor'] = act.get(fg_color_field, False)
-            # --
+            for color, expr in bgcolors.items():
+                if safe_eval(expr, act):
+                    n['color'] = color
 
             for shape, expr in shapes.items():
                 if safe_eval(expr, act):
