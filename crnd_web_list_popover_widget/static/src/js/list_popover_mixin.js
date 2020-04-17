@@ -8,18 +8,17 @@ odoo.define('crnd_web_list_popover_widget.DynamicPopoverMixin', function (requir
 
 
     ListRenderer.include({
-        // Resolve troubles with opening record via keyboard
         _onKeyDown: function () {
+            $('div.popover_widget').popover('hide');
+            this._super.apply(this, arguments);
+        },
+        _onMouseDown: function () {
             $('div.popover_widget').popover('hide');
             this._super.apply(this, arguments);
         },
     });
 
     var DynamicPopoverMixin = {
-
-        events: {
-            'mousedown': 'popover_hide',
-        },
 
         init: function () {
             this.maxWidth = this.nodeOptions.max_width;
@@ -57,6 +56,7 @@ odoo.define('crnd_web_list_popover_widget.DynamicPopoverMixin', function (requir
         },
 
         get_popover_options: function () {
+            var self = this;
             return {
                 template: this.get_popover_template(),
                 content: this.get_popover_content(),
