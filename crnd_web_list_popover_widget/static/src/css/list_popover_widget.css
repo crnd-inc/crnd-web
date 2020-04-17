@@ -1,19 +1,19 @@
 .o_data_cell .o_popover_widget {
-  display: -webkit-box;
+  display: -webkit-box !important;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 1;
-  max-width: 300px;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  max-width: 300px !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
 }
 
 .o_data_cell .o_popover_widget_ie {
-  display: inline-block;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
+  display: inline-block !important;
+  overflow: hidden !important;
+  white-space: nowrap !important;
+  text-overflow: ellipsis !important;
 }
 
 .popover-body {
-  white-space: pre-wrap;
+  white-space: pre-wrap !important;
 }
