@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="crnd_web_tree_colored_field_assets_backend"
+              inherit_id="web.assets_backend"
+              name="crnd_tree_colored_field assets">
+        <xpath expr="." position="inside">
+            <script type="text/javascript" src="/crnd_web_tree_colored_field/static/src/js/crnd_web_tree_colored_field.js"></script>
+        </xpath>
+    </template>
+</odoo>

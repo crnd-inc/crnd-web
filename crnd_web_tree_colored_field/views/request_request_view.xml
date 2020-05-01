@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<record model="ir.ui.view" id="view_request_service_request_request_tree">
+        <field name="model">request.request</field>
+        <field name="inherit_id" ref="generic_request.view_request_request_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree/field[@name='is_priority_complex']" position="after">
+                <field name="stage_bg_color" invisible="1"/>
+                <field name="stage_label_color" invisible="1"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
+
+
+
+
+
+
+
