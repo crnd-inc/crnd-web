@@ -7,7 +7,9 @@
     'license': 'LGPL-3',
     'category': 'Technical Settings',
 
-    'depends': [],
+    'depends': [
+        'web',
+    ],
     'data': [
         'views/crnd_web_tree_colored_field.xml',
     ],
