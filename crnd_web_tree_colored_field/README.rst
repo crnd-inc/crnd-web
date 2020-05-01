@@ -17,7 +17,7 @@ CRND web tree colored field
 
 |badge2| |badge4| |badge5|
 
-The CRND web tree colored field provides.....
+CRND Web Tree Colored Field widget provide to display tree cell with color from another field.
 
 Read the `Website Service Desk <https://crnd.pro/doc-bureaucrat-itsm/11.0/en/Website_Service_Desk_eng/>`__ Module Guide for more information.
 
