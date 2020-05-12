@@ -1,9 +1,9 @@
 CRND web tree colored field
 ===========================
 
-.. |badge2| image:: https://img.shields.io/badge/license-OPL--1-blue.png
-    :target: https://www.odoo.com/documentation/user/12.0/legal/licenses/licenses.html#odoo-apps
-    :alt: License: OPL-1
+.. |badge2| image:: https://img.shields.io/badge/license-LGPL--3-blue.png
+    :target: http://www.gnu.org/licenses/lgpl-3.0-standalone.html
+    :alt: License: LGPL-3
 
 .. |badge3| image:: https://img.shields.io/badge/powered%20by-yodoo.systems-00a09d.png
     :target: https://yodoo.systems
