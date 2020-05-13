@@ -1,7 +1,7 @@
 odoo.define('crnd_web_tree_colored_field', function (require) {
     'use strict';
     var ListRenderer = require('web.ListRenderer');
-    var pyeval = require('web.pyeval');
+    var pyUtils = require("web.py_utils");
 
     ListRenderer.include({
 
@@ -15,7 +15,7 @@ odoo.define('crnd_web_tree_colored_field', function (require) {
                 return $td;
             }
 
-            var nodeOptions = pyeval.py_eval(node.attrs.options);
+            var nodeOptions = pyUtils.py_eval(node.attrs.options);
             if (nodeOptions.field_bg_color) {
                 var bg_color = record.data[nodeOptions.field_bg_color];
                 $td.css('background-color', bg_color);
