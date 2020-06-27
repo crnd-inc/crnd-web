@@ -1,0 +1,7 @@
+<odoo>
+    <template id="assets_backend" inherit_id="web.assets_backend">
+        <xpath expr="//script[last()]" position="after">
+            <script type="text/javascript" src="/crnd_web_client/static/src/js/client_channels.js"/>
+        </xpath>
+    </template>
+</odoo>
