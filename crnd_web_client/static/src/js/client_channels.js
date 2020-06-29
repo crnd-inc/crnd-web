@@ -1,4 +1,4 @@
-odoo.define('muk_web_client.channel', function (require) {
+odoo.define('crnd_web_client.channel', function (require) {
     "use strict";
 
     var WebClient = require('web.WebClient');
