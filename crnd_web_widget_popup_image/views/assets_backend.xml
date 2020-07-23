@@ -5,7 +5,7 @@
             <link rel="stylesheet" href="/crnd_web_widget_popup_image/static/lib/magnific_popup/magnific-popup.css"/>
             <script type="text/javascript" src="/crnd_web_widget_popup_image/static/lib/magnific_popup/jquery.magnific-popup.min.js"/>
 
-            <link rel="stylesheet" href="/crnd_web_widget_popup_image/static/src/less/image_on_treeview.less"/>
+            <link rel="stylesheet" href="/crnd_web_widget_popup_image/static/src/scss/image_on_treeview.scss"/>
             <script type="text/javascript" src="/crnd_web_widget_popup_image/static/src/js/image_popup.js"/>
         </xpath>
     </template>
