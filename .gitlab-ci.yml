@@ -3,6 +3,7 @@ image: registry.crnd.pro/crnd/docker/odoo-ci-x:11.0-simple
 variables:
     SERIES_BRANCH: '11.0'
     ODOO_ADMIN_PASS: admin
+    CI_JOB_TOKEN_GIT_HOST: 'gitlab.crnd.pro'
 
     PIP_CACHE_DIR: "${CI_PROJECT_DIR}/.hidden-pip-cache"
 
