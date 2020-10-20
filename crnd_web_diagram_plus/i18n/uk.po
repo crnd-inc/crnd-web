@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* crnd_web_diagram_plus
+# 	* crnd_web_diagram_plus
 #
 msgid ""
 msgstr ""
@@ -10,13 +10,14 @@ msgstr ""
 "PO-Revision-Date: 2019-09-12 15:06+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
 
 #. module: crnd_web_diagram_plus
-#: code:addons/crnd_web_diagram_plus/models/ir_ui_view.py:91
+#: code:addons/crnd_web_diagram_plus/models/ir_ui_view.py:92
 #, python-format
 msgid " - %r in %s=%r"
 msgstr " - %r in %s=%r"
@@ -33,7 +34,9 @@ msgstr "Діяльність"
 #. openerp-web
 #: code:addons/crnd_web_diagram_plus/static/src/js/diagram_controller.js:204
 #, python-format
-msgid "Are you sure you want to remove this node? This will remove its connected transitions as well."
+msgid ""
+"Are you sure you want to remove this node? This will remove its connected "
+"transitions as well."
 msgstr "Ви впевнені що хочете видалити цей вузол? Це також видалить звʼязки."
 
 #. module: crnd_web_diagram_plus
@@ -59,25 +62,31 @@ msgid "DiagramPlus"
 msgstr "DiagramPlus"
 
 #. module: crnd_web_diagram_plus
-#: code:addons/crnd_web_diagram_plus/models/ir_ui_view.py:89
+#: code:addons/crnd_web_diagram_plus/models/ir_ui_view.py:90
 #, python-format
 msgid "Field %r used in attributes must be present in view but is missing:"
-msgstr "Поле %r, яке використовується в атрибутах, повинно бути присутнім у файлі відображення:"
+msgstr ""
+"Поле %r, яке використовується в атрибутах, повинно бути присутнім у файлі "
+"відображення:"
 
 #. module: crnd_web_diagram_plus
-#: code:addons/crnd_web_diagram_plus/models/ir_ui_view.py:81
+#: code:addons/crnd_web_diagram_plus/models/ir_ui_view.py:82
 #, python-format
 msgid "Field `%(field_name)s` does not exist"
 msgstr "Поле `%(field_name)s` не існує"
 
 #. module: crnd_web_diagram_plus
-#: code:addons/crnd_web_diagram_plus/models/ir_ui_view.py:71
+#: code:addons/crnd_web_diagram_plus/models/ir_ui_view.py:72
 #, python-format
-msgid "Field `%(field_name)s` must be present in diagram_plus[node][field], because it present in diagram_plus[node], but is missing."
-msgstr "Поле `%(field_name)s` має бути присутнім у diagram_plus[node][field], тому що воно присутнє у diagram_plus[node]."
+msgid ""
+"Field `%(field_name)s` must be present in diagram_plus[node][field], because "
+"it present in diagram_plus[node], but is missing."
+msgstr ""
+"Поле `%(field_name)s` має бути присутнім у diagram_plus[node][field], тому "
+"що воно присутнє у diagram_plus[node]."
 
 #. module: crnd_web_diagram_plus
-#: code:addons/crnd_web_diagram_plus/models/ir_ui_view.py:30
+#: code:addons/crnd_web_diagram_plus/models/ir_ui_view.py:31
 #, python-format
 msgid "Model not found: %(model)s"
 msgstr "Модель не знайдена: %(model)s"
@@ -114,4 +123,3 @@ msgstr "ir.actions.act_window.view"
 #: model:ir.model,name:crnd_web_diagram_plus.model_ir_ui_view
 msgid "ir.ui.view"
 msgstr "ir.ui.view"
-

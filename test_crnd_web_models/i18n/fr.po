@@ -1,16 +1,15 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# 	* test_crnd_web_models
+#	* test_crnd_web_models
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-12 15:42+0000\n"
-"PO-Revision-Date: 2019-09-12 15:42+0000\n"
+"POT-Creation-Date: 2020-10-20 11:46+0000\n"
+"PO-Revision-Date: 2020-10-20 11:46+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
@@ -46,21 +45,21 @@ msgstr "Char field with char popover widget."
 #: model:ir.model.fields,field_description:test_crnd_web_models.field_popover_widget_html_model_create_uid
 #: model:ir.model.fields,field_description:test_crnd_web_models.field_popover_widget_text_model_create_uid
 msgid "Created by"
-msgstr "Створив"
+msgstr "Created by"
 
 #. module: test_crnd_web_models
 #: model:ir.model.fields,field_description:test_crnd_web_models.field_popover_widget_char_model_create_date
 #: model:ir.model.fields,field_description:test_crnd_web_models.field_popover_widget_html_model_create_date
 #: model:ir.model.fields,field_description:test_crnd_web_models.field_popover_widget_text_model_create_date
 msgid "Created on"
-msgstr "Дата створення"
+msgstr "Created on"
 
 #. module: test_crnd_web_models
 #: model:ir.model.fields,field_description:test_crnd_web_models.field_popover_widget_char_model_display_name
 #: model:ir.model.fields,field_description:test_crnd_web_models.field_popover_widget_html_model_display_name
 #: model:ir.model.fields,field_description:test_crnd_web_models.field_popover_widget_text_model_display_name
 msgid "Display Name"
-msgstr "Назва для відображення"
+msgstr "Display Name"
 
 #. module: test_crnd_web_models
 #: model:ir.model.fields,help:test_crnd_web_models.field_popover_widget_html_model_html_field_simple
@@ -87,35 +86,35 @@ msgstr "Html Popover Widget"
 #: model:ir.model.fields,field_description:test_crnd_web_models.field_popover_widget_html_model_id
 #: model:ir.model.fields,field_description:test_crnd_web_models.field_popover_widget_text_model_id
 msgid "ID"
-msgstr "ІД"
+msgstr "ID"
 
 #. module: test_crnd_web_models
 #: model:ir.model.fields,field_description:test_crnd_web_models.field_popover_widget_char_model___last_update
 #: model:ir.model.fields,field_description:test_crnd_web_models.field_popover_widget_html_model___last_update
 #: model:ir.model.fields,field_description:test_crnd_web_models.field_popover_widget_text_model___last_update
 msgid "Last Modified on"
-msgstr "Остання модифікація"
+msgstr "Last Modified on"
 
 #. module: test_crnd_web_models
 #: model:ir.model.fields,field_description:test_crnd_web_models.field_popover_widget_char_model_write_uid
 #: model:ir.model.fields,field_description:test_crnd_web_models.field_popover_widget_html_model_write_uid
 #: model:ir.model.fields,field_description:test_crnd_web_models.field_popover_widget_text_model_write_uid
 msgid "Last Updated by"
-msgstr "Востаннє оновив"
+msgstr "Last Updated by"
 
 #. module: test_crnd_web_models
 #: model:ir.model.fields,field_description:test_crnd_web_models.field_popover_widget_char_model_write_date
 #: model:ir.model.fields,field_description:test_crnd_web_models.field_popover_widget_html_model_write_date
 #: model:ir.model.fields,field_description:test_crnd_web_models.field_popover_widget_text_model_write_date
 msgid "Last Updated on"
-msgstr "Останнє оновлення"
+msgstr "Last Updated on"
 
 #. module: test_crnd_web_models
 #: model:ir.model.fields,field_description:test_crnd_web_models.field_popover_widget_char_model_name
 #: model:ir.model.fields,field_description:test_crnd_web_models.field_popover_widget_html_model_name
 #: model:ir.model.fields,field_description:test_crnd_web_models.field_popover_widget_text_model_name
 msgid "Name"
-msgstr "Назва"
+msgstr "Name"
 
 #. module: test_crnd_web_models
 #: model:ir.ui.menu,name:test_crnd_web_models.popover_widget_char
@@ -210,3 +209,4 @@ msgstr "Web Text Model"
 #: model:ir.actions.act_window,name:test_crnd_web_models.action_popover_widget_text_model_editable_tree
 msgid "Web Text Model Editable Tree"
 msgstr "Web Text Model Editable Tree"
+
