@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* test_crnd_web_models
+# 	* test_crnd_web_models
 #
 msgid ""
 msgstr ""
@@ -10,6 +10,7 @@ msgstr ""
 "PO-Revision-Date: 2019-09-16 10:20+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
@@ -21,98 +22,98 @@ msgid "CRND Web Tests"
 msgstr ""
 
 #. module: test_crnd_web_models
-#: model:ir.model.fields,field_description:test_crnd_web_models.field_popover_widget_char_model__char_field_simple
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_popover_widget_char_model_char_field_simple
 msgid "Char Field Simple"
 msgstr ""
 
 #. module: test_crnd_web_models
-#: model:ir.model.fields,field_description:test_crnd_web_models.field_popover_widget_char_model__char_popover_widget
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_popover_widget_char_model_char_popover_widget
 msgid "Char Popover Widget"
 msgstr ""
 
 #. module: test_crnd_web_models
-#: model:ir.model.fields,help:test_crnd_web_models.field_popover_widget_char_model__char_field_simple
+#: model:ir.model.fields,help:test_crnd_web_models.field_popover_widget_char_model_char_field_simple
 msgid "Char field no widgets."
 msgstr ""
 
 #. module: test_crnd_web_models
-#: model:ir.model.fields,help:test_crnd_web_models.field_popover_widget_char_model__char_popover_widget
+#: model:ir.model.fields,help:test_crnd_web_models.field_popover_widget_char_model_char_popover_widget
 msgid "Char field with char popover widget."
 msgstr ""
 
 #. module: test_crnd_web_models
-#: model:ir.model.fields,field_description:test_crnd_web_models.field_popover_widget_char_model__create_uid
-#: model:ir.model.fields,field_description:test_crnd_web_models.field_popover_widget_html_model__create_uid
-#: model:ir.model.fields,field_description:test_crnd_web_models.field_popover_widget_text_model__create_uid
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_popover_widget_char_model_create_uid
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_popover_widget_html_model_create_uid
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_popover_widget_text_model_create_uid
 msgid "Created by"
 msgstr "Создано"
 
 #. module: test_crnd_web_models
-#: model:ir.model.fields,field_description:test_crnd_web_models.field_popover_widget_char_model__create_date
-#: model:ir.model.fields,field_description:test_crnd_web_models.field_popover_widget_html_model__create_date
-#: model:ir.model.fields,field_description:test_crnd_web_models.field_popover_widget_text_model__create_date
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_popover_widget_char_model_create_date
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_popover_widget_html_model_create_date
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_popover_widget_text_model_create_date
 msgid "Created on"
 msgstr "Создан"
 
 #. module: test_crnd_web_models
-#: model:ir.model.fields,field_description:test_crnd_web_models.field_popover_widget_char_model__display_name
-#: model:ir.model.fields,field_description:test_crnd_web_models.field_popover_widget_html_model__display_name
-#: model:ir.model.fields,field_description:test_crnd_web_models.field_popover_widget_text_model__display_name
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_popover_widget_char_model_display_name
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_popover_widget_html_model_display_name
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_popover_widget_text_model_display_name
 msgid "Display Name"
 msgstr "Отображаемое Имя"
 
 #. module: test_crnd_web_models
-#: model:ir.model.fields,help:test_crnd_web_models.field_popover_widget_html_model__html_field_simple
+#: model:ir.model.fields,help:test_crnd_web_models.field_popover_widget_html_model_html_field_simple
 msgid "HTML field no widgets."
 msgstr ""
 
 #. module: test_crnd_web_models
-#: model:ir.model.fields,help:test_crnd_web_models.field_popover_widget_html_model__html_popover_widget
+#: model:ir.model.fields,help:test_crnd_web_models.field_popover_widget_html_model_html_popover_widget
 msgid "HTML field with html popover widget."
 msgstr ""
 
 #. module: test_crnd_web_models
-#: model:ir.model.fields,field_description:test_crnd_web_models.field_popover_widget_html_model__html_field_simple
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_popover_widget_html_model_html_field_simple
 msgid "Html Field Simple"
 msgstr ""
 
 #. module: test_crnd_web_models
-#: model:ir.model.fields,field_description:test_crnd_web_models.field_popover_widget_html_model__html_popover_widget
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_popover_widget_html_model_html_popover_widget
 msgid "Html Popover Widget"
 msgstr ""
 
 #. module: test_crnd_web_models
-#: model:ir.model.fields,field_description:test_crnd_web_models.field_popover_widget_char_model__id
-#: model:ir.model.fields,field_description:test_crnd_web_models.field_popover_widget_html_model__id
-#: model:ir.model.fields,field_description:test_crnd_web_models.field_popover_widget_text_model__id
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_popover_widget_char_model_id
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_popover_widget_html_model_id
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_popover_widget_text_model_id
 msgid "ID"
 msgstr "Номер"
 
 #. module: test_crnd_web_models
-#: model:ir.model.fields,field_description:test_crnd_web_models.field_popover_widget_char_model____last_update
-#: model:ir.model.fields,field_description:test_crnd_web_models.field_popover_widget_html_model____last_update
-#: model:ir.model.fields,field_description:test_crnd_web_models.field_popover_widget_text_model____last_update
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_popover_widget_char_model___last_update
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_popover_widget_html_model___last_update
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_popover_widget_text_model___last_update
 msgid "Last Modified on"
 msgstr "Последнее изменение"
 
 #. module: test_crnd_web_models
-#: model:ir.model.fields,field_description:test_crnd_web_models.field_popover_widget_char_model__write_uid
-#: model:ir.model.fields,field_description:test_crnd_web_models.field_popover_widget_html_model__write_uid
-#: model:ir.model.fields,field_description:test_crnd_web_models.field_popover_widget_text_model__write_uid
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_popover_widget_char_model_write_uid
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_popover_widget_html_model_write_uid
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_popover_widget_text_model_write_uid
 msgid "Last Updated by"
 msgstr "Последний раз обновил"
 
 #. module: test_crnd_web_models
-#: model:ir.model.fields,field_description:test_crnd_web_models.field_popover_widget_char_model__write_date
-#: model:ir.model.fields,field_description:test_crnd_web_models.field_popover_widget_html_model__write_date
-#: model:ir.model.fields,field_description:test_crnd_web_models.field_popover_widget_text_model__write_date
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_popover_widget_char_model_write_date
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_popover_widget_html_model_write_date
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_popover_widget_text_model_write_date
 msgid "Last Updated on"
 msgstr "Последнее обновление"
 
 #. module: test_crnd_web_models
-#: model:ir.model.fields,field_description:test_crnd_web_models.field_popover_widget_char_model__name
-#: model:ir.model.fields,field_description:test_crnd_web_models.field_popover_widget_html_model__name
-#: model:ir.model.fields,field_description:test_crnd_web_models.field_popover_widget_text_model__name
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_popover_widget_char_model_name
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_popover_widget_html_model_name
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_popover_widget_text_model_name
 msgid "Name"
 msgstr "Название"
 
@@ -154,22 +155,22 @@ msgid "Standard"
 msgstr ""
 
 #. module: test_crnd_web_models
-#: model:ir.model.fields,field_description:test_crnd_web_models.field_popover_widget_text_model__text_field_simple
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_popover_widget_text_model_text_field_simple
 msgid "Text Field Simple"
 msgstr ""
 
 #. module: test_crnd_web_models
-#: model:ir.model.fields,field_description:test_crnd_web_models.field_popover_widget_text_model__text_popover_widget
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_popover_widget_text_model_text_popover_widget
 msgid "Text Popover Widget"
 msgstr ""
 
 #. module: test_crnd_web_models
-#: model:ir.model.fields,help:test_crnd_web_models.field_popover_widget_text_model__text_field_simple
+#: model:ir.model.fields,help:test_crnd_web_models.field_popover_widget_text_model_text_field_simple
 msgid "Text field no widgets."
 msgstr ""
 
 #. module: test_crnd_web_models
-#: model:ir.model.fields,help:test_crnd_web_models.field_popover_widget_text_model__text_popover_widget
+#: model:ir.model.fields,help:test_crnd_web_models.field_popover_widget_text_model_text_popover_widget
 msgid "Text field with text popover widget."
 msgstr ""
 
@@ -209,4 +210,3 @@ msgstr ""
 #: model:ir.actions.act_window,name:test_crnd_web_models.action_popover_widget_text_model_editable_tree
 msgid "Web Text Model Editable Tree"
 msgstr ""
-
