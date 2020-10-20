@@ -23,6 +23,11 @@ msgid " - %r in %s=%r"
 msgstr ""
 
 #. module: crnd_web_diagram_plus
+#: model:ir.model,name:crnd_web_diagram_plus.model_ir_actions_act_window_view
+msgid "Action Window View"
+msgstr "Перегляд вікна дії"
+
+#. module: crnd_web_diagram_plus
 #. openerp-web
 #: code:addons/crnd_web_diagram_plus/static/src/js/diagram_controller.js:80
 #: code:addons/crnd_web_diagram_plus/static/src/js/diagram_controller.js:169
@@ -47,6 +52,11 @@ msgid "Are you sure you want to remove this transition?"
 msgstr "Ви впевнені що хочете видалити це зʼєднання"
 
 #. module: crnd_web_diagram_plus
+#: selection:ir.actions.act_window.view,view_mode:0 selection:ir.ui.view,type:0
+msgid "Calendar"
+msgstr "Календар"
+
+#. module: crnd_web_diagram_plus
 #. openerp-web
 #: code:addons/crnd_web_diagram_plus/static/src/js/diagram_controller.js:80
 #: code:addons/crnd_web_diagram_plus/static/src/js/diagram_controller.js:117
@@ -55,8 +65,14 @@ msgid "Create:"
 msgstr "Створити"
 
 #. module: crnd_web_diagram_plus
+#: selection:ir.ui.view,type:0
+msgid "Diagram"
+msgstr "Діаграма"
+
+#. module: crnd_web_diagram_plus
 #. openerp-web
 #: code:addons/crnd_web_diagram_plus/static/src/js/diagram_view.js:17
+#: selection:ir.actions.act_window.view,view_mode:0 selection:ir.ui.view,type:0
 #, python-format
 msgid "DiagramPlus"
 msgstr ""
@@ -86,6 +102,26 @@ msgstr ""
 "що воно присутнє у diagram_plus[node]."
 
 #. module: crnd_web_diagram_plus
+#: selection:ir.actions.act_window.view,view_mode:0 selection:ir.ui.view,type:0
+msgid "Form"
+msgstr "Вікно"
+
+#. module: crnd_web_diagram_plus
+#: selection:ir.actions.act_window.view,view_mode:0 selection:ir.ui.view,type:0
+msgid "Gantt"
+msgstr "Діаграма Ґанта"
+
+#. module: crnd_web_diagram_plus
+#: selection:ir.actions.act_window.view,view_mode:0 selection:ir.ui.view,type:0
+msgid "Graph"
+msgstr "Графік"
+
+#. module: crnd_web_diagram_plus
+#: selection:ir.actions.act_window.view,view_mode:0 selection:ir.ui.view,type:0
+msgid "Kanban"
+msgstr "Канбан"
+
+#. module: crnd_web_diagram_plus
 #: code:addons/crnd_web_diagram_plus/models/ir_ui_view.py:31
 #, python-format
 msgid "Model not found: %(model)s"
@@ -107,6 +143,21 @@ msgid "Open:"
 msgstr "Відкрити:"
 
 #. module: crnd_web_diagram_plus
+#: selection:ir.actions.act_window.view,view_mode:0 selection:ir.ui.view,type:0
+msgid "Pivot"
+msgstr "Зведена таблиця"
+
+#. module: crnd_web_diagram_plus
+#: selection:ir.ui.view,type:0
+msgid "QWeb"
+msgstr ""
+
+#. module: crnd_web_diagram_plus
+#: selection:ir.ui.view,type:0
+msgid "Search"
+msgstr "Пошук"
+
+#. module: crnd_web_diagram_plus
 #. openerp-web
 #: code:addons/crnd_web_diagram_plus/static/src/js/diagram_controller.js:117
 #: code:addons/crnd_web_diagram_plus/static/src/js/diagram_controller.js:151
@@ -115,47 +166,17 @@ msgid "Transition"
 msgstr "Звʼязок"
 
 #. module: crnd_web_diagram_plus
-#: model:ir.model,name:crnd_web_diagram_plus.model_ir_actions_act_window_view
-msgid "ir.actions.act_window.view"
-msgstr ""
+#: selection:ir.actions.act_window.view,view_mode:0 selection:ir.ui.view,type:0
+msgid "Tree"
+msgstr "Дерево"
 
 #. module: crnd_web_diagram_plus
 #: model:ir.model,name:crnd_web_diagram_plus.model_ir_ui_view
-msgid "ir.ui.view"
-msgstr ""
+msgid "View"
+msgstr "Перегляд"
 
-#~ msgid "Action Window View"
-#~ msgstr "Перегляд вікна дії"
-
-#~ msgid "Calendar"
-#~ msgstr "Календар"
-
-#~ msgid "Diagram"
-#~ msgstr "Діаграма"
-
-#~ msgid "Form"
-#~ msgstr "Вікно"
-
-#~ msgid "Gantt"
-#~ msgstr "Діаграма Ґанта"
-
-#~ msgid "Graph"
-#~ msgstr "Графік"
-
-#~ msgid "Kanban"
-#~ msgstr "Канбан"
-
-#~ msgid "Pivot"
-#~ msgstr "Зведена таблиця"
-
-#~ msgid "Search"
-#~ msgstr "Пошук"
-
-#~ msgid "Tree"
-#~ msgstr "Дерево"
-
-#~ msgid "View"
-#~ msgstr "Перегляд"
-
-#~ msgid "View Type"
-#~ msgstr "Тип перегляду"
+#. module: crnd_web_diagram_plus
+#: model:ir.model.fields,field_description:crnd_web_diagram_plus.field_ir_actions_act_window_view__view_mode
+#: model:ir.model.fields,field_description:crnd_web_diagram_plus.field_ir_ui_view__type
+msgid "View Type"
+msgstr "Тип перегляду"
