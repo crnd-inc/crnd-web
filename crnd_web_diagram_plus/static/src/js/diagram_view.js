@@ -19,8 +19,8 @@ odoo.define('web_diagram_plus.DiagramPlusView', function (require) {
         multi_record: false,
         searchable: false,
         jsLibs: [[
-            '/web_diagram/static/lib/js/jquery.mousewheel.js',
-            '/web_diagram/static/lib/js/raphael.js',
+            '/crnd_web_diagram_plus/static/lib/js/jquery.mousewheel.js',
+            '/crnd_web_diagram_plus/static/lib/js/raphael.min.js',
         ]],
         config: {
             Model: DiagramPlusModel,

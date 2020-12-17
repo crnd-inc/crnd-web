@@ -17,7 +17,7 @@ CRnD Button Box Full Width
 
 |badge2| |badge5| |badge6|
 
-When this module is installed, button_box will be displayed at the top of the form.
+This module changes styles of button box widget.
 
 
 Launch your own ITSM system in 60 seconds:
