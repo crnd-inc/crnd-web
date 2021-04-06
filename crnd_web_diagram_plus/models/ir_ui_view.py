@@ -23,19 +23,30 @@ class IrUiView(models.Model):
     )
 
     def _postprocess_tag_node(self, node, name_manager, node_info):
-        _logger.warning("XXX: %r, %r, %r", node, node.get('bg_color_field'), node_info)
         if node.get('bg_color_field'):
             name_manager.has_field(node.get('bg_color_field'), {})
         if node.get('fg_color_field'):
             name_manager.has_field(node.get('fg_color_field'), {})
+        for child in node:
+            if child.tag == 'field':
+                name_manager.has_field(child.get('name'), {})
+                node.remove(child)
+
 
     def _postprocess_tag_arrow(self, node, name_manager, node_info):
         if node.get('source'):
             name_manager.has_field(node.get('source'), {})
         if node.get('destination'):
             name_manager.has_field(node.get('destination'), {})
+        for child in node:
+            if child.tag == 'field':
+                name_manager.has_field(child.get('name'), {})
+                node.remove(child)
 
     def _postprocess_tag_diagram_plus(self, node, name_manager, node_info):
+        # Here we store children in node_info, because we need to avoid futher
+        # post-processing of arrow/node nodes in context of diagram model.
+        node_info['children'] = []
         for child in node:
             if child.tag == 'arrow':
                 self.with_context(
@@ -57,8 +68,13 @@ class IrUiView(models.Model):
                     node.set('create', 'false')
 
     def _validate_tag_diagram_plus(self, node, name_manager, node_info):
-        pass
-
+        for child in node:
+            if child.tag not in ("arrow", "node"):
+                msg = _(
+                    "Only 'node' and 'arrow' tags allowed in "
+                    "'diagram_plus_view', but %(tag_name)s found.",
+                ) % {'tag_name': child.tag}
+                self.handle_view_error(msg)
 
     @api.model
     def graph_get(self, id, model, node_obj, conn_obj, src_node, des_node, label, scale):
