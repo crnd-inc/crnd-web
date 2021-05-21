@@ -1,5 +1,10 @@
 #!/usr/bin/env python
-# -*- coding: utf-8 -*-
+# pylint: disable=all
+# flake8: noqa
+
+# Copied from original Odoo code:
+#    https://github.com/odoo/odoo/blob/3e8b930b18b53e0d5cce3170d8c0f5cd8c7f4f6e/odoo/tools/graph.py
+
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
 import operator
