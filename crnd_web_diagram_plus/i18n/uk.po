@@ -17,12 +17,6 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: crnd_web_diagram_plus
-#: code:addons/crnd_web_diagram_plus/models/ir_ui_view.py:0
-#, python-format
-msgid " - %r in %s=%r"
-msgstr ""
-
-#. module: crnd_web_diagram_plus
 #: model:ir.model,name:crnd_web_diagram_plus.model_ir_actions_act_window_view
 msgid "Action Window View"
 msgstr "Перегляд вікна дії"
@@ -67,34 +61,22 @@ msgid "DiagramPlus"
 msgstr ""
 
 #. module: crnd_web_diagram_plus
-#: code:addons/crnd_web_diagram_plus/models/ir_ui_view.py:0
-#, python-format
-msgid "Field %r used in attributes must be present in view but is missing:"
+#: model:ir.model.fields,field_description:crnd_web_diagram_plus.field_ir_actions_act_window_view__display_name
+#: model:ir.model.fields,field_description:crnd_web_diagram_plus.field_ir_ui_view__display_name
+msgid "Display Name"
 msgstr ""
-"Поле %r, яке використовується в атрибутах, повинно бути присутнім у файлі "
-"відображення:"
 
 #. module: crnd_web_diagram_plus
-#: code:addons/crnd_web_diagram_plus/models/ir_ui_view.py:0
-#, python-format
-msgid "Field `%(field_name)s` does not exist"
-msgstr "Поле `%(field_name)s` не існує"
-
-#. module: crnd_web_diagram_plus
-#: code:addons/crnd_web_diagram_plus/models/ir_ui_view.py:0
-#, python-format
-msgid ""
-"Field `%(field_name)s` must be present in diagram_plus[node][field], because "
-"it present in diagram_plus[node], but is missing."
+#: model:ir.model.fields,field_description:crnd_web_diagram_plus.field_ir_actions_act_window_view__id
+#: model:ir.model.fields,field_description:crnd_web_diagram_plus.field_ir_ui_view__id
+msgid "ID"
 msgstr ""
-"Поле `%(field_name)s` має бути присутнім у diagram_plus[node][field], тому "
-"що воно присутнє у diagram_plus[node]."
 
 #. module: crnd_web_diagram_plus
-#: code:addons/crnd_web_diagram_plus/models/ir_ui_view.py:0
-#, python-format
-msgid "Model not found: %(model)s"
-msgstr "Модель не знайдена: %(model)s"
+#: model:ir.model.fields,field_description:crnd_web_diagram_plus.field_ir_actions_act_window_view____last_update
+#: model:ir.model.fields,field_description:crnd_web_diagram_plus.field_ir_ui_view____last_update
+msgid "Last Modified on"
+msgstr ""
 
 #. module: crnd_web_diagram_plus
 #. openerp-web
@@ -102,6 +84,14 @@ msgstr "Модель не знайдена: %(model)s"
 #, python-format
 msgid "New Node"
 msgstr "Новий вузол"
+
+#. module: crnd_web_diagram_plus
+#: code:addons/crnd_web_diagram_plus/models/ir_ui_view.py:0
+#, python-format
+msgid ""
+"Only 'node' and 'arrow' tags allowed in 'diagram_plus_view', but "
+"%(tag_name)s found."
+msgstr ""
 
 #. module: crnd_web_diagram_plus
 #. openerp-web
@@ -127,6 +117,24 @@ msgstr "Перегляд"
 #: model:ir.model.fields,field_description:crnd_web_diagram_plus.field_ir_ui_view__type
 msgid "View Type"
 msgstr "Тип перегляду"
+
+#~ msgid "Field %r used in attributes must be present in view but is missing:"
+#~ msgstr ""
+#~ "Поле %r, яке використовується в атрибутах, повинно бути присутнім у файлі "
+#~ "відображення:"
+
+#~ msgid "Field `%(field_name)s` does not exist"
+#~ msgstr "Поле `%(field_name)s` не існує"
+
+#~ msgid ""
+#~ "Field `%(field_name)s` must be present in diagram_plus[node][field], "
+#~ "because it present in diagram_plus[node], but is missing."
+#~ msgstr ""
+#~ "Поле `%(field_name)s` має бути присутнім у diagram_plus[node][field], "
+#~ "тому що воно присутнє у diagram_plus[node]."
+
+#~ msgid "Model not found: %(model)s"
+#~ msgstr "Модель не знайдена: %(model)s"
 
 #~ msgid "Calendar"
 #~ msgstr "Календар"
