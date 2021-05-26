@@ -154,6 +154,9 @@ odoo.define('crnd_web_diagram_plus.diagram_tests', function (require) {
                 });
             };
         },
+        afterEach: function () {
+            $("body > i[title='Raphaël Colour Picker']").remove();
+        }
     }, function () {
 
         QUnit.module('DiagramPlusView');

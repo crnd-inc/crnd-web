@@ -87,7 +87,7 @@ class DiagramPlusView(http.Controller):
                 t['options'][connector_fields_string[i]] = tr[fld]
 
         fields = http.request.env['ir.model.fields']
-        # CRND FIX: restring field by type
+        # CRND FIX: restrict field by type
         field = fields.search([('model', '=', model),
                                ('relation', '=', node),
                                ('ttype', '=', 'one2many')])

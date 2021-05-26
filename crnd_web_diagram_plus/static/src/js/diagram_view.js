@@ -18,15 +18,20 @@ odoo.define('web_diagram_plus.DiagramPlusView', function (require) {
         icon: 'fa-code-fork',
         multi_record: false,
         searchable: false,
+
+        // Disable search
+        withSearchPanel: false,
+        withSearchBar: false,
+
         jsLibs: [[
             '/crnd_web_diagram_plus/static/lib/js/jquery.mousewheel.js',
-            '/crnd_web_diagram_plus/static/lib/js/raphael.min.js',
+            '/crnd_web_diagram_plus/static/lib/js/raphael-2.0.2/raphael-min.js',
         ]],
-        config: {
+        config: _.extend({}, BasicView.prototype.config, {
             Model: DiagramPlusModel,
             Renderer: DiagramPlusRenderer,
             Controller: DiagramPlusController,
-        },
+        }),
         viewType: 'diagram_plus',
 
         /**
