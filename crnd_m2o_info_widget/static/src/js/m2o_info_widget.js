@@ -8,7 +8,7 @@ odoo.define('crnd_m2o_info_widget.widget', function (require) {
     var M2OInfo = fieldMany2One.extend({
         _renderReadonly: function () {
             this._super.apply(this, arguments);
-            
+
             if (this.m2o_value) {
                 var self = this;
                 var $link = this.$el;
@@ -29,7 +29,7 @@ odoo.define('crnd_m2o_info_widget.widget', function (require) {
                 }).then(function (result) {
                     self._createInfoPopup(result, info_fields);
                 });
-            }            
+            }
         },
 
         _stringToArray: function (value) {
@@ -55,7 +55,7 @@ odoo.define('crnd_m2o_info_widget.widget', function (require) {
                         $('<label>')
                             .text(result[0][info_fields[i]]).appendTo($row );
                         var $copy = $('<span>').addClass('fa fa-copy')
-                            .appendTo($row );
+                            .appendTo($row);
                         $copy.click(this._onClicCopy.bind(this));
                     }
                 }
