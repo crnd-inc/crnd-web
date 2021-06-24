@@ -17,6 +17,7 @@
         transition: 0.3s opacity, 0.3s visibility;
         color: theme-color('dark');
         z-index: 100;
+        cursor: initial;
 
         div {
             display: flex;
@@ -39,7 +40,7 @@
                 border-radius: 0.25rem;
                 padding: 0.3rem;
                 font-size: 1.5rem;
-                transition: background-color 0.2s linear;
+                transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out;
                 cursor: pointer;
 
                 &:hover {
@@ -50,6 +51,11 @@
         }
     }
 
+    .info_popup_visible {
+        opacity: 1;
+        visibility: visible;
+    }
+
     .info_icon {
         position: relative;
         margin-left: 0.5rem;
@@ -57,12 +63,12 @@
         border: solid 1px theme-color('primary');
         border-radius: 0.2rem;
         color: theme-color('primary');
+        cursor: pointer;
+        transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out;
 
         &:hover {
-            & > .info_popup {
-                opacity: 1;
-                visibility: visible;
-            }
+            background-color: theme-color('primary');
+            color: theme-color('light');
         }
     }
 }

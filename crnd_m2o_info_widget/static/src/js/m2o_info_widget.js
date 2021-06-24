@@ -10,7 +10,8 @@ odoo.define('crnd_m2o_info_widget.widget', function (require) {
             this._super.apply(this, arguments);
 
             if (this.m2o_value) {
-                var self = this;
+                this.info_data = false;
+
                 var $link = this.$el;
                 this.$el = $('<div>').addClass('m2o_info');
                 this.$el.append($link);
@@ -20,15 +21,32 @@ odoo.define('crnd_m2o_info_widget.widget', function (require) {
                     .appendTo(this.$el)
                     .append($('<i>').addClass('fa fa-info'));
 
+                this.$info_icon.click(this._onClickInfo.bind(this));
+                this.$info_icon.mouseleave(this._onMouseLeaveInfo.bind(this));
+            }
+        },
 
-                var info_fields = this._stringToArray(this.attrs.info_fields);
+        _onClickInfo: function () {
+            if (this.info_data) {
+                this.$info_popup.addClass('info_popup_visible');
+            } else {
+                var self = this;
+
                 this._rpc({
                     model: this.value.model,
                     method: 'read',
-                    args: [[this.value.res_id], info_fields],
+                    args: [[this.value.res_id], this.nodeOptions.info_fields],
                 }).then(function (result) {
-                    self._createInfoPopup(result, info_fields);
+                    self._createInfoPopup(result, self.nodeOptions.info_fields);
+                    self.info_data = true;
+                    self.$info_popup.addClass('info_popup_visible');
                 });
+            }
+        },
+
+        _onMouseLeaveInfo: function () {
+            if (this.info_data) {
+                this.$info_popup.removeClass('info_popup_visible');
             }
         },
 
@@ -45,35 +63,26 @@ odoo.define('crnd_m2o_info_widget.widget', function (require) {
         _createInfoPopup: function (result, info_fields) {
             var self = this;
 
-            var $info_popup = $('<div>').addClass('info_popup')
+            self.$info_popup = $('<div>').addClass('info_popup')
                 .appendTo(self.$info_icon);
 
             if (result) {
                 for (var i = 0; i < info_fields.length; i++) {
                     if (result[0][info_fields[i]]) {
-                        var $row = $('<div>').appendTo($info_popup);
+                        var $row = $('<div>').appendTo(self.$info_popup);
                         $('<label>')
                             .text(result[0][info_fields[i]]).appendTo($row );
                         var $copy = $('<span>').addClass('fa fa-copy')
                             .appendTo($row);
-                        $copy.click(this._onClicCopy.bind(this));
+                        new ClipboardJS($copy[0], {  // eslint-disable-line
+                            text: function (target) {
+                                return target.previousElementSibling
+                                    .textContent;
+                            },
+                        });
                     }
                 }
             }
-        },
-
-        _onClicCopy: function (event) {
-            this._copyTextToBuffer(event.currentTarget.previousElementSibling);
-        },
-
-        _copyTextToBuffer: function (element) {
-            var selection = window.getSelection();
-            var range = document.createRange();
-            range.selectNodeContents(element);
-            selection.removeAllRanges();
-            selection.addRange(range);
-            document.execCommand('copy');
-            selection.removeAllRanges();
         },
     });
 
