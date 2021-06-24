@@ -1,0 +1,68 @@
+.m2o_info {
+    a {
+        margin: 0 !important;
+    }
+
+    .info_popup {
+        position: absolute;
+        width: max-content;
+        right: -1px;
+        top: -1px;
+        padding: 0.5rem 1rem;
+        background-color: theme-color('light');
+        border: solid 1px #d9d7d7;
+        border-radius: 0.2rem;
+        opacity: 0;
+        visibility: hidden;
+        transition: 0.3s opacity, 0.3s visibility;
+        color: theme-color('dark');
+        z-index: 100;
+
+        div {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 0.25rem;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+
+            label {
+                margin: 0;
+            }
+
+            span {
+                margin-left: 1rem;
+                background-color: white;
+                border: solid 1px theme-color('dark');
+                border-radius: 0.25rem;
+                padding: 0.3rem;
+                font-size: 1.5rem;
+                transition: background-color 0.2s linear;
+                cursor: pointer;
+
+                &:hover {
+                    background-color: darken(theme-color('light'), 30);
+                    color: theme-color('light');
+                }
+            }
+        }
+    }
+
+    .info_icon {
+        position: relative;
+        margin-left: 0.5rem;
+        padding: 0.25rem 0.5rem;
+        border: solid 1px theme-color('primary');
+        border-radius: 0.2rem;
+        color: theme-color('primary');
+
+        &:hover {
+            & > .info_popup {
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+    }
+}
