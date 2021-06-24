@@ -7,35 +7,29 @@ odoo.define('crnd_m2o_info_widget.widget', function (require) {
 
     var M2OInfo = fieldMany2One.extend({
         _renderReadonly: function () {
-            var self = this;
-            var escapedValue = _.escape((this.m2o_value || "").trim());
-            var value = escapedValue.split('\n').map(function (line) {
-                return '<span>' + line + '</span>';
-            }).join('<br/>');
-            var $link = this.$el;
-            this.$el = $('<div>').addClass('m2o_info');
-            this.$el.append($link);
-            $link.html(value);
-            if (!this.noOpen && this.value) {
-                $link.attr('href', _.str.sprintf('#id=%s&model=%s',
-                    this.value.res_id, this.field.relation));
-                $link.addClass('o_form_uri');
-            }
+            this._super.apply(this, arguments);
+            
+            if (this.m2o_value) {
+                var self = this;
+                var $link = this.$el;
+                this.$el = $('<div>').addClass('m2o_info');
+                this.$el.append($link);
 
-            this.$info_icon = $('<span>').addClass('info_icon')
-                .attr('id', 'info_icon')
-                .appendTo(this.$el)
-                .append($('<i>').addClass('fa fa-info'));
+                this.$info_icon = $('<span>').addClass('info_icon')
+                    .attr('id', 'info_icon')
+                    .appendTo(this.$el)
+                    .append($('<i>').addClass('fa fa-info'));
 
 
-            var info_fields = this._stringToArray(this.attrs.info_fields);
-            this._rpc({
-                model: this.value.model,
-                method: 'read',
-                args: [[this.value.res_id], info_fields],
-            }).then(function (result) {
-                self._createInfoPopup(result, info_fields);
-            });
+                var info_fields = this._stringToArray(this.attrs.info_fields);
+                this._rpc({
+                    model: this.value.model,
+                    method: 'read',
+                    args: [[this.value.res_id], info_fields],
+                }).then(function (result) {
+                    self._createInfoPopup(result, info_fields);
+                });
+            }            
         },
 
         _stringToArray: function (value) {
