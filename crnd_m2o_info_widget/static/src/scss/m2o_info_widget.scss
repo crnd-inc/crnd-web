@@ -6,7 +6,6 @@
     .info_popup {
         position: absolute;
         width: max-content;
-        right: -1px;
         top: -1px;
         padding: 0.5rem 1rem;
         background-color: theme-color('light');
@@ -16,7 +15,7 @@
         visibility: hidden;
         transition: 0.3s opacity, 0.3s visibility;
         color: theme-color('dark');
-        z-index: 100;
+        z-index: 2000;
         cursor: initial;
 
         div {

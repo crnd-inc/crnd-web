@@ -17,18 +17,18 @@ odoo.define('crnd_m2o_info_widget.widget', function (require) {
                 this.$el.append($link);
 
                 this.$info_icon = $('<span>').addClass('info_icon')
-                    .attr('id', 'info_icon')
                     .appendTo(this.$el)
                     .append($('<i>').addClass('fa fa-info'));
 
-                this.$info_icon.click(this._onClickInfo.bind(this));
-                this.$info_icon.mouseleave(this._onMouseLeaveInfo.bind(this));
+                this.$info_icon.on('click', this._onClickInfo.bind(this));
+                this.$info_icon.on('mouseleave',
+                    this._onMouseLeaveInfo.bind(this));
             }
         },
 
-        _onClickInfo: function () {
+        _onClickInfo: function (event) {
             if (this.info_data) {
-                this.$info_popup.addClass('info_popup_visible');
+                this._showInfoPopup(true, event.clientX);
             } else {
                 var self = this;
 
@@ -39,39 +39,27 @@ odoo.define('crnd_m2o_info_widget.widget', function (require) {
                 }).then(function (result) {
                     self._createInfoPopup(result, self.nodeOptions.info_fields);
                     self.info_data = true;
-                    self.$info_popup.addClass('info_popup_visible');
+                    self._showInfoPopup(true, event.clientX);
                 });
             }
         },
 
         _onMouseLeaveInfo: function () {
             if (this.info_data) {
-                this.$info_popup.removeClass('info_popup_visible');
+                this._showInfoPopup(false);
             }
         },
 
-        _stringToArray: function (value) {
-            var array = [];
-            var str_array = value.slice(1, -1);
-            var str_array_split = str_array.split(',');
-            array = str_array_split.map(function (val) {
-                return val.trim().slice(1, -1);
-            });
-            return array;
-        },
+        _createInfoPopup: function (data, info_fields) {
+            this.$info_popup = $('<div>').addClass('info_popup')
+                .appendTo(this.$info_icon);
 
-        _createInfoPopup: function (result, info_fields) {
-            var self = this;
-
-            self.$info_popup = $('<div>').addClass('info_popup')
-                .appendTo(self.$info_icon);
-
-            if (result) {
+            if (data) {
                 for (var i = 0; i < info_fields.length; i++) {
-                    if (result[0][info_fields[i]]) {
-                        var $row = $('<div>').appendTo(self.$info_popup);
+                    if (data[0][info_fields[i]]) {
+                        var $row = $('<div>').appendTo(this.$info_popup);
                         $('<label>')
-                            .text(result[0][info_fields[i]]).appendTo($row );
+                            .text(data[0][info_fields[i]]).appendTo($row );
                         var $copy = $('<span>').addClass('fa fa-copy')
                             .appendTo($row);
                         new ClipboardJS($copy[0], {  // eslint-disable-line
@@ -82,6 +70,37 @@ odoo.define('crnd_m2o_info_widget.widget', function (require) {
                         });
                     }
                 }
+            }
+        },
+
+        _showInfoPopup: function (state, left_offset) {
+            var is_show = this.$info_popup.hasClass('info_popup_visible');
+            if (!state && is_show) {
+                this.$info_popup.removeClass('info_popup_visible');
+            } else if (state && !is_show) {
+                var popup_width = this.$info_popup.outerWidth();
+                var window_width = $(window).width();
+                var right_offset = window_width - left_offset;
+                var css_value = {};
+                if (left_offset >= popup_width) {
+                    css_value = {
+                        right: '-1px',
+                        left: 'none',
+                    };
+                } else if (left_offset <= popup_width &&
+                           right_offset >= popup_width) {
+                    css_value = {
+                        right: 'none',
+                        left: '-1px',
+                    };
+                } else {
+                    css_value = {
+                        right: 'none',
+                        left: right_offset - popup_width - 10 + 'px',
+                    };
+                }
+                this.$info_popup.css(css_value);
+                this.$info_popup.addClass('info_popup_visible');
             }
         },
     });
