@@ -30,21 +30,25 @@
 
             label {
                 margin: 0;
+                font-weight: bold;
             }
-
             span {
-                margin-left: 1rem;
-                background-color: white;
-                border: solid 1px theme-color('dark');
-                border-radius: 0.25rem;
-                padding: 0.3rem;
-                font-size: 1.5rem;
-                transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out;
-                cursor: pointer;
+                margin-left: 5px;
 
-                &:hover {
-                    background-color: darken(theme-color('light'), 30);
-                    color: theme-color('light');
+                &.fa {
+                    margin-left: 1rem;
+                    background-color: white;
+                    border: solid 1px theme-color('dark');
+                    border-radius: 0.25rem;
+                    padding: 0.3rem;
+                    font-size: 1.5rem;
+                    transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out;
+                    cursor: pointer;
+
+                    &:hover {
+                        background-color: darken(theme-color('light'), 30);
+                        color: theme-color('light');
+                    }
                 }
             }
         }

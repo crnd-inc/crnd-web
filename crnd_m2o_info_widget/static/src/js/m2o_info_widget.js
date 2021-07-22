@@ -10,6 +10,15 @@ odoo.define('crnd_m2o_info_widget.widget', function (require) {
             this._super.apply(this, arguments);
 
             if (this.m2o_value) {
+                // TODO: Make it object:
+                //       info_data = {
+                //           field_name: {
+                //               name: name of field
+                //               value: value of field
+                //               $el: jquery element of the field
+                //               clipboard: ClipboardJS instance
+                //           },
+                //       }
                 this.info_data = null;
                 this.$info_popup = null;
 
@@ -37,18 +46,51 @@ odoo.define('crnd_m2o_info_widget.widget', function (require) {
             if (self.info_data) {
                 def.resolve(self.info_data);
             } else {
-                self._rpc({
+                // Initialize info data
+                self.info_data = {};
+                _.each(
+                    self.nodeOptions.info_fields,
+                    function (field_name) {
+                        self.info_data[field_name] = {};
+                    });
+
+                // Fill values for each field
+                var def_field_values = self._rpc({
                     model: self.value.model,
                     method: 'read',
                     args: [[self.value.res_id], self.nodeOptions.info_fields],
                 }).then(function (result) {
-                    if (result) {
-                        self.info_data = result[0];
-                        def.resolve(self.info_data);
-                    } else {
-                        self.info_data = null;
-                        def.resolve(null);
-                    }
+                    _.each(
+                        self.nodeOptions.info_fields,
+                        function (field_name) {
+                            if (result) {
+                                var val = result[0][field_name];
+                                self.info_data[field_name].value = val;
+                            } else {
+                                self.info_data[field_name].value = '';
+                            }
+                        });
+                });
+
+                // Get field names
+                var def_field_names = self._rpc({
+                    model: self.value.model,
+                    method: 'fields_get',
+                    args: [self.nodeOptions.info_fields, ['string']],
+                }).then(function (result) {
+                    _.each(
+                        self.nodeOptions.info_fields,
+                        function (field_name) {
+                            if (result) {
+                                var val = result[field_name].string;
+                                self.info_data[field_name].name = val;
+                            } else {
+                                self.info_data[field_name].name = '';
+                            }
+                        });
+                });
+                $.when(def_field_values, def_field_names).then(function () {
+                    def.resolve(self.info_data);
                 });
             }
             return def;
@@ -56,7 +98,7 @@ odoo.define('crnd_m2o_info_widget.widget', function (require) {
 
         /**
          * Create popup window for this widget.
-         * @param {Object} data: dictionary with fields read from database
+         * @param {Object} data: info_data object
          * @returns JQuery element of created popup
          */
         _createInfoPopup: function (data) {
@@ -69,7 +111,7 @@ odoo.define('crnd_m2o_info_widget.widget', function (require) {
                 _.each(
                     self.nodeOptions.info_fields,
                     function (field_name) {
-                        if (data[field_name]) {
+                        if (data[field_name].value) {
                             // TODO: possibly use template to build this widget
                             //       Also, it would be good to display field
                             //       names left side field value.
@@ -78,17 +120,23 @@ odoo.define('crnd_m2o_info_widget.widget', function (require) {
                             //           Phone: 12335
                             //           Email: john.doe@jd.com
                             var $row = $('<div>').appendTo(self.$info_popup);
-                            $('<label>').text(data[field_name]).appendTo($row);
+                            $('<label>').text(
+                                data[field_name].name + ": ").appendTo($row);
+                            $('<span>').text(
+                                data[field_name].value).appendTo($row);
                             var $copy = $('<span>').addClass('fa fa-copy')
                                 .appendTo($row);
 
-                            // TODO: implement in better way
-                            new ClipboardJS($copy[0], {  // eslint-disable-line
-                                text: function (target) {
-                                    return target.previousElementSibling
-                                        .textContent;
+                            data[field_name].clipboard = new ClipboardJS(
+                                $copy[0],
+                                {
+                                    text: function (target) {
+                                        return target.previousElementSibling
+                                            .textContent;
+                                    },
                                 },
-                            });
+                            );
+                            data[field_name].$el = $row;
                         }
                     });
             }
