@@ -1,38 +1,13 @@
-.m2o_info {
-    .info_popup {
-        position: absolute;
-        width: max-content;
-        top: -1px;
-        padding: 0.5rem 1rem;
-        background-color: theme-color('light');
-        border: solid 1px #d9d7d7;
-        border-radius: 0.2rem;
-        opacity: 0;
-        visibility: hidden;
-        transition: 0.3s opacity, 0.3s visibility;
-        color: theme-color('dark');
-        z-index: 2000;
-        cursor: initial;
+.m2o-info-popover {
+    > table {
+        margin-bottom: 0;
 
-        > table {
-            margin-bottom: 0;
-
-            td,
-            th {
-                vertical-align: middle;
-                text-align: left;
-                padding-top: 1px;
-                padding-bottom: 1px;
-            }
+        td,
+        th {
+            vertical-align: middle;
+            text-align: left;
+            padding-top: 1px;
+            padding-bottom: 1px;
         }
-
-        &.info_popup_visible {
-            opacity: 1;
-            visibility: visible;
-        }
-    }
-
-    .info_icon {
-        position: relative;
     }
 }
