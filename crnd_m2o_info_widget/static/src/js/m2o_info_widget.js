@@ -28,7 +28,8 @@ odoo.define('crnd_m2o_info_widget.widget', function (require) {
                 this.$el.append($link);
 
                 this.$info_icon = $('<span>')
-                    .addClass('m2o-info-icon btn btn-sm btn-outline-primary ml4')
+                    .addClass(
+                        'm2o-info-icon btn btn-sm btn-outline-primary ml4')
                     .appendTo(this.$el)
                     .append($('<i>').addClass('fa fa-info'));
 
@@ -124,7 +125,7 @@ odoo.define('crnd_m2o_info_widget.widget', function (require) {
          */
         _renderInfoPopUp: function (data) {
             var self = this;
-            var $info_popup = $('<div>').addClass('m2o-info-popover')
+            var $info_popup = $('<div>').addClass('m2o-info-popover');
             var $info_table = $('<table>')
                 .addClass('table table-sm table-borderless')
                 .appendTo($info_popup);
@@ -156,10 +157,12 @@ odoo.define('crnd_m2o_info_widget.widget', function (require) {
             return $info_popup;
         },
 
-        _onClickInfo: function (event) {
+        _onClickInfo: function () {
             var self = this;
             var def = $.Deferred();
-            if (!self.popover_initialized) {
+            if (self.popover_initialized) {
+                def.resolve();
+            } else {
                 self._getInfoData().then(function (data) {
                     var $info_popup = self._renderInfoPopUp(data);
                     self.$info_icon.popover({
@@ -172,9 +175,7 @@ odoo.define('crnd_m2o_info_widget.widget', function (require) {
                         self.$info_icon.popover('hide');
                     });
                     def.resolve();
-                })
-            } else {
-                def.resolve();
+                });
             }
 
             def.then(function () {
