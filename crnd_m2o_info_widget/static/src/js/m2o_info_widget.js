@@ -1,3 +1,4 @@
+/* global ClipboardJS */
 odoo.define('crnd_m2o_info_widget.widget', function (require) {
     "use strict";
 
@@ -10,15 +11,14 @@ odoo.define('crnd_m2o_info_widget.widget', function (require) {
             this._super.apply(this, arguments);
 
             if (this.m2o_value) {
-                // TODO: Make it object:
-                //       info_data = {
-                //           field_name: {
-                //               name: name of field
-                //               value: value of field
-                //               $el: jquery element of the field
-                //               clipboard: ClipboardJS instance
-                //           },
-                //       }
+                // Format is info_data = {
+                //     field_name: {
+                //         name: name of field
+                //         value: value of field
+                //         $el: jquery element of the field
+                //         clipboard: ClipboardJS instance
+                //     },
+                // }
                 this.info_data = null;
                 this.$info_popup = null;
 
@@ -26,7 +26,8 @@ odoo.define('crnd_m2o_info_widget.widget', function (require) {
                 this.$el = $('<div>').addClass('m2o_info');
                 this.$el.append($link);
 
-                this.$info_icon = $('<span>').addClass('info_icon')
+                this.$info_icon = $('<span>')
+                    .addClass('info_icon btn btn-sm btn-outline-primary ml4')
                     .appendTo(this.$el)
                     .append($('<i>').addClass('fa fa-info'));
 
@@ -96,6 +97,21 @@ odoo.define('crnd_m2o_info_widget.widget', function (require) {
             return def;
         },
 
+        _renderPopUpRow: function (data, field_name) {
+            var $row = $('<tr>');
+            $('<th>').text(
+                data[field_name].name + ":").appendTo($row);
+            $('<td>').text(
+                data[field_name].value).appendTo($row);
+            var $copy_cell = $('<td>').appendTo($row);
+            var $copy = $('<span>')
+                .addClass('m2o-info-copy btn btn-sm btn-outline-primary')
+                .data('field-name', field_name)
+                .appendTo($copy_cell);
+            $('<i/>').addClass('fa fa-copy').appendTo($copy);
+            return $row;
+        },
+
         /**
          * Create popup window for this widget.
          * @param {Object} data: info_data object
@@ -106,35 +122,27 @@ odoo.define('crnd_m2o_info_widget.widget', function (require) {
 
             self.$info_popup = $('<div>').addClass('info_popup')
                 .appendTo(self.$info_icon);
+            var $info_table = $('<table>')
+                .addClass('table table-sm table-borderless')
+                .appendTo(self.$info_popup);
 
             if (data) {
                 _.each(
                     self.nodeOptions.info_fields,
                     function (field_name) {
                         if (data[field_name].value) {
-                            // TODO: possibly use template to build this widget
-                            //       Also, it would be good to display field
-                            //       names left side field value.
-                            //       For example:
-                            //           Name: John Doe
-                            //           Phone: 12335
-                            //           Email: john.doe@jd.com
-                            var $row = $('<div>').appendTo(self.$info_popup);
-                            $('<label>').text(
-                                data[field_name].name + ": ").appendTo($row);
-                            $('<span>').text(
-                                data[field_name].value).appendTo($row);
-                            var $copy = $('<span>').addClass('fa fa-copy')
-                                .appendTo($row);
+                            var $row = self._renderPopUpRow(data, field_name);
+                            $row.appendTo($info_table);
 
                             data[field_name].clipboard = new ClipboardJS(
-                                $copy[0],
+                                $row.find('.m2o-info-copy')[0],
                                 {
                                     text: function (target) {
-                                        return target.previousElementSibling
-                                            .textContent;
+                                        var fname = $(target).data(
+                                            'field-name');
+                                        return self.info_data[fname].value;
                                     },
-                                },
+                                }
                             );
                             data[field_name].$el = $row;
                         }

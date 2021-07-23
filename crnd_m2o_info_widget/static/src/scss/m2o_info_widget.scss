@@ -1,8 +1,4 @@
 .m2o_info {
-    a {
-        margin: 0 !important;
-    }
-
     .info_popup {
         position: absolute;
         width: max-content;
@@ -18,60 +14,25 @@
         z-index: 2000;
         cursor: initial;
 
-        div {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 0.25rem;
+        > table {
+            margin-bottom: 0;
 
-            &:last-child {
-                margin-bottom: 0;
-            }
-
-            label {
-                margin: 0;
-                font-weight: bold;
-            }
-            span {
-                margin-left: 5px;
-
-                &.fa {
-                    margin-left: 1rem;
-                    background-color: white;
-                    border: solid 1px theme-color('dark');
-                    border-radius: 0.25rem;
-                    padding: 0.3rem;
-                    font-size: 1.5rem;
-                    transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out;
-                    cursor: pointer;
-
-                    &:hover {
-                        background-color: darken(theme-color('light'), 30);
-                        color: theme-color('light');
-                    }
-                }
+            td,
+            th {
+                vertical-align: middle;
+                text-align: left;
+                padding-top: 1px;
+                padding-bottom: 1px;
             }
         }
-    }
 
-    .info_popup_visible {
-        opacity: 1;
-        visibility: visible;
+        &.info_popup_visible {
+            opacity: 1;
+            visibility: visible;
+        }
     }
 
     .info_icon {
         position: relative;
-        margin-left: 0.5rem;
-        padding: 0.25rem 0.5rem;
-        border: solid 1px theme-color('primary');
-        border-radius: 0.2rem;
-        color: theme-color('primary');
-        cursor: pointer;
-        transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out;
-
-        &:hover {
-            background-color: theme-color('primary');
-            color: theme-color('light');
-        }
     }
 }
