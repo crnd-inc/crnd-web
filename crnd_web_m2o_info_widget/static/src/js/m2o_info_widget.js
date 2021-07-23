@@ -1,5 +1,5 @@
 /* global ClipboardJS */
-odoo.define('crnd_m2o_info_widget.widget', function (require) {
+odoo.define('crnd_web_m2o_info_widget.m2o_info_widget', function (require) {
     "use strict";
 
     var fieldRegistry = require('web.field_registry');
