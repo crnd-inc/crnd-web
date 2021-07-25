@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="assets_backend"
+              inherit_id="web.assets_backend"
+              name="CRND web m2o info widget">
+        <xpath expr="." position="inside">
+            <script type="text/javascript"
+                    src="/crnd_web_m2o_info_widget/static/src/js/m2o_info_widget.js"/>
+            <link rel='stylesheet'
+                  type="text/css"
+                  href="/crnd_web_m2o_info_widget/static/src/scss/m2o_info_widget.scss"/>
+        </xpath>
+    </template>
+</odoo>
