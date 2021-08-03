@@ -11,6 +11,7 @@ _logger = logging.getLogger(__name__)
 class IrUiView(models.Model):
     # pylint: disable=too-many-locals
     # pylint: disable=too-many-branches
+    # pylint: disable=translation-positional-used
 
     _inherit = 'ir.ui.view'
 
