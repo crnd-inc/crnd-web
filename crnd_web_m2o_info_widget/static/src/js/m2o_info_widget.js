@@ -207,12 +207,7 @@ odoo.define('crnd_web_m2o_info_widget.m2o_info_widget', function (require) {
             }
         },
 
-        reinitialize: function () {
-            this._destroyPopover();
-            this._super.apply(this, arguments);
-        },
-
-        _reset: function () {
+        reset: function () {
             this._destroyPopover();
             this._super.apply(this, arguments);
         },
