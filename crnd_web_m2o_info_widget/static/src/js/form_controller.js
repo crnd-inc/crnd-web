@@ -6,7 +6,6 @@ odoo.define('web.M2OInfoWidgetFormController', function (require) {
     FormController.include({
         on_detach_callback: function () {
             if (this.modelName === 'request.request') {
-                console.log('DETACH FORM', this);
                 $.each($('body').children(), function (index, value) {
                     if (value.id && value.id.indexOf('popover') >= 0) {
                         value.remove();
