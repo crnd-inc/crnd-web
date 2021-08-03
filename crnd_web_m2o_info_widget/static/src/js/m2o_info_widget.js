@@ -171,6 +171,10 @@ odoo.define('crnd_web_m2o_info_widget.m2o_info_widget', function (require) {
                         trigger: 'manual',
                         animation: true,
                     });
+
+                    self.popover_initialized = true;
+                    self.popover_data = self.$info_icon.data('bs.popover');
+
                     $info_popup.on('mouseleave', function () {
                         self.$info_icon.popover('hide');
                     });
@@ -181,6 +185,14 @@ odoo.define('crnd_web_m2o_info_widget.m2o_info_widget', function (require) {
             def.then(function () {
                 self.$info_icon.popover('toggle');
             });
+        },
+
+        destroy: function () {
+            if (this.popover_initialized) {
+                this.$info_icon.data('bs.popover', this.popover_data);
+                this.$info_icon.popover('dispose');
+            }
+            this._super.apply(this, arguments);
         },
     });
 
