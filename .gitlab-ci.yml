@@ -1,4 +1,4 @@
-image: registry.crnd.pro/crnd/docker/odoo-ci-x:12.0-simple
+image: registry.crnd.pro/crnd-opensource/docker/odoo-ci-x:12.0-simple
 
 variables:
     SERIES_BRANCH: '12.0'
@@ -62,7 +62,7 @@ check-versions:
         - /^12.0-.*$/   # only branches that started with '12.0-'
 
 tests:
-    image: registry.crnd.pro/crnd/docker/odoo-ci-x:12.0-ci
+    image: registry.crnd.pro/crnd-opensource/docker/odoo-ci-x:12.0-ci
     stage: test
     <<: *pip_cache_definition
     before_script:
@@ -72,7 +72,7 @@ tests:
     coverage: '/^TOTAL\s+\d+\s+\d+\s+(\d+\%)/'
 
 migration_tests:
-    image: registry.crnd.pro/crnd/docker/odoo-ci-x:12.0-ci
+    image: registry.crnd.pro/crnd-opensource/docker/odoo-ci-x:12.0-ci
     stage: test
     variables:
         ODOO_DB_NAME: test-db
@@ -95,7 +95,7 @@ migration_tests:
         - /^12.0-.*$/   # only branches that started with '12.0-'
 
 update_addons_list_and_trans:
-    image: registry.crnd.pro/crnd/docker/odoo-ci-x:12.0-ci
+    image: registry.crnd.pro/crnd-opensource/docker/odoo-ci-x:12.0-ci
     stage: deploy
     before_script:
         - odoo-helper link .
