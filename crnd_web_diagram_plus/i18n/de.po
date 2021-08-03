@@ -17,7 +17,7 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: crnd_web_diagram_plus
-#: code:addons/crnd_web_diagram_plus/models/ir_ui_view.py:92
+#: code:addons/crnd_web_diagram_plus/models/ir_ui_view.py:93
 #, python-format
 msgid " - %r in %s=%r"
 msgstr " - %r in %s=%r"
@@ -80,19 +80,19 @@ msgid "DiagramPlus"
 msgstr "DiagramPlus"
 
 #. module: crnd_web_diagram_plus
-#: code:addons/crnd_web_diagram_plus/models/ir_ui_view.py:90
+#: code:addons/crnd_web_diagram_plus/models/ir_ui_view.py:91
 #, python-format
 msgid "Field %r used in attributes must be present in view but is missing:"
 msgstr "Field %r used in attributes must be present in view but is missing:"
 
 #. module: crnd_web_diagram_plus
-#: code:addons/crnd_web_diagram_plus/models/ir_ui_view.py:82
+#: code:addons/crnd_web_diagram_plus/models/ir_ui_view.py:83
 #, python-format
 msgid "Field `%(field_name)s` does not exist"
 msgstr "Field `%(field_name)s` does not exist"
 
 #. module: crnd_web_diagram_plus
-#: code:addons/crnd_web_diagram_plus/models/ir_ui_view.py:72
+#: code:addons/crnd_web_diagram_plus/models/ir_ui_view.py:73
 #, python-format
 msgid ""
 "Field `%(field_name)s` must be present in diagram_plus[node][field], because "
@@ -122,7 +122,7 @@ msgid "Kanban"
 msgstr ""
 
 #. module: crnd_web_diagram_plus
-#: code:addons/crnd_web_diagram_plus/models/ir_ui_view.py:31
+#: code:addons/crnd_web_diagram_plus/models/ir_ui_view.py:32
 #, python-format
 msgid "Model not found: %(model)s"
 msgstr "Model not found: %(model)s"
