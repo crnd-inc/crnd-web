@@ -8,6 +8,17 @@ odoo.define('crnd_web_m2o_info_widget.m2o_info_widget', function (require) {
 
     var M2OInfo = fieldMany2One.extend({
 
+        init: function () {
+            var self = this;
+            self._super.apply(self, arguments);
+
+            self.popover_initialized = false;
+
+            // Keep popover info, to be able to destroy when widget
+            // desttroyed
+            self.popover_data = null;
+        },
+
         _renderReadonly: function () {
             this._super.apply(this, arguments);
 
@@ -20,8 +31,6 @@ odoo.define('crnd_web_m2o_info_widget.m2o_info_widget', function (require) {
                 //         clipboard: ClipboardJS instance
                 //     },
                 // }
-                this.info_data = null;
-                this.popover_initialized = false;
 
                 var $link = this.$el;
                 this.$el = $('<div>').addClass('m2o_info');
@@ -44,56 +53,53 @@ odoo.define('crnd_web_m2o_info_widget.m2o_info_widget', function (require) {
         _getInfoData: function () {
             var self = this;
             var def = $.Deferred();
-            if (self.info_data) {
-                def.resolve(self.info_data);
-            } else {
-                // Initialize info data
-                self.info_data = {};
+
+            // Initialize info data
+            var info_data = {};
+            _.each(
+                self.nodeOptions.info_fields,
+                function (field_name) {
+                    info_data[field_name] = {};
+                });
+
+            // Fill values for each field
+            var def_field_values = self._rpc({
+                model: self.value.model,
+                method: 'read',
+                args: [[self.value.res_id], self.nodeOptions.info_fields],
+            }).then(function (result) {
                 _.each(
                     self.nodeOptions.info_fields,
                     function (field_name) {
-                        self.info_data[field_name] = {};
+                        if (result) {
+                            var val = result[0][field_name];
+                            info_data[field_name].value = val;
+                        } else {
+                            info_data[field_name].value = '';
+                        }
                     });
+            });
 
-                // Fill values for each field
-                var def_field_values = self._rpc({
-                    model: self.value.model,
-                    method: 'read',
-                    args: [[self.value.res_id], self.nodeOptions.info_fields],
-                }).then(function (result) {
-                    _.each(
-                        self.nodeOptions.info_fields,
-                        function (field_name) {
-                            if (result) {
-                                var val = result[0][field_name];
-                                self.info_data[field_name].value = val;
-                            } else {
-                                self.info_data[field_name].value = '';
-                            }
-                        });
-                });
-
-                // Get field names
-                var def_field_names = self._rpc({
-                    model: self.value.model,
-                    method: 'fields_get',
-                    args: [self.nodeOptions.info_fields, ['string']],
-                }).then(function (result) {
-                    _.each(
-                        self.nodeOptions.info_fields,
-                        function (field_name) {
-                            if (result) {
-                                var val = result[field_name].string;
-                                self.info_data[field_name].name = val;
-                            } else {
-                                self.info_data[field_name].name = '';
-                            }
-                        });
-                });
-                $.when(def_field_values, def_field_names).then(function () {
-                    def.resolve(self.info_data);
-                });
-            }
+            // Get field names
+            var def_field_names = self._rpc({
+                model: self.value.model,
+                method: 'fields_get',
+                args: [self.nodeOptions.info_fields, ['string']],
+            }).then(function (result) {
+                _.each(
+                    self.nodeOptions.info_fields,
+                    function (field_name) {
+                        if (result) {
+                            var val = result[field_name].string;
+                            info_data[field_name].name = val;
+                        } else {
+                            info_data[field_name].name = '';
+                        }
+                    });
+            });
+            $.when(def_field_values, def_field_names).then(function () {
+                def.resolve(info_data);
+            });
             return def;
         },
 
@@ -146,7 +152,7 @@ odoo.define('crnd_web_m2o_info_widget.m2o_info_widget', function (require) {
                                     text: function (target) {
                                         var fname = $(target).data(
                                             'field-name');
-                                        return self.info_data[fname].value;
+                                        return data[fname].value;
                                     },
                                 }
                             );
@@ -173,6 +179,9 @@ odoo.define('crnd_web_m2o_info_widget.m2o_info_widget', function (require) {
                     });
 
                     self.popover_initialized = true;
+
+                    // Keep popover info, to be able to destroy when widget
+                    // desttroyed
                     self.popover_data = self.$info_icon.data('bs.popover');
 
                     $info_popup.on('mouseleave', function () {
@@ -187,11 +196,29 @@ odoo.define('crnd_web_m2o_info_widget.m2o_info_widget', function (require) {
             });
         },
 
-        destroy: function () {
+        _destroyPopover: function () {
             if (this.popover_initialized) {
-                this.$info_icon.data('bs.popover', this.popover_data);
+                if (!this.$info_icon.data('bs.popover')) {
+                    this.$info_icon.data('bs.popover', this.popover_data);
+                }
                 this.$info_icon.popover('dispose');
+                this.popover_initialized = false;
+                this.popover_data = null;
             }
+        },
+
+        reinitialize: function () {
+            this._destroyPopover();
+            this._super.apply(this, arguments);
+        },
+
+        _reset: function () {
+            this._destroyPopover();
+            this._super.apply(this, arguments);
+        },
+
+        destroy: function () {
+            this._destroyPopover();
             this._super.apply(this, arguments);
         },
     });
