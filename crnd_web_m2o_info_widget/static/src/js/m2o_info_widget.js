@@ -177,13 +177,12 @@ odoo.define('crnd_web_m2o_info_widget.m2o_info_widget', function (require) {
                         html: true,
                         trigger: 'manual',
                         animation: true,
-                        template: `
-                            <div class="popover" role="tooltip"
-                                 style="max-width: none">
-                                <div class="arrow"></div>
-                                <h3 class="popover-header"></h3>
-                                <div class="popover-body"></div>
-                            </div>`
+                        template: '<div class="popover" role="tooltip"' +
+                            'style="max-width: none">' +
+                            '<div class="arrow"></div>' +
+                            '<h3 class="popover-header"></h3>' +
+                            '<div class="popover-body"></div>' +
+                            '</div>'
                     });
 
                     self.popover_initialized = true;
