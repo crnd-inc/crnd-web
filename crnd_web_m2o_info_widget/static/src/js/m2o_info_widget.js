@@ -177,6 +177,13 @@ odoo.define('crnd_web_m2o_info_widget.m2o_info_widget', function (require) {
                         html: true,
                         trigger: 'manual',
                         animation: true,
+                        template: `
+                            <div class="popover" role="tooltip"
+                                 style="max-width: none">
+                                <div class="arrow"></div>
+                                <h3 class="popover-header"></h3>
+                                <div class="popover-body"></div>
+                            </div>`
                     });
 
                     self.popover_initialized = true;
@@ -188,10 +195,7 @@ odoo.define('crnd_web_m2o_info_widget.m2o_info_widget', function (require) {
                     $info_popup.on('mouseleave', function () {
                         self.$info_icon.popover('hide');
                     });
-                    self.$info_icon.on('inserted.bs.popover', function () {
-                        $info_popup
-                            .parent().parent().css({'max-width': 'none'});
-                    });
+
                     def.resolve();
                 });
             }
