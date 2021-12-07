@@ -188,7 +188,7 @@ odoo.define('crnd_web_m2o_info_widget.m2o_info_widget', function (require) {
                     $info_popup.on('mouseleave', function () {
                         self.$info_icon.popover('hide');
                     });
-                    self.$info_icon.on('inserted.bs.popover', function (e) {
+                    self.$info_icon.on('inserted.bs.popover', function () {
                         $info_popup
                             .parent().parent().css({'max-width': 'none'});
                     });
