@@ -1,7 +1,12 @@
 /** @odoo-module **/
 
 import DiagramPlusView from './../src/js/diagram_view';
-import { createView } from 'web.test_utils';
+import {
+    createView,
+    dom,
+    fields,
+    nextTick,
+} from 'web.test_utils';
 import {
     GraphNode as CuteNodePlus,
     GraphEdge as CuteEdgePlus,
@@ -205,13 +210,13 @@ QUnit.module('DiagramPlus', {
             diagram.$('text:contains(a new node)').length, 0,
             "diagram should only have the default nodes at start");
 
-        await testUtils.dom.click(
+        await dom.click(
             diagram.$buttons.find('.o_diagram_plus_new_button'));
-        await testUtils.fields.editInput(
+        await fields.editInput(
             $('.modal-body input:first'), 'a new node');
-        await testUtils.fields.editInput(
+        await fields.editInput(
             $('.modal-body input:last'), 1);
-        await testUtils.dom.click(
+        await dom.click(
             $('.modal-footer button.btn-primary'));
 
         assert.containsN(
@@ -242,10 +247,10 @@ QUnit.module('DiagramPlus', {
             "diagram first node should have default name at first");
 
         CuteNodePlus.double_click_callback({id: 1});
-        await testUtils.nextTick();
-        await testUtils.fields.editInput(
+        await nextTick();
+        await fields.editInput(
             $('.modal-body input:first'), 'An edited node');
-        await testUtils.dom.click(
+        await dom.click(
             $('.modal-footer button.btn-primary'));
 
         assert.strictEqual(
@@ -271,8 +276,8 @@ QUnit.module('DiagramPlus', {
             "diagram should contain 2 'ellipse' nodes (nodes 2 and 3)");
 
         CuteNodePlus.destruction_callback({id: 2});
-        await testUtils.nextTick();
-        await testUtils.dom.click($('.modal-footer button.btn-primary'));
+        await nextTick();
+        await dom.click($('.modal-footer button.btn-primary'));
 
         assert.containsOnce(diagram, '.o_diagram_plus ellipse',
             "diagram should contain 1 'ellipse' nodes (node 2)");
@@ -304,10 +309,10 @@ QUnit.module('DiagramPlus', {
             get_start: function () {return {id: 1};},
             get_end: function () {return {id: 3};},
         });
-        await testUtils.nextTick();
-        await testUtils.fields.editInput(
+        await nextTick();
+        await fields.editInput(
             $('.modal-body input:first'), 'a transition from 1 to 3');
-        await testUtils.dom.click(
+        await dom.click(
             $('.modal-footer button.btn-primary'));
 
         assert.containsN(diagram, '.o_diagram_plus path', 5,
@@ -342,10 +347,10 @@ QUnit.module('DiagramPlus', {
             "diagram should only have the default edges at start");
 
         CuteEdgePlus.double_click_callback({id: 1});
-        await testUtils.nextTick();
-        await testUtils.fields.editInput(
+        await nextTick();
+        await fields.editInput(
             $('.modal-body input:first'), 'An edited edge');
-        await testUtils.dom.click(
+        await dom.click(
             $('.modal-footer button.btn-primary'));
 
         assert.strictEqual(
@@ -378,8 +383,8 @@ QUnit.module('DiagramPlus', {
             "diagram edge should have default name at start");
 
         CuteEdgePlus.destruction_callback({id: 3});
-        await testUtils.nextTick();
-        await testUtils.dom.click($('.modal-footer button.btn-primary'));
+        await nextTick();
+        await dom.click($('.modal-footer button.btn-primary'));
 
         assert.containsN(diagram, '.o_diagram_plus path', 3,
             "diagram should contain 3 'path' nodes " +
