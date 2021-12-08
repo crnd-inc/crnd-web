@@ -2,6 +2,7 @@
 
 import fieldRegistry from 'web.field_registry';
 import { FieldMany2One } from 'web.relational_fields';
+import { qweb } from 'web.core';
 
 var M2OInfo = FieldMany2One.extend({
 
@@ -173,12 +174,8 @@ var M2OInfo = FieldMany2One.extend({
                     html: true,
                     trigger: 'manual',
                     animation: true,
-                    template: '<div class="popover" role="tooltip"' +
-                        'style="max-width: none">' +
-                        '<div class="arrow"></div>' +
-                        '<h3 class="popover-header"></h3>' +
-                        '<div class="popover-body"></div>' +
-                        '</div>',
+                    template: qweb.render(
+                        'crnd_web_m2o_info_widget.popover_template', {}),
                 });
 
                 self.popover_initialized = true;

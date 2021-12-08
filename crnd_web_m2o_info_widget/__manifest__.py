@@ -11,6 +11,9 @@
         'web',
     ],
     'assets': {
+        'web.assets_qweb': [
+            'crnd_web_m2o_info_widget/static/src/xml/popover_template.xml',
+        ],
         'web.assets_backend': [
             'crnd_web_m2o_info_widget/static/src/scss/m2o_info_widget.scss',
 
