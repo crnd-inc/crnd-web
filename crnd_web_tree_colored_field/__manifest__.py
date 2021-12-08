@@ -1,4 +1,4 @@
-# pylint: disable=line-too-long
+# flake8: noqa: E501
 {
     'name': 'CRND web tree colored field',
     'version': '15.0.0.3.0',
