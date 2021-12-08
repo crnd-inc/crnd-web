@@ -1,3 +1,4 @@
+# pylint: disable=line-too-long
 {
     "name": "CRND Web Widget Section And Note Text",
     "version": "15.0.0.0.1",
