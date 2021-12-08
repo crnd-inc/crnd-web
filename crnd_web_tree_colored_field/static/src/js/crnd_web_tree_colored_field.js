@@ -17,10 +17,12 @@ ListRenderer.include({
 
         var nodeOptions = pyUtils.py_eval(node.attrs.options);
         if (nodeOptions.field_bg_color) {
-            $td.css('background-color', nodeOptions.field_bg_color);
+            var bg_color = record.data[nodeOptions.field_bg_color];
+            $td.css('background-color', bg_color);
         }
         if (nodeOptions.field_label_color) {
-            $td.css('color', nodeOptions.field_label_color);
+            var label_color = record.data[nodeOptions.field_label_color];
+            $td.css('color', label_color);
         }
         return $td;
     },
