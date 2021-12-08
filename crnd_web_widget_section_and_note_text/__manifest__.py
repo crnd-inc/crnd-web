@@ -1,6 +1,6 @@
 {
     "name": "CRND Web Widget Section And Note Text",
-    "version": "14.0.0.0.1",
+    "version": "15.0.0.0.1",
     "author": "Center of Research and Development",
     "website": "https://crnd.pro",
     'summary': 'Makes the standard section_and_note_text widget compatible '
@@ -12,9 +12,11 @@
         'crnd_web_list_popover_widget',
         'account',
     ],
-    'data': [
-        'views/assets_backend.xml',
-    ],
+    'assets': {
+        'web.assets_backend': [
+            'crnd_web_widget_section_and_note_text/static/src/js/crnd_web_section_and_note_text.js',
+        ],
+    },
     'installable': True,
     'auto_install': False,
 }
