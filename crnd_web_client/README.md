@@ -1,2 +1,0 @@
-CRnD Web Client
-===============
