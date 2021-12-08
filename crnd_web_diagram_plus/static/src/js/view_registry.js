@@ -1,10 +1,6 @@
-odoo.define('web_diagram_plus.view_registry', function (require) {
-    "use strict";
+/** @odoo-module **/
 
-    var view_registry = require('web.view_registry');
+import viewRegistry from 'web.view_registry';
+import DiagramPlusView from './diagram_view';
 
-    var DiagramPlusView = require('web_diagram_plus.DiagramPlusView');
-
-    view_registry.add('diagram_plus', DiagramPlusView);
-
-});
+viewRegistry.add('diagram_plus', DiagramPlusView);

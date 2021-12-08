@@ -47,19 +47,19 @@ class IrUiView(models.Model):
         for child in node:
             if child.tag == 'arrow':
                 self.with_context(
-                    base_model_name=name_manager.Model._name,
+                    base_model_name=name_manager.model._name,
                 )._postprocess_view(
-                    child, child.get('object'), name_manager.validate,
+                    child, child.get('object'),
                     editable=node_info['editable'],
                 )
             elif child.tag == 'node':
-                __, sub_name_manager = self.with_context(
-                    base_model_name=name_manager.Model._name,
+                sub_name_manager = self.with_context(
+                    base_model_name=name_manager.model._name,
                 )._postprocess_view(
-                    child, child.get('object'), name_manager.validate,
+                    child, child.get('object'),
                     editable=node_info['editable'],
                 )
-                has_create_access = sub_name_manager.Model.check_access_rights(
+                has_create_access = sub_name_manager.model.check_access_rights(
                     'create', raise_exception=False)
                 if not node.get('create') and not has_create_access:
                     node.set('create', 'false')

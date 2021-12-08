@@ -1,178 +1,172 @@
-/* eslint no-mixed-operators: 0 */
-odoo.define('web_diagram_plus.Graph', function (require) {
-    "use strict";
+/** @odoo-module **/
 
-    var Vec2D = require('web_diagram_plus.Vec2D');
+import { Vec2, BRect, BEllipse } from './vec2';
 
-    var Vec2 = Vec2D.Vec2;
-    var BRect = Vec2D.BRect;
-    var BEllipse = Vec2D.BEllipse;
+// This serves as the end of an edge when creating a link
+function EdgeEnd (pos_x, pos_y) {
+    this.x = pos_x;
+    this.y = pos_y;
 
-    // This serves as the end of an edge when creating a link
-    function EdgeEnd (pos_x, pos_y) {
-        this.x = pos_x;
-        this.y = pos_y;
+    this.get_pos = function () {
+        return new Vec2(this.x, this.y);
+    };
+}
 
-        this.get_pos = function () {
-            return new Vec2(this.x, this.y);
-        };
+// A close button,
+// if entity_type == "node":
+// GraphNode.destruction_callback(entity) is called where entity is a node.
+// If it returns true the node and all connected edges are destroyed.
+// if entity_type == "edge":
+// GraphEdge.destruction_callback(entity) is called where entity is an edge
+// If it returns true the edge is destroyed
+// pos_x,pos_y is the relative position of the close button to the
+// entity position (entity.get_pos())
+
+function CloseButton (graph, entity, entity_type, pos_x, pos_y) {
+    var self = this;
+    var visible = false;
+    var close_button_radius = graph.style.close_button_radius || 8;
+    var close_circle = graph.r.circle(
+        entity.get_pos().x + pos_x,
+        entity.get_pos().y + pos_y,
+        close_button_radius);
+    // The outer gray circle
+    close_circle.attr(
+        {
+            'opacity': 0,
+            'fill': graph.style.close_button_color || "black",
+            'cursor': 'pointer',
+            'stroke': 'none',
+        }
+    );
+    close_circle.transform(graph.get_transform());
+    graph.set_scrolling(close_circle);
+
+    // The 'x' inside the circle
+    var close_label = graph.r.text(
+        entity.get_pos().x + pos_x, entity.get_pos().y + pos_y, "x");
+    close_label.attr(
+        {
+            'fill': graph.style.close_button_x_color || "white",
+            'font-size': close_button_radius,
+            'cursor': 'pointer',
+        }
+    );
+
+    close_label.transform(graph.get_transform());
+    graph.set_scrolling(close_label);
+
+    // The dummy_circle is used to catch events, and avoid hover in/out
+    // madness between the 'x' and the button
+    var dummy_circle = graph.r.circle(
+        entity.get_pos().x + pos_x,
+        entity.get_pos().y + pos_y,
+        close_button_radius);
+    dummy_circle.attr(
+        {
+            'opacity':1,
+            'fill': 'transparent',
+            'stroke':'none',
+            'cursor':'pointer',
+        }
+    );
+    dummy_circle.transform(graph.get_transform());
+    graph.set_scrolling(dummy_circle);
+
+    this.get_pos = function () {
+        return entity.get_pos().add_xy(pos_x, pos_y);
+    };
+
+    this.update_pos = function () {
+        var pos = self.get_pos();
+        close_circle.attr({'cx':pos.x, 'cy':pos.y});
+        dummy_circle.attr({'cx':pos.x, 'cy':pos.y});
+        close_label.attr({'x':pos.x, 'y':pos.y});
+    };
+
+    function hover_in () {
+        if (!visible) {
+            return;
+        }
+        close_circle.animate(
+            {'r': close_button_radius * 1.5}, 300, 'elastic');
+        dummy_circle.animate(
+            {'r': close_button_radius * 1.5}, 300, 'elastic');
     }
-
-    // A close button,
-    // if entity_type == "node":
-    // GraphNode.destruction_callback(entity) is called where entity is a node.
-    // If it returns true the node and all connected edges are destroyed.
-    // if entity_type == "edge":
-    // GraphEdge.destruction_callback(entity) is called where entity is an edge
-    // If it returns true the edge is destroyed
-    // pos_x,pos_y is the relative position of the close button to the
-    // entity position (entity.get_pos())
-
-    function CloseButton (graph, entity, entity_type, pos_x, pos_y) {
-        var self = this;
-        var visible = false;
-        var close_button_radius = graph.style.close_button_radius || 8;
-        var close_circle = graph.r.circle(
-            entity.get_pos().x + pos_x,
-            entity.get_pos().y + pos_y,
-            close_button_radius);
-        // The outer gray circle
-        close_circle.attr(
-            {
-                'opacity': 0,
-                'fill': graph.style.close_button_color || "black",
-                'cursor': 'pointer',
-                'stroke': 'none',
-            }
-        );
-        close_circle.transform(graph.get_transform());
-        graph.set_scrolling(close_circle);
-
-        // The 'x' inside the circle
-        var close_label = graph.r.text(
-            entity.get_pos().x + pos_x, entity.get_pos().y + pos_y, "x");
-        close_label.attr(
-            {
-                'fill': graph.style.close_button_x_color || "white",
-                'font-size': close_button_radius,
-                'cursor': 'pointer',
-            }
-        );
-
-        close_label.transform(graph.get_transform());
-        graph.set_scrolling(close_label);
-
-        // The dummy_circle is used to catch events, and avoid hover in/out
-        // madness between the 'x' and the button
-        var dummy_circle = graph.r.circle(
-            entity.get_pos().x + pos_x,
-            entity.get_pos().y + pos_y,
-            close_button_radius);
-        dummy_circle.attr(
-            {
-                'opacity':1,
-                'fill': 'transparent',
-                'stroke':'none',
-                'cursor':'pointer',
-            }
-        );
-        dummy_circle.transform(graph.get_transform());
-        graph.set_scrolling(dummy_circle);
-
-        this.get_pos = function () {
-            return entity.get_pos().add_xy(pos_x, pos_y);
-        };
-
-        this.update_pos = function () {
-            var pos = self.get_pos();
-            close_circle.attr({'cx':pos.x, 'cy':pos.y});
-            dummy_circle.attr({'cx':pos.x, 'cy':pos.y});
-            close_label.attr({'x':pos.x, 'y':pos.y});
-        };
-
-        function hover_in () {
-            if (!visible) {
-                return;
-            }
-            close_circle.animate(
-                {'r': close_button_radius * 1.5}, 300, 'elastic');
-            dummy_circle.animate(
-                {'r': close_button_radius * 1.5}, 300, 'elastic');
+    function hover_out () {
+        if (!visible) {
+            return;
         }
-        function hover_out () {
-            if (!visible) {
-                return;
-            }
-            close_circle.animate(
-                {'r': close_button_radius}, 400, 'linear');
-            dummy_circle.animate(
-                {'r': close_button_radius}, 400, 'linear');
-        }
-        dummy_circle.hover(hover_in, hover_out);
-        close_circle.hover(hover_in, hover_out);
-        close_label.hover(hover_in, hover_out);
-
-        function click_action () {
-            if (!visible) {
-                return;
-            }
-
-            close_circle.attr({'r': close_button_radius * 2});
-            dummy_circle.attr({'r': close_button_radius * 2});
-            close_circle.animate({'r': close_button_radius}, 400, 'linear');
-            dummy_circle.animate({'r': close_button_radius}, 400, 'linear');
-
-            if (entity_type === "node") {
-                // eslint-disable-next-line no-use-before-define
-                Promise.resolve(GraphNode.destruction_callback(entity)).then(
-                    function () {
-                        entity.remove();
-                    }
-                );
-            } else if (entity_type === "edge") {
-                // eslint-disable-next-line no-use-before-define
-                Promise.resolve(GraphEdge.destruction_callback(entity)).then(
-                    function () {
-                        entity.remove();
-                    }
-                );
-            }
-        }
-        dummy_circle.click(click_action);
-        close_circle.click(click_action);
-        close_label.click(click_action);
-
-        this.show = function () {
-            if (!visible) {
-                close_circle.animate({'opacity': 1}, 100, 'linear');
-                close_label.animate({'opacity': 1}, 100, 'linear');
-                visible = true;
-            }
-        };
-        this.hide = function () {
-            if (visible) {
-                close_circle.animate({'opacity': 0}, 100, 'linear');
-                close_label.animate({'opacity': 0}, 100, 'linear');
-                visible = false;
-            }
-        };
-        // Destroy this object and remove it from the graph
-        this.remove = function () {
-            if (visible) {
-                visible = false;
-                close_circle.animate({'opacity': 0}, 100, 'linear');
-                close_label.animate(
-                    {'opacity': 0}, 100, 'linear', self.remove);
-            } else {
-                close_circle.remove();
-                close_label.remove();
-                dummy_circle.remove();
-            }
-        };
+        close_circle.animate(
+            {'r': close_button_radius}, 400, 'linear');
+        dummy_circle.animate(
+            {'r': close_button_radius}, 400, 'linear');
     }
+    dummy_circle.hover(hover_in, hover_out);
+    close_circle.hover(hover_in, hover_out);
+    close_label.hover(hover_in, hover_out);
 
-    // Connectors are start and end point of edge creation drags.
-    function Connector (graph, node, pos_x, pos_y) {
+    function click_action () {
+        if (!visible) {
+            return;
+        }
+
+        close_circle.attr({'r': close_button_radius * 2});
+        dummy_circle.attr({'r': close_button_radius * 2});
+        close_circle.animate({'r': close_button_radius}, 400, 'linear');
+        dummy_circle.animate({'r': close_button_radius}, 400, 'linear');
+
+        if (entity_type === "node") {
+            // eslint-disable-next-line no-use-before-define
+            Promise.resolve(GraphNode.destruction_callback(entity)).then(
+                function () {
+                    entity.remove();
+                }
+            );
+        } else if (entity_type === "edge") {
+            // eslint-disable-next-line no-use-before-define
+            Promise.resolve(GraphEdge.destruction_callback(entity)).then(
+                function () {
+                    entity.remove();
+                }
+            );
+        }
+    }
+    dummy_circle.click(click_action);
+    close_circle.click(click_action);
+    close_label.click(click_action);
+
+    this.show = function () {
+        if (!visible) {
+            close_circle.animate({'opacity': 1}, 100, 'linear');
+            close_label.animate({'opacity': 1}, 100, 'linear');
+            visible = true;
+        }
+    };
+    this.hide = function () {
+        if (visible) {
+            close_circle.animate({'opacity': 0}, 100, 'linear');
+            close_label.animate({'opacity': 0}, 100, 'linear');
+            visible = false;
+        }
+    };
+    // Destroy this object and remove it from the graph
+    this.remove = function () {
+        if (visible) {
+            visible = false;
+            close_circle.animate({'opacity': 0}, 100, 'linear');
+            close_label.animate(
+                {'opacity': 0}, 100, 'linear', self.remove);
+        } else {
+            close_circle.remove();
+            close_label.remove();
+            dummy_circle.remove();
+        }
+    };
+}
+
+// Connectors are start and end point of edge creation drags.
+function Connector (graph, node, pos_x, pos_y) {
         var visible = false;
         var conn_circle = graph.r.circle(
             node.get_pos().x + pos_x, node.get_pos().y + pos_y, 4);
@@ -295,14 +289,14 @@ odoo.define('web_diagram_plus.Graph', function (require) {
         this.hide = hide;
     }
 
-    // Creates a new graph on raphael document r.
+// Creates a new graph on raphael document r.
     // style is a dictionary containing the style definitions
     // viewport (optional) is the dom element representing the viewport of the
     // graph.
     // It is used to prevent scrolling to scroll the graph outside the
     // viewport.
 
-    function Graph (r, style, viewport) {
+function Graph (r, style, viewport) {
         var self = this;
         // List of all nodes in the graph
         var nodes = [];
@@ -608,10 +602,10 @@ odoo.define('web_diagram_plus.Graph', function (require) {
         };
     }
 
-    // Creates a new Graph Node on Raphael document r,
+// Creates a new Graph Node on Raphael document r,
     // centered on [pos_x,pos_y], with label 'label',
     // and of type 'circle' or 'rect', and of color 'color'
-    function GraphNode (graph, pos_x, pos_y, label, type, color, color_label) {
+function GraphNode (graph, pos_x, pos_y, label, type, color, color_label) {
         var self = this;
         var r = graph.r;
         var sy = graph.style.node_size_y;
@@ -857,24 +851,24 @@ odoo.define('web_diagram_plus.Graph', function (require) {
             graph, this, "node", sx / 2, - sy / 2);
     }
 
-    GraphNode.double_click_callback = function (node) {
+GraphNode.double_click_callback = function (node) {
         // eslint-disable-next-line no-console
         console.log("double click from node:", node);
     };
 
-    // This is the default node destruction callback.
+// This is the default node destruction callback.
     // It is called before the node is removed from the graph
     // and before the connected edges are destroyed
     // eslint-disable-next-line no-unused-vars
-    GraphNode.destruction_callback = function (node) {
+GraphNode.destruction_callback = function (node) {
         return true;
     };
 
-    // Creates a new edge with label 'label' from start to end.
+// Creates a new edge with label 'label' from start to end.
     // Start and end must implement get_pos_*,
     // if tmp is true, the edge is not added to the graph, used for drag edges.
     // replace tmp == false by graph == null
-    function GraphEdge (graph, label, start, end, tmp) {
+function GraphEdge (graph, label, start, end, tmp) {
         var self = this;
         var r = graph.r;
         // The 0 = straight, != 0 curved
@@ -1162,38 +1156,38 @@ odoo.define('web_diagram_plus.Graph', function (require) {
         };
     }
 
-    GraphEdge.double_click_callback = function (edge) {
+GraphEdge.double_click_callback = function (edge) {
         // eslint-disable-next-line no-console
         console.log("double click from edge:", edge);
     };
 
-    // This is the default edge creation callback.
+// This is the default edge creation callback.
     // It is called before an edge is created.
     // It returns an object containing the properties of the edge.
     // If it returns null, the edge is not created.
     // eslint-disable-next-line no-unused-vars
-    GraphEdge.creation_callback = function (start, end) {
+GraphEdge.creation_callback = function (start, end) {
         var edge_prop = {};
         edge_prop.label = 'new edge!';
         return edge_prop;
     };
-    // This is is called after a new edge is created, with the new edge
+// This is is called after a new edge is created, with the new edge
     // as parameter
     // eslint-disable-next-line no-empty-function, no-unused-vars
-    GraphEdge.new_edge_callback = function (new_edge) {};
+GraphEdge.new_edge_callback = function (new_edge) {};
 
-    // This is the default edge destruction callback. It is called before
+// This is the default edge destruction callback. It is called before
     // an edge is removed from the graph.
     // eslint-disable-next-line no-unused-vars
-    GraphEdge.destruction_callback = function (edge) {
+GraphEdge.destruction_callback = function (edge) {
         return true;
     };
 
-    // Returns a new string with the same content as str,
+// Returns a new string with the same content as str,
     // but with lines of maximum 'width' characters.
     // lines are broken on words, or
     // into words if a word is longer than 'width'
-    function wordwrap (str, width) {
+function wordwrap (str, width) {
         // http://james.padolsey.com/javascript/wordwrap-for-javascript/
         var width_norm = width || 32;
         var cut = true;
@@ -1206,11 +1200,9 @@ odoo.define('web_diagram_plus.Graph', function (require) {
         return str.match(new RegExp(regex, 'g')).join(brk);
     }
 
-    return {
-        CuteGraphPlus: Graph,
-        CuteNodePlus: GraphNode,
-        CuteEdgePlus: GraphEdge,
-        CuteGraphPlus_wordwrap: wordwrap,
-    };
-
-});
+export {
+    Graph,
+    GraphNode,
+    GraphEdge,
+    wordwrap,
+};
