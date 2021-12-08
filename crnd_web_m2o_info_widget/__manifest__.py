@@ -14,6 +14,7 @@
         'templates/templates.xml',
     ],
     'qweb': [
+        'static/src/xml/popover_template.xml',
     ],
 
     'installable': True,
