@@ -2,7 +2,8 @@
 
 import fieldRegistry from 'web.field_registry';
 import { FieldChar } from 'web.basic_fields';
-import CRNDListFieldText from 'crnd_web_list_popover_widget.DynamicTextPopover';
+import CRNDListFieldText from
+        '@crnd_web_list_popover_widget/js/list_text_popover_widget';
 
 // This is a merge between a CRNDListFieldText and a CRNDFieldChar.
 // We want a FieldChar for section,
