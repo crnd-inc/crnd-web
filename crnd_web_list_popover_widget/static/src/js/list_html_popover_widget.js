@@ -1,40 +1,39 @@
-odoo.define('crnd_web_list_popover_widget.DynamicHtmlPopover', function (require) {
-    "use strict";
-    var Registry = require('web.field_registry');
-    var FieldTextHtmlSimple = require('web_editor.field.html');
-    var DynamicPopoverMixin = require(
-        'crnd_web_list_popover_widget.DynamicPopoverMixin').DynamicPopoverMixin;
+/** @odoo-module **/
 
-    var DynamicHtmlPopover = FieldTextHtmlSimple.extend(DynamicPopoverMixin, {
+import fieldRegistry from 'web.field_registry';
+import FieldHtml from 'web_editor.field.html';
+import DynamicPopoverMixin from './list_popover_mixin';
 
-        init: function () {
-            this._super.apply(this, arguments);
-            DynamicPopoverMixin.init.call(this, arguments);
-            this.allow_html = true;
-        },
+var DynamicHtmlPopover = FieldHtml.extend(DynamicPopoverMixin, {
 
-        get_popover_content: function () {
-            // Reject default data for an empty HTML field,
-            // because we should not see an empty popover
-            if (this.value === '<p><br></p>' ||
-                this.value === '<p><br/></p>') {
-                return '';
-            }
-            return DynamicPopoverMixin.get_popover_content.call(this);
-        },
+    init: function () {
+        this._super.apply(this, arguments);
+        DynamicPopoverMixin.init.call(this, arguments);
+        this.allow_html = true;
+    },
 
-        start: function () {
-            DynamicPopoverMixin.start.call(this);
-            return this._super();
-        },
+    get_popover_content: function () {
+        // Reject default data for an empty HTML field,
+        // because we should not see an empty popover
+        if (this.value === '<p><br></p>' ||
+            this.value === '<p><br/></p>') {
+            return '';
+        }
+        return DynamicPopoverMixin.get_popover_content.call(this);
+    },
 
-        destroy: function () {
-            DynamicPopoverMixin.destroy.call(this);
-            this._super.apply(this, arguments);
-        },
+    start: function () {
+        DynamicPopoverMixin.start.call(this);
+        return this._super();
+    },
 
-    });
+    destroy: function () {
+        DynamicPopoverMixin.destroy.call(this);
+        this._super.apply(this, arguments);
+    },
 
-    Registry.add('list.dynamic_popover_html', DynamicHtmlPopover);
-    return DynamicHtmlPopover;
 });
+
+fieldRegistry.add('list.dynamic_popover_html', DynamicHtmlPopover);
+
+export default DynamicHtmlPopover;
