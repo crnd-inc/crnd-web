@@ -108,10 +108,10 @@ var M2OInfo = FieldMany2One.extend({
      */
     _renderInfoPopUpRow: function (data, field_name) {
         var $row = $('<tr>');
-        $('<th>').text(
-            data[field_name].name + ":").appendTo($row);
-        $('<td>').text(
-            data[field_name].value).appendTo($row);
+        $('<th>').text(data[field_name].name + ":")
+            .addClass('info_label')
+            .appendTo($row);
+        $('<td>').text(data[field_name].value).appendTo($row);
         var $copy_cell = $('<td>').appendTo($row);
         var $copy = $('<span>')
             .addClass('m2o-info-copy btn btn-sm btn-outline-primary')
@@ -173,6 +173,12 @@ var M2OInfo = FieldMany2One.extend({
                     html: true,
                     trigger: 'manual',
                     animation: true,
+                    template: '<div class="popover" role="tooltip"' +
+                        'style="max-width: none">' +
+                        '<div class="arrow"></div>' +
+                        '<h3 class="popover-header"></h3>' +
+                        '<div class="popover-body"></div>' +
+                        '</div>',
                 });
 
                 self.popover_initialized = true;

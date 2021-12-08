@@ -10,13 +10,14 @@
     'depends': [
         'web',
     ],
-    'data': [
-        'templates/templates.xml',
-    ],
-    'qweb': [
-        'static/src/xml/popover_template.xml',
-    ],
+    'assets': {
+        'web.assets_backend': [
+            'crnd_web_m2o_info_widget/static/src/scss/m2o_info_widget.scss',
 
+            'crnd_web_m2o_info_widget/static/src/js/form_renderer.js',
+            'crnd_web_m2o_info_widget/static/src/js/m2o_info_widget.js',
+        ],
+    },
     'installable': True,
     'application': False,
     'auto_install': False,
