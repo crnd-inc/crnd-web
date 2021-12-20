@@ -1,11 +1,11 @@
 {
-    'name': 'Many2One Info Widget',
-    'category': '',
-    'summary': 'Many2One Info Widget',
+    'name': 'CRND web tree field action',
+    'version': '13.0.0.1.0',
     'author': "Center of Research and Development",
     'website': "https://crnd.pro",
+    'summary': """""",
     'license': 'LGPL-3',
-    'version': '13.0.0.4.0',
+    'category': 'Technical Settings',
 
     'depends': [
         'web',
@@ -13,11 +13,8 @@
     'data': [
         'templates/templates.xml',
     ],
-    'qweb': [
-        'static/src/xml/popover_template.xml',
-    ],
-
+    'demo': [],
+    'images': ['static/description/banner.png'],
     'installable': True,
-    'application': False,
     'auto_install': False,
 }
