@@ -1,0 +1,11 @@
+<templates>
+
+    <t t-name="crnd_web_m2o_info_widget.popover_template">
+        <div class="popover" role="tooltip" style="max-width: none">
+            <div class="arrow"></div>
+            <h3 class="popover-header"></h3>
+            <div class="popover-body"></div>
+        </div>
+    </t>
+
+</templates>

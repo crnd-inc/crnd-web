@@ -5,6 +5,9 @@ odoo.define('crnd_web_m2o_info_widget.m2o_info_widget', function (require) {
     var fieldRegistry = require('web.field_registry');
     var relationFields = require('web.relational_fields');
     var fieldMany2One = relationFields.FieldMany2One;
+    var core = require('web.core');
+    var qweb = core.qweb;
+
 
     var M2OInfo = fieldMany2One.extend({
 
@@ -111,8 +114,9 @@ odoo.define('crnd_web_m2o_info_widget.m2o_info_widget', function (require) {
          */
         _renderInfoPopUpRow: function (data, field_name) {
             var $row = $('<tr>');
-            $('<th>').text(
-                data[field_name].name + ":").appendTo($row);
+            $('<th>').text(data[field_name].name + ":")
+                .addClass('info_label')
+                .appendTo($row);
             $('<td>').text(
                 data[field_name].value).appendTo($row);
             var $copy_cell = $('<td>').appendTo($row);
@@ -176,6 +180,8 @@ odoo.define('crnd_web_m2o_info_widget.m2o_info_widget', function (require) {
                         html: true,
                         trigger: 'manual',
                         animation: true,
+                        template: qweb.render(
+                            'crnd_web_m2o_info_widget.popover_template', {}),
                     });
 
                     self.popover_initialized = true;
@@ -187,6 +193,7 @@ odoo.define('crnd_web_m2o_info_widget.m2o_info_widget', function (require) {
                     $info_popup.on('mouseleave', function () {
                         self.$info_icon.popover('hide');
                     });
+
                     def.resolve();
                 });
             }
