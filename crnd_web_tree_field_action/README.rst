@@ -1,5 +1,5 @@
-CRND web tree colored field
-===========================
+CRND web tree field action
+==========================
 
 .. |badge2| image:: https://img.shields.io/badge/license-LGPL--3-blue.png
     :target: http://www.gnu.org/licenses/lgpl-3.0-standalone.html
@@ -17,7 +17,9 @@ CRND web tree colored field
 
 |badge2| |badge4| |badge5|
 
-CRND Web Tree Colored Field widget provide to display tree cell with color from another field.
+CRND Web Tree Field Action allows you to define a tree field for behavior similar to that of a button by adding the name and type of the action to the options.
+
+Sample:  <field name="my_fields" options="{'on_click': {'action': 'action_name', 'type': 'action|object'}}"/>.
 
 Read the `Website Service Desk <https://crnd.pro/doc-bureaucrat-itsm/11.0/en/Website_Service_Desk_eng/>`__ Module Guide for more information.
 
