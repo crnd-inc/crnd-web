@@ -5,7 +5,7 @@
     'author': "Center of Research and Development",
     'website': "https://crnd.pro",
     'license': 'LGPL-3',
-    'version': '12.0.0.3.0',
+    'version': '12.0.0.4.0',
 
     'depends': [
         'web',
@@ -14,6 +14,7 @@
         'templates/templates.xml',
     ],
     'qweb': [
+        'static/src/xml/popover_template.xml',
     ],
 
     'installable': True,
