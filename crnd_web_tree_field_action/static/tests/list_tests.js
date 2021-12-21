@@ -25,15 +25,16 @@ odoo.define('crnd_web_tree_field_action.list_tests', function (require) {
                             test_field_1: 'value_2_1',
                             test_field_2: 'value_2_2',
                         },
-                    ]
+                    ],
                 },
             };
-        }
+        },
     }, function () {
 
         QUnit.test('opening action when clicking on cell', function (assert) {
             assert.expect(1);
 
+            /* eslint-disable */
             var list = createView({
                 View: ListView,
                 model: 'test_model',
@@ -43,6 +44,7 @@ odoo.define('crnd_web_tree_field_action.list_tests', function (require) {
                           '<field name="test_field_2" class="field_with_action" options="{\'on_click\': {\'action\': \'%(action_name)d\', \'type\': \'action\'}}"/>' +
                       '</tree>',
             });
+            /* eslint-enable */
 
             testUtils.intercept(list, 'button_clicked', function () {
                 assert.ok('list view should trigger button_clicked event');
