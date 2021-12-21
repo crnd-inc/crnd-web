@@ -7,7 +7,7 @@
     </xpath>
   </template>
 
-  <template id="crnd_web_qunit_suite" inherit_id="web.qunit_suite">
+  <template id="crnd_web_qunit_suite" inherit_id="web.qunit_suite_tests">
     <xpath expr="//script[last()]" position="after">
         <script type="text/javascript" src="/crnd_web_float_full_time_widget/static/tests/float_full_time_widget_tests.js"/>
     </xpath>
