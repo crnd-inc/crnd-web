@@ -13,6 +13,6 @@
         'views/assets_backend.xml',
     ],
     'images': ['static/description/banner.gif'],
-    'installable': False,
+    'installable': True,
     'auto_install': False,
 }
