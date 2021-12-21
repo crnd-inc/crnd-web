@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="float_full_time_wiget" model="float.full.time.widget">
+        <field name="time_1">5000</field>
+        <field name="time_2">5000</field>
+    </record>
+
+    <record id="float_time_duration_widget" model="float.time.duration.widget">
+        <field name="time_1">100000</field>
+        <field name="time_2">100000</field>
+        <field name="time_3">100000</field>
+        <field name="time_4">100000</field>
+    </record>
+</odoo>
