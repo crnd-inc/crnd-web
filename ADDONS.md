@@ -11,4 +11,4 @@
 | crnd_web_tree_colored_field | CRND web tree colored field | LGPL-3 | 12.0.0.2.0 |  |  |
 | crnd_web_tree_field_action | CRND web tree field action | LGPL-3 | 12.0.0.2.0 |  |  |
 | crnd_web_widget_popup_image | CRND Web Image Popup Widget | LGPL-3 | 12.0.0.2.0 | Popup images from the binary fields |  |
-| test_crnd_web_models | Test CRND Web Models | LGPL-3 | 12.0.0.2.0 | Module for testing web addons. |  |
+| test_crnd_web_models | Test CRND Web Models | LGPL-3 | 12.0.0.3.0 | Module for testing web addons. |  |
