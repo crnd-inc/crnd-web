@@ -6,4 +6,10 @@
             <script type="text/javascript" src="/crnd_web_tree_field_action/static/src/js/list_renderer.js"></script>
         </xpath>
     </template>
+
+    <template id="qunit_suite" name="crnd_web_tree_field_action tests" inherit_id="web.qunit_suite">
+        <xpath expr="//script[contains(@src, '/web/static/tests/views/kanban_tests.js')]" position="after">
+            <script type="text/javascript" src="/crnd_web_tree_field_action/static/tests/list_tests.js"></script>
+        </xpath>
+    </template>
 </odoo>
