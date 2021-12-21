@@ -90,7 +90,7 @@ migration_tests:
         - odoo-helper --use-unbuffer addons update-list
         - odoo-helper --use-unbuffer addons update --db $ODOO_DB_NAME --dir .
     script:
-        - odoo-helper --use-unbuffer test --fail-on-warn --coverage-report --dir .
+        - odoo-helper --use-unbuffer test --coverage-report --dir .
     coverage: '/^TOTAL\s+\d+\s+\d+\s+(\d+\%)/'
     only:
         - /^12.0-.*$/   # only branches that started with '12.0-'
