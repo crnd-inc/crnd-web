@@ -37,7 +37,15 @@ odoo.define('crnd_web_tree_field_action.ListRenderer', function (require) {
             if (nodeOptions.on_click.type === 'action' ||
                 nodeOptions.on_click.type === 'object') {
                 var self = this;
-                $td.on("click", function (e) {
+
+                var $btn = $('<button>')
+                    .text($td.text())
+                    .css('width', '100%')
+                    .addClass('btn')
+                    .addClass(nodeOptions.on_click.class
+                        ? nodeOptions.on_click.class : 'btn-secondary');
+
+                $btn.on("click", function (e) {
                     e.stopPropagation();
                     self.trigger_up('button_clicked', {
                         attrs: {
@@ -47,6 +55,9 @@ odoo.define('crnd_web_tree_field_action.ListRenderer', function (require) {
                         record: record,
                     });
                 });
+
+                $td.empty();
+                $btn.appendTo($td);
             }
 
             return $td;

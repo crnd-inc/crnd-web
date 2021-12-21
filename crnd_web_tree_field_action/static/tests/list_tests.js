@@ -39,16 +39,16 @@ odoo.define('crnd_web_tree_field_action.list_tests', function (require) {
                 model: 'test_model',
                 data: this.data,
                 arch: '<tree>' +
-                        '<field name="test_field_1"/>' +
-                        '<field name="test_field_2" class="field_with_action" options="{\'on_click\': {\'action\': \'%(action_name)d\', \'type\': \'action\'}}"/>' +
-                    '</tree>',
+                          '<field name="test_field_1"/>' +
+                          '<field name="test_field_2" class="field_with_action" options="{\'on_click\': {\'action\': \'%(action_name)d\', \'type\': \'action\'}}"/>' +
+                      '</tree>',
             });
 
             testUtils.intercept(list, 'button_clicked', function () {
                 assert.ok('list view should trigger button_clicked event');
             });
 
-            list.$('tr td.field_with_action').first().click();
+            list.$('tr td.field_with_action button').first().click();
             list.destroy();
         });
     });
