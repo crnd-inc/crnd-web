@@ -2,3 +2,5 @@ id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_pw_text_model_user,crnd_web_pw_text_model,model_popover_widget_text_model,base.group_system,1,1,1,1
 access_pw_html_model_user,crnd_web_pw_html_model,model_popover_widget_html_model,base.group_system,1,1,1,1
 access_pw_char_model_user,crnd_web_pw_char_model,model_popover_widget_char_model,base.group_system,1,1,1,1
+access_float_full_time_widget_user,crnd_web_float_full_time_widget,model_float_full_time_widget,base.group_system,1,1,1,1
+access_float_time_duration_widget_user,crnd_web_float_time_duration_widget,model_float_time_duration_widget,base.group_system,1,1,1,1
