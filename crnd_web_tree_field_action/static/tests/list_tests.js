@@ -31,11 +31,11 @@ odoo.define('crnd_web_tree_field_action.list_tests', function (require) {
         },
     }, function () {
 
-        QUnit.test('opening action when clicking on cell', function (assert) {
+        QUnit.test('opening action when clicking on cell', async function (assert) {
             assert.expect(1);
 
             /* eslint-disable */
-            var list = createView({
+            var list = await createView({
                 View: ListView,
                 model: 'test_model',
                 data: this.data,
@@ -46,11 +46,11 @@ odoo.define('crnd_web_tree_field_action.list_tests', function (require) {
             });
             /* eslint-enable */
 
-            testUtils.intercept(list, 'button_clicked', function () {
+            testUtils.mock.intercept(list, 'button_clicked', function () {
                 assert.ok('list view should trigger button_clicked event');
             });
 
-            list.$('tr td.field_with_action button').first().click();
+            testUtils.dom.click(list.$('tr td.field_with_action button').first());
             list.destroy();
         });
     });
