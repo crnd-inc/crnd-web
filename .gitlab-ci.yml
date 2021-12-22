@@ -105,7 +105,7 @@ tests:
         - apt update -q
         - apt install -qy poppler-utils
     script:
-        - odoo-helper --use-unbuffer test --coverage --coverage-report --coverage-skip-covered --coverage-fail-under 35 --create-test-db --dir .
+        - odoo-helper --use-unbuffer test --coverage --coverage-report --coverage-skip-covered --coverage-fail-under 15 --create-test-db --dir .
     <<: *except_auto_commits
     coverage: '/^TOTAL\s+\d+\s+\d+\s+(\d+\%)/'
 
@@ -129,7 +129,7 @@ migration_tests:
         - odoo-helper --use-unbuffer addons update-list
         - odoo-helper --use-unbuffer addons update --db $ODOO_DB_NAME --dir .
     script:
-        - odoo-helper --use-unbuffer test --coverage --coverage-report --coverage-skip-covered --coverage-fail-under 35 --dir .
+        - odoo-helper --use-unbuffer test --coverage --coverage-report --coverage-skip-covered --coverage-fail-under 15 --dir .
     coverage: '/^TOTAL\s+\d+\s+\d+\s+(\d+\%)/'
     <<: *only_dev_branch
     <<: *except_auto_commits
