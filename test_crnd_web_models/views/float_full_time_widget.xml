@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_float_full_time_widget_tree" model="ir.ui.view">
+        <field name="name">view.popover.widget.char.model.tree</field>
+        <field name="model">float.full.time.widget</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="time_1"
+                       string="Float Full Time(round_off: True)"
+                       widget="float_full_time"
+                       options="{'round_off': True}"/>
+                <field name="time_2"
+                       string="Float Full Time(round_off: False)"
+                       widget="float_full_time"
+                       options="{'round_off': False}"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_float_time_duration_widget_tree" model="ir.ui.view">
+        <field name="name">view.popover.widget.char.model.tree</field>
+        <field name="model">float.time.duration.widget</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="time_1"
+                       string="Float Time Duration(round_off: True, time_only: True)"
+                       widget="float_time_duration"
+                       options="{'round_off': True, 'time_only': True}"/>
+                <field name="time_2"
+                       string="Float Time Duration(round_off: True, time_only: False)"
+                       widget="float_time_duration"
+                       options="{'round_off': True, 'time_only': False}"/>
+                <field name="time_3"
+                       string="Float Time Duration(round_off: False, time_only: True)"
+                       widget="float_time_duration"
+                       options="{'round_off': False, 'time_only': True}"/>
+                <field name="time_4"
+                       string="Float Time Duration(round_off: False, time_only: False)"
+                       widget="float_time_duration"
+                       options="{'round_off': False, 'time_only': False}"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_float_full_time_widget_form" model="ir.ui.view">
+        <field name="name">view.popover.widget.char.model.form</field>
+        <field name="model">float.full.time.widget</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="time_1"
+                               string="Float Full Time(round_off: True)"
+                               widget="float_full_time"
+                               options="{'round_off': True}"/>
+                        <field name="time_2"
+                               string="Float Full Time(round_off: False)"
+                               widget="float_full_time"
+                               options="{'round_off': False}"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_float_time_duration_widget_form" model="ir.ui.view">
+        <field name="name">view.popover.widget.char.model.form</field>
+        <field name="model">float.time.duration.widget</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet><group>
+                        <field name="time_1"
+                               string="Float Time Duration(round_off: True, time_only: True)"
+                               widget="float_time_duration"
+                               options="{'round_off': True, 'time_only': True}"/>
+                        <field name="time_2"
+                               string="Float Time Duration(round_off: True, time_only: False)"
+                               widget="float_time_duration"
+                               options="{'round_off': True, 'time_only': False}"/>
+                        <field name="time_3"
+                               string="Float Time Duration(round_off: False, time_only: True)"
+                               widget="float_time_duration"
+                               options="{'round_off': False, 'time_only': True}"/>
+                        <field name="time_4"
+                               string="Float Time Duration(round_off: False, time_only: False)"
+                               widget="float_time_duration"
+                               options="{'round_off': False, 'time_only': False}"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_float_full_time_widget_model" model="ir.actions.act_window">
+        <field name="name">Float full time widget</field>
+        <field name="res_model">float.full.time.widget</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_float_time_duration_widget_model" model="ir.actions.act_window">
+        <field name="name">Float full time widget</field>
+        <field name="res_model">float.time.duration.widget</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem name="Float Time Widget"
+              id="float_full_time_parent_menu_item"
+              sequence="200"
+              parent="crnd_web_tests"/>
+
+    <menuitem name="Float full time"
+              id="float_full_time_widget_menu_item"
+              sequence="200"
+              parent="float_full_time_parent_menu_item"
+              action="action_float_full_time_widget_model"/>
+
+    <menuitem name="Float time duration"
+              id="float_time_duration_widget_menu_item"
+              sequence="200"
+              parent="float_full_time_parent_menu_item"
+              action="action_float_time_duration_widget_model"/>
+
+</odoo>
