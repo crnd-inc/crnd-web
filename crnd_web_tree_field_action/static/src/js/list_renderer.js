@@ -21,6 +21,10 @@ odoo.define('crnd_web_tree_field_action.ListRenderer', function (require) {
                 return $td;
             }
 
+            if ($td.hasClass('o_invisible_modifier')) {
+                return $td;
+            }
+
             if (!node.attrs.options) {
                 return $td;
             }
@@ -40,7 +44,6 @@ odoo.define('crnd_web_tree_field_action.ListRenderer', function (require) {
 
                 var $btn = $('<button>')
                     .text($td.text())
-                    .css('width', '100%')
                     .addClass('btn')
                     .addClass(nodeOptions.on_click.class
                         ? nodeOptions.on_click.class : 'btn-secondary');
