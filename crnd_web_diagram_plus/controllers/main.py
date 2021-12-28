@@ -1,6 +1,8 @@
+import json
 import logging
 import odoo.http as http
 
+from odoo import exceptions, _
 from odoo.tools.safe_eval import safe_eval
 
 _logger = logging.getLogger(__name__)
@@ -27,6 +29,25 @@ class DiagramPlusView(http.Controller):
         bg_color_field = kw.get('bg_color_field', '')
         fg_color_field = kw.get('fg_color_field', '')
         shape = kw.get('shape', '')
+        auto_layout = kw.get('auto_layout', True)
+        d_position_field = kw.get('d_position_field', False)
+        calc_auto_layout = kw.get('calc_auto_layout', False)
+
+        init_view = False
+        x_offset = 50
+        y_offset = 50
+
+        if not auto_layout:
+            if d_position_field:
+                node_model_fields = http.request.env['request.stage']._fields
+                if not d_position_field in node_model_fields:
+                    raise exceptions.ValidationError(
+                        _("Incorrect fields for node position")
+                    )
+            else:
+                raise exceptions.MissingError(
+                    _("Not set fields for node position")
+                )
 
         if bgcolor:
             for color_spec in bgcolor.split(';'):
@@ -43,19 +64,51 @@ class DiagramPlusView(http.Controller):
         ir_view = http.request.env['ir.ui.view']
         graphs = ir_view.graph_get(int(id), model, node, connector, src_node,
                                    des_node, label, (140, 180))
-        nodes = graphs['nodes']
-        transitions = graphs['transitions']
+        nodes = {}
         isolate_nodes = {}
-        for blnk_node in graphs['blank_nodes']:
-            isolate_nodes[blnk_node['id']] = blnk_node
-        y = [
-            t['y']
+        if not auto_layout and not calc_auto_layout:
+            nodes_data = http.request.env[model].browse([id]).stage_ids
+            for n in nodes_data:
+                if n[d_position_field]:
+                    nodes[str(n.id)] = {
+                        'name': n.name,
+                        'x': json.loads(n[d_position_field])['x'],
+                        'y': json.loads(n[d_position_field])['y'],
+                    }
+                else:
+                    isolate_nodes[n.id] = {
+                        'name': n.name,
+                    }
+        if not nodes:
+            init_view = True
+            nodes = graphs['nodes']
+            isolate_nodes = {}
+            for blnk_node in graphs['blank_nodes']:
+                isolate_nodes[blnk_node['id']] = blnk_node
+
+        transitions = graphs['transitions']
+
+        if auto_layout or calc_auto_layout:
+            y = [
+                t['y']
+                for t in nodes.values()
+                if t['x'] == 20
+                if t['y']
+            ]
+        else:
+            y = [
+                t['y']
+                for t in nodes.values()
+                if t['y']
+            ]
+        x = [
+            t['x']
             for t in nodes.values()
-            if t['x'] == 20
-            if t['y']
+            if t['x']
         ]
         # pylint: disable=consider-using-ternary
-        y_max = (y and max(y)) or 120
+        y_max = max(y) if y else 120
+        x_min = min(x) - x_offset if x and not auto_layout and not calc_auto_layout else 20
 
         connectors = {}
         list_tr = []
@@ -101,7 +154,10 @@ class DiagramPlusView(http.Controller):
             if not n:
                 n = isolate_nodes.get(act['id'], {})
                 y_max += 140
-                n.update(x=20, y=y_max)
+                n.update(
+                    x=x_min + (
+                        0 if auto_layout or calc_auto_layout else x_offset),
+                    y=y_max)
                 nodes[act['id']] = n
 
             n.update(
@@ -125,6 +181,20 @@ class DiagramPlusView(http.Controller):
 
             for i, fld in enumerate(visible_node_fields):
                 n['options'][node_fields_string[i]] = act[fld]
+
+        if init_view and not auto_layout:
+            for key, n in nodes.items():
+                n.update(
+                    x=int(n['x']) + x_offset,
+                    y=int(n['y']) + y_offset,
+                )
+                if not auto_layout:
+                    http.request.env[node].browse([int(key)]).write({
+                        d_position_field: json.dumps({
+                            'x': n['x'],
+                            'y': n['y'],
+                        })
+                    })
 
         _id, name = http.request.env[model].browse([id]).name_get()[0]
         return dict(nodes=nodes,

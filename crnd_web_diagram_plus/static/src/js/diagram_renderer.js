@@ -22,6 +22,17 @@ odoo.define('web_diagram_plus.DiagramPlusRenderer', function (require) {
 
         /**
          * @override
+         */
+        init: function () {
+            this._super.apply(this, arguments);
+            this.node_size_x = 110;
+            this.node_size_y = 80;
+            this.diagram_padding = 20;
+            this.diagram_in_dom = false;
+        },
+
+        /**
+         * @override
          * @returns {Deferred}
          */
         start: function () {
@@ -32,6 +43,48 @@ odoo.define('web_diagram_plus.DiagramPlusRenderer', function (require) {
             this.$diagram_container = this.$el.filter('.o_diagram_plus');
 
             return this._super.apply(this, arguments);
+        },
+
+        on_attach_callback: function () {
+            this._super.apply(this, arguments);
+            this.diagram_in_dom = true;
+            this.align_diagram();
+        },
+
+        on_detach_callback: function () {
+            this._super.apply(this, arguments);
+            this.diagram_in_dom = false;
+        },
+
+        align_diagram: function () {
+            if (!this.auto_layout) {
+                // Alignment of the diagram to the left and if it has a height less
+                // than the height of the container, then in the center,
+                // else to the top
+                var nodes = this.state.nodes;
+
+                var array_of_x = Object.values(nodes).map(function (node) {
+                    return node.x;
+                });
+                var array_of_y = Object.values(nodes).map(function (node) {
+                    return node.y;
+                });
+
+                var min_x = Math.min.apply(Math, array_of_x);
+                var min_y = Math.min.apply(Math, array_of_y);
+                var max_y = Math.max.apply(Math, array_of_y);
+
+                var diagram_height = Math.abs(max_y - min_y) +
+                    this.node_size_y + 2 * this.diagram_padding;
+                var d_container_height = this.$diagram_container.height();
+
+                var tr_x = this.node_size_x / 2 + this.diagram_padding - min_x;
+                var tr_y = d_container_height >= diagram_height
+                    ? this.node_size_y + (d_container_height - diagram_height - this.node_size_y) / 2 - min_y
+                    : this.node_size_y - min_y;
+
+                this.graph.translate_graph(tr_x, tr_y);
+            }
         },
 
         // --------------------------------------------------------------------
@@ -61,8 +114,8 @@ odoo.define('web_diagram_plus.DiagramPlusRenderer', function (require) {
                 node_outline_width: 1,
                 node_selected_color: "#0097BE",
                 node_selected_width: 2,
-                node_size_x: 110,
-                node_size_y: 80,
+                node_size_x: this.node_size_x,
+                node_size_y: this.node_size_y,
                 connector_active_color: "#FFF",
                 connector_radius: 4,
 
@@ -92,14 +145,14 @@ odoo.define('web_diagram_plus.DiagramPlusRenderer', function (require) {
             ).appendTo($('body'));
             // eslint-disable-next-line no-undef
             var r = new Raphael($div[0], '100%', '100%');
-            var graph = new CuteGraphPlus(
+            this.graph = new CuteGraphPlus(
                 r, style, this.$diagram_container[0]);
             _.each(nodes, function (node) {
                 var n = new CuteNodePlus(
-                    graph,
+                    self.graph,
                     // FIXME the +50 should be in the layout algorithm
-                    node.x + 50,
-                    node.y + 50,
+                    node.x,
+                    node.y,
                     CuteGraphPlus_wordwrap(node.name, 14),
                     node.shape === 'rectangle' ? 'rect' : 'circle',
                     node.color === 'white' || node.color === 'gray'
@@ -113,7 +166,7 @@ odoo.define('web_diagram_plus.DiagramPlusRenderer', function (require) {
             });
             _.each(edges, function (edge) {
                 var e = new CuteEdgePlus(
-                    graph,
+                    self.graph,
                     CuteGraphPlus_wordwrap(edge.signal, 32),
                     id_to_node[edge.s_id],
                     // WORKAROUND
@@ -128,6 +181,7 @@ odoo.define('web_diagram_plus.DiagramPlusRenderer', function (require) {
             CuteNodePlus.double_click_callback = function (cutenode) {
                 self.trigger_up('edit_node', {id: cutenode.id});
             };
+
             CuteNodePlus.destruction_callback = function (cutenode) {
                 self.trigger_up('remove_node', {id: cutenode.id});
                 // Return a rejected deferred to prevent the library
@@ -135,6 +189,13 @@ odoo.define('web_diagram_plus.DiagramPlusRenderer', function (require) {
                 // as the diagram will be redrawn once the node is deleted
                 return $.Deferred().reject();
             };
+
+            CuteNodePlus.drag_up_callback = function (cutenode) {
+                if (!self.state.auto_layout) {
+                    self.trigger_up('change_node_position', {node: cutenode});
+                }
+            };
+
             CuteEdgePlus.double_click_callback = function (cuteedge) {
                 self.trigger_up('edit_edge', {id: cuteedge.id});
             };
@@ -157,6 +218,11 @@ odoo.define('web_diagram_plus.DiagramPlusRenderer', function (require) {
                 // as the diagram will be redrawn once the edge is deleted
                 return $.Deferred().reject();
             };
+
+            if (this.diagram_in_dom) {
+                this.align_diagram();
+            }
+
             return this._super.apply(this, arguments);
         },
     });

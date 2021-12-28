@@ -7,6 +7,7 @@ odoo.define('web_diagram_plus.DiagramPlusView', function (require) {
     var DiagramPlusRenderer = require('web_diagram_plus.DiagramPlusRenderer');
     var DiagramPlusController = require(
         'web_diagram_plus.DiagramPlusController');
+    var pyUtils = require("web.py_utils");
 
     var _lt = core._lt;
 
@@ -55,6 +56,7 @@ odoo.define('web_diagram_plus.DiagramPlusView', function (require) {
                     return label.attrs.string;
                 }
             );
+            var auto_layout = arch.attrs.auto_layout !== 'False';
 
             var invisible_nodes = [];
             var visible_nodes = [];
@@ -88,6 +90,7 @@ odoo.define('web_diagram_plus.DiagramPlusView', function (require) {
                 connectors: connectors,
                 connector_model: connector_model,
                 connector_fields_string: connector_fields_string,
+                auto_layout: auto_layout,
             });
 
             this.controllerParams = _.extend({}, this.controllerParams, {
