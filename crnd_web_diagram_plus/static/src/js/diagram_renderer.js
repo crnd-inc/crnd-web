@@ -29,6 +29,7 @@ odoo.define('web_diagram_plus.DiagramPlusRenderer', function (require) {
             this.node_size_y = 80;
             this.diagram_padding = 20;
             this.diagram_in_dom = false;
+            this.diagram_offset = this.state.auto_layout ? 50 : 0;
         },
 
         /**
@@ -158,8 +159,8 @@ odoo.define('web_diagram_plus.DiagramPlusRenderer', function (require) {
                 var n = new CuteNodePlus(
                     self.graph,
                     // FIXME the +50 should be in the layout algorithm
-                    node.x,
-                    node.y,
+                    node.x + self.diagram_offset,
+                    node.y + self.diagram_offset,
                     CuteGraphPlus_wordwrap(node.name, 14),
                     node.shape === 'rectangle' ? 'rect' : 'circle',
                     node.color === 'white' || node.color === 'gray'
