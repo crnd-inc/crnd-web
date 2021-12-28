@@ -21,7 +21,7 @@ odoo.define('web_diagram_plus.DiagramPlusController', function (require) {
             edit_node: '_onEditNode',
             remove_edge: '_onRemoveEdge',
             remove_node: '_onRemoveNode',
-            change_node_position: '_onChangeNodePosition'
+            change_node_position: '_onChangeNodePosition',
         },
 
         /**
@@ -190,14 +190,14 @@ odoo.define('web_diagram_plus.DiagramPlusController', function (require) {
         _onChangeNodePosition: function (event) {
             var d_position_field = this.model.nodes.attrs.d_position_field;
             var node_position = JSON.stringify(event.data.node.get_pos());
+            var values = {};
+            values[d_position_field] = node_position;
             this._rpc({
                 model: this.model.node_model,
                 method: 'write',
                 args: [
                     [event.data.node.id],
-                    {
-                        'diagram_position': node_position,
-                    }
+                    values,
                 ],
             });
         },

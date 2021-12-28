@@ -39,14 +39,15 @@ class DiagramPlusView(http.Controller):
 
         if not auto_layout:
             if d_position_field:
-                node_model_fields = http.request.env['request.stage']._fields
-                if not d_position_field in node_model_fields:
-                    raise exceptions.ValidationError(
-                        _("Incorrect fields for node position")
+                node_model_fields = http.request.env[node]._fields
+                if d_position_field not in node_model_fields:
+                    raise exceptions.MissingError(
+                        _("Field '%s' does not exist in model '%s'",
+                          d_position_field, node)
                     )
             else:
                 raise exceptions.MissingError(
-                    _("Not set fields for node position")
+                    _("Field for node position is not set")
                 )
 
         if bgcolor:
@@ -108,7 +109,8 @@ class DiagramPlusView(http.Controller):
         ]
         # pylint: disable=consider-using-ternary
         y_max = max(y) if y else 120
-        x_min = min(x) - x_offset if x and not auto_layout and not calc_auto_layout else 20
+        x_min = min(x) - x_offset \
+            if x and not auto_layout and not calc_auto_layout else 20
 
         connectors = {}
         list_tr = []

@@ -7,7 +7,6 @@ odoo.define('web_diagram_plus.DiagramPlusView', function (require) {
     var DiagramPlusRenderer = require('web_diagram_plus.DiagramPlusRenderer');
     var DiagramPlusController = require(
         'web_diagram_plus.DiagramPlusController');
-    var pyUtils = require("web.py_utils");
 
     var _lt = core._lt;
 

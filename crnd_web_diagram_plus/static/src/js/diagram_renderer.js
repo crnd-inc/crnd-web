@@ -58,8 +58,8 @@ odoo.define('web_diagram_plus.DiagramPlusRenderer', function (require) {
 
         align_diagram: function () {
             if (!this.auto_layout) {
-                // Alignment of the diagram to the left and if it has a height less
-                // than the height of the container, then in the center,
+                // Alignment of the diagram to the left and if it has a height
+                // less than the height of the container, then in the center,
                 // else to the top
                 var nodes = this.state.nodes;
 
@@ -75,12 +75,12 @@ odoo.define('web_diagram_plus.DiagramPlusRenderer', function (require) {
                 var max_y = Math.max.apply(Math, array_of_y);
 
                 var diagram_height = Math.abs(max_y - min_y) +
-                    this.node_size_y + 2 * this.diagram_padding;
+                    this.node_size_y + (2 * this.diagram_padding);
                 var d_container_height = this.$diagram_container.height();
 
-                var tr_x = this.node_size_x / 2 + this.diagram_padding - min_x;
+                var tr_x = (this.node_size_x / 2) + this.diagram_padding - min_x;
                 var tr_y = d_container_height >= diagram_height
-                    ? this.node_size_y + (d_container_height - diagram_height - this.node_size_y) / 2 - min_y
+                    ? this.node_size_y + ((d_container_height - diagram_height - this.node_size_y) / 2) - min_y
                     : this.node_size_y - min_y;
 
                 this.graph.translate_graph(tr_x, tr_y);
