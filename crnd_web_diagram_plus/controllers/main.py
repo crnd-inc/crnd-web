@@ -42,9 +42,9 @@ class DiagramPlusView(http.Controller):
                 node_model_fields = http.request.env[node]._fields
                 if d_position_field not in node_model_fields:
                     raise exceptions.MissingError(
-                        _("Field '%s' does not exist in model '%s'",
-                          d_position_field, node)
-                    )
+                        _("Field '%(field)s' does not exist "
+                          "in model '%(model)s'",
+                          field=d_position_field, model=node))
             else:
                 raise exceptions.MissingError(
                     _("Field for node position is not set")
