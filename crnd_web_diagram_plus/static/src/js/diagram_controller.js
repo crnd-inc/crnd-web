@@ -118,8 +118,7 @@ odoo.define('web_diagram_plus.DiagramPlusController', function (require) {
                         self.model.calc_auto_layout = true;
                         self.reload();
                     },
-                },
-            );
+                });
         },
         /* eslint-enable */
 
