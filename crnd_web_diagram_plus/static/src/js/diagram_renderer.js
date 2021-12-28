@@ -56,7 +56,7 @@ odoo.define('web_diagram_plus.DiagramPlusRenderer', function (require) {
             this.diagram_in_dom = false;
         },
 
-        // eslint-disable
+        /* eslint-disable */
         align_diagram: function () {
             if (!this.auto_layout) {
                 // Alignment of the diagram to the left and if it has a height
@@ -92,7 +92,7 @@ odoo.define('web_diagram_plus.DiagramPlusRenderer', function (require) {
                 this.graph.translate_graph(tr_x, tr_y);
             }
         },
-        // eslint-enable
+        /* eslint-enable */
 
         // --------------------------------------------------------------------
         // Private
