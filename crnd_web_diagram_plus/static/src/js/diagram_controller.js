@@ -107,6 +107,7 @@ odoo.define('web_diagram_plus.DiagramPlusController', function (require) {
             });
         },
 
+        /* eslint-disable */
         _autoLayout: function () {
             var self = this;
             Dialog.confirm(
@@ -120,6 +121,7 @@ odoo.define('web_diagram_plus.DiagramPlusController', function (require) {
                 },
             );
         },
+        /* eslint-enable */
 
         // --------------------------------------------------------------------
         // Handlers
