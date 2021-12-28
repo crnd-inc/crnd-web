@@ -108,8 +108,17 @@ odoo.define('web_diagram_plus.DiagramPlusController', function (require) {
         },
 
         _autoLayout: function () {
-            this.model.calc_auto_layout = true;
-            this.reload();
+            var self = this;
+            Dialog.confirm(
+                this,
+                "Do you really want to change the positions of the nodes?",
+                {
+                    confirm_callback: function () {
+                        self.model.calc_auto_layout = true;
+                        self.reload();
+                    },
+                },
+            );
         },
 
         // --------------------------------------------------------------------
