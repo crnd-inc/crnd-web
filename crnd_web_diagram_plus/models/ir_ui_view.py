@@ -10,6 +10,7 @@ class IrUiView(models.Model):
     # pylint: disable=too-many-locals
     # pylint: disable=too-many-branches
     # pylint: disable=translation-positional-used
+    # pylint: disable=too-many-statements
 
     _inherit = 'ir.ui.view'
 
@@ -27,8 +28,7 @@ class IrUiView(models.Model):
 
         _fields = {}
         color_fields = {}
-        auto_layout = False if node.attrib.get('auto_layout', True) == 'False'\
-            else True
+        auto_layout = not node.attrib.get('auto_layout') == 'False'
         if model not in self.env:
             self.raise_view_error(
                 _('Model not found: %(model)s') % dict(model=model), view_id)
