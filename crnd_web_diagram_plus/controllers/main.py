@@ -37,19 +37,6 @@ class DiagramPlusView(http.Controller):
         x_offset = 50
         y_offset = 50
 
-        if not auto_layout:
-            if d_position_field:
-                node_model_fields = http.request.env[node]._fields
-                if d_position_field not in node_model_fields:
-                    raise exceptions.MissingError(
-                        _("Field '%(field)s' does not exist "
-                          "in model '%(model)s'",
-                          field=d_position_field, model=node))
-            else:
-                raise exceptions.MissingError(
-                    _("Field for node position is not set")
-                )
-
         if bgcolor:
             for color_spec in bgcolor.split(';'):
                 if color_spec:

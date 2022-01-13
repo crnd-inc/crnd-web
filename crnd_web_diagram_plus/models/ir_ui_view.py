@@ -27,6 +27,8 @@ class IrUiView(models.Model):
 
         _fields = {}
         color_fields = {}
+        auto_layout = False if node.attrib.get('auto_layout', True) == 'False'\
+            else True
         if model not in self.env:
             self.raise_view_error(
                 _('Model not found: %(model)s') % dict(model=model), view_id)
@@ -50,6 +52,21 @@ class IrUiView(models.Model):
                     not self._context.get("create", True) and
                     is_base_model):
                 node.set("create", 'false')
+            if not auto_layout:
+                d_position_field = \
+                    node.getchildren()[0].get('d_position_field', False)
+                if not d_position_field:
+                    message = _(
+                        "Field d_position_field must be present in"
+                        " diagram_plus[node], because set auto_layout='False'"
+                    )
+                    self.raise_view_error(message, view_id)
+                if d_position_field not in node_fields:
+                    message = _(
+                        "Field `%(field_name)s` does not exist"
+                    ) % dict(field_name=d_position_field)
+                    self.raise_view_error(message, view_id)
+
         if node.getchildren()[1].tag == 'arrow':
             arrow_fields = self.env[
                 node.getchildren()[1].get('object')].fields_get(None)
