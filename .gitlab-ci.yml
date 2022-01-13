@@ -105,7 +105,7 @@ tests:
         - apt update -q
         - apt install -qy poppler-utils
     script:
-        - odoo-helper --use-unbuffer test --coverage --coverage-report --coverage-skip-covered --coverage-fail-under 35 --create-test-db --dir .
+        - odoo-helper --use-unbuffer test --coverage --coverage-report --coverage-skip-covered --coverage-fail-under 30 --create-test-db --dir .
     <<: *except_auto_commits
     coverage: '/^TOTAL\s+\d+\s+\d+\s+(\d+\%)/'
 
