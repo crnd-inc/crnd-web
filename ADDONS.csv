@@ -1,5 +1,6 @@
 "System Name","Name","License","Version","Summary","Price",
 "crnd_web_action_nothing","CRND web action nothing","LGPL-3","14.0.0.1.0","","",
+"crnd_web_action_readonly","CRND web action readonly","LGPL-3","14.0.0.1.0","","",
 "crnd_web_button_box_full_width","CRND Web Button Box Fullwidth","LGPL-3","14.0.0.1.1","Button_box at the top of the form","",
 "crnd_web_client","CRnD Web Client","OPL-1","14.0.1.1.1","Web Client Extention","",
 "crnd_web_diagram_plus","CRnD Web Diagram Plus","LGPL-3","14.0.0.4.1","Odoo Web Diagram view by CRnD.","",
