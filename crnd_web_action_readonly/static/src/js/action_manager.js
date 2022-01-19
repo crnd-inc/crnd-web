@@ -11,9 +11,13 @@ odoo.define("crnd_web_action_readonly.ActionManager", function (require) {
                     this.getCurrentControllerInDialog();
 
                 if (currentDialogController.widget.modelName === actModel) {
-                    return currentDialogController.widget._setMode('readonly');
+                    return currentDialogController.widget.update({
+                        mode: 'readonly',
+                    });
                 } else if (currentController.widget.modelName === actModel) {
-                    return currentController.widget._setMode('readonly');
+                    return currentController.widget.update({
+                        mode: 'readonly',
+                    });
                 }
 
                 return $.Deferred().resolve();
