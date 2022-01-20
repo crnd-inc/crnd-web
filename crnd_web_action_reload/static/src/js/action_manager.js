@@ -4,7 +4,7 @@ odoo.define("crnd_web_action_reload.ActionManager", function (require) {
     require('web.ActionManager').include({
 
         _handleAction: function (action) {
-            if (action.type === "ir.actions.reload") {
+            if (action.type === "ir.actions.reload.view") {
                 var actModel = action.context.active_model;
                 var currentController = this.getCurrentController();
                 var currentDialogController =

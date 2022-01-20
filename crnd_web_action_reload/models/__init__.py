@@ -1,1 +1,1 @@
-from . import ir_actions_reload
+from . import ir_actions_reload_view
