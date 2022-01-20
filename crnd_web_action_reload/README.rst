@@ -17,7 +17,7 @@ CRND Web Action Reload
 
 |badge2| |badge4| |badge5|
 
-CRND Web Action Reload is designed to reload the view by adding code to the action method: return { 'type': 'ir.actions.reload' }
+CRND Web Action Reload is designed to reload the view by adding code to the action method: return { 'type': 'ir.actions.reload.view' }
 
 This module is part of the Bureaucrat ITSM project.
 You can try it by the references below.
