@@ -2,6 +2,7 @@
 |---|---|---|---|---|---|
 | crnd_web_action_nothing | CRND web action nothing | LGPL-3 | 12.0.0.1.0 |  |  |
 | crnd_web_action_readonly | CRND web action readonly | LGPL-3 | 12.0.0.1.0 |  |  |
+| crnd_web_action_reload | CRND web action reload | LGPL-3 | 12.0.0.1.0 |  |  |
 | crnd_web_button_box_full_width | CRND Web Button Box Fullwidth | LGPL-3 | 12.0.0.1.0 | Button_box at the top of the form |  |
 | crnd_web_client | CRnD Web Client | OPL-1 | 12.0.1.1.0 | Web Client Extention |  |
 | crnd_web_diagram_fix | CRND Web Diagram Fix | LGPL-3 | 12.0.0.1.1 | Fix for web diagram view |  |
