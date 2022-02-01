@@ -18,7 +18,7 @@ odoo.define('crnd_web_view_refresh_timed.AbstractController', function (require)
         },
 
         update: function (params, options) {
-            var reload = (options && 'reload' in options)
+            var reload = options && 'reload' in options
                 ? options.reload : true;
             if (this._crndViewRefreshTimer && reload) {
                 this._setCRnDRefreshViewTimer(true);
