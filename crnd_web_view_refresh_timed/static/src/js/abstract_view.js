@@ -16,11 +16,13 @@ odoo.define('crnd_web_view_refresh_timed.AbstractView', function (require) {
                         var interval = time.slice(0, -1);
                         var dimension = time.slice(-1);
                         if ((dimension === 's' || dimension === 'm') &&
-                            /^\d+$/.test(interval)) {
+                            (/^\d+$/).test(interval)) {
                             var dCoefficient = 1;
-                            if (dimension === 'm') dCoefficient = 60;
+                            if (dimension === 'm') {
+                                dCoefficient = 60;
+                            }
                             self.controllerParams.crndViewRefreshInterval =
-                                parseInt(interval) * dCoefficient * 1000;
+                                parseInt(interval, 10) * dCoefficient * 1000;
                         }
                     }
                 });
