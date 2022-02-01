@@ -17,7 +17,7 @@ CRND Web Action Ediatable
 
 |badge2| |badge4| |badge5|
 
-CRND Web Action Readonly is designed to switch the view to edit mode by adding code to the action method: return { 'type': 'ir.actions.view.editable' }
+CRND Web Action Editable is designed to switch the view to edit mode by adding code to the action method: return { 'type': 'ir.actions.view.editable' }
 
 This module is part of the Bureaucrat ITSM project.
 You can try it by the references below.
