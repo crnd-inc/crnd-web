@@ -27,6 +27,7 @@ odoo.define('crnd_web_view_refresh_timed.AbstractController', function (require)
             return this._super.apply(this, arguments);
         },
 
+        // eslint-disable-next-line
         _setCRnDRefreshViewTimer: function (cancelPrevTimer = false) {
             if (cancelPrevTimer) clearTimeout(this._crndViewRefreshTimer);
             this._crndViewRefreshTimer = setTimeout(this.reload.bind(this),
