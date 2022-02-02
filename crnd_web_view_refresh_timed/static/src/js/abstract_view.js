@@ -36,6 +36,6 @@ odoo.define('crnd_web_view_refresh_timed.AbstractView', function (require) {
                         parseInt(interval, 10) * dCoefficient * 1000;
                 }
             }
-        }
+        },
     });
 });
