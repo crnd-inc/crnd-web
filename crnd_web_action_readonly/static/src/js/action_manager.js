@@ -7,14 +7,15 @@ odoo.define("crnd_web_action_readonly.ActionManager", function (require) {
             if (action.type === "ir.actions.readonly") {
                 var actModel = action.context.active_model;
                 var currentController = this.getCurrentController();
-                var currentDialogController =
-                    this.getCurrentControllerInDialog();
 
-                if (currentDialogController.widget.modelName === actModel) {
-                    return currentDialogController.widget.update({
+                if (this.currentDialogController &&
+                    this.currentDialogController.widget.modelName ===
+                    actModel) {
+                    return this.currentDialogController.widget.update({
                         mode: 'readonly',
                     });
-                } else if (currentController.widget.modelName === actModel) {
+                } else if (currentController &&
+                    currentController.widget.modelName === actModel) {
                     return currentController.widget.update({
                         mode: 'readonly',
                     });
