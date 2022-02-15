@@ -1,3 +1,4 @@
+// eslint-disable
 odoo.define("crnd_web_on_create_action.onCreateActionControllerMixin", function (require) {
     "use strict";
 
@@ -11,7 +12,7 @@ odoo.define("crnd_web_on_create_action.onCreateActionControllerMixin", function 
             }
         },
 
-        onCreateAction: function (record=false) {
+        onCreateAction: function (record) {
             var self = this;
             this.trigger_up('button_clicked', {
                 attrs: {

@@ -1,3 +1,4 @@
+// eslint-disable
 odoo.define("crnd_web_on_create_action.onCreateActionViewMixin", function (require) {
     "use strict";
 
