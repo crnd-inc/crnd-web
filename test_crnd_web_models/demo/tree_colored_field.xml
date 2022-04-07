@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="tree_colored_field_brown_bg_dark_label"
+            model="tree.colored.field">
+        <field name="name">Simple text for demonstration light brown colored field</field>
+        <field name="bg_color">l_brown_bg</field>
+        <field name="label_color">dark</field>
+    </record>
+
+    <record id="tree_colored_field_green_bg_dark_label"
+            model="tree.colored.field">
+        <field name="name">Simple text for demonstration light green colored field</field>
+        <field name="bg_color">l_green_bg</field>
+        <field name="label_color">dark</field>
+    </record>
+
+    <record id="tree_colored_field_blue_bg_dark_label"
+            model="tree.colored.field">
+        <field name="name">Simple text for demonstration light blue colored field</field>
+        <field name="bg_color">l_blue_bg</field>
+        <field name="label_color">dark</field>
+    </record>
+
+    <record id="tree_colored_field_brown_bg_white_label"
+            model="tree.colored.field">
+        <field name="name">Simple text for demonstration light brown colored field white label</field>
+        <field name="bg_color">l_brown_bg</field>
+        <field name="label_color">white</field>
+    </record>
+
+    <record id="tree_colored_field_green_bg_white_label"
+            model="tree.colored.field">
+        <field name="name">Simple text for demonstration light green colored field white label</field>
+        <field name="bg_color">l_green_bg</field>
+        <field name="label_color">white</field>
+    </record>
+
+    <record id="tree_colored_field_blue_bg_white_label"
+            model="tree.colored.field">
+        <field name="name">Simple text for demonstration light blue colored field white label</field>
+        <field name="bg_color">l_blue_bg</field>
+        <field name="label_color">white</field>
+    </record>
+
+</odoo>
