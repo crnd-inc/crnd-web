@@ -7,8 +7,10 @@
     "license": "LGPL-3",
     'category': 'Technical Settings',
     'depends': [
+        'crnd_web_diagram_plus',
         'crnd_web_list_popover_widget',
         'crnd_web_float_full_time_widget',
+        'crnd_web_tree_colored_field',
     ],
     'demo': [
         'demo/popover_widget.xml',
@@ -23,6 +25,7 @@
         'views/popover_widget.xml',
         'views/float_full_time_widget.xml',
         'views/tree_colored_field.xml',
+        'views/web_diagram_plus.xml',
     ],
     'images': [],
     'installable': True,

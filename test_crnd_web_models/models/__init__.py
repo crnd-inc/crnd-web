@@ -5,4 +5,5 @@ from . import (
     float_full_time_widget,
     float_time_duration_widget,
     tree_colored_field,
+    web_diagram_plus,
 )

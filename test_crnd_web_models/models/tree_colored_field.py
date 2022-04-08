@@ -8,7 +8,7 @@ DARK_LABEL_COLOR = 'rgba(70,70,70,1)'
 WHITE_LABEL_COLOR = 'rgba(255,255,255,1)'
 
 
-class PopoverWidgetCharModel(models.Model):
+class TreeColoredField(models.Model):
     _name = 'tree.colored.field'
     _description = 'Tree Colored Field'
 

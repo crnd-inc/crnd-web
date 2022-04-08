@@ -89,6 +89,7 @@
     </record>
 
     <record id="action_float_full_time_widget_model" model="ir.actions.act_window">
+        <field name="name">Float full time widget</field>
         <field name="res_model">float.full.time.widget</field>
         <field name="view_mode">tree,form</field>
     </record>

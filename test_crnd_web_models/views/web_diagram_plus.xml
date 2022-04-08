@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_web_diagram_plus_tree" model="ir.ui.view">
+        <field name="model">web.diagram.plus</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_web_diagram_plus_form" model="ir.ui.view">
+        <field name="model">web.diagram.plus</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="node_ids"/>
+                        <field name="arrow_ids"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_web_diagram_plus_model" model="ir.actions.act_window">
+        <field name="name">Web Diagram Plus Model</field>
+        <field name="res_model">web.diagram.plus</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem name="Web Diagram Plus"
+              id="web_diagram_plus_parent_menu_item"
+              sequence="220"
+              parent="crnd_web_tests"/>
+
+    <menuitem name="Web Diagram Plus"
+              id="web_diagram_plus_menu_item"
+              sequence="10"
+              parent="web_diagram_plus_parent_menu_item"
+              action="action_web_diagram_plus_model"/>
+
+</odoo>
