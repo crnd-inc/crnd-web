@@ -32,7 +32,6 @@ Simple example for internal usage:
     .. code:: xml
 
         <record model="ir.ui.view" id="some_id">
-            <field name="name">some_name</field>
             <field name="model">model.name</field>
             <field name="arch" type="xml">
                 <diagram_plus>
