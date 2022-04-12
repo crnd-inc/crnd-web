@@ -16,6 +16,7 @@
         'demo/popover_widget.xml',
         'demo/float_full_time_widget.xml',
         'demo/tree_colored_field.xml',
+        'demo/web_diagram_plus.xml',
     ],
     'data': [
         'security/ir.model.access.csv',
@@ -26,6 +27,8 @@
         'views/float_full_time_widget.xml',
         'views/tree_colored_field.xml',
         'views/web_diagram_plus.xml',
+        'views/web_diagram_plus_arrow.xml',
+        'views/web_diagram_plus_node.xml',
     ],
     'images': [],
     'installable': True,

@@ -15,13 +15,46 @@
         <field name="arch" type="xml">
             <form>
                 <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_web_diagram_plus"
+                                type="object"
+                                string="View Diagram"
+                                class="oe_stat_button"
+                                icon="fa-code-fork">
+                        </button>
+                    </div>
                     <group>
                         <field name="name"/>
-                        <field name="node_ids"/>
-                        <field name="arrow_ids"/>
+                        <field name="node_ids" widget="many2many_tags"/>
+                        <field name="arrow_ids" widget="many2many_tags"/>
                     </group>
                 </sheet>
             </form>
+        </field>
+    </record>
+
+    <record id="view_web_diagram_plus" model="ir.ui.view">
+        <field name="model">web.diagram.plus</field>
+        <field name="type">diagram_plus</field>
+        <field name="arch" type="xml">
+            <diagram_plus>
+                <node object="web.diagram.plus.node"
+                      bgcolor="gray:closed"
+                      bg_color_field="res_bg_color"
+                      fg_color_field="res_label_color">
+                    <field name="name"/>
+                    <field name="res_bg_color"/>
+                    <field name="res_label_color"/>
+                </node>
+                <arrow object="web.diagram.plus.arrow"
+                       source="from_node_id"
+                       destination="to_node_id"
+                       label="['name']">
+                    <field name="from_node_id"/>
+                    <field name="to_node_id"/>
+                    <field name="name"/>
+                </arrow>
+            </diagram_plus>
         </field>
     </record>
 
