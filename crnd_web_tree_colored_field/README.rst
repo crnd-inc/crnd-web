@@ -21,6 +21,32 @@ CRND Web Tree Colored Field widget provide to display tree cell with color from 
 
 Read the `Website Service Desk <https://crnd.pro/doc-bureaucrat-itsm/11.0/en/Website_Service_Desk_eng/>`__ Module Guide for more information.
 
+Usage
+'''''
+
+Simple example for internal usage:
+
+    .. code:: py
+
+        line_bg_color = fields.Char('rgba(R,G,B[,A])')
+        line_label_color = fields.Char('rgba(R,G,B[,A])')
+
+    .. code:: xml
+
+        <record id="some_id" model="ir.ui.view">
+            <field name="model">model.name</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="colored_field"
+                           options="{
+                               'field_bg_color': 'line_bg_color',
+                               'field_label_color': 'line_label_color'}"/>
+                    <field name="line_bg_color" invisible="1"/>
+                    <field name="line_label_color" invisible="1"/>
+                </tree>
+            </field>
+        </record>
+
 This module is part of the Bureaucrat ITSM project.
 You can try it by the references below.
 
