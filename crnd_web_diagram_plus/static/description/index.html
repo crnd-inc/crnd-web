@@ -17,9 +17,9 @@
 <li><p>Added possibility to specify background and foreground colors of nodes (via fields).</p>
     <p><br></p>
     <p>An example of internal usage:</p>
-    <pre>    &lt;record model="ir.ui.view" id="some_id"&gt;
-        &lt;field name="name"&gt;some_name&lt;/field&gt;
+    <pre>    &lt;record id="some_id" model="ir.ui.view"&gt;
         &lt;field name="model"&gt;model.name&lt;/field&gt;
+        &lt;field name="type"&gt;diagram_plus&lt;/field&gt;
         &lt;field name="arch" type="xml"&gt;
             &lt;diagram_plus&gt;
                 &lt;node object="name.of.model"

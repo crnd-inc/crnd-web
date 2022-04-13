@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_web_diagram_plus_node_tree" model="ir.ui.view">
+        <field name="model">web.diagram.plus.node</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="web_diagram_id"/>
+                <field name="arrow_in_ids"/>
+                <field name="arrow_out_ids"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_web_diagram_plus_node_form" model="ir.ui.view">
+        <field name="model">web.diagram.plus.node</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="web_diagram_id"/>
+                        </group>
+                        <group>
+                            <field name="res_bg_color"/>
+                            <field name="res_label_color"/>
+                        </group>
+                        <group>
+                            <field name="arrow_in_ids" widget="many2many_tags"/>
+                            <field name="arrow_out_ids" widget="many2many_tags"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_web_diagram_plus_node_model" model="ir.actions.act_window">
+        <field name="name">Web Diagram Plus Node Model</field>
+        <field name="res_model">web.diagram.plus.node</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem name="Web Diagram Plus Nodes"
+              id="web_diagram_plus_node_menu_item"
+              sequence="10"
+              parent="web_diagram_plus_parent_menu_item"
+              action="action_web_diagram_plus_node_model"/>
+
+</odoo>
