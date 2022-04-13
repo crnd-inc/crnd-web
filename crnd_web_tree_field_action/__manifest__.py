@@ -11,9 +11,16 @@
         'web',
     ],
     'data': [
-        'templates/templates.xml',
     ],
     'demo': [],
+    'assets': {
+        'web.assets_qweb': [
+            'crnd_web_tree_field_action/static/tests/list_tests.js',
+        ],
+        'web.assets_backend': [
+            'crnd_web_tree_field_action/static/src/js/list_renderer.js',
+        ],
+    },
     'images': ['static/description/banner.png'],
     'installable': True,
     'auto_install': False,

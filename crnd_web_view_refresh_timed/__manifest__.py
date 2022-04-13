@@ -11,8 +11,13 @@
         'web',
     ],
     'data': [
-        'templates/templates.xml',
     ],
+    'assets': {
+        'web.assets_backend': [
+            'crnd_web_view_refresh_timed/static/src/js/abstract_view.js',
+            'crnd_web_view_refresh_timed/static/src/js/abstract_controller.js',
+        ],
+    },
     'demo': [],
     'images': ['static/description/banner.png'],
     'installable': True,

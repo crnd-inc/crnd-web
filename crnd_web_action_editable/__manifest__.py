@@ -12,9 +12,13 @@
     ],
     'data': [
         'security/ir.model.access.csv',
-        'templates/templates.xml',
     ],
     'demo': [],
+    'assets': {
+        'web.assets_backend': [
+            'crnd_web_action_editable/static/src/js/action_manager.js',
+        ],
+    },
     'images': ['static/description/banner.png'],
     'installable': True,
     'auto_install': False,

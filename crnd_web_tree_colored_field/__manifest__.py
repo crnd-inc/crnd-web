@@ -13,7 +13,8 @@
     ],
     'assets': {
         'web.assets_backend': [
-            '/crnd_web_tree_colored_field/static/src/js/crnd_web_tree_colored_field.js',
+            'crnd_web_tree_colored_field'
+            '/static/src/js/crnd_web_tree_colored_field.js',
         ],
     },
     'demo': [],

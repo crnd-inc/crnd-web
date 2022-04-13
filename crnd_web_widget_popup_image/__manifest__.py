@@ -10,8 +10,15 @@
         'web',
     ],
     'data': [
-        'views/assets_backend.xml',
     ],
+    'assets': {
+        'web.assets_backend': [
+            'crnd_web_widget_popup_image/static/lib/magnific_popup/magnific-popup.css',
+            'crnd_web_widget_popup_image/static/lib/magnific_popup/jquery.magnific-popup.min.js',
+            'crnd_web_widget_popup_image/static/src/less/image_on_treeview.less',
+            'crnd_web_widget_popup_image/static/src/js/image_popup.js',
+        ],
+    },
     'images': ['static/description/banner.gif'],
     'installable': True,
     'auto_install': False,
