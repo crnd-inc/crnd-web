@@ -31,9 +31,9 @@ Simple example for internal usage:
 
     .. code:: xml
 
-        <record model="ir.ui.view" id="some_id">
-            <field name="name">some_name</field>
+        <record id="some_id" model="ir.ui.view">
             <field name="model">model.name</field>
+            <field name="type">diagram_plus</field>
             <field name="arch" type="xml">
                 <diagram_plus>
                     <node object="name.of.model"

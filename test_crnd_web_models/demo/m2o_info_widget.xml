@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="web_m2o_info_widget_demo_1"
+            model="m2o.info.widget">
+        <field name="name">Demo Info Widget 1</field>
+        <field name="partner_id" ref="base.res_partner_12"/>
+        <field name="widget_partner_id" ref="base.res_partner_12"/>
+    </record>
+
+</odoo>

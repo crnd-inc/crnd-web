@@ -13,6 +13,27 @@
 <p>CRnD Web Tree Colored Field widget provide to display tree cell with color from another field.</p>
 </div>
 <p><br></p>
+    <p>An example of internal usage:</p>
+    <p>In Python code:</p>
+    <pre>
+        line_bg_color = fields.Char('rgba(R,G,B[,A])')
+        line_label_color = fields.Char('rgba(R,G,B[,A])')
+    </pre>
+    <p>In XML code:</p>
+    <pre>   &lt;record id="some_id" model="ir.ui.view"&gt;
+        &lt;field name="model"&gt;model.name&lt;/field&gt;
+        &lt;field name="arch" type="xml"&gt;
+            &lt;tree&gt;
+                &lt;field name="colored_field"
+                          options="{
+                              'field_bg_color': 'line_bg_color',
+                              'field_label_color': 'line_label_color'}"/&gt;
+                &lt;field name="line_bg_color" invisible="1"/&gt;
+                &lt;field name="line_label_color" invisible="1"/&gt;
+            &lt;/tree&gt;
+        &lt;/field&gt;
+    &lt;/record&gt;
+    </pre>
 </div>
 </section>
 

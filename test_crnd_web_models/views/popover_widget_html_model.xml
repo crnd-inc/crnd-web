@@ -2,7 +2,6 @@
 <odoo>
 
     <record id="view_popover_widget_html_model_tree" model="ir.ui.view">
-        <field name="name">view.popover.widget.html.model.tree</field>
         <field name="model">popover.widget.html.model</field>
         <field name="arch" type="xml">
             <tree>
@@ -16,7 +15,6 @@
     </record>
 
     <record id="view_popover_widget_html_model_form" model="ir.ui.view">
-        <field name="name">view.popover.widget.html.model.form</field>
         <field name="model">popover.widget.html.model</field>
         <field name="arch" type="xml">
             <form>
@@ -34,7 +32,6 @@
     </record>
 
     <record model="ir.ui.view" id="view_popover_widget_html_model_search">
-        <field name="name">view.popover.widget.html.model.search</field>
         <field name="model">popover.widget.html.model</field>
         <field name="arch" type="xml">
             <search>
@@ -50,7 +47,6 @@
     </record>
 
     <record id="view_popover_widget_html_model_tree_editable" model="ir.ui.view">
-        <field name="name">view.popover.widget.html.model.tree.editable</field>
         <field name="model">popover.widget.html.model</field>
         <field name="arch" type="xml">
             <tree editable="bottom">

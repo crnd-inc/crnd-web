@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="web_diagram_plus_demo_1"
+            model="web.diagram.plus">
+        <field name="name">Web Diagram Plus Demo 1</field>
+    </record>
+
+    <record id="web_diagram_plus_node_demo_1"
+            model="web.diagram.plus.node">
+        <field name="name">Node Demo 1</field>
+        <field name="web_diagram_id" ref="test_crnd_web_models.web_diagram_plus_demo_1"/>
+        <field name="res_bg_color">rgba(120,0,120,1)</field>
+    </record>
+
+    <record id="web_diagram_plus_node_demo_2"
+            model="web.diagram.plus.node">
+        <field name="name">Node Demo 2</field>
+        <field name="web_diagram_id" ref="test_crnd_web_models.web_diagram_plus_demo_1"/>
+    </record>
+
+    <record id="web_diagram_plus_node_demo_3"
+            model="web.diagram.plus.node">
+        <field name="name">Node Demo 3</field>
+        <field name="web_diagram_id" ref="test_crnd_web_models.web_diagram_plus_demo_1"/>
+        <field name="res_bg_color">rgba(20,120,120,1)</field>
+    </record>
+
+    <record id="web_diagram_plus_arrow_demo_1"
+            model="web.diagram.plus.arrow">
+        <field name="name">Arrow Demo 1</field>
+        <field name="web_diagram_id" ref="test_crnd_web_models.web_diagram_plus_demo_1"/>
+        <field name="from_node_id" ref="test_crnd_web_models.web_diagram_plus_node_demo_1"/>
+        <field name="to_node_id" ref="test_crnd_web_models.web_diagram_plus_node_demo_2"/>
+    </record>
+
+    <record id="web_diagram_plus_arrow_demo_2"
+            model="web.diagram.plus.arrow">
+        <field name="name">Arrow Demo 2</field>
+        <field name="web_diagram_id" ref="test_crnd_web_models.web_diagram_plus_demo_1"/>
+        <field name="from_node_id" ref="test_crnd_web_models.web_diagram_plus_node_demo_2"/>
+        <field name="to_node_id" ref="test_crnd_web_models.web_diagram_plus_node_demo_3"/>
+    </record>
+
+    <record id="web_diagram_plus_arrow_demo_3"
+            model="web.diagram.plus.arrow">
+        <field name="name">Arrow Demo 3</field>
+        <field name="web_diagram_id" ref="test_crnd_web_models.web_diagram_plus_demo_1"/>
+        <field name="from_node_id" ref="test_crnd_web_models.web_diagram_plus_node_demo_3"/>
+        <field name="to_node_id" ref="test_crnd_web_models.web_diagram_plus_node_demo_1"/>
+    </record>
+
+</odoo>
