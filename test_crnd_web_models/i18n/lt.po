@@ -17,6 +17,32 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: test_crnd_web_models
+#: model_terms:ir.ui.view,arch_db:test_crnd_web_models.view_m2o_info_widget_form
+msgid "<span>Field with M2o Info Widget</span>"
+msgstr ""
+
+#. module: test_crnd_web_models
+#: model_terms:ir.ui.view,arch_db:test_crnd_web_models.view_m2o_info_widget_form
+msgid "<span>Field without M2o Info Widget</span>"
+msgstr ""
+
+#. module: test_crnd_web_models
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_web_diagram_plus__arrow_ids
+msgid "Arrows"
+msgstr ""
+
+#. module: test_crnd_web_models
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_tree_colored_field__line_bg_color
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_web_diagram_plus_node__res_bg_color
+msgid "Backgroung Color"
+msgstr ""
+
+#. module: test_crnd_web_models
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_tree_colored_field__bg_color
+msgid "Bg Color"
+msgstr ""
+
+#. module: test_crnd_web_models
 #: model:ir.ui.menu,name:test_crnd_web_models.crnd_web_tests
 msgid "CRND Web Tests"
 msgstr ""
@@ -42,29 +68,54 @@ msgid "Char field with char popover widget."
 msgstr ""
 
 #. module: test_crnd_web_models
+#: model:ir.model.fields,help:test_crnd_web_models.field_tree_colored_field__name
+msgid "Color demonstration field"
+msgstr ""
+
+#. module: test_crnd_web_models
 #: model:ir.model.fields,field_description:test_crnd_web_models.field_float_full_time_widget__create_uid
 #: model:ir.model.fields,field_description:test_crnd_web_models.field_float_time_duration_widget__create_uid
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_m2o_info_widget__create_uid
 #: model:ir.model.fields,field_description:test_crnd_web_models.field_popover_widget_char_model__create_uid
 #: model:ir.model.fields,field_description:test_crnd_web_models.field_popover_widget_html_model__create_uid
 #: model:ir.model.fields,field_description:test_crnd_web_models.field_popover_widget_text_model__create_uid
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_tree_colored_field__create_uid
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_web_diagram_plus__create_uid
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_web_diagram_plus_arrow__create_uid
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_web_diagram_plus_node__create_uid
 msgid "Created by"
 msgstr ""
 
 #. module: test_crnd_web_models
 #: model:ir.model.fields,field_description:test_crnd_web_models.field_float_full_time_widget__create_date
 #: model:ir.model.fields,field_description:test_crnd_web_models.field_float_time_duration_widget__create_date
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_m2o_info_widget__create_date
 #: model:ir.model.fields,field_description:test_crnd_web_models.field_popover_widget_char_model__create_date
 #: model:ir.model.fields,field_description:test_crnd_web_models.field_popover_widget_html_model__create_date
 #: model:ir.model.fields,field_description:test_crnd_web_models.field_popover_widget_text_model__create_date
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_tree_colored_field__create_date
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_web_diagram_plus__create_date
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_web_diagram_plus_arrow__create_date
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_web_diagram_plus_node__create_date
 msgid "Created on"
+msgstr ""
+
+#. module: test_crnd_web_models
+#: model:ir.model.fields.selection,name:test_crnd_web_models.selection__tree_colored_field__label_color__dark
+msgid "Dark"
 msgstr ""
 
 #. module: test_crnd_web_models
 #: model:ir.model.fields,field_description:test_crnd_web_models.field_float_full_time_widget__display_name
 #: model:ir.model.fields,field_description:test_crnd_web_models.field_float_time_duration_widget__display_name
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_m2o_info_widget__display_name
 #: model:ir.model.fields,field_description:test_crnd_web_models.field_popover_widget_char_model__display_name
 #: model:ir.model.fields,field_description:test_crnd_web_models.field_popover_widget_html_model__display_name
 #: model:ir.model.fields,field_description:test_crnd_web_models.field_popover_widget_text_model__display_name
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_tree_colored_field__display_name
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_web_diagram_plus__display_name
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_web_diagram_plus_arrow__display_name
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_web_diagram_plus_node__display_name
 msgid "Display Name"
 msgstr ""
 
@@ -126,6 +177,11 @@ msgid "Float time duration"
 msgstr ""
 
 #. module: test_crnd_web_models
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_web_diagram_plus_arrow__from_node_id
+msgid "From"
+msgstr ""
+
+#. module: test_crnd_web_models
 #: model:ir.model.fields,help:test_crnd_web_models.field_popover_widget_html_model__html_field_simple
 msgid "HTML field no widgets."
 msgstr ""
@@ -148,44 +204,139 @@ msgstr ""
 #. module: test_crnd_web_models
 #: model:ir.model.fields,field_description:test_crnd_web_models.field_float_full_time_widget__id
 #: model:ir.model.fields,field_description:test_crnd_web_models.field_float_time_duration_widget__id
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_m2o_info_widget__id
 #: model:ir.model.fields,field_description:test_crnd_web_models.field_popover_widget_char_model__id
 #: model:ir.model.fields,field_description:test_crnd_web_models.field_popover_widget_html_model__id
 #: model:ir.model.fields,field_description:test_crnd_web_models.field_popover_widget_text_model__id
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_tree_colored_field__id
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_web_diagram_plus__id
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_web_diagram_plus_arrow__id
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_web_diagram_plus_node__id
 msgid "ID"
+msgstr ""
+
+#. module: test_crnd_web_models
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_web_diagram_plus_node__arrow_in_ids
+msgid "Incoming Arrows"
+msgstr ""
+
+#. module: test_crnd_web_models
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_tree_colored_field__label_color
+msgid "Label Color"
 msgstr ""
 
 #. module: test_crnd_web_models
 #: model:ir.model.fields,field_description:test_crnd_web_models.field_float_full_time_widget____last_update
 #: model:ir.model.fields,field_description:test_crnd_web_models.field_float_time_duration_widget____last_update
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_m2o_info_widget____last_update
 #: model:ir.model.fields,field_description:test_crnd_web_models.field_popover_widget_char_model____last_update
 #: model:ir.model.fields,field_description:test_crnd_web_models.field_popover_widget_html_model____last_update
 #: model:ir.model.fields,field_description:test_crnd_web_models.field_popover_widget_text_model____last_update
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_tree_colored_field____last_update
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_web_diagram_plus____last_update
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_web_diagram_plus_arrow____last_update
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_web_diagram_plus_node____last_update
 msgid "Last Modified on"
 msgstr ""
 
 #. module: test_crnd_web_models
 #: model:ir.model.fields,field_description:test_crnd_web_models.field_float_full_time_widget__write_uid
 #: model:ir.model.fields,field_description:test_crnd_web_models.field_float_time_duration_widget__write_uid
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_m2o_info_widget__write_uid
 #: model:ir.model.fields,field_description:test_crnd_web_models.field_popover_widget_char_model__write_uid
 #: model:ir.model.fields,field_description:test_crnd_web_models.field_popover_widget_html_model__write_uid
 #: model:ir.model.fields,field_description:test_crnd_web_models.field_popover_widget_text_model__write_uid
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_tree_colored_field__write_uid
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_web_diagram_plus__write_uid
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_web_diagram_plus_arrow__write_uid
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_web_diagram_plus_node__write_uid
 msgid "Last Updated by"
 msgstr ""
 
 #. module: test_crnd_web_models
 #: model:ir.model.fields,field_description:test_crnd_web_models.field_float_full_time_widget__write_date
 #: model:ir.model.fields,field_description:test_crnd_web_models.field_float_time_duration_widget__write_date
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_m2o_info_widget__write_date
 #: model:ir.model.fields,field_description:test_crnd_web_models.field_popover_widget_char_model__write_date
 #: model:ir.model.fields,field_description:test_crnd_web_models.field_popover_widget_html_model__write_date
 #: model:ir.model.fields,field_description:test_crnd_web_models.field_popover_widget_text_model__write_date
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_tree_colored_field__write_date
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_web_diagram_plus__write_date
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_web_diagram_plus_arrow__write_date
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_web_diagram_plus_node__write_date
 msgid "Last Updated on"
 msgstr ""
 
 #. module: test_crnd_web_models
+#: model:ir.model.fields.selection,name:test_crnd_web_models.selection__tree_colored_field__bg_color__l_blue_bg
+msgid "Light Blue"
+msgstr ""
+
+#. module: test_crnd_web_models
+#: model:ir.model.fields.selection,name:test_crnd_web_models.selection__tree_colored_field__bg_color__l_brown_bg
+msgid "Light Brown"
+msgstr ""
+
+#. module: test_crnd_web_models
+#: model:ir.model.fields.selection,name:test_crnd_web_models.selection__tree_colored_field__bg_color__l_green_bg
+msgid "Light Green"
+msgstr ""
+
+#. module: test_crnd_web_models
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_tree_colored_field__line_label_color
+msgid "Line Label Color"
+msgstr ""
+
+#. module: test_crnd_web_models
+#: model:ir.ui.menu,name:test_crnd_web_models.m2o_info_widget_parent_menu_item
+msgid "M2O Info Widget"
+msgstr ""
+
+#. module: test_crnd_web_models
+#: model:ir.ui.menu,name:test_crnd_web_models.m2o_info_widget_menu_item
+msgid "M2O Info Widget Model"
+msgstr ""
+
+#. module: test_crnd_web_models
+#: model:ir.model,name:test_crnd_web_models.model_m2o_info_widget
+msgid "M2o Info Widget"
+msgstr ""
+
+#. module: test_crnd_web_models
+#: model:ir.actions.act_window,name:test_crnd_web_models.action_m2o_info_widget_model
+msgid "Many2one widget Model"
+msgstr ""
+
+#. module: test_crnd_web_models
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_m2o_info_widget__name
 #: model:ir.model.fields,field_description:test_crnd_web_models.field_popover_widget_char_model__name
 #: model:ir.model.fields,field_description:test_crnd_web_models.field_popover_widget_html_model__name
 #: model:ir.model.fields,field_description:test_crnd_web_models.field_popover_widget_text_model__name
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_tree_colored_field__name
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_web_diagram_plus__name
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_web_diagram_plus_arrow__name
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_web_diagram_plus_node__name
 msgid "Name"
+msgstr ""
+
+#. module: test_crnd_web_models
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_web_diagram_plus__node_ids
+msgid "Nodes"
+msgstr ""
+
+#. module: test_crnd_web_models
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_web_diagram_plus_node__arrow_out_ids
+msgid "Outgoing Arrows"
+msgstr ""
+
+#. module: test_crnd_web_models
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_m2o_info_widget__partner_id
+msgid "Partner"
+msgstr ""
+
+#. module: test_crnd_web_models
+#: model_terms:ir.ui.view,arch_db:test_crnd_web_models.view_m2o_info_widget_form
+msgid "Partner..."
 msgstr ""
 
 #. module: test_crnd_web_models
@@ -219,6 +370,11 @@ msgid "Popover Widget Text Model"
 msgstr ""
 
 #. module: test_crnd_web_models
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_web_diagram_plus_node__res_label_color
+msgid "Res Label Color"
+msgstr ""
+
+#. module: test_crnd_web_models
 #: model:ir.ui.menu,name:test_crnd_web_models.popover_widget_char_standard
 #: model:ir.ui.menu,name:test_crnd_web_models.popover_widget_html_standard
 #: model:ir.ui.menu,name:test_crnd_web_models.popover_widget_text_standard
@@ -246,6 +402,16 @@ msgid "Text field with text popover widget."
 msgstr ""
 
 #. module: test_crnd_web_models
+#: model:ir.model.fields,help:test_crnd_web_models.field_tree_colored_field__label_color
+msgid "The field on the basis of which the label color of other fields"
+msgstr ""
+
+#. module: test_crnd_web_models
+#: model:ir.model.fields,help:test_crnd_web_models.field_tree_colored_field__bg_color
+msgid "The field on the basis of whichthe background color of other fields"
+msgstr ""
+
+#. module: test_crnd_web_models
 #: model:ir.model.fields,field_description:test_crnd_web_models.field_float_full_time_widget__time_1
 #: model:ir.model.fields,field_description:test_crnd_web_models.field_float_time_duration_widget__time_1
 msgid "Time 1"
@@ -268,10 +434,32 @@ msgid "Time 4"
 msgstr ""
 
 #. module: test_crnd_web_models
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_web_diagram_plus_arrow__to_node_id
+msgid "To"
+msgstr ""
+
+#. module: test_crnd_web_models
+#: model:ir.model,name:test_crnd_web_models.model_tree_colored_field
+#: model:ir.ui.menu,name:test_crnd_web_models.tree_colored_field_menu_item
+#: model:ir.ui.menu,name:test_crnd_web_models.tree_colored_field_parent_menu_item
+msgid "Tree Colored Field"
+msgstr ""
+
+#. module: test_crnd_web_models
+#: model:ir.actions.act_window,name:test_crnd_web_models.action_tree_colored_field_model
+msgid "Tree Colored Field Model"
+msgstr ""
+
+#. module: test_crnd_web_models
 #: model:ir.ui.menu,name:test_crnd_web_models.popover_widget_char_tree_editable
 #: model:ir.ui.menu,name:test_crnd_web_models.popover_widget_html_tree_editable
 #: model:ir.ui.menu,name:test_crnd_web_models.popover_widget_text_tree_editable
 msgid "Tree Editable"
+msgstr ""
+
+#. module: test_crnd_web_models
+#: model_terms:ir.ui.view,arch_db:test_crnd_web_models.view_web_diagram_plus_form
+msgid "View Diagram"
 msgstr ""
 
 #. module: test_crnd_web_models
@@ -282,6 +470,54 @@ msgstr ""
 #. module: test_crnd_web_models
 #: model:ir.actions.act_window,name:test_crnd_web_models.action_popover_widget_char_model_editable_tree
 msgid "Web Char Model Editable Tree"
+msgstr ""
+
+#. module: test_crnd_web_models
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_web_diagram_plus_arrow__web_diagram_id
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_web_diagram_plus_node__web_diagram_id
+msgid "Web Diagram"
+msgstr ""
+
+#. module: test_crnd_web_models
+#: model:ir.model,name:test_crnd_web_models.model_web_diagram_plus
+#: model:ir.ui.menu,name:test_crnd_web_models.web_diagram_plus_menu_item
+#: model:ir.ui.menu,name:test_crnd_web_models.web_diagram_plus_parent_menu_item
+msgid "Web Diagram Plus"
+msgstr ""
+
+#. module: test_crnd_web_models
+#: model:ir.model,name:test_crnd_web_models.model_web_diagram_plus_arrow
+msgid "Web Diagram Plus Arrow"
+msgstr ""
+
+#. module: test_crnd_web_models
+#: model:ir.actions.act_window,name:test_crnd_web_models.action_web_diagram_plus_arrow_model
+msgid "Web Diagram Plus Arrow Model"
+msgstr ""
+
+#. module: test_crnd_web_models
+#: model:ir.ui.menu,name:test_crnd_web_models.web_diagram_plus_arrow_menu_item
+msgid "Web Diagram Plus Arrows"
+msgstr ""
+
+#. module: test_crnd_web_models
+#: model:ir.actions.act_window,name:test_crnd_web_models.action_web_diagram_plus_model
+msgid "Web Diagram Plus Model"
+msgstr ""
+
+#. module: test_crnd_web_models
+#: model:ir.model,name:test_crnd_web_models.model_web_diagram_plus_node
+msgid "Web Diagram Plus Node"
+msgstr ""
+
+#. module: test_crnd_web_models
+#: model:ir.actions.act_window,name:test_crnd_web_models.action_web_diagram_plus_node_model
+msgid "Web Diagram Plus Node Model"
+msgstr ""
+
+#. module: test_crnd_web_models
+#: model:ir.ui.menu,name:test_crnd_web_models.web_diagram_plus_node_menu_item
+msgid "Web Diagram Plus Nodes"
 msgstr ""
 
 #. module: test_crnd_web_models
@@ -302,6 +538,16 @@ msgstr ""
 #. module: test_crnd_web_models
 #: model:ir.actions.act_window,name:test_crnd_web_models.action_popover_widget_text_model_editable_tree
 msgid "Web Text Model Editable Tree"
+msgstr ""
+
+#. module: test_crnd_web_models
+#: model:ir.model.fields.selection,name:test_crnd_web_models.selection__tree_colored_field__label_color__white
+msgid "White"
+msgstr ""
+
+#. module: test_crnd_web_models
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_m2o_info_widget__widget_partner_id
+msgid "Widget Partner"
 msgstr ""
 
 #. module: test_crnd_web_models
