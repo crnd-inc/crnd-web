@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_m2o_info_widget_tree" model="ir.ui.view">
+        <field name="model">m2o.info.widget</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="widget_partner_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_m2o_info_widget_form" model="ir.ui.view">
+        <field name="model">m2o.info.widget</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <group>
+                            <span>Field without M2o Info Widget</span>
+                            <field name="partner_id"/>
+                        </group>
+                        <group>
+                            <span>Field with M2o Info Widget</span>
+                            <field name="widget_partner_id"
+                                   placeholder="Partner..."
+                                   widget="m2o_info"
+                                   options="{
+                                       'info_fields': ['name', 'commercial_company_name', 'website', 'email', 'phone', 'mobile']}"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_m2o_info_widget_model" model="ir.actions.act_window">
+        <field name="name">Many2one widget Model</field>
+        <field name="res_model">m2o.info.widget</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem name="M2O Info Widget"
+              id="m2o_info_widget_parent_menu_item"
+              sequence="230"
+              parent="crnd_web_tests"/>
+
+    <menuitem name="M2O Info Widget Model"
+              id="m2o_info_widget_menu_item"
+              sequence="10"
+              parent="m2o_info_widget_parent_menu_item"
+              action="action_m2o_info_widget_model"/>
+
+</odoo>
