@@ -42,17 +42,11 @@
                       bgcolor="gray:closed"
                       bg_color_field="res_bg_color"
                       fg_color_field="res_label_color">
-                    <field name="name"/>
-                    <field name="res_bg_color"/>
-                    <field name="res_label_color"/>
                 </node>
                 <arrow object="web.diagram.plus.arrow"
                        source="from_node_id"
                        destination="to_node_id"
                        label="['name']">
-                    <field name="from_node_id"/>
-                    <field name="to_node_id"/>
-                    <field name="name"/>
                 </arrow>
             </diagram_plus>
         </field>
