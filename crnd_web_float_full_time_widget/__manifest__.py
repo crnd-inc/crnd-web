@@ -13,12 +13,13 @@
     ],
     'assets': {
         'web.assets_qweb': [
-            'crnd_web_float_full_time_widget'
-            '/static/tests/float_full_time_widget_tests.js',
+            'crnd_web_float_full_time_widget/static/tests/float_full_time_widget_tests.js',
         ],
         'web.assets_backend': [
-            'crnd_web_float_full_time_widget'
-            '/static/src/js/float_full_time_widget.js',
+            'crnd_web_float_full_time_widget/static/src/js/float_full_time_widget.js',
+        ],
+        'web.qunit_suite_tests': [
+            'crnd_web_float_full_time_widget/static/tests/float_full_time_widget_tests.js',
         ],
     },
     'images': ['static/description/banner.gif'],

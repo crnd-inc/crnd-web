@@ -20,6 +20,9 @@
         'web.assets_backend': [
             'crnd_web_tree_field_action/static/src/js/list_renderer.js',
         ],
+        'web.qunit_suite_tests': [
+            'crnd_web_tree_field_action/static/tests/list_tests.js',
+        ],
     },
     'images': ['static/description/banner.png'],
     'installable': True,
