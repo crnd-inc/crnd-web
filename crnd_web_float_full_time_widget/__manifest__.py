@@ -1,3 +1,4 @@
+# flake8: noqa: E501
 {
     "name": "CRND Web Float Full Time Widget",
     "version": "15.0.0.2.0",
