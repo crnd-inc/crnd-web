@@ -61,24 +61,6 @@ msgid "DiagramPlus"
 msgstr ""
 
 #. module: crnd_web_diagram_plus
-#: model:ir.model.fields,field_description:crnd_web_diagram_plus.field_ir_actions_act_window_view__display_name
-#: model:ir.model.fields,field_description:crnd_web_diagram_plus.field_ir_ui_view__display_name
-msgid "Display Name"
-msgstr ""
-
-#. module: crnd_web_diagram_plus
-#: model:ir.model.fields,field_description:crnd_web_diagram_plus.field_ir_actions_act_window_view__id
-#: model:ir.model.fields,field_description:crnd_web_diagram_plus.field_ir_ui_view__id
-msgid "ID"
-msgstr ""
-
-#. module: crnd_web_diagram_plus
-#: model:ir.model.fields,field_description:crnd_web_diagram_plus.field_ir_actions_act_window_view____last_update
-#: model:ir.model.fields,field_description:crnd_web_diagram_plus.field_ir_ui_view____last_update
-msgid "Last Modified on"
-msgstr ""
-
-#. module: crnd_web_diagram_plus
 #. openerp-web
 #: code:addons/crnd_web_diagram_plus/static/src/xml/base_diagram.xml:0
 #, python-format
