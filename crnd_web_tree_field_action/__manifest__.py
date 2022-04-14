@@ -15,9 +15,6 @@
     ],
     'demo': [],
     'assets': {
-        'web.assets_qweb': [
-            'crnd_web_tree_field_action/static/tests/list_tests.js',
-        ],
         'web.assets_backend': [
             'crnd_web_tree_field_action/static/src/js/list_renderer.js',
         ],
