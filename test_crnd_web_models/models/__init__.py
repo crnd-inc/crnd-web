@@ -7,4 +7,5 @@ from . import (
     m2o_info_widget,
     tree_colored_field,
     web_diagram_plus,
+    res_partner,
 )
