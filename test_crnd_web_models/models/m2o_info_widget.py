@@ -7,9 +7,6 @@ class M2oInfoWidget(models.Model):
 
     name = fields.Char(required=True)
 
-    partner_id = fields.Many2one(
-        'res.partner', index=True, required=False,
-        ondelete='restrict', track_visibility='onchange')
-    widget_partner_id = fields.Many2one(
-        'res.partner', index=True, required=False,
-        ondelete='restrict', track_visibility='onchange')
+    partner_id = fields.Many2one('res.partner')
+    widget_partner_id = fields.Many2one('res.partner')
+    widget_partner_method_id = fields.Many2one('res.partner')
