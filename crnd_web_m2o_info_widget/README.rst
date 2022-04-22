@@ -37,6 +37,54 @@ Simple example for internal usage:
                       'name', 'commercial_company_name', 'website',
                       'email', 'phone', 'mobile']}"/>
 
+Another example of usage, using method that have to return all needed info on destination model:
+
+    .. code:: python
+
+        class ResPartner(models.Model):
+            _inherit = 'res.partner'
+
+            def helper_many2one_info(self):
+                self.ensure_one()
+                res = []
+                read_fields = [
+                    'name', 'commercial_company_name', 'website',
+                    'email', 'phone', 'mobile'
+                ]
+                for field_name in read_fields:
+                    res += [{
+                        'value': self[field_name],
+                        'string': self._fields[field_name].get_description(
+                            self.env)['string'],
+                        'name': field_name,
+                    }]
+                return res
+
+    .. code:: xml
+
+        <field name="widget_partner_id"
+              placeholder="Partner..."
+              widget="m2o_info"
+              options="{'info_method': 'helper_many2one_info'}"/>
+
+
+Also, you can use simple helper function on python side to compute field info.
+With this function, example above could be rewritten as:
+
+    .. code:: python
+
+        from odoo.addons.crnd_web_m2o_info_widget import helper_get_many2one_info_data
+
+        class ResPartner(models.Model):
+            _inherit = 'res.partner'
+
+            def helper_many2one_info(self):
+                return helper_get_many2one_info_data(self, [
+                    'name', 'commercial_company_name', 'website',
+                    'email', 'phone', 'mobile'
+                ])
+
+
 This module is part of the Bureaucrat ITSM project.
 You can try it by the references below.
 
