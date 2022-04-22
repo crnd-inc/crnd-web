@@ -52,7 +52,8 @@ odoo.define('crnd_web_m2o_info_widget.m2o_info_widget', function (require) {
 
         /* Get info data based on fields specified in nodeOptions.info_fields
         *
-        * @returns {Deferred} array of objects. Each object represents info about single field.
+        * @returns {Deferred} array of objects. Each object represents info
+        * about single field.
         *
         * Example of return result:
         * [
@@ -128,7 +129,8 @@ odoo.define('crnd_web_m2o_info_widget.m2o_info_widget', function (require) {
 
         /* Get info data based on method called on field's relation model.
         *
-        * @returns {Deferred} array of objects. Each object represents info about single field.
+        * @returns {Deferred} array of objects.
+        * Each object represents info about single field.
         *
         * Example of return result:
         * [
@@ -150,7 +152,8 @@ odoo.define('crnd_web_m2o_info_widget.m2o_info_widget', function (require) {
 
         /* Get info data based on fields specified in nodeOptions.info_fields
         *
-        * @returns {Deferred} array of objects. Each object represents info about single field.
+        * @returns {Deferred} array of objects.
+        * Each object represents info about single field.
         *
         * Example of return result:
         * [
@@ -168,9 +171,9 @@ odoo.define('crnd_web_m2o_info_widget.m2o_info_widget', function (require) {
                 return self._getInfoDataFields();
             } else if (self.nodeOptions.info_method) {
                 return self._getInfoDataMethod();
-            } else {
-                console.log("Cannot many2one field info. Field is not configured.");
             }
+            console.log(
+                "Cannot many2one field info. Field is not configured.");
         },
 
         /**
@@ -217,7 +220,9 @@ odoo.define('crnd_web_m2o_info_widget.m2o_info_widget', function (require) {
                         field_info.clipboard = new ClipboardJS(
                             $row.find('.m2o-info-copy')[0],
                             {
-                                text: function (target) { return field_info.value; },
+                                text: function () {
+                                    return field_info.value;
+                                },
                             }
                         );
                         field_info.$el = $row;
@@ -249,7 +254,7 @@ odoo.define('crnd_web_m2o_info_widget.m2o_info_widget', function (require) {
                     // Keep popover info, to be able to destroy when widget
                     // desttroyed
                     self.popover_data = self.$info_icon.data('bs.popover');
-                    self.popover_field_data = data
+                    self.popover_field_data = data;
 
                     $info_popup.on('mouseleave', function () {
                         self.$info_icon.popover('hide');
