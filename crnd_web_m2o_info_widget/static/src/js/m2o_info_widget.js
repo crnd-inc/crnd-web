@@ -20,6 +20,7 @@ odoo.define('crnd_web_m2o_info_widget.m2o_info_widget', function (require) {
             // Keep popover info, to be able to destroy when widget
             // desttroyed
             self.popover_data = null;
+            self.popover_field_data = null;
         },
 
         _renderReadonly: function () {
@@ -49,11 +50,21 @@ odoo.define('crnd_web_m2o_info_widget.m2o_info_widget', function (require) {
             }
         },
 
-        /**
-         * Get Data for this widget.
-         * @returns {Deferred}
-         */
-        _getInfoData: function () {
+        /* Get info data based on fields specified in nodeOptions.info_fields
+        *
+        * @returns {Deferred} array of objects. Each object represents info
+        * about single field.
+        *
+        * Example of return result:
+        * [
+        *     {
+        *          name: name of the field,
+        *          string: label of the field,
+        *          value: value of the field,
+        *     },
+        * ]
+        */
+        _getInfoDataFields: function () {
             var self = this;
             var def = $.Deferred();
 
@@ -101,28 +112,87 @@ odoo.define('crnd_web_m2o_info_widget.m2o_info_widget', function (require) {
                     });
             });
             $.when(def_field_values, def_field_names).then(function () {
-                def.resolve(info_data);
+                var res = [];
+                _.each(
+                    self.nodeOptions.info_fields,
+                    function (field_name) {
+                        res.push({
+                            name: field_name,
+                            string: info_data[field_name].name,
+                            value: info_data[field_name].value,
+                        });
+                    });
+                def.resolve(res);
             });
             return def;
         },
 
+        /* Get info data based on method called on field's relation model.
+        *
+        * @returns {Deferred} array of objects.
+        * Each object represents info about single field.
+        *
+        * Example of return result:
+        * [
+        *     {
+        *          name: name of the field,
+        *          string: label of the field,
+        *          value: value of the field,
+        *     },
+        * ]
+        */
+        _getInfoDataMethod: function () {
+            var self = this;
+            return self._rpc({
+                model: self.value.model,
+                method: self.nodeOptions.info_method,
+                args: [[self.value.res_id]],
+            });
+        },
+
+        /* Get info data based on fields specified in nodeOptions.info_fields
+        *
+        * @returns {Deferred} array of objects.
+        * Each object represents info about single field.
+        *
+        * Example of return result:
+        * [
+        *     {
+        *          name: name of the field,
+        *          string: label of the field,
+        *          value: value of the field,
+        *     },
+        * ]
+        */
+        _getInfoData: function () {
+            var self = this;
+
+            if (self.nodeOptions.info_fields) {
+                return self._getInfoDataFields();
+            } else if (self.nodeOptions.info_method) {
+                return self._getInfoDataMethod();
+            }
+            console.log(
+                "Cannot many2one field info. Field is not configured.");
+        },
+
         /**
          * Render single row of popover content.
-         * @param {Object} data: info_data object
+         * @param {Object} field_info: info about single field
          * @param {String} field_name: name of field to render
          * @returns JQuery element of created row
          */
-        _renderInfoPopUpRow: function (data, field_name) {
+        _renderInfoPopUpRow: function (field_info) {
             var $row = $('<tr>');
-            $('<th>').text(data[field_name].name + ":")
+            $('<th>').text(field_info.string + ":")
                 .addClass('info_label')
                 .appendTo($row);
             $('<td>').text(
-                data[field_name].value).appendTo($row);
+                field_info.value).appendTo($row);
             var $copy_cell = $('<td>').appendTo($row);
             var $copy = $('<span>')
                 .addClass('m2o-info-copy btn btn-sm btn-outline-primary')
-                .data('field-name', field_name)
+                .data('field-name', field_info.name)
                 .appendTo($copy_cell);
             $('<i/>').addClass('fa fa-copy').appendTo($copy);
             return $row;
@@ -141,28 +211,23 @@ odoo.define('crnd_web_m2o_info_widget.m2o_info_widget', function (require) {
                 .appendTo($info_popup);
 
             if (data) {
-                _.each(
-                    self.nodeOptions.info_fields,
-                    function (field_name) {
-                        if (data[field_name].value) {
-                            var $row = self._renderInfoPopUpRow(
-                                data, field_name);
-                            $row.appendTo($info_table);
+                _.each(data, function (field_info) {
+                    if (field_info.value) {
+                        var $row = self._renderInfoPopUpRow(field_info);
+                        $row.appendTo($info_table);
 
-                            // Update data with generated elements
-                            data[field_name].clipboard = new ClipboardJS(
-                                $row.find('.m2o-info-copy')[0],
-                                {
-                                    text: function (target) {
-                                        var fname = $(target).data(
-                                            'field-name');
-                                        return data[fname].value;
-                                    },
-                                }
-                            );
-                            data[field_name].$el = $row;
-                        }
-                    });
+                        // Update data with generated elements
+                        field_info.clipboard = new ClipboardJS(
+                            $row.find('.m2o-info-copy')[0],
+                            {
+                                text: function () {
+                                    return field_info.value;
+                                },
+                            }
+                        );
+                        field_info.$el = $row;
+                    }
+                });
             }
             return $info_popup;
         },
@@ -189,6 +254,7 @@ odoo.define('crnd_web_m2o_info_widget.m2o_info_widget', function (require) {
                     // Keep popover info, to be able to destroy when widget
                     // desttroyed
                     self.popover_data = self.$info_icon.data('bs.popover');
+                    self.popover_field_data = data;
 
                     $info_popup.on('mouseleave', function () {
                         self.$info_icon.popover('hide');
@@ -208,9 +274,17 @@ odoo.define('crnd_web_m2o_info_widget.m2o_info_widget', function (require) {
                 if (!this.$info_icon.data('bs.popover')) {
                     this.$info_icon.data('bs.popover', this.popover_data);
                 }
+                if (this.popover_field_data) {
+                    _.each(this.popover_field_data, function (field_info) {
+                        if (field_info.clipboard) {
+                            field_info.clipboard.destroy();
+                        }
+                    });
+                }
                 this.$info_icon.popover('dispose');
                 this.popover_initialized = false;
                 this.popover_data = null;
+                this.popover_field_data = null;
             }
         },
 
