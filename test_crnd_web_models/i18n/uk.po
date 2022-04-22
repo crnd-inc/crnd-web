@@ -17,16 +17,6 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: test_crnd_web_models
-#: model_terms:ir.ui.view,arch_db:test_crnd_web_models.view_m2o_info_widget_form
-msgid "<span>Field with M2o Info Widget</span>"
-msgstr ""
-
-#. module: test_crnd_web_models
-#: model_terms:ir.ui.view,arch_db:test_crnd_web_models.view_m2o_info_widget_form
-msgid "<span>Field without M2o Info Widget</span>"
-msgstr ""
-
-#. module: test_crnd_web_models
 #: model:ir.model.fields,field_description:test_crnd_web_models.field_web_diagram_plus__arrow_ids
 msgid "Arrows"
 msgstr ""
@@ -70,6 +60,11 @@ msgstr ""
 #. module: test_crnd_web_models
 #: model:ir.model.fields,help:test_crnd_web_models.field_tree_colored_field__name
 msgid "Color demonstration field"
+msgstr ""
+
+#. module: test_crnd_web_models
+#: model:ir.model,name:test_crnd_web_models.model_res_partner
+msgid "Contact"
 msgstr ""
 
 #. module: test_crnd_web_models
@@ -118,6 +113,21 @@ msgstr ""
 #: model:ir.model.fields,field_description:test_crnd_web_models.field_web_diagram_plus_node__display_name
 msgid "Display Name"
 msgstr "Назва для відображення"
+
+#. module: test_crnd_web_models
+#: model_terms:ir.ui.view,arch_db:test_crnd_web_models.view_m2o_info_widget_form
+msgid "Field with M2o Info Widget (fields)"
+msgstr ""
+
+#. module: test_crnd_web_models
+#: model_terms:ir.ui.view,arch_db:test_crnd_web_models.view_m2o_info_widget_form
+msgid "Field with M2o Info Widget (method)"
+msgstr ""
+
+#. module: test_crnd_web_models
+#: model_terms:ir.ui.view,arch_db:test_crnd_web_models.view_m2o_info_widget_form
+msgid "Field without M2o Info Widget"
+msgstr ""
 
 #. module: test_crnd_web_models
 #: model_terms:ir.ui.view,arch_db:test_crnd_web_models.view_float_full_time_widget_form
@@ -548,6 +558,11 @@ msgstr ""
 #. module: test_crnd_web_models
 #: model:ir.model.fields,field_description:test_crnd_web_models.field_m2o_info_widget__widget_partner_id
 msgid "Widget Partner"
+msgstr ""
+
+#. module: test_crnd_web_models
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_m2o_info_widget__widget_partner_method_id
+msgid "Widget Partner Method"
 msgstr ""
 
 #. module: test_crnd_web_models
