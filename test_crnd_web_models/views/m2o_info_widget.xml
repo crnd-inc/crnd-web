@@ -8,6 +8,7 @@
                 <field name="name"/>
                 <field name="partner_id"/>
                 <field name="widget_partner_id"/>
+                <field name="widget_partner_method_id"/>
             </tree>
         </field>
     </record>
@@ -20,16 +21,22 @@
                     <group>
                         <field name="name"/>
                         <group>
-                            <span>Field without M2o Info Widget</span>
+                            <div colspan="2" class="alert alert-info" role="alert">Field without M2o Info Widget</div>
                             <field name="partner_id"/>
                         </group>
                         <group>
-                            <span>Field with M2o Info Widget</span>
+                            <div colspan="2" class="alert alert-info" role="alert">Field with M2o Info Widget (fields)</div>
                             <field name="widget_partner_id"
                                    placeholder="Partner..."
                                    widget="m2o_info"
                                    options="{
                                        'info_fields': ['name', 'commercial_company_name', 'website', 'email', 'phone', 'mobile']}"/>
+
+                            <div colspan="2" class="alert alert-info" role="alert">Field with M2o Info Widget (method)</div>
+                            <field name="widget_partner_method_id"
+                                   placeholder="Partner..."
+                                   widget="m2o_info"
+                                   options="{'info_method': 'test_helper_many2one_info'}"/>
                         </group>
                     </group>
                 </sheet>
