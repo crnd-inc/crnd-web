@@ -8,19 +8,25 @@ odoo.define("crnd_web_on_create_action.onCreateActionControllerMixin", function 
             this._super.apply(this, arguments);
             if (params.onCreateActionName) {
                 this.onCreateActionName = params.onCreateActionName;
-                this.onCreateActionType = params.onCreateActionType;
             }
         },
 
         onCreateAction: function (record) {
             var self = this;
-            this.trigger_up('button_clicked', {
-                attrs: {
-                    'name': self.onCreateActionName,
-                    'type': self.onCreateActionType,
-                },
-                record: record,
-            });
+            var cact = this.getParent().getCurrentAction();
+            if (cact.context.active_id && cact.context.active_model) {
+                this.do_action(
+                    self.onCreateActionName,
+                    {
+                        'additional_context': {
+                            'active_model': cact.context.active_model,
+                            'active_id': cact.context.active_id,
+                        },
+                    }
+                );
+            } else {
+                this.do_action(self.onCreateActionName)
+            }
         },
     };
 

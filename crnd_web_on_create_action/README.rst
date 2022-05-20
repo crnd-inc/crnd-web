@@ -17,7 +17,11 @@ CRND Web On Create Action
 
 |badge2| |badge4| |badge5|
 
-CRND Web On Create Action allows you to redefine the action of the button create in the list and form view, specifying the name and type of the action in the class as "on-create-action-name-NAME" and "on-create-action-type-TYPE"
+CRND Web On Create Action allows you to redefine
+the action of the button *create* in the list and form view,
+specifying the name of the action in the class as ``on-create-action-name-NAME``.
+
+In this case, the ``NAME`` param have to be set to XML ID of action to call on click of ``create`` button.
 
 This module is part of the Bureaucrat ITSM project.
 You can try it by the references below.
