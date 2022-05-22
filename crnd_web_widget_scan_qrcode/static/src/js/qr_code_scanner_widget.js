@@ -25,10 +25,6 @@ odoo.define('test_module.qr_code_scanner_widget', function (require) {
             }
         },
 
-        checkIconClass: function () {
-          return ' d-none';
-        },
-
         isEmpty: function () {
             return false;
         },
