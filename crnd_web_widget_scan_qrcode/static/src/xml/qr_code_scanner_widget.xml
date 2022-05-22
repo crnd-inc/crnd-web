@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="qr_code_widget">
+        <div class="qr_code_scanner_widget">
+            <span t-if="widget.showText and widget.value" class="qr_code_text">
+                <t t-esc="widget.value"/>
+            </span>
+            <div class="qr_code_widget_bottom_block">
+                <span id="qr_code_check_icon" t-att-class="'fa fa-check' + (widget.showText or !widget.value ? ' d-none' : '')"/>
+                <button class="btn btn-primary open_qr_code_scanner_btn">
+                    <i class="fa fa-qrcode"/>
+                </button>
+            </div>
+        </div>
+    </t>
+
+    <t t-name="qr_code_scanner_popup">
+        <div class="qr_code_scanner_popup">
+            <div class="qr_code_scanner_wrapper">
+                <div class="qr_code_scanner_container">
+                    <div id="qr_code_scanner"></div>
+                </div>
+                <div class="qr_code_scanner_success_message d-none">
+                    <span id="qr_code_test"/>
+                    <div class="btn_block">
+                        <button id="qr_code_scanner_save_btn" class="btn btn-success">Save</button>
+                        <button id="qr_code_scanner_resume_btn" class="btn btn-primary">Resume</button>
+                    </div>
+                </div>
+            </div>
+            <span class="fa fa-close qr_code_scanner_close_popup_btn"/>
+        </div>
+    </t>
+
+</templates>
