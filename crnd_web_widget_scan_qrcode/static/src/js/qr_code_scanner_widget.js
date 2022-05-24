@@ -1,4 +1,4 @@
-odoo.define('test_module.qr_code_scanner_widget', function (require) {
+odoo.define('crnd_web_widget_scan_qrcode.qr_code_scanner_widget', function (require) {
     "use strict";
 
     const registry = require('web.field_registry');
@@ -70,13 +70,15 @@ odoo.define('test_module.qr_code_scanner_widget', function (require) {
                  dialog.on('closed', null, reject);
             }).then((res) => {
                 this._setValue(this.decodedText);
-                this._closeScannerPopup();
+                // this._closeScannerPopup();
                 if (this.showText) {
                     $('.qr_code_text').text(this.decodedText);
                 } else {
                     $('#qr_code_check_icon').removeClass('d-none');
                 }
             });
+
+            this._closeScannerPopup();
         },
 
         _onClickClosePopupBtn: function (event) {
@@ -91,7 +93,7 @@ odoo.define('test_module.qr_code_scanner_widget', function (require) {
         _closeScannerPopup: function () {
             $('.qr_code_scanner_popup').remove();
             this.html5QrcodeScanner.clear();
-            this.html5QrcodeScanner = null;
+            // this.html5QrcodeScanner = null;
         },
     });
 
