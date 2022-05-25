@@ -1,4 +1,4 @@
-odoo.define('test_module.qr_code_scanner_widget', function (require) {
+odoo.define('crnd_web_widget_scan_qrcode.qr_code_scanner_widget', function (require) {
     "use strict";
 
     const registry = require('web.field_registry');
