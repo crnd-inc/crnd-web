@@ -70,15 +70,13 @@ odoo.define('crnd_web_widget_scan_qrcode.qr_code_scanner_widget', function (requ
                  dialog.on('closed', null, reject);
             }).then((res) => {
                 this._setValue(this.decodedText);
-                // this._closeScannerPopup();
+                this._closeScannerPopup();
                 if (this.showText) {
                     $('.qr_code_text').text(this.decodedText);
                 } else {
                     $('#qr_code_check_icon').removeClass('d-none');
                 }
             });
-
-            this._closeScannerPopup();
         },
 
         _onClickClosePopupBtn: function (event) {
