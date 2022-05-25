@@ -91,7 +91,7 @@ odoo.define('crnd_web_widget_scan_qrcode.qr_code_scanner_widget', function (requ
         _closeScannerPopup: function () {
             $('.qr_code_scanner_popup').remove();
             this.html5QrcodeScanner.clear();
-            // this.html5QrcodeScanner = null;
+            this.html5QrcodeScanner = null;
         },
     });
 
