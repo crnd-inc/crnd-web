@@ -1,6 +1,5 @@
 odoo.define('crnd_web_widget_scan_qrcode.qr_code_scanner_widget', function (require) {
     "use strict";
-
     const registry = require('web.field_registry');
     const AbstractField = require('web.AbstractField');
     const Dialog = require('web.Dialog');
@@ -56,27 +55,13 @@ odoo.define('crnd_web_widget_scan_qrcode.qr_code_scanner_widget', function (requ
          },
 
         _onClickSaveQRCode: function () {
-            new Promise((resolve, reject) => {
-                 let dialog = Dialog.confirm(this, 'Save this QR-Code?',
-                     {
-                         confirm_callback: () => {
-                             resolve(true);
-                         },
-                         cancel_callback: () => {
-                             reject();
-                         },
-                     },
-                 );
-                 dialog.on('closed', null, reject);
-            }).then((res) => {
-                this._setValue(this.decodedText);
-                this._closeScannerPopup();
-                if (this.showText) {
-                    $('.qr_code_text').text(this.decodedText);
-                } else {
-                    $('#qr_code_check_icon').removeClass('d-none');
-                }
-            });
+            this._setValue(this.decodedText);
+            this._closeScannerPopup();
+            if (this.showText) {
+              $('.qr_code_text').text(this.decodedText);
+            } else {
+              $('#qr_code_check_icon').removeClass('d-none');
+            }
         },
 
         _onClickClosePopupBtn: function (event) {
