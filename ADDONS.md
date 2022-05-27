@@ -15,6 +15,6 @@
 | crnd_web_tree_field_action | CRND web tree field action | LGPL-3 | 14.0.0.4.0 |  |  |
 | crnd_web_view_refresh_timed | CRND web view refresh timed | LGPL-3 | 14.0.0.1.0 |  |  |
 | crnd_web_widget_popup_image | CRND Web Image Popup Widget | LGPL-3 | 14.0.0.1.0 | Popup images from the binary fields |  |
-| crnd_web_widget_scan_qrcode | CRND Web Widget Scan QR-Code | LGPL-3 | 14.0.0.1.0 | Scan QR-Code Widget |  |
+| crnd_web_widget_scan_qrcode | CRND Web Widget Scan QR-Code | LGPL-3 | 14.0.0.1.1 | Scan QR-Code Widget |  |
 | crnd_web_widget_section_and_note_text | CRND Web Widget Section And Note Text | LGPL-3 | 14.0.0.0.1 | Makes the standard section_and_note_text widget compatible with CRND Web List Popover Widget. |  |
 | test_crnd_web_models | Test CRND Web Models | LGPL-3 | 14.0.0.5.0 | Module for testing web addons. |  |
