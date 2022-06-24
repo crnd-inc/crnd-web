@@ -17,4 +17,4 @@
 | crnd_web_tree_field_action | CRND web tree field action | LGPL-3 | 12.0.0.4.0 |  |  |
 | crnd_web_view_refresh_timed | CRND web view refresh timed | LGPL-3 | 12.0.0.1.0 |  |  |
 | crnd_web_widget_popup_image | CRND Web Image Popup Widget | LGPL-3 | 12.0.0.2.0 | Popup images from the binary fields |  |
-| test_crnd_web_models | Test CRND Web Models | LGPL-3 | 12.0.0.5.0 | Module for testing web addons. |  |
+| test_crnd_web_models | Test CRND Web Models | LGPL-3 | 12.0.0.6.0 | Module for testing web addons. |  |
