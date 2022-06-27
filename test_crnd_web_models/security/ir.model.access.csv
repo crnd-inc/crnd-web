@@ -10,3 +10,4 @@ access_web_diagram_plus_user,crnd_web_diagram_plus,model_web_diagram_plus,base.g
 access_web_diagram_plus_node_user,crnd_web_diagram_plus_node,model_web_diagram_plus_node,base.group_system,1,1,1,1
 access_web_diagram_plus_user_arrow,crnd_web_diagram_plus_arrow,model_web_diagram_plus_arrow,base.group_system,1,1,1,1
 access_book_model,book,model_test_crnd_web_model_book,base.group_system,1,1,1,1
+access_book_wizard_create, book_wizard_create,model_book_wizard_create,base.group_system,1,1,1,1

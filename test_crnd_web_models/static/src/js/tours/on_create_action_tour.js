@@ -28,8 +28,7 @@ odoo.define('test_crnd_web_models.on_create_action_tour', function (require) {
         },
         {
             content: "Wait for download",
-            trigger: "div[class='on-create-action-name-test_crnd_web_models" +
-                ".action_wizard_book_create o_list_view']",
+            trigger: "div[class='o_list_view on-create-action-name-test_crnd_web_models.action_wizard_book_create']",
         },
         {
             content: "Click create button",
