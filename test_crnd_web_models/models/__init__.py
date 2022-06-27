@@ -8,4 +8,5 @@ from . import (
     tree_colored_field,
     web_diagram_plus,
     res_partner,
+    test_crnd_web_model_book,
 )
