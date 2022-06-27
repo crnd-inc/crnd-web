@@ -29,7 +29,7 @@ odoo.define('test_crnd_web_models.on_create_action_tour', function (require) {
         {
             content: "Wait for download",
             trigger: "div[class='on-create-action-name-test_crnd_web_models" +
-            ".action_wizard_book_create table-responsive']",
+                ".action_wizard_book_create o_list_view']",
         },
         {
             content: "Click create button",
