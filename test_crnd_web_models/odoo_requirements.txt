@@ -1,1 +1,1 @@
---repo git@gitlab.crnd.pro:crnd-opensource/generic-addons.git
+--github crnd-inc/generic-addons --module generic_mixin
