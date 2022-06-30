@@ -10,10 +10,13 @@
     'depends': [
         'web',
     ],
-    'data': [
-        'templates/templates.xml',
-    ],
+    'data': [],
     'demo': [],
+    'assets': {
+        'web.assets_backend': [
+            'crnd_web_on_create_action/static/src/js/*.js',
+        ],
+    },
     'images': ['static/description/banner.png'],
     'installable': True,
     'auto_install': False,

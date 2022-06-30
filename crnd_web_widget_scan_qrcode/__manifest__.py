@@ -8,12 +8,16 @@
     'depends': [
         'web',
     ],
-    'data': [
-        'views/assets_backend.xml',
-    ],
-    'qweb': [
-        'static/src/xml/qr_code_scanner_widget.xml'
-    ],
+    'data': [],
+    'assets': {
+        'web.assets_backend': [
+            'crnd_web_widget_scan_qrcode/static/src/js/*.js',
+            'crnd_web_widget_scan_qrcode/static/src/scss/*.scss',
+        ],
+        'web.assets_qweb': [
+            'crnd_web_widget_scan_qrcode/static/src/xml/*.xml',
+        ],
+    },
     'installable': True,
     'auto_install': False,
 }

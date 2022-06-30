@@ -22,6 +22,11 @@
         'demo/tree_colored_field.xml',
         'demo/web_diagram_plus.xml',
     ],
+    'assets': {
+        'web.assets_tests': [
+            'test_crnd_web_models/static/src/js/tours/*.js',
+        ]
+    },
     'data': [
         'security/ir.model.access.csv',
         'views/popover_widget_text_model.xml',
@@ -36,7 +41,6 @@
         'views/web_diagram_plus_node.xml',
         'views/test_crnd_web_model_book.xml',
         'wizard/book_wizard_create.xml',
-        'views/assets.xml',
     ],
     'images': [],
     'installable': True,

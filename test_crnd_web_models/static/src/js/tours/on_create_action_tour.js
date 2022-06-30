@@ -9,7 +9,7 @@ odoo.define('test_crnd_web_models.on_create_action_tour', function (require) {
     }, [
         {
             content: "Click on main menu",
-            trigger: ".full",
+            trigger: "nav.o_main_navbar button.dropdown-toggle",
             run: 'click',
         },
         {
@@ -19,12 +19,11 @@ odoo.define('test_crnd_web_models.on_create_action_tour', function (require) {
         },
         {
             content: "Click menu 'CRND Web Tests'",
-            trigger: "a[data-menu-xmlid='test_crnd_web_models.crnd_web_tests']",
+            trigger: "button[data-menu-xmlid='test_crnd_web_models.crnd_web_tests']",
         },
         {
             content: "Click menu 'Test crnd_web_on_create_action'",
-            trigger: "a:has" +
-            "(span:containsExact('Test crnd_web_on_create_action'))",
+            trigger: "a:containsExact('Test crnd_web_on_create_action')",
         },
         {
             content: "Wait for download",

@@ -13,7 +13,7 @@ odoo.define("crnd_web_on_create_action.onCreateActionControllerMixin", function 
 
         onCreateAction: function (record) {
             var self = this;
-            var cact = this.getParent().getCurrentAction();
+            var cact = this.getParent().actionService.currentController.action;
             if (cact.context.active_id && cact.context.active_model) {
                 this.do_action(
                     self.onCreateActionName,
