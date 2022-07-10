@@ -3,6 +3,8 @@ odoo.define("crnd_web_actions.ClientActions", function (require) {
 
     var core = require('web.core');
 
+    function nothing (parent, action) {}
+
     function reloadView (parent, action) {
         var actModel = action.context.active_model;
         var currentController = parent.getCurrentController();
@@ -38,11 +40,11 @@ odoo.define("crnd_web_actions.ClientActions", function (require) {
             parent.currentDialogController.widget.update({mode: 'edit'});
         } else if (parent.getCurrentController() &&
             parent.getCurrentController().widget.modelName === actModel) {
-            currentController.widget.update({ mode:'edit'});
+            currentController.widget.update({mode:'edit'});
         }
     }
 
-    core.action_registry.add('nothing', function () {});
+    core.action_registry.add('nothing', nothing);
     core.action_registry.add('reload_view', reloadView);
     core.action_registry.add('readonly_view_mode', readonlyViewMode);
     core.action_registry.add('edit_view_mode', editViewMode);
