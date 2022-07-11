@@ -18,3 +18,13 @@ class TestCrndWebModels(WebTourCase):
         wizard_count_after = self.env['book.wizard.create'].search_count([])
         self.assertEqual(wizard_count_after, 1)
         self.assertEqual(new_record.title, 'Lord of Rings')
+
+    def test_crnd_web_actions(self):
+        records_before = self.env['test.crnd.web.actions'].search([])
+        self.run_js_tour(
+            start_url='/web',
+            tour_name='test_crnd_web_models_test_crnd_web_actions',
+            login='admin')
+        new_record = self.env['test.crnd.web.actions'].search(
+            [('id', 'not in', records_before.ids)])
+        self.assertEqual(new_record.title, 'Test Crnd Web Actions')
