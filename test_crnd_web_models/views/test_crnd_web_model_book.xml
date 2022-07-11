@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record model="ir.ui.view" id="book_view_form">
+        <field name="model">test.crnd.web.model.book</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="title"/>
+                    </group>
+                </sheet>
+
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="book_view_tree">
+        <field name="model">test.crnd.web.model.book</field>
+        <field name="arch" type="xml">
+            <tree class="on-create-action-name-test_crnd_web_models.action_wizard_book_create">
+                <field name="title"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="book_action_window">
+        <field name="name">Books</field>
+        <field name="res_model">test.crnd.web.model.book</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem
+            id="crnd_web_on_create_action_menu_item"
+            name="Test crnd_web_on_create_action"
+            parent="crnd_web_tests"/>
+    <menuitem
+            id="test_crnd_web_on_create_action"
+            name="Test crnd_web_on_create_action"
+            parent="crnd_web_on_create_action_menu_item"
+            action="book_action_window"/>
+</odoo>
