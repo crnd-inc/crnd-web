@@ -19,7 +19,8 @@ odoo.define('test_crnd_web_models.test_crnd_web_actions', function (require) {
         },
         {
             content: "Click menu 'CRND Web Tests'",
-            trigger: "a[data-menu-xmlid='test_crnd_web_models.crnd_web_tests']"
+            trigger: "a[data-menu-xmlid=" +
+                "'test_crnd_web_models.crnd_web_tests']",
         },
         {
             content: "Click menu 'Test crnd_web_actions'",
@@ -28,7 +29,8 @@ odoo.define('test_crnd_web_models.test_crnd_web_actions', function (require) {
         },
         {
             content: "Wait for download",
-            trigger: "div[class='o_control_panel'] ol:has(li:containsExact('Actions'))",
+            trigger: "div[class='o_control_panel'] ol:has" +
+                "(li:containsExact('Actions'))",
         },
         {
             content: "Click create button",
