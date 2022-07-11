@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-    <record model="ir.ui.view" id="book_view_form">
+    <record model="ir.ui.view" id="test_crnd_web_actions_view_form">
         <field name="model">test.crnd.web.actions</field>
         <field name="arch" type="xml">
             <form>
@@ -25,7 +25,7 @@
         </field>
     </record>
 
-    <record model="ir.ui.view" id="book_view_tree">
+    <record model="ir.ui.view" id="test_crnd_web_actions_view_tree">
         <field name="model">test.crnd.web.actions</field>
         <field name="arch" type="xml">
             <tree>
