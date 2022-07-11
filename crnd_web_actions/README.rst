@@ -18,6 +18,7 @@ CRND Web Actions
 |badge2| |badge4| |badge5|
 
 CRND Web Actions
+
 ::
     def action_reload(self):
         return {

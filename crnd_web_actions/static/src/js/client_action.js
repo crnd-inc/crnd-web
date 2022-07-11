@@ -2,7 +2,7 @@ odoo.define("crnd_web_actions.ClientActions", function (require) {
     "use strict";
 
     var core = require('web.core');
-
+    // eslint-disable-next-line no-empty-function, no-unused-vars
     function nothing (parent, action) {}
 
     function reloadView (parent, action) {
