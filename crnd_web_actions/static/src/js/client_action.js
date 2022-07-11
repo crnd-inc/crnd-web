@@ -44,8 +44,8 @@ odoo.define("crnd_web_actions.ClientActions", function (require) {
         }
     }
 
-    core.action_registry.add('nothing', nothing);
-    core.action_registry.add('reload_view', reloadView);
-    core.action_registry.add('readonly_view_mode', readonlyViewMode);
-    core.action_registry.add('edit_view_mode', editViewMode);
+    core.action_registry.add('crnd_act_nothing', nothing);
+    core.action_registry.add('crnd_act_view_reload', reloadView);
+    core.action_registry.add('crnd_act_view_mode_readonly', readonlyViewMode);
+    core.action_registry.add('crnd_act_view_mode_edit', editViewMode);
 });

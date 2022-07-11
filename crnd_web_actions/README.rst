@@ -24,7 +24,7 @@ CRND Web Actions
     def action_reload(self):
         return {
             'type': 'ir.actions.client',
-            'tag': 'nothing'/'reload_view'/'readonly_view_mode'/'edit_view_mode',
+            'tag': 'crnd_act_nothing'/'crnd_act_view_reload'/'crnd_act_view_mode_readonly'/'crnd_act_view_mode_edit',
         }
 
 Launch your own ITSM system in 60 seconds:
