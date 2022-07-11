@@ -20,6 +20,7 @@ CRND Web Actions
 CRND Web Actions
 
 ::
+
     def action_reload(self):
         return {
             'type': 'ir.actions.client',
