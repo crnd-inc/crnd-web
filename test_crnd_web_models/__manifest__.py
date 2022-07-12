@@ -1,6 +1,6 @@
 {
     "name": "Test CRND Web Models",
-    "version": "13.0.0.7.0",
+    "version": "13.0.0.9.0",
     "author": "Center of Research and Development",
     "website": "https://crnd.pro",
     'summary': 'Module for testing web addons.',
@@ -13,6 +13,7 @@
         'crnd_web_m2o_info_widget',
         'crnd_web_tree_colored_field',
         'crnd_web_on_create_action',
+        'crnd_web_actions',
         'generic_mixin',
     ],
     'demo': [
@@ -35,6 +36,7 @@
         'views/web_diagram_plus_arrow.xml',
         'views/web_diagram_plus_node.xml',
         'views/test_crnd_web_model_book.xml',
+        'views/test_crnd_web_actions.xml',
         'wizard/book_wizard_create.xml',
         'views/assets.xml',
     ],

@@ -3,7 +3,7 @@
 #  See LICENSE file for licensing details.
 {
     'name': 'CRnD Web Client',
-    'version': '13.0.1.1.1',
+    'version': '13.0.1.2.0',
     'summary': 'Web Client Extention',
     'category': 'Tools',
     'author': 'Center of Research and Development ',
@@ -18,5 +18,5 @@
         'views/assets.xml',
     ],
     'installable': True,
-    'auto_install': True,
+    'auto_install': False,
 }
