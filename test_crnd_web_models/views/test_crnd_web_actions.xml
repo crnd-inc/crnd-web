@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record model="ir.ui.view" id="test_crnd_web_actions_view_form">
+        <field name="model">test.crnd.web.actions</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_editable"
+                                string="Action editable"
+                                type="object"
+                                class="oe_stat_button" icon="fa-edit">
+                        </button>
+                        <button name="action_readonly"
+                                string="Action readonly"
+                                type="object"
+                                class="oe_stat_button" icon="fa-lock">
+                        </button>
+                    </div>
+                    <group>
+                        <field name="title"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="test_crnd_web_actions_view_tree">
+        <field name="model">test.crnd.web.actions</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="title"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="test_crnd_web_actions_action_window">
+        <field name="name">Actions</field>
+        <field name="res_model">test.crnd.web.actions</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem
+            id="crnd_web_actions_menu_item"
+            name="Test crnd_web_actions"
+            parent="crnd_web_tests"/>
+    <menuitem
+            id="test_crnd_web_actions"
+            name="Test crnd_web_actions"
+            parent="crnd_web_actions_menu_item"
+            action="test_crnd_web_actions_action_window"/>
+</odoo>
