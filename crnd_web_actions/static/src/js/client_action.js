@@ -1,51 +1,33 @@
-odoo.define("crnd_web_actions.ClientActions", function (require) {
-    "use strict";
+/** @odoo-module **/
 
-    var core = require('web.core');
-    // eslint-disable-next-line no-empty-function, no-unused-vars
-    function nothing (parent, action) {}
+import { registry } from "@web/core/registry";
+import * as legacyEnv from "web.env";
 
-    function reloadView (parent, action) {
-        var actModel = action.context.active_model;
-        var currentController = parent.getCurrentController();
+export const nothing = (env, action) => {
+    const params = action.params || {};
+    return params.next;
+};
 
-        if (parent.currentDialogController &&
-            parent.currentDialogController.widget.modelName === actModel) {
-            parent.currentDialogController.widget.reload();
-        } else if (currentController &&
-            currentController.widget.modelName === actModel) {
-            currentController.widget.reload();
-        }
-    }
+export const reloadView = (env, action) => {
+    const params = action.params || {};
+    legacyEnv.bus.trigger('crnd_act_view_reload_c', action)
+    return params.next;
+};
 
-    function readonlyViewMode (parent, action) {
-        var actModel = action.context.active_model;
-        var currentController = parent.getCurrentController();
+export const readonlyViewMode = (env, action) => {
+    const params = action.params || {};
+    legacyEnv.bus.trigger('crnd_act_view_mode_readonly_c', action)
+    return params.next;
+};
 
-        if (parent.currentDialogController &&
-            parent.currentDialogController.widget.modelName === actModel) {
-            parent.currentDialogController.widget.update({mode: 'readonly'});
-        } else if (currentController &&
-            currentController.widget.modelName === actModel) {
-            currentController.widget.update({mode: 'readonly'});
-        }
-    }
+export const editViewMode = (env, action) => {
+    const params = action.params || {};
+    legacyEnv.bus.trigger('crnd_act_view_mode_edit_c', action)
+    return params.next;
+};
 
-    function editViewMode (parent, action) {
-        var actModel = action.context.active_model;
-        var currentController = parent.getCurrentController();
+registry.category('actions').add('crnd_act_nothing', nothing);
+registry.category('actions').add('crnd_act_view_reload', reloadView);
+registry.category('actions').add('crnd_act_view_mode_readonly', readonlyViewMode);
+registry.category('actions').add('crnd_act_view_mode_edit', editViewMode);
 
-        if (parent.currentDialogController &&
-            parent.currentDialogController.widget.modelName === actModel) {
-            parent.currentDialogController.widget.update({mode: 'edit'});
-        } else if (parent.getCurrentController() &&
-            parent.getCurrentController().widget.modelName === actModel) {
-            currentController.widget.update({mode:'edit'});
-        }
-    }
-
-    core.action_registry.add('crnd_act_nothing', nothing);
-    core.action_registry.add('crnd_act_view_reload', reloadView);
-    core.action_registry.add('crnd_act_view_mode_readonly', readonlyViewMode);
-    core.action_registry.add('crnd_act_view_mode_edit', editViewMode);
-});

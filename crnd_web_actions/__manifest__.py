@@ -11,9 +11,14 @@
         'web',
     ],
     'data': [
-        'templates/templates.xml',
     ],
     'demo': [],
+    'assets': {
+        'web.assets_backend': [
+            'crnd_web_actions/static/src/js/basic_controller.js',
+            'crnd_web_actions/static/src/js/client_action.js',
+        ],
+    },
     'images': ['static/description/banner.png'],
     'installable': True,
     'auto_install': False,
