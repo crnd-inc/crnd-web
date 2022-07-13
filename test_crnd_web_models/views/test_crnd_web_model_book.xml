@@ -3,7 +3,7 @@
     <record model="ir.ui.view" id="book_view_form">
         <field name="model">test.crnd.web.model.book</field>
         <field name="arch" type="xml">
-            <form>
+            <form class="on-create-action-name-test_crnd_web_models.action_wizard_book_create">
                 <sheet>
                     <group>
                         <field name="title"/>

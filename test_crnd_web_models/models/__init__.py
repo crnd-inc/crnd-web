@@ -9,4 +9,5 @@ from . import (
     web_diagram_plus,
     res_partner,
     test_crnd_web_model_book,
+    test_crnd_web_actions,
 )
