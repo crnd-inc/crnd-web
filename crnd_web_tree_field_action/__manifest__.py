@@ -1,7 +1,7 @@
 # flake8: noqa: E501
 {
     'name': 'CRND web tree field action',
-    'version': '15.0.0.4.0',
+    'version': '16.0.0.4.0',
     'author': "Center of Research and Development",
     'website': "https://crnd.pro",
     'summary': """""",

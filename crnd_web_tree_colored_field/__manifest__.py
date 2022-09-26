@@ -1,7 +1,7 @@
 # flake8: noqa: E501
 {
     'name': 'CRND web tree colored field',
-    'version': '15.0.0.3.0',
+    'version': '16.0.0.3.0',
     'author': "Center of Research and Development",
     'website': "https://crnd.pro",
     'summary': """""",
@@ -13,8 +13,7 @@
     ],
     'assets': {
         'web.assets_backend': [
-            'crnd_web_tree_colored_field'
-            '/static/src/js/crnd_web_tree_colored_field.js',
+            'crnd_web_tree_colored_field/static/src/js/crnd_web_tree_colored_field.js',
         ],
     },
     'demo': [],
