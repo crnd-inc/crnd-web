@@ -5,9 +5,9 @@ from odoo.tools.safe_eval import safe_eval
 
 from ..tools.graph import graph
 
-_logger = logging.getLogger(__name__)
-
 from ..utils import str2bool
+
+_logger = logging.getLogger(__name__)
 
 
 class IrUiView(models.Model):
@@ -106,9 +106,6 @@ class IrUiView(models.Model):
         labels = {}
         no_ancester = []
         blank_nodes = []
-
-        _fields = {}
-        color_fields = {}
 
         Model = self.env[model]
         Node = self.env[node_obj]
