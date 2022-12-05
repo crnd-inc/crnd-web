@@ -3,7 +3,8 @@ import logging
 import odoo.http as http
 
 from odoo.tools.safe_eval import safe_eval
-from odoo.tools.misc import str2bool
+
+from ..utils import str2bool
 
 _logger = logging.getLogger(__name__)
 
