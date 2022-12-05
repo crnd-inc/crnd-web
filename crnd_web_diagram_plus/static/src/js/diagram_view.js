@@ -61,6 +61,19 @@ odoo.define('web_diagram_plus.DiagramPlusView', function (require) {
                 }
             );
 
+            // Auto layout is enabled by default, but could be disabled
+            // via attr auto_layout on the view
+            var auto_layout = null;
+            if ('auto_layout' in arch.attrs) {
+                // Here we have to parse both values 'False', and 'false'
+                auto_layout = _.str.toBool(arch.attrs.auto_layout);
+                if (_.isUndefined(auto_layout)) {
+                    auto_layout = true;
+                }
+            } else {
+                auto_layout = true;
+            }
+
             var invisible_nodes = [];
             var visible_nodes = [];
             var node_fields_string = [];
@@ -93,6 +106,7 @@ odoo.define('web_diagram_plus.DiagramPlusView', function (require) {
                 connectors: connectors,
                 connector_model: connector_model,
                 connector_fields_string: connector_fields_string,
+                auto_layout: auto_layout,
             });
 
             this.controllerParams = _.extend({}, this.controllerParams, {
