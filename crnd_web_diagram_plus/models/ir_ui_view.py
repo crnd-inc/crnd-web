@@ -5,11 +5,14 @@ from lxml import etree
 from odoo.tools.view_validation import get_attrs_field_names
 from odoo import models, fields, api, _
 
+from ..utils import str2bool
+
 
 class IrUiView(models.Model):
     # pylint: disable=too-many-locals
     # pylint: disable=too-many-branches
     # pylint: disable=translation-positional-used
+    # pylint: disable=too-many-statements
 
     _inherit = 'ir.ui.view'
 
@@ -27,6 +30,10 @@ class IrUiView(models.Model):
 
         _fields = {}
         color_fields = {}
+
+        # Auto layout have to be enabled by default, but could be disabled
+        # with attribute on node
+        auto_layout = str2bool(node.attrib.get('auto_layout'), True)
         if model not in self.env:
             self.raise_view_error(
                 _('Model not found: %(model)s') % dict(model=model), view_id)
@@ -50,6 +57,21 @@ class IrUiView(models.Model):
                     not self._context.get("create", True) and
                     is_base_model):
                 node.set("create", 'false')
+            if not auto_layout:
+                d_position_field = \
+                    node.getchildren()[0].get('d_position_field', False)
+                if not d_position_field:
+                    message = _(
+                        "Field d_position_field must be present in"
+                        " diagram_plus[node], because set auto_layout='False'"
+                    )
+                    self.raise_view_error(message, view_id)
+                if d_position_field not in node_fields:
+                    message = _(
+                        "Field `%(field_name)s` does not exist"
+                    ) % dict(field_name=d_position_field)
+                    self.raise_view_error(message, view_id)
+
         if node.getchildren()[1].tag == 'arrow':
             arrow_fields = self.env[
                 node.getchildren()[1].get('object')].fields_get(None)

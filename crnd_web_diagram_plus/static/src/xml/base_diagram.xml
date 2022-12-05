@@ -4,6 +4,11 @@
             <button type="button" class="btn btn-primary o_diagram_plus_new_button">
                 New Node
             </button>
+            <t t-if="!auto_layout">
+                <button type="button" class="btn btn-primary o_diagram_plus_auto_layout">
+                    Auto Layout
+                </button>
+            </t>
         </div>
     </t>
 
