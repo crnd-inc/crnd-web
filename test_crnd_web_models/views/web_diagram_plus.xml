@@ -37,11 +37,12 @@
         <field name="model">web.diagram.plus</field>
         <field name="type">diagram_plus</field>
         <field name="arch" type="xml">
-            <diagram_plus>
+            <diagram_plus auto_layout="false">
                 <node object="web.diagram.plus.node"
                       bgcolor="gray:closed"
                       bg_color_field="res_bg_color"
-                      fg_color_field="res_label_color">
+                      fg_color_field="res_label_color"
+                      d_position_field="diagram_position">
                     <field name="name"/>
                     <field name="res_bg_color"/>
                     <field name="res_label_color"/>

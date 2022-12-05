@@ -353,6 +353,7 @@ odoo.define('web_diagram_plus.Graph', function (require) {
                 }
             });
         };
+        this.translate_graph = translate_all;
         // Returns {minx, miny, maxx, maxy},
         // the translated bounds containing all nodes
         var get_bounds = function () {
@@ -816,6 +817,7 @@ odoo.define('web_diagram_plus.Graph', function (require) {
                 self.close_button.hide();
             }
             set_pos(this.opos.add_xy(dx, dy));
+            this.start_move_graph_node = true;
         };
         var drag_up = function () {
             // We re-enable the
@@ -825,6 +827,10 @@ odoo.define('web_diagram_plus.Graph', function (require) {
             }
             if (self.close_button) {
                 self.close_button.show();
+            }
+            if (this.start_move_graph_node) {
+                this.start_move_graph_node = false;
+                GraphNode.drag_up_callback(self);
             }
         };
         node_fig.drag(drag_move, drag_down, drag_up);
@@ -868,6 +874,11 @@ odoo.define('web_diagram_plus.Graph', function (require) {
     // eslint-disable-next-line no-unused-vars
     GraphNode.destruction_callback = function (node) {
         return true;
+    };
+
+    GraphNode.drag_up_callback = function (node) {
+        // eslint-disable-next-line no-console
+        console.log("drag up node:", node);
     };
 
     // Creates a new edge with label 'label' from start to end.
