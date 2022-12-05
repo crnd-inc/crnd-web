@@ -6,5 +6,5 @@ from odoo.tests import HttpCase, tagged
 class TestJS(HttpCase):
 
     def test_01_js(self):
-        self.phantom_js(
+        self.browser_js(
             '/web/tests?module=DiagramPlus', "", "", login='admin')
