@@ -7,11 +7,14 @@ from ..tools.graph import graph
 
 _logger = logging.getLogger(__name__)
 
+from ..utils import str2bool
+
 
 class IrUiView(models.Model):
     # pylint: disable=too-many-locals
     # pylint: disable=too-many-branches
     # pylint: disable=translation-positional-used
+    # pylint: disable=too-many-statements
 
     _inherit = 'ir.ui.view'
 
@@ -25,6 +28,8 @@ class IrUiView(models.Model):
             name_manager.has_field(node.get('bg_color_field'), {})
         if node.get('fg_color_field'):
             name_manager.has_field(node.get('fg_color_field'), {})
+        if node.get('d_position_field'):
+            name_manager.has_field(node.get('d_position_field'), {})
         for child in node:
             if child.tag == 'field':
                 name_manager.has_field(child.get('name'), {})
@@ -65,6 +70,9 @@ class IrUiView(models.Model):
                     node.set('create', 'false')
 
     def _validate_tag_diagram_plus(self, node, name_manager, node_info):
+        # Auto layout have to be enabled by default, but could be disabled
+        # with attribute on node
+        auto_layout = str2bool(node.attrib.get('auto_layout'), True)
         for child in node:
             if child.tag not in ("arrow", "node"):
                 msg = _(
@@ -72,6 +80,15 @@ class IrUiView(models.Model):
                     "'diagram_plus_view', but %(tag_name)s found.",
                 ) % {'tag_name': child.tag}
                 self.handle_view_error(msg)
+            if child.tag == "node" and not auto_layout:
+                d_position_field = \
+                    child.get('d_position_field', False)
+                if not d_position_field:
+                    message = _(
+                        "Field d_position_field must be present in"
+                        " diagram_plus[node], because set auto_layout='False'"
+                    )
+                    self.handle_view_error(message)
 
     @api.model
     def graph_get(self, record_id, model, node_obj, conn_obj, src_node,
@@ -89,6 +106,9 @@ class IrUiView(models.Model):
         labels = {}
         no_ancester = []
         blank_nodes = []
+
+        _fields = {}
+        color_fields = {}
 
         Model = self.env[model]
         Node = self.env[node_obj]
