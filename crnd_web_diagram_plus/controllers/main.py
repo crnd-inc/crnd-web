@@ -11,6 +11,25 @@ _logger = logging.getLogger(__name__)
 
 class DiagramPlusView(http.Controller):
 
+    def _diagram_plus_view__find_nodes(self, diagram_id,
+                                       diagram_model,
+                                       node_model):
+        """ Find nodes for diagram
+
+            :param int diagram_id: ID of record in diagram model to search
+                nodes for
+            :param str diagram_model: name of diagram model
+            :param str node_model: name of model for diagram nodes
+            :return recordset: nodes related diagram
+        """
+        fields = http.request.env['ir.model.fields']
+        field = fields.search([('model', '=', diagram_model),
+                               ('relation', '=', node_model),
+                               ('ttype', '=', 'one2many')])
+        node_act = http.request.env[node_model]
+        return node_act.search(
+            [(field.relation_field, '=', diagram_id)])
+
     # Just Copy+Paste+Edit of original Odoo's method
     # pylint: disable=redefined-builtin,too-many-locals,too-many-statements
     # pylint: disable=too-many-branches
@@ -56,7 +75,8 @@ class DiagramPlusView(http.Controller):
         nodes = {}
         isolate_nodes = {}
         if not auto_layout and not calc_auto_layout:
-            nodes_data = http.request.env[model].browse([id]).stage_ids
+            nodes_data = self._diagram_plus_view__find_nodes(
+                diagram_id=id, diagram_model=model, node_model=node)
             for n in nodes_data:
                 if n[d_position_field]:
                     nodes[str(n.id)] = {
@@ -129,13 +149,10 @@ class DiagramPlusView(http.Controller):
             for i, fld in enumerate(connector_fields):
                 t['options'][connector_fields_string[i]] = tr[fld]
 
-        fields = http.request.env['ir.model.fields']
-        # CRND FIX: restring field by type
-        field = fields.search([('model', '=', model),
-                               ('relation', '=', node),
-                               ('ttype', '=', 'one2many')])
-        node_act = http.request.env[node]
-        search_acts = node_act.search([(field.relation_field, '=', id)])
+        # CRND FIX: restrict field by type (move computation to separate meth)
+        search_acts = self._diagram_plus_view__find_nodes(
+            diagram_id=id, diagram_model=model, node_model=node)
+        # CRND FIX END
         data_acts = search_acts.read(
             invisible_node_fields + visible_node_fields)
 
