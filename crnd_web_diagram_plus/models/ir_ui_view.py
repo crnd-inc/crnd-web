@@ -3,7 +3,7 @@ import itertools
 from operator import itemgetter
 from lxml import etree
 
-from odoo import models, fields, api, _
+from odoo import models, fields, api, _, tools
 
 
 class IrUiView(models.Model):
@@ -28,7 +28,11 @@ class IrUiView(models.Model):
 
         _fields = {}
         color_fields = {}
-        auto_layout = not node.attrib.get('auto_layout') == 'False'
+
+        # Auto layout have to be enabled by default, but could be disabled
+        # with attribute on node
+        auto_layout = not tools.misc.str2bool(
+            node.attrib.get('auto_layout'), True)
         if model not in self.env:
             self.raise_view_error(
                 _('Model not found: %(model)s') % dict(model=model), view_id)

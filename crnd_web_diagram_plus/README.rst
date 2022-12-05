@@ -23,39 +23,44 @@ Changes:
 
 - Applied `Pull Request <https://github.com/odoo/odoo/pull/18975>`__
 - Possible to specify background and foreground colors of nodes (via fields)
+- Possible to store node position in database, thus there is no more need
+  to rearrange flow manually each time you open diagram.
 
 Usage
 '''''
 
+See real example of usage at `Bureaucrat Helpdesk Lite <https://github.com/crnd-inc/bureaucrat-helpdesk-lite/blob/12.0/generic_request/views/request_type_view.xml#L522>`__
+
 Simple example for internal usage:
 
-    .. code:: xml
+.. code:: xml
 
-        <record id="some_id" model="ir.ui.view">
-            <field name="model">model.name</field>
-            <field name="type">diagram_plus</field>
-            <field name="arch" type="xml">
-                <diagram_plus>
-                    <node object="name.of.model"
-                          bgcolor="from_old_diagram_non_priority"
-                          bg_color_field="name_of_field_bg_color"
-                          fg_color_field="name_of_field_fg_color">
-                        <field name="name_of_label_field"/>
-                        <field name="field_for_bgcolor_expr"/>
-                        <field name="name_of_field_bg_color"/>
-                        <field name="name_of_field_fg_color"/>
-                    </node>
-                    <arrow object="name.of.model"
-                           source="source_field(from)"
-                           destination="destination_field(to)"
-                           label="['name_of_label_field']">
-                        <field name="source_field"/>
-                        <field name="destination_field"/>
-                        <field name="name_of_label_field"/>
-                    </arrow>
-                </diagram_plus>
-            </field>
-        </record>
+    <record id="some_id" model="ir.ui.view">
+        <field name="model">model.name</field>
+        <field name="type">diagram_plus</field>
+        <field name="arch" type="xml">
+            <diagram_plus>
+                <node object="name.of.model"
+                      bgcolor="from_old_diagram_non_priority"
+                      bg_color_field="name_of_field_bg_color"
+                      fg_color_field="name_of_field_fg_color"
+                      d_position_field="name_of_field_to_store_position">
+                    <field name="name_of_label_field"/>
+                    <field name="field_for_bgcolor_expr"/>
+                    <field name="name_of_field_bg_color"/>
+                    <field name="name_of_field_fg_color"/>
+                </node>
+                <arrow object="name.of.model"
+                       source="source_field(from)"
+                       destination="destination_field(to)"
+                       label="['name_of_label_field']">
+                    <field name="source_field"/>
+                    <field name="destination_field"/>
+                    <field name="name_of_label_field"/>
+                </arrow>
+            </diagram_plus>
+        </field>
+    </record>
 
 Launch your own ITSM system in 60 seconds:
 ''''''''''''''''''''''''''''''''''''''''''
@@ -82,4 +87,3 @@ This module is maintained by the Center of Research & Development company.
 We can provide you further Odoo Support, Odoo implementation, Odoo customization, Odoo 3rd Party development and integration software, consulting services. Our main goal is to provide the best quality product for you. 
 
 For any questions `contact us <mailto:info@crnd.pro>`__.
-

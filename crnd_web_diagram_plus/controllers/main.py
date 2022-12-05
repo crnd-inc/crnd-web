@@ -3,6 +3,7 @@ import logging
 import odoo.http as http
 
 from odoo.tools.safe_eval import safe_eval
+from odoo.tools.misc import str2bool
 
 _logger = logging.getLogger(__name__)
 
@@ -28,9 +29,9 @@ class DiagramPlusView(http.Controller):
         bg_color_field = kw.get('bg_color_field', '')
         fg_color_field = kw.get('fg_color_field', '')
         shape = kw.get('shape', '')
-        auto_layout = kw.get('auto_layout', True)
+        auto_layout = str2bool(kw.get('auto_layout'), True)
         d_position_field = kw.get('d_position_field', False)
-        calc_auto_layout = kw.get('calc_auto_layout', False)
+        calc_auto_layout = str2bool(kw.get('calc_auto_layout'), False)
 
         init_view = False
         x_offset = 50
