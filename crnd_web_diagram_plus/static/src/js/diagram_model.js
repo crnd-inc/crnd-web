@@ -24,6 +24,7 @@ var DiagramPlusModel = AbstractModel.extend({
             res_id: this.res_id,
             connector_model: this.connector_model,
             connectors: this.connectors,
+            auto_layout: this.auto_layout,
         });
     },
 
@@ -44,6 +45,7 @@ var DiagramPlusModel = AbstractModel.extend({
         this.node_fields_string = params.node_fields_string;
         this.connector_fields_string = params.connector_fields_string;
         this.labels = params.labels;
+        this.auto_layout = params.auto_layout;
 
         return this._fetchDiagramInfo();
     },
@@ -80,8 +82,12 @@ var DiagramPlusModel = AbstractModel.extend({
                 invisible_nodes: this.invisible_nodes,
                 node_fields_string: this.node_fields_string,
                 connector_fields_string: this.connector_fields_string,
+                auto_layout: this.auto_layout,
+                d_position_field: this.nodes.attrs.d_position_field,
+                calc_auto_layout: self.calc_auto_layout,
             },
         }).then(function (data) {
+            self.calc_auto_layout = false;
             self.datanodes = data.nodes;
             self.edges = data.conn;
             self.parent_field = data.parent_field;

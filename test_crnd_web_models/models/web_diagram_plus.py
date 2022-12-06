@@ -62,6 +62,8 @@ class WebDiagramPlusNode(models.Model):
     arrow_out_ids = fields.One2many(
         'web.diagram.plus.arrow', 'from_node_id', 'Outgoing Arrows')
 
+    diagram_position = fields.Text()
+
 
 class WebDiagramPlusArrow(models.Model):
     _name = 'web.diagram.plus.arrow'

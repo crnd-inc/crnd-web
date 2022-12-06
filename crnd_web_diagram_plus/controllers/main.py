@@ -1,12 +1,34 @@
+import json
 import logging
 import odoo.http as http
 
 from odoo.tools.safe_eval import safe_eval
 
+from ..utils import str2bool
+
 _logger = logging.getLogger(__name__)
 
 
 class DiagramPlusView(http.Controller):
+
+    def _diagram_plus_view__find_nodes(self, diagram_id,
+                                       diagram_model,
+                                       node_model):
+        """ Find nodes for diagram
+
+            :param int diagram_id: ID of record in diagram model to search
+                nodes for
+            :param str diagram_model: name of diagram model
+            :param str node_model: name of model for diagram nodes
+            :return recordset: nodes related diagram
+        """
+        fields = http.request.env['ir.model.fields']
+        field = fields.search([('model', '=', diagram_model),
+                               ('relation', '=', node_model),
+                               ('ttype', '=', 'one2many')])
+        node_act = http.request.env[node_model]
+        return node_act.search(
+            [(field.relation_field, '=', diagram_id)])
 
     # Just Copy+Paste+Edit of original Odoo's method
     # pylint: disable=redefined-builtin,too-many-locals,too-many-statements
@@ -27,6 +49,13 @@ class DiagramPlusView(http.Controller):
         bg_color_field = kw.get('bg_color_field', '')
         fg_color_field = kw.get('fg_color_field', '')
         shape = kw.get('shape', '')
+        auto_layout = str2bool(kw.get('auto_layout'), True)
+        d_position_field = kw.get('d_position_field', False)
+        calc_auto_layout = str2bool(kw.get('calc_auto_layout'), False)
+
+        init_view = False
+        x_offset = 50
+        y_offset = 50
 
         if bgcolor:
             for color_spec in bgcolor.split(';'):
@@ -43,19 +72,53 @@ class DiagramPlusView(http.Controller):
         ir_view = http.request.env['ir.ui.view']
         graphs = ir_view.graph_get(int(id), model, node, connector, src_node,
                                    des_node, label, (140, 180))
-        nodes = graphs['nodes']
-        transitions = graphs['transitions']
+        nodes = {}
         isolate_nodes = {}
-        for blnk_node in graphs['blank_nodes']:
-            isolate_nodes[blnk_node['id']] = blnk_node
-        y = [
-            t['y']
+        if not auto_layout and not calc_auto_layout:
+            nodes_data = self._diagram_plus_view__find_nodes(
+                diagram_id=id, diagram_model=model, node_model=node)
+            for n in nodes_data:
+                if n[d_position_field]:
+                    nodes[str(n.id)] = {
+                        'name': n.name,
+                        'x': json.loads(n[d_position_field])['x'],
+                        'y': json.loads(n[d_position_field])['y'],
+                    }
+                else:
+                    isolate_nodes[n.id] = {
+                        'name': n.name,
+                    }
+        if not nodes:
+            init_view = True
+            nodes = graphs['nodes']
+            isolate_nodes = {}
+            for blnk_node in graphs['blank_nodes']:
+                isolate_nodes[blnk_node['id']] = blnk_node
+
+        transitions = graphs['transitions']
+
+        if auto_layout or calc_auto_layout:
+            y = [
+                t['y']
+                for t in nodes.values()
+                if t['x'] == 20
+                if t['y']
+            ]
+        else:
+            y = [
+                t['y']
+                for t in nodes.values()
+                if t['y']
+            ]
+        x = [
+            t['x']
             for t in nodes.values()
-            if t['x'] == 20
-            if t['y']
+            if t['x']
         ]
         # pylint: disable=consider-using-ternary
-        y_max = (y and max(y)) or 120
+        y_max = max(y) if y else 120
+        x_min = min(x) - x_offset \
+            if x and not auto_layout and not calc_auto_layout else 20
 
         connectors = {}
         list_tr = []
@@ -86,13 +149,10 @@ class DiagramPlusView(http.Controller):
             for i, fld in enumerate(connector_fields):
                 t['options'][connector_fields_string[i]] = tr[fld]
 
-        fields = http.request.env['ir.model.fields']
-        # CRND FIX: restrict field by type
-        field = fields.search([('model', '=', model),
-                               ('relation', '=', node),
-                               ('ttype', '=', 'one2many')])
-        node_act = http.request.env[node]
-        search_acts = node_act.search([(field.relation_field, '=', id)])
+        # CRND FIX: restrict field by type (move computation to separate meth)
+        search_acts = self._diagram_plus_view__find_nodes(
+            diagram_id=id, diagram_model=model, node_model=node)
+        # CRND FIX END
         data_acts = search_acts.read(
             invisible_node_fields + visible_node_fields)
 
@@ -101,7 +161,10 @@ class DiagramPlusView(http.Controller):
             if not n:
                 n = isolate_nodes.get(act['id'], {})
                 y_max += 140
-                n.update(x=20, y=y_max)
+                n.update(
+                    x=x_min + (
+                        0 if auto_layout or calc_auto_layout else x_offset),
+                    y=y_max)
                 nodes[act['id']] = n
 
             n.update(
@@ -125,6 +188,20 @@ class DiagramPlusView(http.Controller):
 
             for i, fld in enumerate(visible_node_fields):
                 n['options'][node_fields_string[i]] = act[fld]
+
+        if init_view and not auto_layout:
+            for key, n in nodes.items():
+                n.update(
+                    x=int(n['x']) + x_offset,
+                    y=int(n['y']) + y_offset,
+                )
+                if not auto_layout:
+                    http.request.env[node].browse([int(key)]).write({
+                        d_position_field: json.dumps({
+                            'x': n['x'],
+                            'y': n['y'],
+                        })
+                    })
 
         _id, name = http.request.env[model].browse([id]).name_get()[0]
         return dict(nodes=nodes,
