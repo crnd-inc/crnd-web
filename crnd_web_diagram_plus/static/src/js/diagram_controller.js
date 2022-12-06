@@ -16,6 +16,7 @@ var DiagramPlusController = AbstractController.extend({
         edit_node: '_onEditNode',
         remove_edge: '_onRemoveEdge',
         remove_node: '_onRemoveNode',
+        change_node_position: '_onChangeNodePosition',
     },
 
     /**
@@ -48,12 +49,22 @@ var DiagramPlusController = AbstractController.extend({
      */
     renderButtons: function ($node) {
         this.$buttons = $(QWeb.render(
-            "DiagramPlusView.buttons", {widget: this}));
+            "DiagramPlusView.buttons", {
+                widget: this,
+                auto_layout: this.model.auto_layout,
+            }));
         this.$buttons.on(
             'click',
             '.o_diagram_plus_new_button',
             this._addNode.bind(this)
         );
+        if (!this.model.auto_layout) {
+            this.$buttons.on(
+                'click',
+                '.o_diagram_plus_auto_layout',
+                this._autoLayout.bind(this)
+            );
+        }
         this.$buttons.appendTo($node);
     },
 
@@ -90,6 +101,21 @@ var DiagramPlusController = AbstractController.extend({
             });
         });
     },
+
+    /* eslint-disable */
+    _autoLayout: function () {
+        var self = this;
+        Dialog.confirm(
+            this,
+            "Do you really want to change the positions of the nodes?",
+            {
+                confirm_callback: function () {
+                    self.model.calc_auto_layout = true;
+                    self.reload();
+                },
+            });
+    },
+    /* eslint-enable */
 
     // --------------------------------------------------------------------
     // Handlers
@@ -164,6 +190,21 @@ var DiagramPlusController = AbstractController.extend({
             title: _.str.sprintf("%s %s", _t("Open:"), _t('Activity')),
             on_saved: this.reload.bind(this),
         }).open();
+    },
+
+    _onChangeNodePosition: function (event) {
+        var d_position_field = this.model.nodes.attrs.d_position_field;
+        var node_position = JSON.stringify(event.data.node.get_pos());
+        var values = {};
+        values[d_position_field] = node_position;
+        this._rpc({
+            model: this.model.node_model,
+            method: 'write',
+            args: [
+                [event.data.node.id],
+                values,
+            ],
+        });
     },
 
     /**

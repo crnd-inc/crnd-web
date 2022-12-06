@@ -79,6 +79,19 @@ var DiagramPlusView = BasicView.extend({
             }
         );
 
+        // Auto layout is enabled by default, but could be disabled
+        // via attr auto_layout on the view
+        var auto_layout = null;
+        if ('auto_layout' in arch.attrs) {
+            // Here we have to parse both values 'False', and 'false'
+            auto_layout = _.str.toBool(arch.attrs.auto_layout);
+            if (_.isUndefined(auto_layout)) {
+                auto_layout = true;
+            }
+        } else {
+            auto_layout = true;
+        }
+
         this.loadParams = _.extend({}, this.loadParams, {
             currentId: params.currentId,
             nodes: nodes,
@@ -90,6 +103,7 @@ var DiagramPlusView = BasicView.extend({
             connectors: connectors,
             connector_model: connector_model,
             connector_fields_string: connector_fields_string,
+            auto_layout: auto_layout,
         });
 
         this.controllerParams = _.extend({}, this.controllerParams, {

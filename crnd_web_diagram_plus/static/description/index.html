@@ -13,11 +13,15 @@
 <p>CR&amp;D fork of <a href="https://github.com/odoo/odoo/tree/11.0/addons/web_diagram" target="_blank">web_diagram</a> addon.</p>
 <p>Changes:</p>
 <ul>
-<li>Applied the following <a href="https://github.com/odoo/odoo/pull/18975">Pull Request</a> that fixes an error on the diagram view. It appears when the diagram object has 2 fields (one2many + many2one) that points to related nodes.</li>
-<li><p>Added possibility to specify background and foreground colors of nodes (via fields).</p>
-    <p><br></p>
-    <p>An example of internal usage:</p>
-    <pre>    &lt;record id="some_id" model="ir.ui.view"&gt;
+    <li>Applied the following <a href="https://github.com/odoo/odoo/pull/18975">Pull Request</a> that fixes an error on the diagram view. It appears when the diagram object has 2 fields (one2many + many2one) that points to related nodes.</li>
+    <li>Added possibility to specify background and foreground colors of nodes (via fields).</li>
+    <li>Possible to store node position in database, thus there is no more need
+        to rearrange flow manually each time you open diagram.</li>
+</ul>
+<p><br></p>
+<p>An example of internal usage:</p>
+<pre>
+    &lt;record id="some_id" model="ir.ui.view"&gt;
         &lt;field name="model"&gt;model.name&lt;/field&gt;
         &lt;field name="type"&gt;diagram_plus&lt;/field&gt;
         &lt;field name="arch" type="xml"&gt;
@@ -25,7 +29,8 @@
                 &lt;node object="name.of.model"
                       bgcolor="from_old_diagram_non_priority"
                       bg_color_field="name_of_field_bg_color"
-                      fg_color_field="name_of_field_fg_color"&gt;
+                      fg_color_field="name_of_field_fg_color"
+                      d_position_field="name_of_field_to_store_position"&gt;
                 &lt;/node&gt;
                 &lt;arrow object="name.of.model"
                        source="source_field(from)"
@@ -35,9 +40,7 @@
             &lt;/diagram_plus&gt;
         &lt;/field&gt;
     &lt;/record&gt;
-    </pre>
-</li>
-</ul>
+</pre>
 <div align="center">
 <img src="color_diagram.png" alt="colored diagram" style="max-width: 100%">
 <p><br></p>
