@@ -15,8 +15,7 @@
     'demo': [],
     'assets': {
         'web.assets_backend': [
-            'crnd_web_actions/static/src/js/basic_controller.js',
-            'crnd_web_actions/static/src/js/client_action.js',
+            'crnd_web_actions/static/src/js/*.js',
         ],
     },
     'images': ['static/description/banner.png'],

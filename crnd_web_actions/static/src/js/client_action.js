@@ -1,33 +1,33 @@
 /** @odoo-module **/
 
 import { registry } from "@web/core/registry";
-import * as legacyEnv from "web.env";
 
-export const nothing = (env, action) => {
+const CRND_NOTHING_ACTION = 'crnd_act_nothing';
+const CRND_RELOAD_VIEW_ACTION = 'crnd_act_view_reload';
+
+export function getControllerModel(controller) {
+    const localState = controller.getLocalState();
+    if (localState.model) {
+        return localState.model;
+    } else {
+        console.error('The model is not represented in the controller\'s local state')
+    }
+    return false;
+}
+
+const nothing = (env, action) => {
     const params = action.params || {};
     return params.next;
 };
 
-export const reloadView = (env, action) => {
+const reloadView = (env, action) => {
     const params = action.params || {};
-    legacyEnv.bus.trigger('crnd_act_view_reload_c', action)
+    const model = getControllerModel(env.services.action.currentController);
+    if (model) {
+        model.load();
+    }
     return params.next;
 };
 
-export const readonlyViewMode = (env, action) => {
-    const params = action.params || {};
-    legacyEnv.bus.trigger('crnd_act_view_mode_readonly_c', action)
-    return params.next;
-};
-
-export const editViewMode = (env, action) => {
-    const params = action.params || {};
-    legacyEnv.bus.trigger('crnd_act_view_mode_edit_c', action)
-    return params.next;
-};
-
-registry.category('actions').add('crnd_act_nothing', nothing);
-registry.category('actions').add('crnd_act_view_reload', reloadView);
-registry.category('actions').add('crnd_act_view_mode_readonly', readonlyViewMode);
-registry.category('actions').add('crnd_act_view_mode_edit', editViewMode);
-
+registry.category('actions').add(CRND_NOTHING_ACTION, nothing);
+registry.category('actions').add(CRND_RELOAD_VIEW_ACTION, reloadView);

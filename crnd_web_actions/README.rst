@@ -24,8 +24,12 @@ CRND Web Actions
     def action_reload(self):
         return {
             'type': 'ir.actions.client',
-            'tag': 'crnd_act_nothing'/'crnd_act_view_reload'/'crnd_act_view_mode_readonly'/'crnd_act_view_mode_edit',
+            'tag': 'crnd_act_nothing'/'crnd_act_view_reload',
         }
+
+If you use the 'crnd_act_view_reload' action, there is no edit mode check by default. If you do not want to reload a view that is not saved, then add to the button:
+::
+    context="{'force_reload': False}"
 
 Launch your own ITSM system in 60 seconds:
 ''''''''''''''''''''''''''''''''''''''''''
