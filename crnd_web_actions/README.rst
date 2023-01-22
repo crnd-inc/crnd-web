@@ -28,6 +28,7 @@ CRND Web Actions
         }
 
 If you use the 'crnd_act_view_reload' action, there is no edit mode check by default. If you do not want to reload a view that is not saved, then add to the button:
+
 ::
 
     context="{'force_reload': False}"
