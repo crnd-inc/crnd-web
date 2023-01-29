@@ -42,7 +42,7 @@ build_env:
         - whoami
         - odoo-helper --version
         - odoo-helper status --tools-versions --ci-tools-versions
-        - echo "Checking branch compatability $CI_COMMIT_BRANCH" && [[ "$CI_COMMIT_BRANCH" =~ ^15.0(-.*)?$ ]]
+        - echo "Checking branch compatability $CI_COMMIT_BRANCH" && [[ "$CI_COMMIT_BRANCH" =~ ^16.0(-.*)?$ ]]
 
 flake8:
     stage: static-test
