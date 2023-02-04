@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+
+    <t t-inherit="web.ListRenderer.RecordRow" t-inherit-mode="extension" owl="1">
+        <xpath expr="//t[@t-foreach='getColumns(record)']/t[contains(@t-if, field)]/td" position="attributes">
+            <attribute name="t-att-style">getCellColorStyle(column, record)</attribute>
+        </xpath>
+    </t>
+
+</templates>
