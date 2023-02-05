@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+
+    <t t-name="crnd_web_list_tooltip.HtmlFieldTooltip" owl="1">
+        <div class="html_field_value_container"/>
+    </t>
+
+    <t t-inherit="web.Tooltip" t-inherit-mode="extension" owl="1">
+        <xpath expr="//div[hasclass('o-tooltip')]" position="attributes">
+            <attribute name="t-ref">cwlt_tooltip_ref</attribute>
+        </xpath>
+    </t>
+
+    <t t-inherit="web.ListRenderer.RecordRow" t-inherit-mode="extension" owl="1">
+        <xpath expr="//t[@t-foreach='getColumns(record)']/t[contains(@t-if, field)]/td" position="attributes">
+            <attribute name="t-att-data-tooltip-template">getTooltipTemplate(column, record)</attribute>
+            <attribute name="t-att-data-tooltip-info">getHtmlTooltipInfo(column, record)</attribute>
+        </xpath>
+    </t>
+
+</templates>
