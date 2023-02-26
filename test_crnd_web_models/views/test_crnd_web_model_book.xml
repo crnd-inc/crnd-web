@@ -3,7 +3,7 @@
     <record model="ir.ui.view" id="book_view_form">
         <field name="model">test.crnd.web.model.book</field>
         <field name="arch" type="xml">
-            <form class="on-create-action-name-test_crnd_web_models.action_wizard_book_create">
+            <form class="on-create-action-name-test_crnd_web_models.action_wizard_book_create on-create-action-type-action">
                 <sheet>
                     <group>
                         <field name="title"/>
@@ -17,7 +17,7 @@
     <record model="ir.ui.view" id="book_view_tree">
         <field name="model">test.crnd.web.model.book</field>
         <field name="arch" type="xml">
-            <tree class="on-create-action-name-test_crnd_web_models.action_wizard_book_create">
+            <tree class="on-create-action-name-test_crnd_web_models.action_wizard_book_create on-create-action-type-action">
                 <field name="title"/>
             </tree>
         </field>
