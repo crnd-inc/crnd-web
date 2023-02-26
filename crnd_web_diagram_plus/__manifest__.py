@@ -13,9 +13,6 @@
         'web',
     ],
     'assets': {
-        'web.assets_qweb': [
-            'crnd_web_diagram_plus/static/src/xml/base_diagram.xml',
-        ],
         'web.assets_backend': [
             'crnd_web_diagram_plus/static/src/scss/diagram_view.scss',
 
@@ -26,6 +23,8 @@
             'crnd_web_diagram_plus/static/src/js/diagram_renderer.js',
             'crnd_web_diagram_plus/static/src/js/diagram_view.js',
             'crnd_web_diagram_plus/static/src/js/view_registry.js',
+
+            'crnd_web_diagram_plus/static/src/xml/base_diagram.xml',
         ],
         'web.qunit_suite_tests': [
             'crnd_web_diagram_plus/static/tests/diagram_tests.js',
