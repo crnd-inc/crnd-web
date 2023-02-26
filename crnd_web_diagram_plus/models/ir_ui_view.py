@@ -24,24 +24,24 @@ class IrUiView(models.Model):
 
     def _postprocess_tag_node(self, node, name_manager, node_info):
         if node.get('bg_color_field'):
-            name_manager.has_field(node.get('bg_color_field'), {})
+            name_manager.has_field(node, node.get('bg_color_field'), {})
         if node.get('fg_color_field'):
-            name_manager.has_field(node.get('fg_color_field'), {})
+            name_manager.has_field(node, node.get('fg_color_field'), {})
         if node.get('d_position_field'):
-            name_manager.has_field(node.get('d_position_field'), {})
+            name_manager.has_field(node, node.get('d_position_field'), {})
         for child in node:
             if child.tag == 'field':
-                name_manager.has_field(child.get('name'), {})
+                name_manager.has_field(node, child.get('name'), {})
                 node.remove(child)
 
     def _postprocess_tag_arrow(self, node, name_manager, node_info):
         if node.get('source'):
-            name_manager.has_field(node.get('source'), {})
+            name_manager.has_field(node, node.get('source'), {})
         if node.get('destination'):
-            name_manager.has_field(node.get('destination'), {})
+            name_manager.has_field(node, node.get('destination'), {})
         for child in node:
             if child.tag == 'field':
-                name_manager.has_field(child.get('name'), {})
+                name_manager.has_field(node, child.get('name'), {})
                 node.remove(child)
 
     def _postprocess_tag_diagram_plus(self, node, name_manager, node_info):
