@@ -70,8 +70,9 @@ class DiagramPlusView(http.Controller):
                     shapes[shape_colour] = shape_color_state
 
         ir_view = http.request.env['ir.ui.view']
-        graphs = ir_view.graph_get(int(id), model, node, connector, src_node,
-                                   des_node, label, (140, 180))
+        graphs = ir_view.crnd_diagram_plus_graph_get(
+            int(id), model, node, connector, src_node, des_node,
+            label, (140, 180))
         nodes = {}
         isolate_nodes = {}
         if not auto_layout and not calc_auto_layout:
