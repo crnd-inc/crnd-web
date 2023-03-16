@@ -10,6 +10,11 @@
 import operator
 import math
 
+from odoo import http, exceptions, _
+
+# Limit the max number of iterations in computation of graph.
+GUARD_COUNTER_LIMIT = 20000
+
 
 class graph(object):
     def __init__(self, nodes, transitions, no_ancester=None):
@@ -40,7 +45,16 @@ class graph(object):
 
         tot_node = len(self.partial_order)
         #do until all the nodes in the component are searched
-        while self.tight_tree()<tot_node:
+        g_counter = 1
+        while self.tight_tree() < tot_node and g_counter < GUARD_COUNTER_LIMIT:
+            g_counter += 1
+            if g_counter >= GUARD_COUNTER_LIMIT:
+                raise exceptions.UserError(_(
+                    "Cannot compute diagram view. "
+                    "It seems that the flow is incorrect! "
+                    "Try to remove some broken routes without using "
+                    "diagram view."
+                ))
             list_node = []
             list_edge = []
 
