@@ -1,11 +1,11 @@
 import logging
 
-from odoo import models, fields, api, _, tools
+from odoo.tools.view_validation import get_attrs_field_names
+from odoo import models, fields, api, tools, _
 from odoo.tools.safe_eval import safe_eval
 
-from ..tools.graph import graph
-
 from ..utils import str2bool
+from ..tools.graph import graph
 
 _logger = logging.getLogger(__name__)
 
@@ -91,8 +91,8 @@ class IrUiView(models.Model):
                     self.handle_view_error(message)
 
     @api.model
-    def graph_get(self, record_id, model, node_obj, conn_obj, src_node,
-                  des_node, label, scale):
+    def crnd_diagram_plus_graph_get(self, record_id, model, node_obj, conn_obj,
+                                    src_node, des_node, label, scale):
         def rec_name(rec):
             return (rec.name if 'name' in rec else
                     rec.x_name if 'x_name' in rec else
