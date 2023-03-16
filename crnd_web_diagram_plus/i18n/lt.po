@@ -17,7 +17,7 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: crnd_web_diagram_plus
-#: code:addons/crnd_web_diagram_plus/models/ir_ui_view.py:93
+#: code:addons/crnd_web_diagram_plus/models/ir_ui_view.py:117
 #, python-format
 msgid " - %r in %s=%r"
 msgstr ""
@@ -29,15 +29,15 @@ msgstr ""
 
 #. module: crnd_web_diagram_plus
 #. openerp-web
-#: code:addons/crnd_web_diagram_plus/static/src/js/diagram_controller.js:80
-#: code:addons/crnd_web_diagram_plus/static/src/js/diagram_controller.js:169
+#: code:addons/crnd_web_diagram_plus/static/src/js/diagram_controller.js:91
+#: code:addons/crnd_web_diagram_plus/static/src/js/diagram_controller.js:195
 #, python-format
 msgid "Activity"
 msgstr ""
 
 #. module: crnd_web_diagram_plus
 #. openerp-web
-#: code:addons/crnd_web_diagram_plus/static/src/js/diagram_controller.js:204
+#: code:addons/crnd_web_diagram_plus/static/src/js/diagram_controller.js:245
 #, python-format
 msgid ""
 "Are you sure you want to remove this node? This will remove its connected "
@@ -46,9 +46,16 @@ msgstr ""
 
 #. module: crnd_web_diagram_plus
 #. openerp-web
-#: code:addons/crnd_web_diagram_plus/static/src/js/diagram_controller.js:182
+#: code:addons/crnd_web_diagram_plus/static/src/js/diagram_controller.js:223
 #, python-format
 msgid "Are you sure you want to remove this transition?"
+msgstr ""
+
+#. module: crnd_web_diagram_plus
+#. openerp-web
+#: code:addons/crnd_web_diagram_plus/static/src/xml/base_diagram.xml:8
+#, python-format
+msgid "Auto Layout"
 msgstr ""
 
 #. module: crnd_web_diagram_plus
@@ -57,9 +64,17 @@ msgid "Calendar"
 msgstr ""
 
 #. module: crnd_web_diagram_plus
+#: code:addons/crnd_web_diagram_plus/tools/graph.py:52
+#, python-format
+msgid ""
+"Cannot compute diagram view. It seems that the flow is incorrect! Try to "
+"remove some broken routes without using diagram view."
+msgstr ""
+
+#. module: crnd_web_diagram_plus
 #. openerp-web
-#: code:addons/crnd_web_diagram_plus/static/src/js/diagram_controller.js:80
-#: code:addons/crnd_web_diagram_plus/static/src/js/diagram_controller.js:117
+#: code:addons/crnd_web_diagram_plus/static/src/js/diagram_controller.js:91
+#: code:addons/crnd_web_diagram_plus/static/src/js/diagram_controller.js:143
 #, python-format
 msgid "Create:"
 msgstr ""
@@ -78,23 +93,32 @@ msgid "DiagramPlus"
 msgstr ""
 
 #. module: crnd_web_diagram_plus
-#: code:addons/crnd_web_diagram_plus/models/ir_ui_view.py:91
+#: code:addons/crnd_web_diagram_plus/models/ir_ui_view.py:115
 #, python-format
 msgid "Field %r used in attributes must be present in view but is missing:"
 msgstr ""
 
 #. module: crnd_web_diagram_plus
-#: code:addons/crnd_web_diagram_plus/models/ir_ui_view.py:83
+#: code:addons/crnd_web_diagram_plus/models/ir_ui_view.py:72
+#: code:addons/crnd_web_diagram_plus/models/ir_ui_view.py:107
 #, python-format
 msgid "Field `%(field_name)s` does not exist"
 msgstr ""
 
 #. module: crnd_web_diagram_plus
-#: code:addons/crnd_web_diagram_plus/models/ir_ui_view.py:73
+#: code:addons/crnd_web_diagram_plus/models/ir_ui_view.py:97
 #, python-format
 msgid ""
 "Field `%(field_name)s` must be present in diagram_plus[node][field], because "
 "it present in diagram_plus[node], but is missing."
+msgstr ""
+
+#. module: crnd_web_diagram_plus
+#: code:addons/crnd_web_diagram_plus/models/ir_ui_view.py:66
+#, python-format
+msgid ""
+"Field d_position_field must be present in diagram_plus[node], because set "
+"auto_layout='False'"
 msgstr ""
 
 #. module: crnd_web_diagram_plus
@@ -118,7 +142,7 @@ msgid "Kanban"
 msgstr ""
 
 #. module: crnd_web_diagram_plus
-#: code:addons/crnd_web_diagram_plus/models/ir_ui_view.py:32
+#: code:addons/crnd_web_diagram_plus/models/ir_ui_view.py:41
 #, python-format
 msgid "Model not found: %(model)s"
 msgstr ""
@@ -132,8 +156,8 @@ msgstr ""
 
 #. module: crnd_web_diagram_plus
 #. openerp-web
-#: code:addons/crnd_web_diagram_plus/static/src/js/diagram_controller.js:151
-#: code:addons/crnd_web_diagram_plus/static/src/js/diagram_controller.js:169
+#: code:addons/crnd_web_diagram_plus/static/src/js/diagram_controller.js:177
+#: code:addons/crnd_web_diagram_plus/static/src/js/diagram_controller.js:195
 #, python-format
 msgid "Open:"
 msgstr ""
@@ -155,8 +179,8 @@ msgstr ""
 
 #. module: crnd_web_diagram_plus
 #. openerp-web
-#: code:addons/crnd_web_diagram_plus/static/src/js/diagram_controller.js:117
-#: code:addons/crnd_web_diagram_plus/static/src/js/diagram_controller.js:151
+#: code:addons/crnd_web_diagram_plus/static/src/js/diagram_controller.js:143
+#: code:addons/crnd_web_diagram_plus/static/src/js/diagram_controller.js:177
 #, python-format
 msgid "Transition"
 msgstr ""

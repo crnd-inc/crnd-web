@@ -14,6 +14,21 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: test_crnd_web_models
+#: model_terms:ir.ui.view,arch_db:test_crnd_web_models.test_crnd_web_actions_view_form
+msgid "Action editable"
+msgstr ""
+
+#. module: test_crnd_web_models
+#: model_terms:ir.ui.view,arch_db:test_crnd_web_models.test_crnd_web_actions_view_form
+msgid "Action readonly"
+msgstr ""
+
+#. module: test_crnd_web_models
+#: model:ir.actions.act_window,name:test_crnd_web_models.test_crnd_web_actions_action_window
+msgid "Actions"
+msgstr ""
+
+#. module: test_crnd_web_models
 #: model:ir.model.fields,field_description:test_crnd_web_models.field_web_diagram_plus__arrow_ids
 msgid "Arrows"
 msgstr ""
@@ -93,6 +108,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:test_crnd_web_models.field_popover_widget_char_model__create_uid
 #: model:ir.model.fields,field_description:test_crnd_web_models.field_popover_widget_html_model__create_uid
 #: model:ir.model.fields,field_description:test_crnd_web_models.field_popover_widget_text_model__create_uid
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_test_crnd_web_actions__create_uid
 #: model:ir.model.fields,field_description:test_crnd_web_models.field_test_crnd_web_model_book__create_uid
 #: model:ir.model.fields,field_description:test_crnd_web_models.field_tree_colored_field__create_uid
 #: model:ir.model.fields,field_description:test_crnd_web_models.field_web_diagram_plus__create_uid
@@ -109,6 +125,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:test_crnd_web_models.field_popover_widget_char_model__create_date
 #: model:ir.model.fields,field_description:test_crnd_web_models.field_popover_widget_html_model__create_date
 #: model:ir.model.fields,field_description:test_crnd_web_models.field_popover_widget_text_model__create_date
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_test_crnd_web_actions__create_date
 #: model:ir.model.fields,field_description:test_crnd_web_models.field_test_crnd_web_model_book__create_date
 #: model:ir.model.fields,field_description:test_crnd_web_models.field_tree_colored_field__create_date
 #: model:ir.model.fields,field_description:test_crnd_web_models.field_web_diagram_plus__create_date
@@ -123,6 +140,11 @@ msgid "Dark"
 msgstr ""
 
 #. module: test_crnd_web_models
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_web_diagram_plus_node__diagram_position
+msgid "Diagram Position"
+msgstr ""
+
+#. module: test_crnd_web_models
 #: model:ir.model.fields,field_description:test_crnd_web_models.field_book_wizard_create__display_name
 #: model:ir.model.fields,field_description:test_crnd_web_models.field_float_full_time_widget__display_name
 #: model:ir.model.fields,field_description:test_crnd_web_models.field_float_time_duration_widget__display_name
@@ -130,6 +152,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:test_crnd_web_models.field_popover_widget_char_model__display_name
 #: model:ir.model.fields,field_description:test_crnd_web_models.field_popover_widget_html_model__display_name
 #: model:ir.model.fields,field_description:test_crnd_web_models.field_popover_widget_text_model__display_name
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_test_crnd_web_actions__display_name
 #: model:ir.model.fields,field_description:test_crnd_web_models.field_test_crnd_web_model_book__display_name
 #: model:ir.model.fields,field_description:test_crnd_web_models.field_tree_colored_field__display_name
 #: model:ir.model.fields,field_description:test_crnd_web_models.field_web_diagram_plus__display_name
@@ -243,6 +266,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:test_crnd_web_models.field_popover_widget_char_model__id
 #: model:ir.model.fields,field_description:test_crnd_web_models.field_popover_widget_html_model__id
 #: model:ir.model.fields,field_description:test_crnd_web_models.field_popover_widget_text_model__id
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_test_crnd_web_actions__id
 #: model:ir.model.fields,field_description:test_crnd_web_models.field_test_crnd_web_model_book__id
 #: model:ir.model.fields,field_description:test_crnd_web_models.field_tree_colored_field__id
 #: model:ir.model.fields,field_description:test_crnd_web_models.field_web_diagram_plus__id
@@ -269,6 +293,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:test_crnd_web_models.field_popover_widget_char_model____last_update
 #: model:ir.model.fields,field_description:test_crnd_web_models.field_popover_widget_html_model____last_update
 #: model:ir.model.fields,field_description:test_crnd_web_models.field_popover_widget_text_model____last_update
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_test_crnd_web_actions____last_update
 #: model:ir.model.fields,field_description:test_crnd_web_models.field_test_crnd_web_model_book____last_update
 #: model:ir.model.fields,field_description:test_crnd_web_models.field_tree_colored_field____last_update
 #: model:ir.model.fields,field_description:test_crnd_web_models.field_web_diagram_plus____last_update
@@ -285,6 +310,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:test_crnd_web_models.field_popover_widget_char_model__write_uid
 #: model:ir.model.fields,field_description:test_crnd_web_models.field_popover_widget_html_model__write_uid
 #: model:ir.model.fields,field_description:test_crnd_web_models.field_popover_widget_text_model__write_uid
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_test_crnd_web_actions__write_uid
 #: model:ir.model.fields,field_description:test_crnd_web_models.field_test_crnd_web_model_book__write_uid
 #: model:ir.model.fields,field_description:test_crnd_web_models.field_tree_colored_field__write_uid
 #: model:ir.model.fields,field_description:test_crnd_web_models.field_web_diagram_plus__write_uid
@@ -301,6 +327,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:test_crnd_web_models.field_popover_widget_char_model__write_date
 #: model:ir.model.fields,field_description:test_crnd_web_models.field_popover_widget_html_model__write_date
 #: model:ir.model.fields,field_description:test_crnd_web_models.field_popover_widget_text_model__write_date
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_test_crnd_web_actions__write_date
 #: model:ir.model.fields,field_description:test_crnd_web_models.field_test_crnd_web_model_book__write_date
 #: model:ir.model.fields,field_description:test_crnd_web_models.field_tree_colored_field__write_date
 #: model:ir.model.fields,field_description:test_crnd_web_models.field_web_diagram_plus__write_date
@@ -424,9 +451,20 @@ msgid "Standard"
 msgstr ""
 
 #. module: test_crnd_web_models
+#: model:ir.ui.menu,name:test_crnd_web_models.crnd_web_actions_menu_item
+#: model:ir.ui.menu,name:test_crnd_web_models.test_crnd_web_actions
+msgid "Test crnd_web_actions"
+msgstr ""
+
+#. module: test_crnd_web_models
 #: model:ir.ui.menu,name:test_crnd_web_models.crnd_web_on_create_action_menu_item
 #: model:ir.ui.menu,name:test_crnd_web_models.test_crnd_web_on_create_action
 msgid "Test crnd_web_on_create_action"
+msgstr ""
+
+#. module: test_crnd_web_models
+#: model:ir.model,name:test_crnd_web_models.model_test_crnd_web_actions
+msgid "Test model for crnd_web_actions"
 msgstr ""
 
 #. module: test_crnd_web_models
@@ -488,6 +526,7 @@ msgstr ""
 
 #. module: test_crnd_web_models
 #: model:ir.model.fields,field_description:test_crnd_web_models.field_book_wizard_create__title
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_test_crnd_web_actions__title
 #: model:ir.model.fields,field_description:test_crnd_web_models.field_test_crnd_web_model_book__title
 msgid "Title"
 msgstr ""
