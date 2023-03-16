@@ -1,6 +1,5 @@
 import logging
 
-from odoo.tools.view_validation import get_attrs_field_names
 from odoo import models, fields, api, tools, _
 from odoo.tools.safe_eval import safe_eval
 
