@@ -52,6 +52,21 @@ msgstr "Вы уверены что хотите удалить это соеди
 
 #. module: crnd_web_diagram_plus
 #. openerp-web
+#: code:addons/crnd_web_diagram_plus/static/src/xml/base_diagram.xml:0
+#, python-format
+msgid "Auto Layout"
+msgstr ""
+
+#. module: crnd_web_diagram_plus
+#: code:addons/crnd_web_diagram_plus/tools/graph.py:0
+#, python-format
+msgid ""
+"Cannot compute diagram view. It seems that the flow is incorrect! Try to "
+"remove some broken routes without using diagram view."
+msgstr ""
+
+#. module: crnd_web_diagram_plus
+#. openerp-web
 #: code:addons/crnd_web_diagram_plus/static/src/js/diagram_controller.js:0
 #, python-format
 msgid "Create:"
@@ -88,6 +103,14 @@ msgid ""
 msgstr ""
 "Поле `%(field_name)s` должно быть в diagram_plus[node][field], потому что "
 "оно присутствует в diagram_plus[node]."
+
+#. module: crnd_web_diagram_plus
+#: code:addons/crnd_web_diagram_plus/models/ir_ui_view.py:0
+#, python-format
+msgid ""
+"Field d_position_field must be present in diagram_plus[node], because set "
+"auto_layout='False'"
+msgstr ""
 
 #. module: crnd_web_diagram_plus
 #: code:addons/crnd_web_diagram_plus/models/ir_ui_view.py:0
