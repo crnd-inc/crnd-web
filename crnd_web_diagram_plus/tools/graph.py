@@ -562,8 +562,17 @@ class graph(object):
         for node in self.nodes:
             if not self.partial_order.get(node):
                 rem_nodes.append(node)
-        cnt = 0
-        while True:
+
+        g_counter = 0
+        while g_counter < GUARD_COUNTER_LIMIT:
+            g_counter += 1
+            if g_counter >= GUARD_COUNTER_LIMIT:
+                raise exceptions.UserError(_(
+                    "Cannot compute diagram view. "
+                    "It seems that the flow is incorrect! "
+                    "Try to remove some broken routes without using "
+                    "diagram view."
+                ))
             if len(rem_nodes)==1:
                 self.start_nodes.append(rem_nodes[0])
                 break
@@ -596,7 +605,6 @@ class graph(object):
                 if not rem_nodes:
                     break
 
-
     def rank(self):
         """Finds the optimized rank of the nodes using Network-simplex algorithm
         """
@@ -614,7 +622,17 @@ class graph(object):
         #make cut values of all tree edges to 0 to optimize feasible tree
         e = self.leave_edge()
 
-        while e :
+        g_counter = 0
+        while e and g_counter < GUARD_COUNTER_LIMIT:
+            g_counter += 1
+            if g_counter >= GUARD_COUNTER_LIMIT:
+                raise exceptions.UserError(_(
+                    "Cannot compute diagram view. "
+                    "It seems that the flow is incorrect! "
+                    "Try to remove some broken routes without using "
+                    "diagram view."
+                ))
+
             f = self.enter_edge(e)
             if e==f:
                 self.critical_edges.append(e)
