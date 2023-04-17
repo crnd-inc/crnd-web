@@ -286,7 +286,7 @@ class Graph:
 
                 for rank in range(start, end):
                     if start == rank:
-                        self.transitions[edge[0]].append((rank+1, 'temp'))
+                        self.transitions[edge[0]].append((rank + 1, 'temp'))
                     elif rank == end-1:
                         self.transitions.setdefault((rank, 'temp'), []).append(edge[1])
                     else:
