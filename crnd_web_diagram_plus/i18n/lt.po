@@ -65,6 +65,8 @@ msgstr ""
 
 #. module: crnd_web_diagram_plus
 #: code:addons/crnd_web_diagram_plus/tools/graph.py:52
+#: code:addons/crnd_web_diagram_plus/tools/graph.py:578
+#: code:addons/crnd_web_diagram_plus/tools/graph.py:637
 #, python-format
 msgid ""
 "Cannot compute diagram view. It seems that the flow is incorrect! Try to "
