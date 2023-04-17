@@ -14,7 +14,7 @@ from odoo import exceptions, _
 GUARD_COUNTER_LIMIT = 20000
 
 
-class graph:
+class Graph:
     def __init__(self, nodes, transitions, no_ancester=None):
         """Initialize graph's object
         @param nodes list of ids of nodes in the graph
@@ -741,7 +741,7 @@ def main():
     ]
 
     radius = 20
-    g = graph(nodes, transitions)
+    g = Graph(nodes, transitions)
     g.process(starting_node)
     g.scale(radius * 3, radius * 3, radius, radius)
 
