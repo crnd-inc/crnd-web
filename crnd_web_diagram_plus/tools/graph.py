@@ -18,7 +18,8 @@ class Graph:
     def __init__(self, nodes, transitions, no_ancester=None):
         """Initialize graph's object
         @param nodes list of ids of nodes in the graph
-        @param transitions list of edges in the graph in the form (source_node, destination_node)
+        @param transitions list of edges in the graph in the form
+             (source_node, destination_node)
         @param no_ancester list of nodes with no incoming edges
         """
 
@@ -34,7 +35,8 @@ class Graph:
         self.result = {}
 
     def init_rank(self):
-        """Computes rank of the nodes of the graph by finding initial feasible tree
+        """ Computes rank of the nodes of the graph by finding
+            initial feasible tree
         """
         self.edge_wt = {}
         for link in self.links:
@@ -88,18 +90,16 @@ class Graph:
 
         self.init_cutvalues()
 
-
     def tight_tree(self):
         self.reachable_nodes = []
         self.tree_edges = []
         self.reachable_node(self.start)
         return len(self.reachable_nodes)
 
-
     def reachable_node(self, node):
-        """Find the nodes of the graph which are only 1 rank apart from each other
+        """ Find the nodes of the graph which are only 1 rank apart
+            from each other
         """
-
         if node not in self.reachable_nodes:
             self.reachable_nodes.append(node)
         for edge in self.edge_wt:
@@ -111,8 +111,9 @@ class Graph:
                     self.reachable_node(edge[1])
 
     def init_cutvalues(self):
-        """Initialize cut values of edges of the feasible tree.
-        Edges with negative cut-values are removed from the tree to optimize rank assignment
+        """ Initialize cut values of edges of the feasible tree.
+            Edges with negative cut-values are removed from the tree
+            to optimize rank assignment
         """
         self.cut_edges = {}
         self.head_nodes = []
@@ -140,7 +141,8 @@ class Graph:
             self.cut_edges[edge] = positive - negative
 
     def head_component(self, node, rest_edges):
-        """Find nodes which are reachable from the starting node, after removing an edge
+        """ Find nodes which are reachable from the starting node,
+            after removing an edge
         """
         if node not in self.head_nodes:
             self.head_nodes.append(node)
@@ -150,9 +152,9 @@ class Graph:
                     self.head_component(edge[1], rest_edges)
 
     def process_ranking(self, node, level=0):
-        """Computes initial feasible ranking after making graph acyclic with depth-first search
+        """ Computes initial feasible ranking after making graph acyclic
+            with depth-first search
         """
-
         if node not in self.result:
             self.result[node] = {'y': None, 'x': level, 'mark': 0}
         else:
@@ -165,9 +167,8 @@ class Graph:
                 self.process_ranking(sec_end, level + 1)
 
     def make_acyclic(self, parent, node, level, tree):
-        """Computes Partial-order of the nodes with depth-first search
+        """ Computes Partial-order of the nodes with depth-first search
         """
-
         if node not in self.partial_order:
             self.partial_order[node] = {'level': level, 'mark': 0}
             if parent:
@@ -182,11 +183,16 @@ class Graph:
         return tree
 
     def rev_edges(self, tree):
-        """reverse the direction of the edges whose source-node-partail_order> destination-node-partail_order
-        to make the graph acyclic
+        """ reverse the direction of the edges whose
+            source-node-partail_order > destination-node-partail_order
+            to make the graph acyclic
         """
-        Is_Cyclic = False
+        is_cyclic = False
         i = 0
+        # Note, here 'links' is modified, thus there is not possible
+        # to use enumerate
+        # TODO: may be it have sense to rewrite without modification
+        #       of self.links?
         for link in self.links:
             src = link[0]
             des = link[1]
@@ -196,27 +202,29 @@ class Graph:
                 self.links.insert(i, (des, src))
                 self.transitions[src].remove(des)
                 self.transitions.setdefault(des, []).append(src)
-                Is_Cyclic = True
+                is_cyclic = True
             elif math.fabs(edge_len) > 1:
-                Is_Cyclic = True
+                is_cyclic = True
             i += 1
 
-        return Is_Cyclic
+        return is_cyclic
 
     def exchange(self, e, f):
-        """Exchange edges to make feasible-tree optimized
-        :param e: edge with negative cut-value
-        :param f: new edge with minimum slack-value
+        """ Exchange edges to make feasible-tree optimized
+
+            :param e: edge with negative cut-value
+            :param f: new edge with minimum slack-value
         """
         del self.tree_edges[self.tree_edges.index(e)]
         self.tree_edges.append(f)
         self.init_cutvalues()
 
     def enter_edge(self, edge):
-        """Finds a new_edge with minimum slack value to replace an edge with negative cut-value
-        @param edge edge with negative cut-value
-        """
+        """ Finds a new_edge with minimum slack value to replace an edge with
+            negative cut-value
 
+            @param edge edge with negative cut-value
+        """
         self.head_nodes = []
         rest_edges = []
         rest_edges += self.tree_edges
@@ -224,11 +232,11 @@ class Graph:
         self.head_component(self.start, rest_edges)
 
         if edge[1] in self.head_nodes:
-            l = []
+            lst_h_nodes = []
             for node in self.result:
                 if node not in self.head_nodes:
-                    l.append(node)
-            self.head_nodes = l
+                    lst_h_nodes.append(node)
+            self.head_nodes = lst_h_nodes
 
         slack = 100
         new_edge = edge
@@ -270,10 +278,9 @@ class Graph:
                 self.result[node]['x'] -= least_rank
 
     def make_chain(self):
-        """Edges between nodes more than one rank apart are replaced by chains of unit
-           length edges between temporary nodes.
+        """ Edges between nodes more than one rank apart are replaced by
+            chains of unit length edges between temporary nodes.
         """
-
         for edge in self.edge_wt:
             if self.edge_wt[edge] > 1:
                 self.transitions[edge[0]].remove(edge[1])
@@ -282,15 +289,21 @@ class Graph:
 
                 for rank in range(start+1, end):
                     if not self.result.get((rank, 'temp'), False):
-                        self.result[(rank, 'temp')] = {'y': None, 'x': rank, 'mark': 0}
+                        self.result[(rank, 'temp')] = {
+                            'y': None,
+                            'x': rank,
+                            'mark': 0,
+                        }
 
                 for rank in range(start, end):
                     if start == rank:
                         self.transitions[edge[0]].append((rank + 1, 'temp'))
                     elif rank == end-1:
-                        self.transitions.setdefault((rank, 'temp'), []).append(edge[1])
+                        self.transitions.setdefault(
+                            (rank, 'temp'), []).append(edge[1])
                     else:
-                        self.transitions.setdefault((rank, 'temp'), []).append((rank+1, 'temp'))
+                        self.transitions.setdefault(
+                            (rank, 'temp'), []).append((rank + 1, 'temp'))
 
     def init_order(self, node, level):
         """Initialize orders the nodes in each rank with depth-first search
@@ -320,18 +333,22 @@ class Graph:
 
             sort_list = sorted(node_median, key=operator.itemgetter(1))
 
-            new_list = [tuple[0] for tuple in sort_list]
+            # Compute new list of nodes for this level (sorted by median value)
+            self.levels[level] = [t[0] for t in sort_list]
 
-            self.levels[level] = new_list
             order = 0
+            # TODO: Is it correct, may be we have to use nodes from
+            #       self.levels[level]
             for node in nodes:
                 self.result[node]['y'] = order
                 order += 1
 
     def median_value(self, node, adj_rank):
-        """Returns median value of a vertex , defined as the median position of the adjacent vertices
-        @param node node to process
-        @param adj_rank rank 1 less than the node's rank
+        """ Returns median value of a vertex , defined as the median position
+            of the adjacent vertices
+
+            :param node: node to process
+            :param adj_rank: rank 1 less than the node's rank
         """
         adj_nodes = self.adj_position(node, adj_rank)
         length = len(adj_nodes)
@@ -351,11 +368,12 @@ class Graph:
         ) / (left + right)
 
     def adj_position(self, node, adj_rank):
-        """Returns list of the present positions of the nodes adjacent to node in the given adjacent rank.
-        @param node node to process
-        @param adj_rank rank 1 less than the node's rank
-        """
+        """ Returns list of the present positions of the nodes adjacent to node
+            in the given adjacent rank.
 
+            :param node: node to process
+            :param adj_rank: rank 1 less than the node's rank
+        """
         pre_level_nodes = self.levels.get(adj_rank, [])
         adj_nodes = []
 
@@ -376,7 +394,8 @@ class Graph:
         self.levels = levels
 
     def graph_order(self):
-        """Finds actual-order of the nodes with respect to maximum number of nodes in a rank in component
+        """ Finds actual-order of the nodes with respect to maximum number of
+            nodes in a rank in component
         """
         mid_pos = 0.0
         max_level = max(len(x) for x in self.levels.values())
@@ -393,8 +412,13 @@ class Graph:
                     factor = -factor
                 else:
                     first_half = lst[no // 2 + 1:]
-                    if max_level == 1:  # for the case when horizontal graph is there
-                        self.result[lst[no // 2]]['y'] = mid_pos + (self.result[lst[no // 2]]['x'] % 2 * 0.5)
+                    # for the case when horizontal graph is there
+                    if max_level == 1:
+                        self.result[lst[no // 2]]['y'] = (
+                            mid_pos + (
+                                self.result[lst[no // 2]]['x'] % 2 * 0.5
+                            )
+                        )
                     else:
                         self.result[lst[no // 2]]['y'] = mid_pos + factor
 
@@ -428,7 +452,8 @@ class Graph:
 
             if self.transitions.get(child, False):
                 if last:
-                    self.result[child]['y'] = last + len(self.transitions[child])/2 + 1
+                    self.result[child]['y'] = (
+                        last + len(self.transitions[child]) / 2 + 1)
                 last = self.tree_order(child, last)
 
         if rest:
@@ -437,7 +462,8 @@ class Graph:
 
             if self.transitions.get(mid_node, False):
                 if last:
-                    self.result[mid_node]['y'] = last + len(self.transitions[mid_node]) / 2 + 1
+                    self.result[mid_node]['y'] = (
+                        last + len(self.transitions[mid_node]) / 2 + 1)
                 if node != mid_node:
                     last = self.tree_order(mid_node)
             else:
@@ -454,7 +480,8 @@ class Graph:
             i += 1
             if self.transitions.get(child, False):
                 if last:
-                    self.result[child]['y'] = last + len(self.transitions[child]) / 2 + 1
+                    self.result[child]['y'] = (
+                        last + len(self.transitions[child]) / 2 + 1)
                 if node != child:
                     last = self.tree_order(child, last)
 
@@ -464,9 +491,9 @@ class Graph:
         return last
 
     def process_order(self):
-        """Finds actual-order of the nodes with respect to maximum number of nodes in a rank in component
+        """ Finds actual-order of the nodes with respect to maximum number of
+            nodes in a rank in component
         """
-
         if self.Is_Cyclic:
             max_level = max(len(x) for x in self.levels.values())
 
@@ -586,7 +613,8 @@ class Graph:
                     break
 
     def rank(self):
-        """Finds the optimized rank of the nodes using Network-simplex algorithm
+        """ Finds the optimized rank of the nodes using
+            Network-simplex algorithm
         """
         self.levels = {}
         self.critical_edges = []
@@ -631,10 +659,12 @@ class Graph:
         # normalization
         self.normalize()
         for edge in self.edge_wt:
-            self.edge_wt[edge] = self.result[edge[1]]['x'] - self.result[edge[0]]['x']
+            self.edge_wt[edge] = (
+                self.result[edge[1]]['x'] - self.result[edge[0]]['x'])
 
     def order_in_rank(self):
-        """Finds optimized order of the nodes within their ranks using median heuristic
+        """ Finds optimized order of the nodes within their ranks using
+            median heuristic
         """
         self.make_chain()
         self.preprocess_order()
@@ -663,7 +693,8 @@ class Graph:
 
         if self.nodes:
             if self.start_nodes:
-                # add dummy edges to the nodes which does not have any incoming edges
+                # add dummy edges to the nodes which does not have
+                # any incoming edges
                 tree = self.make_acyclic(None, self.start_nodes[0], 0, [])
 
                 for node in self.no_ancester:
@@ -684,8 +715,10 @@ class Graph:
             # for each component of the graph find ranks and order of the nodes
             for s in self.start_nodes:
                 self.start = s
-                self.rank()   # First step: Network simplex algorithm
-                self.order_in_rank()  # Second step: ordering nodes within ranks
+                # First step: Network simplex algorithm
+                self.rank()
+                # Second step: ordering nodes within ranks
+                self.order_in_rank()
 
     def __str__(self):
         result = ''
@@ -698,7 +731,7 @@ class Graph:
         return result
 
     def scale(self, maxx, maxy, nwidth=0, nheight=0, margin=20):
-        """Computes actual co-ordiantes of the nodes
+        """ Computes actual co-ordiantes of the nodes
         """
         # for flat edges ie. source an destination nodes are on the same rank
         for src in self.transitions:
@@ -711,8 +744,10 @@ class Graph:
         factorY = maxy + nwidth
 
         for node in self.result:
-            self.result[node]['y'] = (self.result[node]['y']) * factorX + margin
-            self.result[node]['x'] = (self.result[node]['x']) * factorY + margin
+            self.result[node]['y'] = (
+                (self.result[node]['y']) * factorX + margin)
+            self.result[node]['x'] = (
+                (self.result[node]['x']) * factorY + margin)
 
     def result_get(self):
         return self.result
