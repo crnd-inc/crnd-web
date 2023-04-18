@@ -21,7 +21,7 @@
             'crnd_web_m2o_info_widget/static/src/js/m2o_info_widget.js',
         ],
     },
-    'installable': True,
+    'installable': False,
     'application': False,
     'auto_install': False,
 }

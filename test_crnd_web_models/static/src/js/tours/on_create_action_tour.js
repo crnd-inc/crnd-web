@@ -27,11 +27,11 @@ odoo.define('test_crnd_web_models.on_create_action_tour', function (require) {
         },
         {
             content: "Wait for download",
-            trigger: "div[class='o_list_view on-create-action-name-test_crnd_web_models.action_wizard_book_create']",
+            trigger: "div.o_list_renderer.on-create-action-name-test_crnd_web_models\\.action_wizard_book_create",
         },
         {
             content: "Click create button",
-            trigger: "button:contains('Create')",
+            trigger: "button:contains('New')",
             run: "click",
         },
         {
@@ -40,7 +40,7 @@ odoo.define('test_crnd_web_models.on_create_action_tour', function (require) {
             run: "text Lord of Rings",
         },
         {
-            content: "Click 'Save'",
+            content: "Click 'Create book'",
             trigger: "button[name='create_book']",
             run: "click",
         },

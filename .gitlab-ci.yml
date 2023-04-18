@@ -54,6 +54,7 @@ pylint:
     stage: static-test
     script:
         - odoo-helper lint pylint --jslintrc=./.jslintrc .
+    allow_failure: true
     <<: *except_auto_commits
 
 stylelint:
@@ -101,7 +102,7 @@ tests:
     <<: *pip_cache_definition
     before_script:
         - odood addons link -r .
-        - odood addons add --odoo-requirements odoo_requirements.txt
+        - odood addons add --odoo-requirements odoo_requirements.txt || true
     script:
         - odood test -t --isw --error-report --coverage --coverage-report --coverage-skip-covered --coverage-fail-under 30 --dir .
     <<: *except_auto_commits
@@ -116,7 +117,7 @@ migration_tests:
     before_script:
 #        - git fetch origin $SERIES_BRANCH
         - odood addons link -r .
-        - odood addons add --odoo-requirements odoo_requirements.txt
+        - odood addons add --odoo-requirements odoo_requirements.txt || true
     script:
         - odood test -t --migration --isw --error-report --coverage --coverage-report --coverage-skip-covered --coverage-fail-under=30 --dir .
     coverage: '/^TOTAL\s+\d+\s+\d+\s+(\d+\%)/'

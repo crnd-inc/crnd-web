@@ -6,15 +6,10 @@
             <form>
                 <sheet>
                     <div class="oe_button_box" name="button_box">
-                        <button name="action_editable"
-                                string="Action editable"
+                        <button name="action_reload"
+                                string="Action reload"
                                 type="object"
-                                class="oe_stat_button" icon="fa-edit">
-                        </button>
-                        <button name="action_readonly"
-                                string="Action readonly"
-                                type="object"
-                                class="oe_stat_button" icon="fa-lock">
+                                class="oe_stat_button" icon="fa-refresh">
                         </button>
                     </div>
                     <group>

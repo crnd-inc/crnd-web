@@ -7,14 +7,8 @@ class TestCrndWebActions(models.Model):
 
     title = fields.Char()
 
-    def action_editable(self):
+    def action_reload(self):
         return {
             'type': 'ir.actions.client',
-            'tag': 'crnd_act_view_mode_edit',
-        }
-
-    def action_readonly(self):
-        return {
-            'type': 'ir.actions.client',
-            'tag': 'crnd_act_view_mode_readonly',
+            'tag': 'crnd_act_nothing'/'crnd_act_view_reload',
         }
