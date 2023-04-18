@@ -18,6 +18,6 @@
             'crnd_web_widget_scan_qrcode/static/src/xml/*.xml',
         ],
     },
-    'installable': True,
+    'installable': False,
     'auto_install': False,
 }
