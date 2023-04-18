@@ -36,7 +36,7 @@ odoo.define('test_crnd_web_models.on_create_action_tour', function (require) {
         },
         {
             content: "Input text into widget form",
-            trigger: ".o_field_char.o_field_widget.o_input",
+            trigger: ".o_field_char.o_field_widget > .o_input",
             run: "text Lord of Rings",
         },
         {
