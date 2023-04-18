@@ -26,6 +26,15 @@
 
             'crnd_web_diagram_plus/static/src/xml/base_diagram.xml',
         ],
+        'web.tests_assets': [
+            # Add Raphael liberary directly to test suite, because it is not
+            # loaded by default.
+            'crnd_web_diagram_plus/static/lib/js/jquery.mousewheel.js',
+            # Also, use non-minified, patched version of library,
+            # because original library will try to use different import
+            # mechanics when see 'define' that is defined.
+            'crnd_web_diagram_plus/static/lib/js/raphael-2.0.2/raphael.js',
+        ],
         'web.qunit_suite_tests': [
             'crnd_web_diagram_plus/static/tests/diagram_tests.js',
         ],
