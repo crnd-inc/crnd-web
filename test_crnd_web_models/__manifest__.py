@@ -8,7 +8,6 @@
     'category': 'Technical Settings',
     'depends': [
         'crnd_web_diagram_plus',
-        'crnd_web_list_popover_widget',
         # 'crnd_web_float_full_time_widget',
         # 'crnd_web_m2o_info_widget',
         'crnd_web_tree_colored_field',
@@ -17,7 +16,6 @@
         'generic_mixin',
     ],
     'demo': [
-        'demo/popover_widget.xml',
         # 'demo/float_full_time_widget.xml',
         # 'demo/m2o_info_widget.xml',
         'demo/tree_colored_field.xml',
@@ -30,10 +28,7 @@
     },
     'data': [
         'security/ir.model.access.csv',
-        'views/popover_widget_text_model.xml',
-        'views/popover_widget_html_model.xml',
-        'views/popover_widget_char_model.xml',
-        'views/popover_widget.xml',
+        'views/menu.xml',
         # 'views/m2o_info_widget.xml',
         # 'views/float_full_time_widget.xml',
         'views/tree_colored_field.xml',
