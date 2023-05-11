@@ -1,6 +1,6 @@
 {
     'name': 'CRND web view refresh timed',
-    'version': '16.0.0.1.0',
+    'version': '15.0.0.2.0',
     'author': "Center of Research and Development",
     'website': "https://crnd.pro",
     'summary': """""",
