@@ -16,7 +16,8 @@ odoo.define('crnd_web_view_refresh_timed.AbstractView', function (require) {
         },
 
         // This method checks if the class name matches the format
-        // "crnd-refresh-every-XT", where "X" is time interval (numbers 0-9)
+        // "crnd-refresh-every-XT", where "X" is an integeri,
+        // time interval (numbers 0-9)
         // and "T" is time dimensions ("s" - seconds, "m" - minutes).
         // And then compute the value in milliseconds, which is passed to the
         // controller parameters
