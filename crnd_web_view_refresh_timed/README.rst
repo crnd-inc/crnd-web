@@ -17,7 +17,43 @@ CRND Web View Refresh Timed
 
 |badge2| |badge4| |badge5|
 
-CRND Web View Refresh Timed is designed to automatically reload the view after a certain period of time, if the "crnd-refresh-every-XT" class is specified in the view definition, where "X" is the time interval and "T" is the dimension of the time interval("s" - seconds, "m" - minutes)
+CRND Web View Refresh Timed is designed to automatically reload the view (tree, form and kanban)
+after a certain period of time, if the "crnd-refresh-every-XT" class is specified in the view definition,
+where "X" is an integer, a time interval and "T" is the dimension of the time interval ("s" - seconds, "m" - minutes)
+
+For example, in xml definition add class to tag:
+
+    .. code:: xml
+
+        <record model="ir.ui.view" id="view_your_model_kanban">
+            <field name="model">your.model</field>
+            <field name="arch" type="xml">
+                <kanban class="crnd-refresh-every-10s">
+                    <field name="name"/>
+                    <field name="code"/>
+                </kanban>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_your_model_form">
+            <field name="model">your.model</field>
+            <field name="arch" type="xml">
+                <form class="crnd-refresh-every-2m">
+                    <field name="name"/>
+                    <field name="code"/>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_your_model_tree">
+            <field name="model">your.model</field>
+            <field name="arch" type="xml">
+                <tree class="crnd-refresh-every-25s">
+                    <field name="name"/>
+                    <field name="code"/>
+                </tree>
+            </field>
+        </record>
 
 This module is part of the Bureaucrat ITSM project.
 You can try it by the references below.

@@ -10,7 +10,40 @@
 
 <section style="margin: 0 auto; max-width: 896px;">
 <div>
-    <p>CRND Web View Refresh Timed is designed to automatically reload the view after a certain period of time, if the "crnd-refresh-every-XT" class is specified in the view definition, where "X" is the time interval and "T" is the dimension of the time interval("s" - seconds, "m" - minutes)</p>
+    <p>CRND Web View Refresh Timed is designed to automatically reload the view (tree, form and kanban) after a certain period of time,
+       if the "crnd-refresh-every-XT" class is specified in the view definition, where "X" is an integer, a time interval
+       and "T" is the dimension of the time interval("s" - seconds, "m" - minutes)</p>
+    <h4>For example, in xml definition add class to tag:</h4>
+    <pre>
+    &lt;record model="ir.ui.view" id="view_your_model_kanban"&gt;
+        &lt;field name="model"&gt;your.model&lt;/field&gt;
+        &lt;field name="arch" type="xml"&gt;
+            &lt;kanban class="crnd-refresh-every-10s"&gt;
+                &lt;field name="name"/&gt;
+                &lt;field name="code"/&gt;
+            &lt;/kanban&gt;
+        &lt;/field&gt;
+    &lt;/record&gt;
+
+    &lt;record model="ir.ui.view" id="view_your_model_form"&gt;
+        &lt;field name="model"&gt;your.model&lt;/field&gt;
+        &lt;field name="arch" type="xml"&gt;
+            &lt;form class="crnd-refresh-every-2m"&gt;
+                &lt;field name="name"/&gt;
+                &lt;field name="code"/&gt;
+            &lt;/form&gt;
+        &lt;/field&gt;
+    &lt;/record&gt;
+
+    &lt;record model="ir.ui.view" id="view_your_model_tree"&gt;
+        &lt;field name="model"&gt;your.model&lt;/field&gt;
+        &lt;field name="arch" type="xml"&gt;
+            &lt;tree class="crnd-refresh-every-25s"&gt;
+                &lt;field name="name"/&gt;
+                &lt;field name="code"/&gt;
+            &lt;/tree&gt;
+        &lt;/field&gt;
+    &lt;/record&gt;<pre>
 </div>
 <p><br></p>
 </div>
