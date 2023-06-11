@@ -17,13 +17,11 @@
     'data': [
     ],
     'assets': {
-        'web.assets_qweb': [
-            'crnd_web_map_view/static/src/xml/map_view.xml',
-        ],
         'web.assets_backend': [
             'crnd_web_map_view/static/src/scss/map_view.scss',
 
             'crnd_web_map_view/static/src/js/*',
+            'crnd_web_map_view/static/src/xml/map_view.xml',
         ],
     },
 

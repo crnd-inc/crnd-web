@@ -1,8 +1,18 @@
 <templates>
 
-    <t t-name="crnd_web_map_view.mapRenderer">
+    <t t-name="crnd_web_map_view.main" owl="1">
+        <div t-att-class="className" t-ref="root">
+            <Layout className="model.useSampleModel ? 'o_view_sample_data' : ''" display="display">
+                <ControlPanel display="controlPanelDisplay"/>
+                <t t-component="props.Renderer" model="model" archInfo="props.archInfo" />
+            </Layout>
+        </div>
+
+    </t>
+
+    <t t-name="crnd_web_map_view.mapRenderer" owl="1">
          <div class="crnd_map_view">
-            <div t-att-id="widget.mapId" class="map"/>
+            <div t-att-id="mapId" class="map"/>
         </div>
     </t>
 
