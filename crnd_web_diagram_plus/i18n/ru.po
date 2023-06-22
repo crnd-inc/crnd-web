@@ -29,15 +29,15 @@ msgstr "Вид окна действия"
 
 #. module: crnd_web_diagram_plus
 #. openerp-web
-#: code:addons/crnd_web_diagram_plus/static/src/js/diagram_controller.js:91
-#: code:addons/crnd_web_diagram_plus/static/src/js/diagram_controller.js:195
+#: code:addons/crnd_web_diagram_plus/static/src/js/diagram_controller.js:102
+#: code:addons/crnd_web_diagram_plus/static/src/js/diagram_controller.js:218
 #, python-format
 msgid "Activity"
 msgstr "Деятельность"
 
 #. module: crnd_web_diagram_plus
 #. openerp-web
-#: code:addons/crnd_web_diagram_plus/static/src/js/diagram_controller.js:245
+#: code:addons/crnd_web_diagram_plus/static/src/js/diagram_controller.js:276
 #, python-format
 msgid ""
 "Are you sure you want to remove this node? This will remove its connected "
@@ -46,7 +46,7 @@ msgstr "Вы уверенны что хотите удалить этот узе
 
 #. module: crnd_web_diagram_plus
 #. openerp-web
-#: code:addons/crnd_web_diagram_plus/static/src/js/diagram_controller.js:223
+#: code:addons/crnd_web_diagram_plus/static/src/js/diagram_controller.js:250
 #, python-format
 msgid "Are you sure you want to remove this transition?"
 msgstr "Вы уверены что хотите удалить это соединение?"
@@ -75,8 +75,8 @@ msgstr ""
 
 #. module: crnd_web_diagram_plus
 #. openerp-web
-#: code:addons/crnd_web_diagram_plus/static/src/js/diagram_controller.js:91
-#: code:addons/crnd_web_diagram_plus/static/src/js/diagram_controller.js:143
+#: code:addons/crnd_web_diagram_plus/static/src/js/diagram_controller.js:102
+#: code:addons/crnd_web_diagram_plus/static/src/js/diagram_controller.js:158
 #, python-format
 msgid "Create:"
 msgstr "Создать"
@@ -161,8 +161,8 @@ msgstr "Новый узел"
 
 #. module: crnd_web_diagram_plus
 #. openerp-web
-#: code:addons/crnd_web_diagram_plus/static/src/js/diagram_controller.js:177
-#: code:addons/crnd_web_diagram_plus/static/src/js/diagram_controller.js:195
+#: code:addons/crnd_web_diagram_plus/static/src/js/diagram_controller.js:196
+#: code:addons/crnd_web_diagram_plus/static/src/js/diagram_controller.js:218
 #, python-format
 msgid "Open:"
 msgstr "Открыть:"
@@ -184,8 +184,8 @@ msgstr "Поиск"
 
 #. module: crnd_web_diagram_plus
 #. openerp-web
-#: code:addons/crnd_web_diagram_plus/static/src/js/diagram_controller.js:143
-#: code:addons/crnd_web_diagram_plus/static/src/js/diagram_controller.js:177
+#: code:addons/crnd_web_diagram_plus/static/src/js/diagram_controller.js:158
+#: code:addons/crnd_web_diagram_plus/static/src/js/diagram_controller.js:196
 #, python-format
 msgid "Transition"
 msgstr "Связь"

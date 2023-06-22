@@ -26,22 +26,22 @@ msgstr ""
 
 #. module: crnd_web_diagram_plus
 #. openerp-web
-#: code:addons/crnd_web_diagram_plus/static/src/js/diagram_controller.js:91
-#: code:addons/crnd_web_diagram_plus/static/src/js/diagram_controller.js:195
+#: code:addons/crnd_web_diagram_plus/static/src/js/diagram_controller.js:102
+#: code:addons/crnd_web_diagram_plus/static/src/js/diagram_controller.js:218
 #, python-format
 msgid "Activity"
 msgstr ""
 
 #. module: crnd_web_diagram_plus
 #. openerp-web
-#: code:addons/crnd_web_diagram_plus/static/src/js/diagram_controller.js:245
+#: code:addons/crnd_web_diagram_plus/static/src/js/diagram_controller.js:276
 #, python-format
 msgid "Are you sure you want to remove this node? This will remove its connected transitions as well."
 msgstr ""
 
 #. module: crnd_web_diagram_plus
 #. openerp-web
-#: code:addons/crnd_web_diagram_plus/static/src/js/diagram_controller.js:223
+#: code:addons/crnd_web_diagram_plus/static/src/js/diagram_controller.js:250
 #, python-format
 msgid "Are you sure you want to remove this transition?"
 msgstr ""
@@ -69,8 +69,8 @@ msgstr ""
 
 #. module: crnd_web_diagram_plus
 #. openerp-web
-#: code:addons/crnd_web_diagram_plus/static/src/js/diagram_controller.js:91
-#: code:addons/crnd_web_diagram_plus/static/src/js/diagram_controller.js:143
+#: code:addons/crnd_web_diagram_plus/static/src/js/diagram_controller.js:102
+#: code:addons/crnd_web_diagram_plus/static/src/js/diagram_controller.js:158
 #, python-format
 msgid "Create:"
 msgstr ""
@@ -153,8 +153,8 @@ msgstr ""
 
 #. module: crnd_web_diagram_plus
 #. openerp-web
-#: code:addons/crnd_web_diagram_plus/static/src/js/diagram_controller.js:177
-#: code:addons/crnd_web_diagram_plus/static/src/js/diagram_controller.js:195
+#: code:addons/crnd_web_diagram_plus/static/src/js/diagram_controller.js:196
+#: code:addons/crnd_web_diagram_plus/static/src/js/diagram_controller.js:218
 #, python-format
 msgid "Open:"
 msgstr ""
@@ -177,8 +177,8 @@ msgstr ""
 
 #. module: crnd_web_diagram_plus
 #. openerp-web
-#: code:addons/crnd_web_diagram_plus/static/src/js/diagram_controller.js:143
-#: code:addons/crnd_web_diagram_plus/static/src/js/diagram_controller.js:177
+#: code:addons/crnd_web_diagram_plus/static/src/js/diagram_controller.js:158
+#: code:addons/crnd_web_diagram_plus/static/src/js/diagram_controller.js:196
 #, python-format
 msgid "Transition"
 msgstr ""
