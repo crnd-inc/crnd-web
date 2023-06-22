@@ -813,17 +813,18 @@ odoo.define('web_diagram_plus.Graph', function (require) {
             // we put this here because drag_down is also called on
             // simple clicks ... and this causes unwanted flicker
             // Disable drag move when graph is readonly
-            if (!graph.readonly) {
-                var edges = graph.get_linked_edge_list(self);
-                for (var i = 0; i < edges.length; i++) {
-                    edges[i].label_disable();
-                }
-                if (self.close_button) {
-                    self.close_button.hide();
-                }
-                set_pos(this.opos.add_xy(dx, dy));
-                this.start_move_graph_node = true;
+            if (graph.readonly) {
+                return
             }
+            var edges = graph.get_linked_edge_list(self);
+            for (var i = 0; i < edges.length; i++) {
+                edges[i].label_disable();
+            }
+            if (self.close_button) {
+                self.close_button.hide();
+            }
+            set_pos(this.opos.add_xy(dx, dy));
+            this.start_move_graph_node = true;
         };
         var drag_up = function () {
             // We re-enable the
