@@ -37,6 +37,9 @@ odoo.define('web_diagram_plus.DiagramPlusController', function (require) {
             this.context = params.context;
             this.ids = params.ids;
             this.currentId = params.currentId;
+            // get from context diagram_readonly value
+            // to disable events, if needed
+            this.diagram_readonly = this.context.diagram_readonly;
         },
 
         // --------------------------------------------------------------------
@@ -53,24 +56,27 @@ odoo.define('web_diagram_plus.DiagramPlusController', function (require) {
          * inserted into this.options.$buttons
          */
         renderButtons: function ($node) {
-            this.$buttons = $(QWeb.render(
-                "DiagramPlusView.buttons", {
-                    widget: this,
-                    auto_layout: this.model.auto_layout,
-                }));
-            this.$buttons.on(
-                'click',
-                '.o_diagram_plus_new_button',
-                this._addNode.bind(this)
-            );
-            if (!this.model.auto_layout) {
+        // Do not render buttons when diagram in readonly mode
+            if (!this.diagram_readonly) {
+                this.$buttons = $(QWeb.render(
+                    "DiagramPlusView.buttons", {
+                        widget: this,
+                        auto_layout: this.model.auto_layout,
+                    }));
                 this.$buttons.on(
                     'click',
-                    '.o_diagram_plus_auto_layout',
-                    this._autoLayout.bind(this)
+                    '.o_diagram_plus_new_button',
+                    this._addNode.bind(this)
                 );
+                if (!this.model.auto_layout) {
+                    this.$buttons.on(
+                        'click',
+                        '.o_diagram_plus_auto_layout',
+                        this._autoLayout.bind(this)
+                    );
+                }
+                this.$buttons.appendTo($node);
             }
-            this.$buttons.appendTo($node);
         },
 
         // --------------------------------------------------------------------
@@ -83,28 +89,31 @@ odoo.define('web_diagram_plus.DiagramPlusController', function (require) {
          * @private
          */
         _addNode: function () {
-            var state = this.model.get();
-            var pop = new FormViewDialog(this, {
-                res_model: state.node_model,
-                domain: this.domain,
-                context: this.context,
-                title: _.str.sprintf("%s %s", _t("Create:"), _t('Activity')),
-                disable_multiple_selection: true,
-                on_saved: this.reload.bind(this),
-            }).open();
+        // Disable node creation when diagram in readonly mode
+            if (!this.diagram_readonly) {
+                var state = this.model.get();
+                var pop = new FormViewDialog(this, {
+                    res_model: state.node_model,
+                    domain: this.domain,
+                    context: this.context,
+                    title: _.str.sprintf("%s %s", _t("Create:"), _t('Activity')),
+                    disable_multiple_selection: true,
+                    on_saved: this.reload.bind(this),
+                }).open();
 
-            // Manually trigger a 'field_changed' on the dialog's form_view
-            // to set the default value of the parent_id field
-            pop.opened().then(function () {
-                var changes = {};
-                changes[state.parent_field] = {
-                    id: state.res_id,
-                };
-                pop.form_view.trigger_up('field_changed', {
-                    dataPointID: pop.form_view.handle,
-                    changes: changes,
+                // Manually trigger a 'field_changed' on the dialog's form_view
+                // to set the default value of the parent_id field
+                pop.opened().then(function () {
+                    var changes = {};
+                    changes[state.parent_field] = {
+                        id: state.res_id,
+                    };
+                    pop.form_view.trigger_up('field_changed', {
+                        dataPointID: pop.form_view.handle,
+                        changes: changes,
+                    });
                 });
-            });
+            }
         },
 
         /* eslint-disable */
@@ -134,32 +143,35 @@ odoo.define('web_diagram_plus.DiagramPlusController', function (require) {
          * @param {OdooEvent} event
          */
         _onAddEdge: function (event) {
-            var self = this;
-            var state = this.model.get();
-            var pop = new FormViewDialog(self, {
-                res_model: state.connector_model,
-                domain: this.domain,
-                context: this.context,
-                title: _.str.sprintf("%s %s", _t("Create:"), _t('Transition')),
-                disable_multiple_selection: true,
-            }).open();
+            // Disable edge creation when diagram in readonly mode
+            if (!this.diagram_readonly) {
+                var self = this;
+                var state = this.model.get();
+                var pop = new FormViewDialog(self, {
+                    res_model: state.connector_model,
+                    domain: this.domain,
+                    context: this.context,
+                    title: _.str.sprintf("%s %s", _t("Create:"), _t('Transition')),
+                    disable_multiple_selection: true,
+                }).open();
 
-            // Manually trigger a 'field_changed' on the dialog's form_view to
-            // set the default source and destination values
-            pop.opened().then(function () {
-                var changes = {};
-                changes[state.connectors.attrs.source] = {
-                    id: event.data.source_id,
-                };
-                changes[state.connectors.attrs.destination] = {
-                    id: event.data.dest_id,
-                };
-                pop.form_view.trigger_up('field_changed', {
-                    dataPointID: pop.form_view.handle,
-                    changes: changes,
+                // Manually trigger a 'field_changed' on the dialog's form_view to
+                // set the default source and destination values
+                pop.opened().then(function () {
+                    var changes = {};
+                    changes[state.connectors.attrs.source] = {
+                        id: event.data.source_id,
+                    };
+                    changes[state.connectors.attrs.destination] = {
+                        id: event.data.dest_id,
+                    };
+                    pop.form_view.trigger_up('field_changed', {
+                        dataPointID: pop.form_view.handle,
+                        changes: changes,
+                    });
                 });
-            });
-            pop.on('closed', this, this.reload.bind(this));
+                pop.on('closed', this, this.reload.bind(this));
+            }
         },
 
         /**
@@ -169,14 +181,17 @@ odoo.define('web_diagram_plus.DiagramPlusController', function (require) {
          * @param {OdooEvent} event
          */
         _onEditEdge: function (event) {
-            var state = this.model.get();
-            new FormViewDialog(this, {
-                res_model: state.connector_model,
-                res_id: parseInt(event.data.id, 10),
-                context: this.context,
-                title: _.str.sprintf("%s %s", _t("Open:"), _t('Transition')),
-                on_saved: this.reload.bind(this),
-            }).open();
+        // Disable edge editing when diagram in readonly mode
+            if (!this.diagram_readonly) {
+                var state = this.model.get();
+                new FormViewDialog(this, {
+                    res_model: state.connector_model,
+                    res_id: parseInt(event.data.id, 10),
+                    context: this.context,
+                    title: _.str.sprintf("%s %s", _t("Open:"), _t('Transition')),
+                    on_saved: this.reload.bind(this),
+                }).open();
+            }
         },
 
         /**
@@ -187,14 +202,17 @@ odoo.define('web_diagram_plus.DiagramPlusController', function (require) {
          * @param {OdooEvent} event
          */
         _onEditNode: function (event) {
-            var state = this.model.get();
-            new FormViewDialog(this, {
-                res_model: state.node_model,
-                res_id: event.data.id,
-                context: this.context,
-                title: _.str.sprintf("%s %s", _t("Open:"), _t('Activity')),
-                on_saved: this.reload.bind(this),
-            }).open();
+        // Disable node editing when diagram in readonly mode
+            if (!this.diagram_readonly) {
+                var state = this.model.get();
+                new FormViewDialog(this, {
+                    res_model: state.node_model,
+                    res_id: event.data.id,
+                    context: this.context,
+                    title: _.str.sprintf("%s %s", _t("Open:"), _t('Activity')),
+                    on_saved: this.reload.bind(this),
+                }).open();
+            }
         },
 
         _onChangeNodePosition: function (event) {
@@ -219,19 +237,22 @@ odoo.define('web_diagram_plus.DiagramPlusController', function (require) {
          * @param {OdooEvent} event
          */
         _onRemoveEdge: function (event) {
-            var self = this;
-            Dialog.confirm(this, _t(
-                "Are you sure you want to remove this transition?"), {
-                confirm_callback: function () {
-                    var state = self.model.get();
-                    self._rpc({
-                        model: state.connector_model,
-                        method: 'unlink',
-                        args: [event.data.id],
-                    })
-                        .then(self.reload.bind(self));
-                },
-            });
+        // Disable edge deleting when diagram in readonly mode
+            if (!this.diagram_readonly) {
+                var self = this;
+                Dialog.confirm(this, _t(
+                    "Are you sure you want to remove this transition?"), {
+                    confirm_callback: function () {
+                        var state = self.model.get();
+                        self._rpc({
+                            model: state.connector_model,
+                            method: 'unlink',
+                            args: [event.data.id],
+                        })
+                            .then(self.reload.bind(self));
+                    },
+                });
+            }
         },
 
         /**
@@ -241,21 +262,24 @@ odoo.define('web_diagram_plus.DiagramPlusController', function (require) {
          * @param {OdooEvent} event
          */
         _onRemoveNode: function (event) {
-            var self = this;
-            var msg = _t(
-                "Are you sure you want to remove this node?" +
-                " This will remove its connected transitions as well.");
-            Dialog.confirm(this, msg, {
-                confirm_callback: function () {
-                    var state = self.model.get();
-                    self._rpc({
-                        model: state.node_model,
-                        method: 'unlink',
-                        args: [event.data.id],
-                    })
-                        .then(self.reload.bind(self));
-                },
-            });
+        // Disable node deleting when diagram in readonly mode
+            if (!this.diagram_readonly) {
+                var self = this;
+                var msg = _t(
+                    "Are you sure you want to remove this node?" +
+                    " This will remove its connected transitions as well.");
+                Dialog.confirm(this, msg, {
+                    confirm_callback: function () {
+                        var state = self.model.get();
+                        self._rpc({
+                            model: state.node_model,
+                            method: 'unlink',
+                            args: [event.data.id],
+                        })
+                            .then(self.reload.bind(self));
+                    },
+                });
+            }
         },
     });
 
