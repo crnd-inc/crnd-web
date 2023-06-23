@@ -20,8 +20,8 @@ var DiagramPlusRenderer = AbstractRenderer.extend({
     template: 'DiagramPlusView',
 
     /**
-         * @override
-         */
+        * @override
+        */
     init: function () {
         this._super.apply(this, arguments);
         this.node_size_x = 110;

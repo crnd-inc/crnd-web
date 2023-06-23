@@ -296,7 +296,7 @@ function Connector (graph, node, pos_x, pos_y) {
     // It is used to prevent scrolling to scroll the graph outside the
     // viewport.
 
-    function Graph (r, style, viewport, is_readonly) {
+function Graph (r, style, viewport, is_readonly) {
         var self = this;
         // List of all nodes in the graph
         var nodes = [];
@@ -609,7 +609,7 @@ function Connector (graph, node, pos_x, pos_y) {
 // Creates a new Graph Node on Raphael document r,
     // centered on [pos_x,pos_y], with label 'label',
     // and of type 'circle' or 'rect', and of color 'color'
-    function GraphNode (graph, pos_x, pos_y, label, type, color, color_label, highlight_node_color) {
+function GraphNode (graph, pos_x, pos_y, label, type, color, color_label, highlight_node_color) {
         var self = this;
         var r = graph.r;
         var sy = graph.style.node_size_y;
