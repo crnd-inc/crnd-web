@@ -41,15 +41,15 @@ var DiagramPlusController = AbstractController.extend({
     // Public
     // --------------------------------------------------------------------
 
-        /**
-         * Render the buttons according to the DiagramView.buttons template and
-         * add listeners on it. Set this.$buttons with the produced jQuery
-         * element
-         *
-         * @param {jQuery} [$node] a jQuery node where the rendered buttons
-         * should be inserted $node may be undefined, in which case they are
-         * inserted into this.options.$buttons
-         */
+    /**
+     * Render the buttons according to the DiagramView.buttons template and
+     * add listeners on it. Set this.$buttons with the produced jQuery
+     * element
+     *
+     * @param {jQuery} [$node] a jQuery node where the rendered buttons
+     * should be inserted $node may be undefined, in which case they are
+     * inserted into this.options.$buttons
+     */
     renderButtons: function ($node) {
     // Do not render buttons when diagram in readonly mode
         if (this.diagram_readonly) {

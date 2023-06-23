@@ -8,20 +8,20 @@ import {
     wordwrap as CuteGraphPlus_wordwrap,
 } from './graph';
 
-    /**
-     * Diagram Renderer
-     *
-     * The diagram renderer responsability is to render a diagram view,
-     * that is, a set of (labelled) nodes and edges.
-     * To do that, it uses the Raphael.js
-     * library.
-     */
+/**
+ * Diagram Renderer
+ *
+ * The diagram renderer responsability is to render a diagram view,
+ * that is, a set of (labelled) nodes and edges.
+ * To do that, it uses the Raphael.js
+ * library.
+ */
 var DiagramPlusRenderer = AbstractRenderer.extend({
     template: 'DiagramPlusView',
 
     /**
-     * @override
-     */
+         * @override
+         */
     init: function () {
         this._super.apply(this, arguments);
         this.node_size_x = 110;
@@ -140,35 +140,35 @@ var DiagramPlusRenderer = AbstractRenderer.extend({
         // Remove previous diagram
         this.$diagram_container.empty();
 
-            // For the node and edge's label to be correctly positioned,
-            // the diagram must be rendered directly in the DOM,
-            // so we render it in a fake element appended in the body,
-            // and then move it to this widget's $el
-            var $div = $('<div>').css(
-                {
-                    position: 'absolute',
-                    top: -10000,
-                    right: -10000,
-                }
-            ).appendTo($('body'));
-            // eslint-disable-next-line no-undef
-            var r = new Raphael($div[0], '100%', '100%');
-            this.graph = new CuteGraphPlus(
-                r, style, this.$diagram_container[0], this.diagram_readonly);
-            _.each(nodes, function (node) {
-                var n = new CuteNodePlus(
-                    self.graph,
-                    // FIXME the +50 should be in the layout algorithm
-                    node.x + self.diagram_offset,
-                    node.y + self.diagram_offset,
-                    CuteGraphPlus_wordwrap(node.name, 14),
-                    node.shape === 'rectangle' ? 'rect' : 'circle',
-                    node.color === 'white' || node.color === 'gray'
-                        ? style[node.color] : node.color,
-                    node.fgcolor === false
-                        ? style.node_label_color : node.fgcolor,
-                    node.highlight_node_color,
-                );
+        // For the node and edge's label to be correctly positioned,
+        // the diagram must be rendered directly in the DOM,
+        // so we render it in a fake element appended in the body,
+        // and then move it to this widget's $el
+        var $div = $('<div>').css(
+            {
+                position: 'absolute',
+                top: -10000,
+                right: -10000,
+            }
+        ).appendTo($('body'));
+        // eslint-disable-next-line no-undef
+        var r = new Raphael($div[0], '100%', '100%');
+        this.graph = new CuteGraphPlus(
+            r, style, this.$diagram_container[0], this.diagram_readonly);
+        _.each(nodes, function (node) {
+            var n = new CuteNodePlus(
+                self.graph,
+                // FIXME the +50 should be in the layout algorithm
+                node.x + self.diagram_offset,
+                node.y + self.diagram_offset,
+                CuteGraphPlus_wordwrap(node.name, 14),
+                node.shape === 'rectangle' ? 'rect' : 'circle',
+                node.color === 'white' || node.color === 'gray'
+                    ? style[node.color] : node.color,
+                node.fgcolor === false
+                    ? style.node_label_color : node.fgcolor,
+                node.highlight_node_color,
+            );
 
             n.id = node.id;
             id_to_node[node.id] = n;
