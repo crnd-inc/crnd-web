@@ -16,21 +16,21 @@ import {
      * To do that, it uses the Raphael.js
      * library.
      */
-    var DiagramPlusRenderer = AbstractRenderer.extend({
-        template: 'DiagramPlusView',
+var DiagramPlusRenderer = AbstractRenderer.extend({
+    template: 'DiagramPlusView',
 
-        /**
-         * @override
-         */
-        init: function () {
-            this._super.apply(this, arguments);
-            this.node_size_x = 110;
-            this.node_size_y = 80;
-            this.diagram_padding = 20;
-            this.diagram_in_dom = false;
-            this.diagram_offset = this.state.auto_layout ? 50 : 0;
-            this.diagram_readonly = this.state.diagram_readonly;
-        },
+    /**
+     * @override
+     */
+    init: function () {
+        this._super.apply(this, arguments);
+        this.node_size_x = 110;
+        this.node_size_y = 80;
+        this.diagram_padding = 20;
+        this.diagram_in_dom = false;
+        this.diagram_offset = this.state.auto_layout ? 50 : 0;
+        this.diagram_readonly = this.state.diagram_readonly;
+    },
 
     /**
      * @override
