@@ -37,6 +37,9 @@ odoo.define('web_diagram_plus.DiagramPlusController', function (require) {
             this.context = params.context;
             this.ids = params.ids;
             this.currentId = params.currentId;
+            // get from context diagram_readonly value
+            // to disable events, if needed
+            this.diagram_readonly = this.context.diagram_readonly;
         },
 
         // --------------------------------------------------------------------
@@ -53,6 +56,10 @@ odoo.define('web_diagram_plus.DiagramPlusController', function (require) {
          * inserted into this.options.$buttons
          */
         renderButtons: function ($node) {
+        // Do not render buttons when diagram in readonly mode
+            if (this.diagram_readonly) {
+                return
+            }
             this.$buttons = $(QWeb.render(
                 "DiagramPlusView.buttons", {
                     widget: this,
@@ -83,6 +90,10 @@ odoo.define('web_diagram_plus.DiagramPlusController', function (require) {
          * @private
          */
         _addNode: function () {
+        // Disable node creation when diagram in readonly mode
+            if (this.diagram_readonly) {
+                return
+            }
             var state = this.model.get();
             var pop = new FormViewDialog(this, {
                 res_model: state.node_model,
@@ -134,6 +145,10 @@ odoo.define('web_diagram_plus.DiagramPlusController', function (require) {
          * @param {OdooEvent} event
          */
         _onAddEdge: function (event) {
+            // Disable edge creation when diagram in readonly mode
+            if (this.diagram_readonly) {
+                return
+            }
             var self = this;
             var state = this.model.get();
             var pop = new FormViewDialog(self, {
@@ -169,6 +184,10 @@ odoo.define('web_diagram_plus.DiagramPlusController', function (require) {
          * @param {OdooEvent} event
          */
         _onEditEdge: function (event) {
+        // Disable edge editing when diagram in readonly mode
+            if (this.diagram_readonly) {
+                    return
+                }
             var state = this.model.get();
             new FormViewDialog(this, {
                 res_model: state.connector_model,
@@ -187,6 +206,10 @@ odoo.define('web_diagram_plus.DiagramPlusController', function (require) {
          * @param {OdooEvent} event
          */
         _onEditNode: function (event) {
+        // Disable node editing when diagram in readonly mode
+            if (this.diagram_readonly) {
+                    return
+                }
             var state = this.model.get();
             new FormViewDialog(this, {
                 res_model: state.node_model,
@@ -219,6 +242,10 @@ odoo.define('web_diagram_plus.DiagramPlusController', function (require) {
          * @param {OdooEvent} event
          */
         _onRemoveEdge: function (event) {
+        // Disable edge deleting when diagram in readonly mode
+            if (this.diagram_readonly) {
+                    return
+                }
             var self = this;
             Dialog.confirm(this, _t(
                 "Are you sure you want to remove this transition?"), {
@@ -241,6 +268,10 @@ odoo.define('web_diagram_plus.DiagramPlusController', function (require) {
          * @param {OdooEvent} event
          */
         _onRemoveNode: function (event) {
+        // Disable node deleting when diagram in readonly mode
+            if (this.diagram_readonly) {
+                    return
+                }
             var self = this;
             var msg = _t(
                 "Are you sure you want to remove this node?" +

@@ -26,6 +26,8 @@ odoo.define('web_diagram_plus.DiagramPlusModel', function (require) {
                 connector_model: this.connector_model,
                 connectors: this.connectors,
                 auto_layout: this.auto_layout,
+                // to be able get readonly value from renderer
+                diagram_readonly: this.diagram_readonly,
             });
         },
 
@@ -47,6 +49,10 @@ odoo.define('web_diagram_plus.DiagramPlusModel', function (require) {
             this.connector_fields_string = params.connector_fields_string;
             this.labels = params.labels;
             this.auto_layout = params.auto_layout;
+            // fetch from context, passed through action following values
+            this.highlight_node_id = params.context.highlight_node_id;
+            this.highlight_node_color = params.context.highlight_node_color;
+            this.diagram_readonly = params.context.diagram_readonly;
 
             return this._fetchDiagramInfo();
         },
@@ -86,6 +92,12 @@ odoo.define('web_diagram_plus.DiagramPlusModel', function (require) {
                     auto_layout: this.auto_layout,
                     d_position_field: this.nodes.attrs.d_position_field,
                     calc_auto_layout: self.calc_auto_layout,
+                    // In order to assign a highlight color to a specific node,
+                    // pass variables to the controller, enabling the identification
+                    // of the highlight node. Once the highlight node is determined,
+                    // the assigned highlight color can be applied to it.
+                    highlight_node_id: this.highlight_node_id,
+                    highlight_node_color: this.highlight_node_color,
                 },
             }).then(function (data) {
                 self.calc_auto_layout = false;
