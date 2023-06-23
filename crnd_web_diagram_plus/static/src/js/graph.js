@@ -302,7 +302,7 @@ odoo.define('web_diagram_plus.Graph', function (require) {
     // It is used to prevent scrolling to scroll the graph outside the
     // viewport.
 
-    function Graph (r, style, viewport) {
+    function Graph (r, style, viewport, is_readonly) {
         var self = this;
         // List of all nodes in the graph
         var nodes = [];
@@ -317,6 +317,8 @@ odoo.define('web_diagram_plus.Graph', function (require) {
         var uid = 1;
         // The selected entity (node or edge)
         var selected_entity = null;
+
+        this.readonly = is_readonly;
 
         // True if we are dragging a new edge onto a node
         self.creating_edge = false;
@@ -592,8 +594,9 @@ odoo.define('web_diagram_plus.Graph', function (require) {
         };
 
         // Selects a node or an edge and deselects everything else
+        // Do not perform this if graph is readonly
         this.select = function (entity) {
-            if (selected_entity) {
+            if (selected_entity && !this.readonly) {
                 if (selected_entity === entity) {
                     return;
                 }
@@ -603,7 +606,7 @@ odoo.define('web_diagram_plus.Graph', function (require) {
                 selected_entity = null;
             }
             selected_entity = entity;
-            if (entity && entity.set_selected) {
+            if (entity && entity.set_selected && !this.readonly) {
                 entity.set_selected();
             }
         };
@@ -612,7 +615,7 @@ odoo.define('web_diagram_plus.Graph', function (require) {
     // Creates a new Graph Node on Raphael document r,
     // centered on [pos_x,pos_y], with label 'label',
     // and of type 'circle' or 'rect', and of color 'color'
-    function GraphNode (graph, pos_x, pos_y, label, type, color, color_label) {
+    function GraphNode (graph, pos_x, pos_y, label, type, color, color_label, highlight_node_color) {
         var self = this;
         var r = graph.r;
         var sy = graph.style.node_size_y;
@@ -632,9 +635,9 @@ odoo.define('web_diagram_plus.Graph', function (require) {
         }
         node_fig.attr(
             {
-                'fill': color,
-                'stroke': graph.style.node_outline_color,
-                'stroke-width': graph.style.node_outline_width,
+                'fill': highlight_node_color || color,
+                'stroke': highlight_node_color ? "#FFD500" :graph.style.node_outline_color,
+                'stroke-width': highlight_node_color ? "5px" :graph.style.node_outline_width,
                 'cursor': 'pointer',
             }
         );
@@ -809,6 +812,10 @@ odoo.define('web_diagram_plus.Graph', function (require) {
             // updating the label position is quite expensive
             // we put this here because drag_down is also called on
             // simple clicks ... and this causes unwanted flicker
+            // Disable drag move when graph is readonly
+            if (graph.readonly) {
+                return
+            }
             var edges = graph.get_linked_edge_list(self);
             for (var i = 0; i < edges.length; i++) {
                 edges[i].label_disable();
@@ -859,7 +866,8 @@ odoo.define('web_diagram_plus.Graph', function (require) {
         this.connectors.push(new Connector(graph, this, 0, - sy / 2));
         this.connectors.push(new Connector(graph, this, 0, sy / 2));
 
-        this.close_button = new CloseButton(
+        // Disable close button creation when graph is readonly
+        this.close_button = graph.readonly ? false :new CloseButton(
             graph, this, "node", sx / 2, - sy / 2);
     }
 
