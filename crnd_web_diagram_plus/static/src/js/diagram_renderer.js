@@ -29,6 +29,7 @@ var DiagramPlusRenderer = AbstractRenderer.extend({
         this.diagram_padding = 20;
         this.diagram_in_dom = false;
         this.diagram_offset = this.state.auto_layout ? 50 : 0;
+        this.diagram_readonly = this.state.diagram_readonly;
     },
 
     /**
@@ -153,7 +154,7 @@ var DiagramPlusRenderer = AbstractRenderer.extend({
         // eslint-disable-next-line no-undef
         var r = new Raphael($div[0], '100%', '100%');
         this.graph = new CuteGraphPlus(
-            r, style, this.$diagram_container[0]);
+            r, style, this.$diagram_container[0], this.diagram_readonly);
         _.each(nodes, function (node) {
             var n = new CuteNodePlus(
                 self.graph,
@@ -165,7 +166,8 @@ var DiagramPlusRenderer = AbstractRenderer.extend({
                 node.color === 'white' || node.color === 'gray'
                     ? style[node.color] : node.color,
                 node.fgcolor === false
-                    ? style.node_label_color : node.fgcolor
+                    ? style.node_label_color : node.fgcolor,
+                node.highlight_node_color,
             );
 
             n.id = node.id;

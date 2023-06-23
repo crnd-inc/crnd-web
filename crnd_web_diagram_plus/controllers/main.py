@@ -205,6 +205,11 @@ class DiagramPlusView(http.Controller):
                     })
 
         _id, name = http.request.env[model].browse([id]).name_get()[0]
+        highlight_node_id = kw.get('highlight_node_id')
+        if highlight_node_id:
+            highlight_node = nodes.get(str(highlight_node_id))
+            highlight_color = kw.get('highlight_node_color', False)
+            highlight_node['highlight_node_color'] = highlight_color
         return dict(nodes=nodes,
                     conn=connectors,
                     display_name=name,
