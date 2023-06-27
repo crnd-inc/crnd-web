@@ -197,14 +197,14 @@ class DiagramPlusView(http.Controller):
                     y=int(n['y']) + y_offset,
                 )
                 if not auto_layout:
-                    http.request.env[node].browse([int(key)]).write({
+                    http.request.env[node].browse([int(key)]).sudo().write({
                         d_position_field: json.dumps({
                             'x': n['x'],
                             'y': n['y'],
                         })
                     })
 
-        _id, name = http.request.env[model].browse([id]).name_get()[0]
+        _id, name = http.request.env[model].sudo().browse([id]).name_get()[0]
         highlight_node_id = kw.get('highlight_node_id')
         if highlight_node_id:
             highlight_node = nodes.get(str(highlight_node_id))
