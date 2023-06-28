@@ -22,7 +22,7 @@ class DiagramPlusView(http.Controller):
             :param str node_model: name of model for diagram nodes
             :return recordset: nodes related diagram
         """
-        fields = http.request.env['ir.model.fields']
+        fields = http.request.env['ir.model.fields'].sudo()
         field = fields.search([('model', '=', diagram_model),
                                ('relation', '=', node_model),
                                ('ttype', '=', 'one2many')])
@@ -42,6 +42,7 @@ class DiagramPlusView(http.Controller):
         node_fields_string = kw.get('node_fields_string', [])
         connector_fields = kw.get('connector_fields', [])
         connector_fields_string = kw.get('connector_fields_string', [])
+        diagram_readonly = kw.get('diagram_readonly', False)
 
         bgcolors = {}
         shapes = {}
@@ -196,7 +197,7 @@ class DiagramPlusView(http.Controller):
                     x=int(n['x']) + x_offset,
                     y=int(n['y']) + y_offset,
                 )
-                if not auto_layout:
+                if not auto_layout and not diagram_readonly:
                     http.request.env[node].browse([int(key)]).write({
                         d_position_field: json.dumps({
                             'x': n['x'],
@@ -204,7 +205,7 @@ class DiagramPlusView(http.Controller):
                         })
                     })
 
-        _id, name = http.request.env[model].browse([id]).name_get()[0]
+        _id, name = http.request.env[model].sudo().browse([id]).name_get()[0]
         highlight_node_id = kw.get('highlight_node_id')
         if highlight_node_id:
             highlight_node = nodes.get(str(highlight_node_id))
