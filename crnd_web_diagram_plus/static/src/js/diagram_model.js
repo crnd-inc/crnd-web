@@ -95,8 +95,11 @@ var DiagramPlusModel = AbstractModel.extend({
                 // pass variables to the controller, enabling the identification
                 // of the highlight node. Once the highlight node is determined,
                 // the assigned highlight color can be applied to it.
+                // Additionally, include the "diagram" readonly attribute to prevent
+                // controller from executing write actions when in readonly mode.
                 highlight_node_id: this.highlight_node_id,
                 highlight_node_color: this.highlight_node_color,
+                diagram_readonly: this.diagram_readonly,
             },
         }).then(function (data) {
             self.calc_auto_layout = false;
