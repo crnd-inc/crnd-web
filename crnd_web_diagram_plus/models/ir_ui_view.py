@@ -144,8 +144,8 @@ class IrUiView(models.Model):
         no_ancester = []
         blank_nodes = []
 
-        Model = self.env[model]
-        Node = self.env[node_obj]
+        Model = self.sudo().env[model]
+        Node = self.sudo().env[node_obj]
 
         # pylint: disable=too-many-nested-blocks
         for model_key, model_value in Model._fields.items():
