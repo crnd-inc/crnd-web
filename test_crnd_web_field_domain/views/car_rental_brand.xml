@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="car_rental_brand_view_form" model="ir.ui.view">
+        <field name="model">car.rental.brand</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <label for="car_ids"/>
+                        <field name="car_ids" widget="one2many" readonly="1" nolabel="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="car_rental_brand_view_tree" model="ir.ui.view">
+        <field name="model">car.rental.brand</field>
+        <field name="arch" type="xml">
+            <tree string="car_rental_brand_tree">
+                <field name="name"/>
+                <field name="car_ids" widget="one2many_list"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="car_rental_brand_action" model="ir.actions.act_window">
+        <field name="name">Brand</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">car.rental.brand</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="car_rental_brand_menu"
+              name="Brand"
+              parent="test_crnd_web_field_domain.root"
+              action="test_crnd_web_field_domain.car_rental_brand_action"
+              sequence="30"/>
+</odoo>

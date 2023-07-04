@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="car_rental_car_view_form" model="ir.ui.view">
+        <field name="model">car.rental.car</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="brand_id"/>
+                            <field name="model_id"/>
+                            <field name="fuel_type_id"/>
+                            <field name="transmission_id"/>
+                        </group>
+                        <group>
+                            <field name="year"/>
+                            <field name="color"/>
+                            <field name="rental_price"/>
+                        </group>
+                        <label for="rental_ids"/>
+                        <field name="rental_ids" widget="one2many" readonly="1" nolabel="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="car_rental_car_view_tree" model="ir.ui.view">
+        <field name="model">car.rental.car</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="brand_id"/>
+                <field name="model_id"/>
+                <field name="fuel_type_id"/>
+                <field name="transmission_id"/>
+                <field name="year"/>
+                <field name="color"/>
+                <field name="rental_price"/>
+                <field name="rental_ids" widget="one2many"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="car_rental_car_action" model="ir.actions.act_window">
+        <field name="name">Car</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">car.rental.car</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="car_rental_car_menu"
+              name="Cars"
+              parent="test_crnd_web_field_domain.root"
+              action="test_crnd_web_field_domain.car_rental_car_action"
+              sequence="20"/>
+
+</odoo>
