@@ -9,7 +9,7 @@ odoo.define("crnd_web_map_view.MapModel", function (require) {
             this._super.apply(this, arguments);
         },
 
-        async load(params) {
+        async __load(params) {
             this.data = {};
 
             this.domain = params.domain;
@@ -22,7 +22,7 @@ odoo.define("crnd_web_map_view.MapModel", function (require) {
             return await this.loadData(params);
         },
 
-        async reload(id, params) {
+        async __reload(id, params) {
             if (params.domain) {
                 this.domain = params.domain;
             }

@@ -20,7 +20,7 @@ odoo.define('crnd_web_map_view.MapView', function (require) {
             Controller: MapController,
             Renderer: MapRenderer,
         }),
-        searchMenuTypes: ['filter', 'favorite'],
+        searchMenuTypes: ['filter', 'comparison', 'favorite'],
 
         init: function (viewInfo, params) {
             this._super.apply(this, arguments);

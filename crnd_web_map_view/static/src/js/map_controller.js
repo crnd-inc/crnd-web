@@ -34,9 +34,9 @@ odoo.define("crnd_web_map_view.MapController", function (require) {
             for (let x of Object.entries(this.model.data)) {
                 res.push({
                     id: x[1]['id'],
-                    lat: x[1][this.model.params['latitude_field']] ? x[1][this.model.params['latitude_field']]: 0,
-                    lng: x[1][this.model.params['longitude_field']] ? x[1][this.model.params['longitude_field']]: 0,
-                    title: x[1][this.model.params['title_field']] ? x[1][this.model.params['title_field']]: '',
+                    lat: x[1][this.model.loadParams['latitude_field']] ? x[1][this.model.loadParams['latitude_field']]: 0,
+                    lng: x[1][this.model.loadParams['longitude_field']] ? x[1][this.model.loadParams['longitude_field']]: 0,
+                    title: x[1][this.model.loadParams['title_field']] ? x[1][this.model.loadParams['title_field']]: '',
                 });
             }
             return res;
