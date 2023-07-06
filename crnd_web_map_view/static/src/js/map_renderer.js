@@ -3,6 +3,7 @@ odoo.define("crnd_web_map_view.MapRenderer", function (require) {
 
     var AbstractRenderer = require("web.AbstractRenderer");
     var core = require("web.core");
+    var Dialog = require("web.Dialog");
 
     var _t = core._t;
 
@@ -21,9 +22,12 @@ odoo.define("crnd_web_map_view.MapRenderer", function (require) {
             this.api_key = await this.get_map_api_key();
             if (this.api_key) {
                 loader({key: this.api_key, v: 'weekly'})
+
             }
             else {
-                this.do_notify(_t('Warning'), _t('Google map API key is required!'), true, 'bg-danger');
+                Dialog.alert(this, _t('Google map API key is required!'), {
+                        title: _t('Warning'),
+                    });
             }
         },
 
