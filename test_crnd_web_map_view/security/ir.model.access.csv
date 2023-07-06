@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_test_map_view,crnd_web_test_map_view,test_crnd_web_map_view.model_test_map_view,,1,1,1,1
+access_test_map_wizard,crnd_web_test_map_wizard,test_crnd_web_map_view.model_test_map_wizard,,1,1,1,1

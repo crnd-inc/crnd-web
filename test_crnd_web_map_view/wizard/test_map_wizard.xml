@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+     <record id="test_map_wizard_view_form_view" model="ir.ui.view">
+        <field name="name">crnd.web.map.wizard.form</field>
+        <field name="model">test.map.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                    </group>
+                    <group>
+                        <field name="location_ids"/>
+                    </group>
+                </sheet>
+                <footer>
+                    <button name="action_test_map_wizard"
+                            string="Open map"
+                            type="object"
+                            class="btn-primary"/>
+                    <button string="Cancel"
+                            class="btn-default"
+                            special="cancel" />
+                </footer>
+
+            </form>
+        </field>
+     </record>
+
+    <record id="action_test_map_wizard" model="ir.actions.act_window">
+        <field name="name">Test map wizard</field>
+        <field name="res_model">test.map.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="test_map_wizard_view_form_view"/>
+        <field name="target">new</field>
+    </record>
+</odoo>

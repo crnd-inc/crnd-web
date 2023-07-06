@@ -1,0 +1,34 @@
+.crnd_map_view {
+    width: 100%;
+    height: 100vh;
+
+    .map {
+        width: 100%;
+        height: 100%;
+
+        .info_window_content {
+            .info {
+                display: grid;
+                grid-template-columns: auto auto;
+
+                .label {
+                    justify-self: end;
+                    margin-right: 0.3rem;
+                    font-weight: bold;
+                }
+
+                .value {
+                    justify-self: start;
+                }
+
+                span {
+                    justify-self: inherit;
+                }
+            }
+
+            button {
+                width: 100%;
+            }
+        }
+    }
+}
