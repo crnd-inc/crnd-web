@@ -1,6 +1,6 @@
 {
     "name": "CRND Web Image Popup Widget",
-    "version": "16.0.0.1.0",
+    "version": "16.0.0.1.1",
     "author": "Center of Research and Development",
     "website": "https://crnd.pro",
     'summary': 'Popup images from the binary fields',
@@ -20,10 +20,12 @@
             'crnd_web_widget_popup_image'
             '/static/src/less/image_on_treeview.less',
             'crnd_web_widget_popup_image'
-            '/static/src/js/image_popup.js',
+            '/static/src/js/image_popup_owl.js',
+            'crnd_web_widget_popup_image'
+            '/static/src/js/image_popup_owl.xml',
         ],
     },
     'images': ['static/description/banner.gif'],
-    'installable': False,
+    'installable': True,
     'auto_install': False,
 }
