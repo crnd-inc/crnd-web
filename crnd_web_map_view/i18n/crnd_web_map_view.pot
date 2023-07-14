@@ -26,13 +26,13 @@ msgid "CR&D Map View"
 msgstr ""
 
 #. module: crnd_web_map_view
-#: model:ir.model.fields.selection,name:crnd_web_map_view.selection__ir_actions_act_window_view__view_mode__crnd_map_view
-msgid "CRnD Map View"
+#: model:ir.model.fields.selection,name:crnd_web_map_view.selection__ir_ui_view__type__crnd_map_view
+msgid "CRND Map View"
 msgstr ""
 
 #. module: crnd_web_map_view
-#: model:ir.model.fields.selection,name:crnd_web_map_view.selection__ir_ui_view__type__crnd_map_view
-msgid "Generic Map View"
+#: model:ir.model.fields.selection,name:crnd_web_map_view.selection__ir_actions_act_window_view__view_mode__crnd_map_view
+msgid "CRnD Map View"
 msgstr ""
 
 #. module: crnd_web_map_view

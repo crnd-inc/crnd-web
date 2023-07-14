@@ -10,6 +10,7 @@ msgstr ""
 "PO-Revision-Date: 2023-07-14 09:12+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
@@ -28,13 +29,13 @@ msgid "CR&D Map View"
 msgstr ""
 
 #. module: crnd_web_map_view
-#: model:ir.model.fields.selection,name:crnd_web_map_view.selection__ir_actions_act_window_view__view_mode__crnd_map_view
-msgid "CRnD Map View"
+#: model:ir.model.fields.selection,name:crnd_web_map_view.selection__ir_ui_view__type__crnd_map_view
+msgid "CRND Map View"
 msgstr ""
 
 #. module: crnd_web_map_view
-#: model:ir.model.fields.selection,name:crnd_web_map_view.selection__ir_ui_view__type__crnd_map_view
-msgid "Generic Map View"
+#: model:ir.model.fields.selection,name:crnd_web_map_view.selection__ir_actions_act_window_view__view_mode__crnd_map_view
+msgid "CRnD Map View"
 msgstr ""
 
 #. module: crnd_web_map_view
