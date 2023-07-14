@@ -1,12 +1,18 @@
 {
     'name': "CR&D Map View",
+    'summary': (
+        "This technical module provides view that allows to display "
+        "objects on the map"),
     'author': "Center of Research and Development",
+    'support': 'info@crnd.pro',
     'website': "https://crnd.pro",
-    'license': 'Other proprietary',
-    'version': '13.0.0.1.1',
+    'license': 'LGPL-3',
+    'version': '13.0.0.1.0',
 
     'depends': [
         'base_geolocalize',
+        'web',
+        'base',
     ],
     'data': [
         'templates/assets.xml',

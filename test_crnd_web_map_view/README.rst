@@ -2,10 +2,6 @@ Test CRND Map View
 ==================
 
 
-.. |badge2| image:: https://img.shields.io/badge/license-OPL--1-blue.png
-    :target: https://www.odoo.com/documentation/user/12.0/legal/licenses/licenses.html#odoo-apps
-    :alt: License: OPL-1
-
 .. |badge3| image:: https://img.shields.io/badge/powered%20by-yodoo.systems-00a09d.png
     :target: https://yodoo.systems
 
@@ -13,7 +9,7 @@ Test CRND Map View
     :target: https://crnd.pro/
 
 
-|badge2| |badge5|
+|badge5|
 
 This addon is for testing map view, which displays objects according to their geolocation.
 

@@ -2,7 +2,7 @@
     'name': "Test CR&D Map View Contacts",
     'author': "Center of Research and Development",
     'website': "https://crnd.pro",
-    'license': 'Other proprietary',
+    'license': 'LGPL-3',
     'version': '13.0.0.1.0',
 
     'depends': [
