@@ -13,10 +13,6 @@ Test CRND Map View Contacts
 
 This addon is for testing map view, which displays objects according to their geolocation.
 
-Usage
-'''''
-
-
 
 Launch your own ITSM system in 60 seconds:
 ''''''''''''''''''''''''''''''''''''''''''
