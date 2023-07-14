@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="crnd_web_map_view_assets" inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">
+            <link rel="stylesheet" type="text/scss" href="/crnd_web_map_view/static/src/scss/map_view.scss"/>
+
+            <script type="text/javascript" src="/crnd_web_map_view/static/src/js/map_controller.js"/>
+            <script type="text/javascript" src="/crnd_web_map_view/static/src/js/map_model.js"/>
+            <script type="text/javascript" src="/crnd_web_map_view/static/src/js/map_renderer.js"/>
+            <script type="text/javascript" src="/crnd_web_map_view/static/src/js/map_view.js"/>
+        </xpath>
+    </template>
+</odoo>

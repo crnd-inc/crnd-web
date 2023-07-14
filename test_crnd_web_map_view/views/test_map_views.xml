@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="test_map_view_map_view" model="ir.ui.view">
+        <field name="model">test.map.view</field>
+        <field name="arch" type="xml">
+            <crnd_map_view
+                    latitude_field="latitude"
+                    longitude_field="longitude"
+                    title_field="name">
+            </crnd_map_view>
+        </field>
+    </record>
+
+    <record id="test_map_view_tree_view" model="ir.ui.view">
+        <field name="model">test.map.view</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="latitude"/>
+                <field name="longitude"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="test_map_view_form_view" model="ir.ui.view">
+        <field name="model">test.map.view</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="latitude"/>
+                            <field name="longitude"/>
+                        </group>
+                        <group></group>
+                    </group>
+                </sheet>
+
+            </form>
+        </field>
+    </record>
+
+    <record id="action_test_map_view" model="ir.actions.act_window">
+        <field name="name">Test map view</field>
+        <field name="res_model">test.map.view</field>
+        <field name="view_mode">tree,form,crnd_map_view</field>
+    </record>
+
+    <record id="action_test_map_view_only" model="ir.actions.act_window">
+        <field name="name">Test map view</field>
+        <field name="res_model">test.map.view</field>
+        <field name="view_mode">crnd_map_view</field>
+    </record>
+
+    <menuitem name="CRND Web Map View Test"
+              id="crnd_web_map_view_test_root"
+              sequence="1"/>
+
+    <menuitem id="crnd_web_map_view_test_main"
+              sequence="1"
+              name="Map View"
+              parent="crnd_web_map_view_test_root"/>
+    <menuitem id="crnd_web_map_view_test"
+              sequence="1"
+              action="action_test_map_view"
+              parent="crnd_web_map_view_test_main"/>
+    <menuitem id="crnd_web_map_wizard_test"
+              sequence="2"
+              action="action_test_map_wizard"
+              parent="crnd_web_map_view_test_main"/>
+</odoo>

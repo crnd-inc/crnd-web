@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="test_crnd_web_map_view" model="ir.ui.view">
+        <field name="model">res.partner</field>
+        <field name="arch" type="xml">
+            <crnd_map_view
+                    latitude_field="partner_latitude"
+                    longitude_field="partner_longitude"
+                    title_field="name">
+            </crnd_map_view>
+        </field>
+    </record>
+
+
+
+    <record id="action_contacts_view_map" model="ir.actions.act_window.view">
+        <field name="sequence" eval="0"/>
+        <field name="view_mode">crnd_map_view</field>
+        <field name="view_id" ref="test_crnd_web_map_view"/>
+        <field name="act_window_id" ref="contacts.action_contacts"/>
+    </record>
+
+    <record id="contacts.action_contacts" model="ir.actions.act_window">
+        <field name="view_mode">kanban,tree,form,activity,crnd_map_view</field>
+    </record>
+</odoo>

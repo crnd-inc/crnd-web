@@ -1,0 +1,9 @@
+<templates>
+
+    <t t-name="crnd_web_map_view.mapRenderer">
+         <div class="crnd_map_view">
+            <div t-att-id="widget.mapId" class="map"/>
+        </div>
+    </t>
+
+</templates>
