@@ -23,10 +23,7 @@
         'web.assets_backend': [
             'crnd_web_map_view/static/src/scss/map_view.scss',
 
-            'crnd_web_map_view/static/src/js/map_view.js',
-            'crnd_web_map_view/static/src/js/map_model.js',
-            'crnd_web_map_view/static/src/js/map_controller.js',
-            'crnd_web_map_view/static/src/js/map_renderer.js',
+            'crnd_web_map_view/static/src/js/*',
         ],
     },
 

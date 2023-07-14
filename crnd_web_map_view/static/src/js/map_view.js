@@ -1,4 +1,3 @@
-/** @odoo-module */
 odoo.define('crnd_web_map_view.MapView', function (require) {
     "use strict";
 
