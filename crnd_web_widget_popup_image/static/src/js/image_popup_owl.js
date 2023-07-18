@@ -31,7 +31,7 @@ export class ImagePopup extends Component {
 ImagePopup.template = 'crnd_web_widget_popup_image.ImagePopup';
 ImagePopup.supportedTypes = ["binary"];
 ImagePopup.props = {
-	...standardFieldProps,
+    ...standardFieldProps,
 };
 
 registry.category("fields").add("image_popup", ImagePopup);

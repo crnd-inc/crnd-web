@@ -3,7 +3,8 @@
     "version": "16.0.0.1.1",
     "author": "Center of Research and Development",
     "website": "https://crnd.pro",
-    'summary': 'Popup images from the binary fields',
+    'summary': 'Allows you to test `crnd_web_widget_popup_image` module. '
+               'Go to Contacts -> Tree/Form view',
     "license": "LGPL-3",
     'category': 'Technical Settings',
     'depends': [
