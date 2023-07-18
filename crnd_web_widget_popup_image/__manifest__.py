@@ -22,7 +22,7 @@
             'crnd_web_widget_popup_image'
             '/static/src/js/image_popup_owl.js',
             'crnd_web_widget_popup_image'
-            '/static/src/js/image_popup_owl.xml',
+            '/static/src/xml/image_popup_owl.xml',
         ],
     },
     'images': ['static/description/banner.gif'],

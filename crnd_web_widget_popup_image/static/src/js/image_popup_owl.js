@@ -4,7 +4,7 @@ import { Component } from "@odoo/owl";
 import { registry } from "@web/core/registry";
 import { standardFieldProps } from"@web/views/fields/standard_field_props";
 
-export class MyNewWidget extends Component {
+export class ImagePopup extends Component {
 
     get_url() {
         var model = this.props.record.resModel;
@@ -28,10 +28,10 @@ export class MyNewWidget extends Component {
         return this.popup();
     }
 }
-MyNewWidget.template = 'crnd_web_widget_popup_image.ImagePopup';
-MyNewWidget.supportedTypes = ["binary"];
-MyNewWidget.props = {
+ImagePopup.template = 'crnd_web_widget_popup_image.ImagePopup';
+ImagePopup.supportedTypes = ["binary"];
+ImagePopup.props = {
 	...standardFieldProps,
 };
 
-registry.category("fields").add("image_popup", MyNewWidget);
+registry.category("fields").add("image_popup", ImagePopup);
