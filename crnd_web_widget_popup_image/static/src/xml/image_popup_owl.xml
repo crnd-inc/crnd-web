@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<template>
+    <t t-name="crnd_web_widget_popup_image.ImagePopup" owl="1">
+        <img class="image_popup" t-attf-src="{{get_url()}}" t-on-click="onClickImage"/>
+    </t>
+</template>
