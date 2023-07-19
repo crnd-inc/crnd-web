@@ -33,4 +33,3 @@ class CarRental(models.Model):
                 rental.total_cost = rental.car_id.rental_price * days_rented
             else:
                 rental.total_cost = 0
-

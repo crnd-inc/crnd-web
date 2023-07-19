@@ -18,7 +18,7 @@
     <record id="car_rental_brand_view_tree" model="ir.ui.view">
         <field name="model">car.rental.brand</field>
         <field name="arch" type="xml">
-            <tree string="car_rental_brand_tree">
+            <tree>
                 <field name="name"/>
                 <field name="car_ids" widget="one2many_list"/>
             </tree>
