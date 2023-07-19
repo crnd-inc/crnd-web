@@ -33,3 +33,4 @@ class Car(models.Model):
         comodel_name='car.rental',
         inverse_name='car_id'
         )
+    brand_id_field_domain = fields.Char()

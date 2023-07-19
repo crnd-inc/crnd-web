@@ -7,8 +7,9 @@
                 <sheet>
                     <group>
                         <group>
+                            <field name="brand_id_field_domain"/>
                             <field name="name"/>
-                            <field name="brand_id"/>
+                            <field name="brand_id" options="{'domain_field': 'brand_id_field_domain'}"/>
                             <field name="model_id"/>
                             <field name="fuel_type_id"/>
                             <field name="transmission_id"/>
