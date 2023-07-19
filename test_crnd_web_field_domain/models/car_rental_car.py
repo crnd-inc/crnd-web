@@ -26,7 +26,7 @@ class Car(models.Model):
         comodel_name='car.rental.transmission',
         string='Transmission'
     )
-    year = fields.Integer()
+    year = fields.Char()
     color = fields.Char()
     rental_price = fields.Float()
     rental_ids = fields.One2many(

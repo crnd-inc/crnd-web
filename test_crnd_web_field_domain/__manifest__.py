@@ -20,6 +20,7 @@
         'views/car_rental_fuel_type.xml',
     ],
     'demo': [
+        'demo/demo_car_rental.xml',
     ],
     'installable': True,
     'auto_install': False,
