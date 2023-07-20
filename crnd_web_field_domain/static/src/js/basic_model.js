@@ -8,11 +8,6 @@ odoo.define('crnd_web_field_domain.field_domain', function (require) {
 
     BasicModel.include({
 
-        init: function () {
-            this.assembleDomains = pyUtils.assembleDomains;
-            this._super.apply(this, arguments);
-    },
-
         _getDomain: function (element, options) {
             if (!options || !options.fieldName) {
                 return this._super.apply(this, arguments);
@@ -26,20 +21,20 @@ odoo.define('crnd_web_field_domain.field_domain', function (require) {
             if (options && options.fieldName && domain_field) {
                 if (element._domains[options.fieldName]) {
                     var origin_domain = element._domains[options.fieldName].length !== 0 ? element._domains[options.fieldName] : "[]";
-                    var assembled_domain = this.assembleDomains([origin_domain, domain_field_value], "AND");
+                    var assembled_domain = pyUtils.assembleDomains([origin_domain, domain_field_value], "AND");
                     return Domain.prototype.stringToArray(assembled_domain, this._getEvalContext(element, true));
                 }
                 var viewType = options.viewType || element.viewType;
                 var fieldInfo = element.fieldsInfo[viewType][options.fieldName];
                 if (fieldInfo && fieldInfo.domain) {
                     var origin_domain = fieldInfo.domain.length !== 0 ? fieldInfo.domain : "[]";
-                    var assembled_domain = this.assembleDomains([origin_domain, domain_field_value], "AND");
+                    var assembled_domain = pyUtils.assembleDomains([origin_domain, domain_field_value], "AND");
                     return Domain.prototype.stringToArray(assembled_domain, this._getEvalContext(element, true));
                 }
                 var fieldParams = element.fields[options.fieldName];
                 if (fieldParams.domain) {
                     var origin_domain = fieldParams.domain.length !== 0 ? fieldParams.domain : "[]";
-                    var assembled_domain = this.assembleDomains([origin_domain, domain_field_value], "AND");
+                    var assembled_domain = pyUtils.assembleDomains([origin_domain, domain_field_value], "AND");
                     return Domain.prototype.stringToArray(assembled_domain, this._getEvalContext(element, true));
                 }
                 return this._super.apply(this, arguments);
