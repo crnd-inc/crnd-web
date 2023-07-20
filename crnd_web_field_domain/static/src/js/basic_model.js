@@ -11,7 +11,6 @@ odoo.define('crnd_web_field_domain.field_domain', function (require) {
         init: function () {
             this.assembleDomains = pyUtils.assembleDomains;
             this._super.apply(this, arguments);
-            this.originDomain;
     },
 
         _getDomain: function (element, options) {
