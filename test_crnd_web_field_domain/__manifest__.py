@@ -18,6 +18,8 @@
         'views/car_rental_model.xml',
         'views/car_rental_transmission.xml',
         'views/car_rental_fuel_type.xml',
+
+        'views/assets.xml',
     ],
     'demo': [
         'demo/demo_car_rental.xml',
