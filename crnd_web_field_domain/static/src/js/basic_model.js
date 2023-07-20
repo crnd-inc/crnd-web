@@ -3,7 +3,6 @@ odoo.define('crnd_web_field_domain.field_domain', function (require) {
 
     var BasicModel = require('web.BasicModel');
     var pyUtils = require("web.py_utils");
-    var assembleDomains = pyUtils.assembleDomains;
     var Domain = require('web.Domain');
 
 
@@ -11,7 +10,6 @@ odoo.define('crnd_web_field_domain.field_domain', function (require) {
 
         init: function () {
             this.assembleDomains = pyUtils.assembleDomains;
-            this.Domain = Domain;
             this._super.apply(this, arguments);
             this.originDomain;
     },
