@@ -14,7 +14,7 @@ odoo.define('crnd_web_field_domain.field_domain', function (require) {
     },
 
         _getDomain: function (element, options) {
-            if (!element._changes || Object.keys(element._changes).length === 0) {
+            if (!options || !options.fieldName) {
                 return this._super.apply(this, arguments);
             }
             var field_name = options ? options.fieldName: undefined;
