@@ -10,3 +10,9 @@ class TestCrndWebFieldDomain(WebTourCase):
             start_url='/web',
             tour_name='test_crnd_web_field_domain_simply_domain_tour',
             login='admin')
+
+    def test_context_eval_field_domain(self):
+        self.run_js_tour(
+            start_url='/web',
+            tour_name='test_crnd_web_field_domain_context_eval_domain_tour',
+            login='admin')
