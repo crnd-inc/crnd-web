@@ -66,19 +66,19 @@ odoo.define('test_crnd_web_field_domain.context_eval_domain_tour', function (req
 //        Check no more other records in dropdown list
         {
             content: "Ensure dropdown list not has 'SpeedTech' brand",
-            trigger: "ul.ui-autocomplete:not(a:contains('SpeedTech')) ",
+            trigger: "ul.ui-autocomplete:not(:has(a:contains('SpeedTech')):contains()) ",
         },
         {
             content: "Ensure dropdown list not has 'CityWheels' brand",
-            trigger: "ul.ui-autocomplete:not(a:contains('CityWheels')) ",
+            trigger: "ul.ui-autocomplete:not(:has(a:contains('CityWheels')):contains()) ",
         },
         {
             content: "Ensure dropdown list not has 'ComfortCars' brand",
-            trigger: "ul.ui-autocomplete:not(a:contains('ComfortCars')) ",
+            trigger: "ul.ui-autocomplete:not(:has(a:contains('ComfortCars')):contains()) ",
         },
         {
             content: "Ensure dropdown list not has 'TrekDrive' brand",
-            trigger: "ul.ui-autocomplete:not(a:contains('TrekDrive')) ",
+            trigger: "ul.ui-autocomplete:not(:has(a:contains('TrekDrive')):contains()) ",
         },
 
 //        Change model_id in record
@@ -103,19 +103,19 @@ odoo.define('test_crnd_web_field_domain.context_eval_domain_tour', function (req
         },
         {
             content: "Ensure dropdown list not has 'GreenDrive' brand",
-            trigger: "ul.ui-autocomplete:not(a:contains('GreenDrive')) ",
+            trigger: "ul.ui-autocomplete:not(:has(a:contains('GreenDrive')):contains()) ",
         },
         {
             content: "Ensure dropdown list not has 'CityWheels' brand",
-            trigger: "ul.ui-autocomplete:not(a:contains('CityWheels')) ",
+            trigger: "ul.ui-autocomplete:not(:has(a:contains('CityWheels')):contains()) ",
         },
         {
             content: "Ensure dropdown list not has 'ComfortCars' brand",
-            trigger: "ul.ui-autocomplete:not(a:contains('ComfortCars')) ",
+            trigger: "ul.ui-autocomplete:not(:has(a:contains('ComfortCars')):contains()) ",
         },
         {
             content: "Ensure dropdown list not has 'TrekDrive' brand",
-            trigger: "ul.ui-autocomplete:not(a:contains('TrekDrive')) ",
+            trigger: "ul.ui-autocomplete:not(:has(a:contains('TrekDrive')):contains()) ",
         },
 
 //        Save record

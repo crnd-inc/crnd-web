@@ -73,19 +73,19 @@ odoo.define('test_crnd_web_field_domain.simply_domain_tour', function (require) 
 //        Check no more other 4 records in dropdown list
         {
             content: "Ensure dropdown list not has 'GreenDrive' brand",
-            trigger: "ul.ui-autocomplete:not(a:contains('GreenDrive')) ",
+            trigger: "ul.ui-autocomplete:not(:has(a:contains('GreenDrive')):contains()) ",
         },
         {
             content: "Ensure dropdown list not has 'CityWheels' brand",
-            trigger: "ul.ui-autocomplete:not(a:contains('CityWheels')) ",
+            trigger: "ul.ui-autocomplete:not(:has(a:contains('CityWheels')):contains()) ",
         },
         {
             content: "Ensure dropdown list not has 'ComfortCars' brand",
-            trigger: "ul.ui-autocomplete:not(a:contains('ComfortCars')) ",
+            trigger: "ul.ui-autocomplete:not(:has(a:contains('ComfortCars')):contains()) ",
         },
         {
             content: "Ensure dropdown list not has 'TrekDrive' brand",
-            trigger: "ul.ui-autocomplete:not(a:contains('TrekDrive')) ",
+            trigger: "ul.ui-autocomplete:not(:has(a:contains('TrekDrive')):contains()) ",
         },
 
 //        Input empty domain to make sure all records in dropdown list
