@@ -8,5 +8,5 @@ class TestCrndWebFieldDomain(WebTourCase):
     def test_field_domain(self):
         self.run_js_tour(
             start_url='/web',
-            tour_name='crnd_web_field_domain_tour',
+            tour_name='test_crnd_web_field_domain_field_domain_tour',
             login='admin')

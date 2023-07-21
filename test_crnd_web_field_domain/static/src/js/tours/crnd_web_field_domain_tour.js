@@ -1,10 +1,11 @@
-odoo.define('test_crnd_web_field_domain.crnd_web_field_domain_tour', function (require) {
+odoo.define('test_crnd_web_field_domain.field_domain_tour', function (require) {
     'use strict';
 
     var tour = require('web_tour.tour');
 
-    tour.register('crnd_web_field_domain_tour', {
+    tour.register('test_crnd_web_field_domain_field_domain_tour', {
         test: true,
+        rainbowMan: false,
         url: '/web',
     }, [
         {
@@ -14,7 +15,7 @@ odoo.define('test_crnd_web_field_domain.crnd_web_field_domain_tour', function (r
         {
             content: "Click record with car 'EcoCruiser'",
             trigger: "td.o_data_cell:containsExact('EcoCruiser')",
-            run: click,
+            run: 'click',
         },
         {
             content: "Wait for download form",
