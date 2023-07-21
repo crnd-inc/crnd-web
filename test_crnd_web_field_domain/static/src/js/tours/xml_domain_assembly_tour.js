@@ -32,7 +32,7 @@ odoo.define('test_crnd_web_field_domain.xml_assembly_domain_tour', function (req
         },
         {
             content: "Wait for download form",
-            trigger: "a[name='customer_id']:contains('Azure Interior')",
+            trigger: ":has(a[name='customer_id']:contains('Azure Interior'):contains())",
         },
         {
             content: "Click edit button",
