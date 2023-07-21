@@ -15,6 +15,7 @@ class CarRental(models.Model):
         string='Car',
         required=True
     )
+    car_id_field_domain = fields.Char()
     rental_date = fields.Date(
         required=True
     )

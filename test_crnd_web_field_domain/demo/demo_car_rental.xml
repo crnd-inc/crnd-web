@@ -90,7 +90,7 @@
         <field name="rental_price">120.00</field>
     </record>
     <record id='demo_car_urban_glyde' model='car.rental.car'>
-        <field name="name">UrbanGlide Hybrid</field>
+        <field name="name">CityUrbanGlide Hybrid</field>
         <field name="brand_id" ref='demo_brand_city_wheels'/>
         <field name="model_id" ref='demo_model_ug'/>
         <field name="fuel_type_id" ref='demo_fuel_hybrid_gasoline_electric'/>
@@ -100,7 +100,7 @@
         <field name="rental_price">90.00</field>
     </record>
     <record id='demo_car_family_journey' model='car.rental.car'>
-        <field name="name">FamilyJourney</field>
+        <field name="name">CityFamilyJourney</field>
         <field name="brand_id" ref='demo_brand_comfort_cars'/>
         <field name="model_id" ref='demo_model_fc'/>
         <field name="fuel_type_id" ref='demo_fuel_diesel'/>
@@ -110,7 +110,7 @@
         <field name="rental_price">100.00</field>
     </record>
     <record id='demo_car_adventure_explorer' model='car.rental.car'>
-        <field name="name">AdventureXplorer</field>
+        <field name="name">CityAdventureXplorer</field>
         <field name="brand_id" ref='demo_brand_trek_drive'/>
         <field name="model_id" ref='demo_model_adventure'/>
         <field name="fuel_type_id" ref='demo_fuel_petrol'/>

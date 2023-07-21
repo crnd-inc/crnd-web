@@ -8,7 +8,10 @@
                     <group>
                         <group>
                             <field name="customer_id"/>
-                            <field name="car_id"/>
+                            <field name="car_id_field_domain"/>
+                            <field name="car_id"
+                                   domain="[('name', 'ilike', 'City')]"
+                                   options="{'domain_field': 'car_id_field_domain'}"/>
                         </group>
                         <group>
                             <field name="rental_date"/>
