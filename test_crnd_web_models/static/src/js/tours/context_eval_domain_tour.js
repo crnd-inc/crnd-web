@@ -9,8 +9,22 @@ odoo.define('test_crnd_web_field_domain.context_eval_domain_tour', function (req
         url: '/web',
     }, [
         {
+            content: "Click on main menu",
+            trigger: ".full",
+            run: 'click',
+        },
+        {
+            content: "Click menu 'Tests'",
+            trigger: "a[data-menu-xmlid='base.menu_tests']",
+            run: 'click',
+        },
+        {
+            content: "Click menu 'CRND Web Tests'",
+            trigger: "a[data-menu-xmlid='test_crnd_web_models.crnd_web_tests']",
+        },
+        {
             content: "Click menu 'Cars'",
-            trigger: "a[data-menu-xmlid='test_crnd_web_field_domain.car_rental_car_menu']",
+            trigger: "a[data-menu-xmlid='test_crnd_web_models.test_car_rental_car_menu']",
         },
         {
             content: "Check in menu 'Cars'",

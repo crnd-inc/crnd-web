@@ -1,7 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_car_rental,access_car_rental,model_car_rental,,1,1,1,1
-access_car_rental_brand,access_car_rental_brand,model_car_rental_brand,base.group_system,1,1,1,1
-access_car_rental_car,access_car_rental_car,model_car_rental_car,,1,1,1,1
-access_car_rental_fuel_type,access_car_rental_fuel_type,model_car_rental_fuel_type,,1,1,1,1
-access_car_rental_model,access_car_rental_model,model_car_rental_model,,1,1,1,1
-access_car_rental_transmission,access_car_rental_transmission,model_car_rental_transmission,,1,1,1,1
