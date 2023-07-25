@@ -10,17 +10,16 @@
 
 <section style="margin: 0 auto; max-width: 896px;">
 <div>
-    <p>CRND Web Field Domain allows to use custom domain field alongside
-        with Odoo domains.</p>
-    <p>Example of usage:</p>
+    <p>CRND Web Field Domain enables the integration of custom domain fields with Odoo domains. By utilizing this feature, users can define and implement a custom text field within a model, which can serve as an additional domain for other fields.</p>
+    <p>To begin using the field domain functionality, follow these steps:</p>
 
-    <p>First, define the domain field in the model using the following code:</p>
+    <p>Step 1: Create the text field in the model within the desired model, add a text field that will act as the custom domain field. This field will hold the domain filter criteria in string format.</p>
     <pre>
         <code>
-            author_domain_field = fields.Char(default="[('is_company', '=', False)]")
+            author_domain_field = fields.Char(default="[('is_company', '=', False)]", compute='_compute_author_domain_field')
         </code>
     </pre>
-    <p>Next, specify the domain field in the XML field options like this:</p>
+    <p>Step 2: Define the field in the view options</p>
     <pre>
         <code>
             &lt;field name="author_id" options="{'domain_field': 'author_domain_field'}"/&gt;
