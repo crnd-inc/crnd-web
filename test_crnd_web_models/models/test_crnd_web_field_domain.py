@@ -17,6 +17,7 @@ class CarRental(models.Model):
     )
     car_id_field_domain = fields.Char()
 
+
 class CarBrand(models.Model):
     _name = 'test.car.rental.brand'
     _description = 'Car Brand'
@@ -29,6 +30,7 @@ class CarBrand(models.Model):
         inverse_name='brand_id',
         string='Cars'
     )
+
 
 class CarModel(models.Model):
     _name = 'test.car.rental.model'
@@ -48,6 +50,7 @@ class CarModel(models.Model):
         inverse_name='model_id',
         string='Cars'
     )
+
 
 class Car(models.Model):
     _name = 'test.car.rental.car'
