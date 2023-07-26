@@ -1,18 +1,17 @@
 {
-    "name": "CRND Web Float Full Time Widget",
-    "version": "13.0.0.4.0",
+    "name": "CRND Web Content Download Fix",
+    "version": "13.0.0.2.0",
     "author": "Center of Research and Development",
     "website": "https://crnd.pro",
-    'summary': 'Float Time Duration Widget',
+    'summary': 'Fix for content download to use streaming responses',
     "license": "LGPL-3",
     'category': 'Technical Settings',
     'depends': [
         'web',
     ],
     'data': [
-        'views/assets_backend.xml',
     ],
-    'images': ['static/description/banner.gif'],
+    'images': ['static/description/banner.png'],
     'installable': True,
     'auto_install': False,
 }

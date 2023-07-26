@@ -1,6 +1,6 @@
 {
     'name': 'CRND web tree colored field',
-    'version': '13.0.0.3.0',
+    'version': '13.0.0.5.0',
     'author': "Center of Research and Development",
     'website': "https://crnd.pro",
     'summary': """""",

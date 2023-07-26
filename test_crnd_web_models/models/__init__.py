@@ -10,4 +10,5 @@ from . import (
     res_partner,
     test_crnd_web_model_book,
     test_crnd_web_actions,
+    test_crnd_web_field_domain,
 )

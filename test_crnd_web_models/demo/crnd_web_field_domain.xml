@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+<!--    Brands-->
+    <record id='demo_brand_green_drive' model='test.car.rental.brand'>
+        <field name="name">GreenDrive</field>
+    </record>
+    <record id='demo_brand_speed_tech' model='test.car.rental.brand'>
+        <field name="name">SpeedTech</field>
+    </record>
+    <record id='demo_brand_city_wheels' model='test.car.rental.brand'>
+        <field name="name">CityWheels</field>
+    </record>
+    <record id='demo_brand_comfort_cars' model='test.car.rental.brand'>
+        <field name="name">ComfortCars</field>
+    </record>
+    <record id='demo_brand_trek_drive' model='test.car.rental.brand'>
+        <field name="name">TrekDrive</field>
+    </record>
+
+    <!-- Car models -->
+    <record id='demo_model_eco' model='test.car.rental.model'>
+        <field name="name">Eco200X</field>
+        <field name="brand_id" ref='demo_brand_green_drive'/>
+    </record>
+    <record id='demo_model_sr_gt' model='test.car.rental.model'>
+        <field name="name">SR-GT2023</field>
+        <field name="brand_id" ref='demo_brand_speed_tech'/>
+    </record>
+    <record id='demo_model_ug' model='test.car.rental.model'>
+        <field name="name">UG-H500</field>
+        <field name="brand_id" ref='demo_brand_city_wheels'/>
+    </record>
+    <record id='demo_model_fc' model='test.car.rental.model'>
+        <field name="name">FC2023</field>
+        <field name="brand_id" ref='demo_brand_comfort_cars'/>
+    </record>
+    <record id='demo_model_adventure' model='test.car.rental.model'>
+        <field name="name">AX-4x4</field>
+        <field name="brand_id" ref='demo_brand_trek_drive'/>
+    </record>
+
+    <!-- Rental Cars -->
+    <record id='demo_car_eco_cruiser' model='test.car.rental.car'>
+        <field name="name">EcoCruiser</field>
+        <field name="brand_id" ref='demo_brand_green_drive'/>
+        <field name="model_id" ref='demo_model_eco'/>
+    </record>
+    <record id='demo_car_sport_rider' model='test.car.rental.car'>
+        <field name="name">SportRider GT</field>
+        <field name="brand_id" ref='demo_brand_speed_tech'/>
+        <field name="model_id" ref='demo_model_sr_gt'/>
+    </record>
+    <record id='demo_car_urban_glyde' model='test.car.rental.car'>
+        <field name="name">CityUrbanGlide Hybrid</field>
+        <field name="brand_id" ref='demo_brand_city_wheels'/>
+        <field name="model_id" ref='demo_model_ug'/>
+    </record>
+    <record id='demo_car_family_journey' model='test.car.rental.car'>
+        <field name="name">CityFamilyJourney</field>
+        <field name="brand_id" ref='demo_brand_comfort_cars'/>
+        <field name="model_id" ref='demo_model_fc'/>
+    </record>
+    <record id='demo_car_adventure_explorer' model='test.car.rental.car'>
+        <field name="name">CityAdventureXplorer</field>
+        <field name="brand_id" ref='demo_brand_trek_drive'/>
+        <field name="model_id" ref='demo_model_adventure'/>
+    </record>
+
+    <!-- Rentals -->
+    <record id='demo_rental_azure_interior' model='test.car.rental'>
+        <field name="customer_id" ref='base.res_partner_12'/>
+        <field name="car_id" ref='demo_car_eco_cruiser'/>
+    </record>
+    <record id='demo_rental_ready_mat' model='test.car.rental'>
+        <field name="customer_id" ref='base.res_partner_4'/>
+        <field name="car_id" ref='demo_car_sport_rider'/>
+    </record>
+    <record id='demo_rental_wood_corner' model='test.car.rental'>
+        <field name="customer_id" ref='base.res_partner_1'/>
+        <field name="car_id" ref='demo_car_urban_glyde'/>
+    </record>
+    <record id='demo_rental_deco_addict' model='test.car.rental'>
+        <field name="customer_id" ref='base.res_partner_2'/>
+        <field name="car_id" ref='demo_car_family_journey'/>
+    </record>
+    <record id='demo_rental_gemini_furniture' model='test.car.rental'>
+        <field name="customer_id" ref='base.res_partner_3'/>
+        <field name="car_id" ref='demo_car_adventure_explorer'/>
+    </record>
+
+</odoo>
