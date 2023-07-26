@@ -10,6 +10,7 @@ msgstr ""
 "PO-Revision-Date: 2023-07-26 11:14+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
@@ -22,7 +23,6 @@ msgstr "Veiksmo lango peržiūra"
 
 #. module: crnd_web_diagram_plus
 #. openerp-web
-#: code:addons/crnd_web_diagram_plus/static/src/js/diagram_controller.js:0
 #: code:addons/crnd_web_diagram_plus/static/src/js/diagram_controller.js:0
 #, python-format
 msgid "Activity"
@@ -53,8 +53,6 @@ msgstr ""
 
 #. module: crnd_web_diagram_plus
 #: code:addons/crnd_web_diagram_plus/tools/graph.py:0
-#: code:addons/crnd_web_diagram_plus/tools/graph.py:0
-#: code:addons/crnd_web_diagram_plus/tools/graph.py:0
 #, python-format
 msgid ""
 "Cannot compute diagram view. It seems that the flow is incorrect! Try to "
@@ -63,7 +61,6 @@ msgstr ""
 
 #. module: crnd_web_diagram_plus
 #. openerp-web
-#: code:addons/crnd_web_diagram_plus/static/src/js/diagram_controller.js:0
 #: code:addons/crnd_web_diagram_plus/static/src/js/diagram_controller.js:0
 #, python-format
 msgid "Create:"
@@ -104,14 +101,12 @@ msgstr ""
 #. module: crnd_web_diagram_plus
 #. openerp-web
 #: code:addons/crnd_web_diagram_plus/static/src/js/diagram_controller.js:0
-#: code:addons/crnd_web_diagram_plus/static/src/js/diagram_controller.js:0
 #, python-format
 msgid "Open:"
 msgstr ""
 
 #. module: crnd_web_diagram_plus
 #. openerp-web
-#: code:addons/crnd_web_diagram_plus/static/src/js/diagram_controller.js:0
 #: code:addons/crnd_web_diagram_plus/static/src/js/diagram_controller.js:0
 #, python-format
 msgid "Transition"
