@@ -1,6 +1,6 @@
 {
     "name": "CRND Web Diagram Fix",
-    "version": "12.0.0.1.1",
+    "version": "12.0.0.3.0",
     "author": "Center of Research and Development",
     "website": "https://crnd.pro",
     'summary': 'Fix for web diagram view',
