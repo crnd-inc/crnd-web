@@ -28,7 +28,7 @@ odoo.define('test_crnd_web_field_domain.xml_assembly_domain_tour', function (req
         },
         {
             content: "Check in menu 'Car Rental'",
-            trigger: "main.o_main_content div.o_control_panel ol.breadcrumb" +
+            trigger: "div.o_cp_controller div.o_control_panel ol.breadcrumb" +
             " li.breadcrumb-item:containsExact('Car Rental')",
         },
         {

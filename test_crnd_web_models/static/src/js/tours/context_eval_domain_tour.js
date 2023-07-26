@@ -28,7 +28,7 @@ odoo.define('test_crnd_web_field_domain.context_eval_domain_tour', function (req
         },
         {
             content: "Check in menu 'Cars'",
-            trigger: "main.o_main_content div.o_control_panel ol.breadcrumb li.breadcrumb-item:containsExact('Car')",
+            trigger: "div.o_cp_controller div.o_control_panel ol.breadcrumb li.breadcrumb-item:containsExact('Car')",
         },
         {
             content: "Check record list has 'EcoCruiser'(waiting to form load)",
