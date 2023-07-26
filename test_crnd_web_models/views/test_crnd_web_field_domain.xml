@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+<!--    Car Rental-->
+    <record id="test_car_rental_view_form" model="ir.ui.view">
+        <field name="model">test.car.rental</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="customer_id"/>
+                            <field name="car_id_field_domain"/>
+                            <field name="car_id"
+                                   domain="[('name', 'ilike', 'City')]"
+                                   options="{'domain_field': 'car_id_field_domain'}"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="test_car_rental_view_tree" model="ir.ui.view">
+        <field name="model">test.car.rental</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="customer_id"/>
+                <field name="car_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="car_rental_action" model="ir.actions.act_window">
+        <field name="name">Car Rental</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">test.car.rental</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+<!--    Car Rental Brand-->
+    <record id="test_car_rental_brand_view_form" model="ir.ui.view">
+        <field name="model">test.car.rental.brand</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <label for="car_ids"/>
+                        <field name="car_ids" widget="one2many" readonly="1" nolabel="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="test_car_rental_brand_view_tree" model="ir.ui.view">
+        <field name="model">test.car.rental.brand</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="car_ids" widget="one2many_list"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="car_rental_brand_action" model="ir.actions.act_window">
+        <field name="name">Brand</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">test.car.rental.brand</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+<!--    Car Rental Car-->
+    <record id="test_car_rental_car_view_form" model="ir.ui.view">
+        <field name="model">test.car.rental.car</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="brand_id_field_domain"/>
+                            <field name="name"/>
+                            <field name="brand_id" options="{'domain_field': 'brand_id_field_domain'}"/>
+                            <field name="model_id"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="test_car_rental_car_view_tree" model="ir.ui.view">
+        <field name="model">test.car.rental.car</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="brand_id"/>
+                <field name="model_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="car_rental_car_action" model="ir.actions.act_window">
+        <field name="name">Car</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">test.car.rental.car</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+<!--    Car Rental Model-->
+    <record id="test_car_rental_model_view_form" model="ir.ui.view">
+        <field name="model">test.car.rental.model</field>
+        <field name="arch" type="xml">
+            <form string="car_rental_model_form">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="brand_id"/>
+                        <label for="car_ids"/>
+                        <field name="car_ids" widget="one2many" readonly="1" nolabel="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="test_car_rental_model_view_tree" model="ir.ui.view">
+        <field name="model">test.car.rental.model</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="brand_id"/>
+                <field name="car_ids" widget="one2many_list"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="car_rental_model_action" model="ir.actions.act_window">
+        <field name="name">Model</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">test.car.rental.model</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+<!--    Menus-->
+    <menuitem
+            id="crnd_web_field_domain_menu_item"
+            name="Test crnd_web_field_domain"
+            parent="crnd_web_tests"/>
+
+    <menuitem id="test_car_rental_menu" name="Car Rental"
+              parent="crnd_web_field_domain_menu_item"
+              action="car_rental_action"
+              sequence="10"/>
+
+    <menuitem id="test_car_rental_car_menu"
+              name="Cars"
+              parent="crnd_web_field_domain_menu_item"
+              action="car_rental_car_action"
+              sequence="20"/>
+
+</odoo>

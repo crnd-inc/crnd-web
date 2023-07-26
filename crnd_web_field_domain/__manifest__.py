@@ -1,24 +1,25 @@
 {
-    'name': 'CRnD Web Diagram Plus',
+    'name': 'CRnD Web Field Domain',
     'category': 'Technical Settings',
     'summary': """
-        Odoo Web Diagram view by CRnD.
+        Web Field Domain by CRnD allows create computed field domains.
     """,
     'author': 'Center of Research and Development',
     'support': 'info@crnd.pro',
     'website': 'https://crnd.pro',
     'license': 'LGPL-3',
-    'version': '14.0.0.12.0',
+    'version': '14.0.0.1.0',
     'depends': [
         'web',
     ],
     'data': [
-        'views/web_diagram_plus_templates.xml',
+        'views/field_domain_templates.xml',
     ],
     'qweb': [
-        'static/src/xml/*.xml',
     ],
-    'images': ['static/description/banner.png'],
+    'demo': [],
+    'images': [
+    ],
     'installable': True,
     'auto_install': False,
 }
