@@ -10,7 +10,7 @@ odoo.define('test_crnd_web_field_domain.xml_assembly_domain_tour', function (req
     }, [
         {
             content: "Click on main menu",
-            trigger: ".full",
+            trigger: "nav.o_main_navbar button.dropdown-toggle",
             run: 'click',
         },
         {
@@ -20,16 +20,16 @@ odoo.define('test_crnd_web_field_domain.xml_assembly_domain_tour', function (req
         },
         {
             content: "Click menu 'CRND Web Tests'",
-            trigger: "a[data-menu-xmlid='test_crnd_web_models.crnd_web_tests']",
+            trigger: "button[data-menu-xmlid='test_crnd_web_models.crnd_web_tests']",
         },
         {
             content: "Click menu 'Cars'",
-            trigger: "a[data-menu-xmlid='test_crnd_web_models.test_car_rental_menu']",
+            trigger: "a:containsExact('Car Rental')",
         },
         {
             content: "Check in menu 'Car Rental'",
             trigger: "div.o_view_controller div.o_control_panel ol.breadcrumb" +
-            " li.breadcrumb-item:containsExact('Car Rental')",
+            " li.breadcrumb-item span:containsExact('Car Rental')",
         },
         {
             content: "Check record list has 'Azure Interior' partner(waiting to form load)",

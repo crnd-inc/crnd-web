@@ -10,7 +10,7 @@ odoo.define('test_crnd_web_field_domain.simply_domain_tour', function (require) 
     }, [
         {
             content: "Click on main menu",
-            trigger: ".full",
+            trigger: "nav.o_main_navbar button.dropdown-toggle",
             run: 'click',
         },
         {
@@ -20,15 +20,15 @@ odoo.define('test_crnd_web_field_domain.simply_domain_tour', function (require) 
         },
         {
             content: "Click menu 'CRND Web Tests'",
-            trigger: "a[data-menu-xmlid='test_crnd_web_models.crnd_web_tests']",
+            trigger: "button[data-menu-xmlid='test_crnd_web_models.crnd_web_tests']",
         },
         {
             content: "Click menu 'Cars'",
-            trigger: "a[data-menu-xmlid='test_crnd_web_models.test_car_rental_car_menu']",
+            trigger: "a:containsExact('Cars')",
         },
         {
             content: "Check in menu 'Cars'",
-            trigger: "div.o_view_controller div.o_control_panel ol.breadcrumb li.breadcrumb-item:containsExact('Car')",
+            trigger: "div.o_view_controller div.o_control_panel ol.breadcrumb li.breadcrumb-item span:containsExact('Car')",
         },
         {
             content: "Check record list has 'EcoCruiser'(waiting to form load)",
@@ -42,10 +42,6 @@ odoo.define('test_crnd_web_field_domain.simply_domain_tour', function (require) 
             content: "Click record with car 'EcoCruiser'",
             trigger: "td.o_data_cell:first",
             run: "click",
-        },
-        {
-            content: "Wait for download form",
-            trigger: "span.o_field_char:containsExact('EcoCruiser')",
         },
         {
             content: "Click edit button",

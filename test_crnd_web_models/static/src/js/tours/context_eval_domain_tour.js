@@ -10,7 +10,7 @@ odoo.define('test_crnd_web_field_domain.context_eval_domain_tour', function (req
     }, [
         {
             content: "Click on main menu",
-            trigger: ".full",
+            trigger: "nav.o_main_navbar button.dropdown-toggle",
             run: 'click',
         },
         {
@@ -20,15 +20,15 @@ odoo.define('test_crnd_web_field_domain.context_eval_domain_tour', function (req
         },
         {
             content: "Click menu 'CRND Web Tests'",
-            trigger: "a[data-menu-xmlid='test_crnd_web_models.crnd_web_tests']",
+            trigger: "button[data-menu-xmlid='test_crnd_web_models.crnd_web_tests']",
         },
         {
             content: "Click menu 'Cars'",
-            trigger: "a[data-menu-xmlid='test_crnd_web_models.test_car_rental_car_menu']",
+            trigger: "a:containsExact('Cars')",
         },
         {
             content: "Check in menu 'Cars'",
-            trigger: "div.o_view_controller div.o_control_panel ol.breadcrumb li.breadcrumb-item:containsExact('Car')",
+            trigger: "div.o_view_controller div.o_control_panel ol.breadcrumb li.breadcrumb-item span:containsExact('Car')",
         },
         {
             content: "Check record list has 'EcoCruiser'(waiting to form load)",
@@ -42,10 +42,6 @@ odoo.define('test_crnd_web_field_domain.context_eval_domain_tour', function (req
             content: "Click record with car 'EcoCruiser'",
             trigger: "td.o_data_cell:first",
             run: "click",
-        },
-        {
-            content: "Wait for download form",
-            trigger: "span.o_field_char:containsExact('EcoCruiser')",
         },
         {
             content: "Click edit button",
@@ -75,9 +71,14 @@ odoo.define('test_crnd_web_field_domain.context_eval_domain_tour', function (req
         },
         {
             content: "Ensure dropdown list has 'GreenDrive' brand",
-            trigger: "ul.ui-autocomplete:has(a:contains('GreenDrive')) ",
+            trigger: "ul.ui-autocomplete li.ui-menu-item:has(a:contains('GreenDrive')) ",
         },
 //        Check no more other records in dropdown list
+        {
+            content: "Click Brand field",
+            trigger: 'div.o_field_many2one[name="brand_id"] input',
+            run: "click",
+        },
         {
             content: "Ensure dropdown list not has 'SpeedTech' brand",
             trigger: "ul.ui-autocomplete:not(:has(a:contains('SpeedTech')):contains()) ",
