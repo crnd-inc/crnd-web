@@ -13,8 +13,12 @@
         'web',
     ],
     'data': [
-        'views/field_domain_templates.xml',
     ],
+    'assets': {
+        'web.assets_backend': [
+            'crnd_web_field_domain/static/src/js/basic_model.js',
+        ],
+    },
     'qweb': [
     ],
     'demo': [],

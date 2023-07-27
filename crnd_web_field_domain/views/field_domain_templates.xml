@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<odoo>
-    <template id="assets_backend" name="crnd_web_field_domain assets" inherit_id="web.assets_backend">
-        <xpath expr="." position="inside">
-            <script type="text/javascript" src="/crnd_web_field_domain/static/src/js/basic_model.js"></script>
-        </xpath>
-    </template>
-</odoo>
