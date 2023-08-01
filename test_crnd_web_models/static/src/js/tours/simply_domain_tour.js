@@ -44,13 +44,8 @@ odoo.define('test_crnd_web_field_domain.simply_domain_tour', function (require) 
             run: "click",
         },
         {
-            content: "Click edit button",
-            trigger: "button:contains('Edit')",
-            run: "click",
-        },
-        {
             content: "Input domain into domain field",
-            trigger: "input[name='brand_id_field_domain']",
+            trigger: "input[id='brand_id_field_domain']",
             run: "text [('id', '=', 1)]",
         },
 //        The brand record with id 1 is 'GreenDrive',
@@ -64,16 +59,27 @@ odoo.define('test_crnd_web_field_domain.simply_domain_tour', function (require) 
             content: "Ensure dropdown list has 'GreenDrive' brand",
             trigger: "ul.ui-autocomplete:has(a:contains('GreenDrive')) ",
         },
+        {
+            content: "Click Brand field",
+            trigger: "div[name='brand_id'] div.o_input_dropdown input",
+            run: "click",
+        },
+        {
+            content: "Discard changes",
+            trigger: "button.o_form_button_cancel",
+            run: "click",
+        },
+
 //        The brand record with id 2 is 'SpeedTech',
 //        so lets check this
         {
             content: "Input domain into domain field",
-            trigger: "input[name='brand_id_field_domain']",
+            trigger: "input[id='brand_id_field_domain']",
             run: "text [('id', '=', 2)]",
         },
         {
             content: "Click Brand field",
-            trigger: "div[name='brand_id'] div.o_input_dropdown input",
+            trigger: "div[name='brand_id'] input[id='brand_id']",
             run: "click",
         },
         {
@@ -97,11 +103,21 @@ odoo.define('test_crnd_web_field_domain.simply_domain_tour', function (require) 
             content: "Ensure dropdown list not has 'TrekDrive' brand",
             trigger: "ul.ui-autocomplete:not(:has(a:contains('TrekDrive')):contains()) ",
         },
+        {
+            content: "Click Brand field",
+            trigger: "div[name='brand_id'] div.o_input_dropdown input",
+            run: "click",
+        },
+        {
+            content: "Discard changes",
+            trigger: "button.o_form_button_cancel",
+            run: "click",
+        },
 
 //        Input empty domain to make sure all records in dropdown list
         {
             content: "Input empty domain into domain field",
-            trigger: "input[name='brand_id_field_domain']",
+            trigger: "input[id='brand_id_field_domain']",
             run: "text []",
         },
         {
@@ -129,16 +145,21 @@ odoo.define('test_crnd_web_field_domain.simply_domain_tour', function (require) 
             content: "Ensure dropdown list has 'TrekDrive' brand",
             trigger: "ul.ui-autocomplete:has(a:contains('TrekDrive')) ",
         },
+        {
+            content: "Click Brand field",
+            trigger: "div[name='brand_id'] div.o_input_dropdown input",
+            run: "click",
+        },
 
 //        Save record
         {
             content: "Click save button",
-            trigger: "button:contains('Save')",
+            trigger: "button.o_form_button_save",
             run: "click",
         },
         {
             content: "Check record saved",
-            trigger: "div.o_form_view.o_form_readonly",
+            trigger: ".o_form_status_indicator_buttons.invisible",
         },
     ]);
     return {};

@@ -46,12 +46,7 @@ odoo.define('test_crnd_web_field_domain.xml_assembly_domain_tour', function (req
         },
         {
             content: "Wait for download form",
-            trigger: ":has(a[name='customer_id']:contains('Azure Interior'):contains())",
-        },
-        {
-            content: "Click edit button",
-            trigger: "button:contains('Edit')",
-            run: "click",
+            trigger: ":has(div[name='customer_id']) :has(input[id='customer_id'])",
         },
         {
             content: "Click Car field",
@@ -79,8 +74,18 @@ odoo.define('test_crnd_web_field_domain.xml_assembly_domain_tour', function (req
             trigger: "ul.ui-autocomplete:not(:has(a:contains('SportRider GT')):contains()) ",
         },
         {
+            content: "Click Car field",
+            trigger: "div[name='car_id'] div.o_input_dropdown input",
+            run: "click",
+        },
+        {
+            content: "Discard changes",
+            trigger: "button.o_form_button_cancel",
+            run: "click",
+        },
+        {
             content: "Input domain into domain field",
-            trigger: "input[name='car_id_field_domain']",
+            trigger: "input[id='car_id_field_domain']",
             run: "text [('id', '=', 3)]",
         },
         {
@@ -101,8 +106,18 @@ odoo.define('test_crnd_web_field_domain.xml_assembly_domain_tour', function (req
             trigger: "ul.ui-autocomplete:not(:has(a:contains('CityAdventureXplorer')):contains()) ",
         },
         {
+            content: "Click Car field",
+            trigger: "div[name='car_id'] div.o_input_dropdown input",
+            run: "click",
+        },
+        {
+            content: "Discard changes",
+            trigger: "button.o_form_button_cancel",
+            run: "click",
+        },
+        {
             content: "Input domain into domain field",
-            trigger: "input[name='car_id_field_domain']",
+            trigger: "input[id='car_id_field_domain']",
             run: "text [('id', '=', 4)]",
         },
         {
@@ -123,8 +138,18 @@ odoo.define('test_crnd_web_field_domain.xml_assembly_domain_tour', function (req
             trigger: "ul.ui-autocomplete:not(:has(a:contains('CityAdventureXplorer')):contains()) ",
         },
         {
+            content: "Click Car field",
+            trigger: "div[name='car_id'] div.o_input_dropdown input",
+            run: "click",
+        },
+        {
+            content: "Discard changes",
+            trigger: "button.o_form_button_cancel",
+            run: "click",
+        },
+        {
             content: "Input domain into domain field",
-            trigger: "input[name='car_id_field_domain']",
+            trigger: "input[id='car_id_field_domain']",
             run: "text [('id', '=', 5)]",
         },
         {
@@ -145,13 +170,19 @@ odoo.define('test_crnd_web_field_domain.xml_assembly_domain_tour', function (req
             trigger: "ul.ui-autocomplete:not(:has(a:contains('CityFamilyJourney')):contains()) ",
         },
         {
+            content: "Click Car field",
+            trigger: "div[name='car_id'] div.o_input_dropdown input",
+            run: "click",
+        },
+//        Save record
+        {
             content: "Click save button",
-            trigger: "button:contains('Save')",
+            trigger: "button.o_form_button_save",
             run: "click",
         },
         {
             content: "Check record saved",
-            trigger: "div.o_form_view.o_form_readonly",
+            trigger: ".o_form_status_indicator_buttons.invisible",
         },
     ]);
     return {};

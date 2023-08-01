@@ -43,16 +43,11 @@ odoo.define('test_crnd_web_field_domain.context_eval_domain_tour', function (req
             trigger: "td.o_data_cell:first",
             run: "click",
         },
-        {
-            content: "Click edit button",
-            trigger: "button:contains('Edit')",
-            run: "click",
-        },
 
 //        Use context 'model_id' in domain
         {
             content: "Input context domain into domain field",
-            trigger: "input[name='brand_id_field_domain']",
+            trigger: "input[id='brand_id_field_domain']",
             run: "text [('id', '=', model_id)]",
         },
 //        The following mapping uses in test domain:
@@ -66,7 +61,7 @@ odoo.define('test_crnd_web_field_domain.context_eval_domain_tour', function (req
 //        | 5  |    TrekDrive       |     AX-4x4        |
         {
             content: "Click Brand field",
-            trigger: "div[name='brand_id'] div.o_input_dropdown input",
+            trigger: "div[name='brand_id'] input[id='brand_id']",
             run: "click",
         },
         {
@@ -95,11 +90,16 @@ odoo.define('test_crnd_web_field_domain.context_eval_domain_tour', function (req
             content: "Ensure dropdown list not has 'TrekDrive' brand",
             trigger: "ul.ui-autocomplete:not(:has(a:contains('TrekDrive')):contains()) ",
         },
+        {
+            content: "Click Brand field",
+            trigger: "div[name='brand_id'] input[id='brand_id']",
+            run: "click",
+        },
 
 //        Change model_id in record
         {
             content: "Click Model field",
-            trigger: "div[name='model_id'] div.o_input_dropdown input",
+            trigger: "div[name='model_id'] input[id='model_id']",
             run: "click",
         },
         {
@@ -132,16 +132,22 @@ odoo.define('test_crnd_web_field_domain.context_eval_domain_tour', function (req
             content: "Ensure dropdown list not has 'TrekDrive' brand",
             trigger: "ul.ui-autocomplete:not(:has(a:contains('TrekDrive')):contains()) ",
         },
+        {
+            content: "Click Brand field",
+            trigger: "div[name='brand_id'] div.o_input_dropdown input",
+            run: "click",
+        },
 
 //        Save record
+
         {
             content: "Click save button",
-            trigger: "button:contains('Save')",
+            trigger: "button.o_form_button_save",
             run: "click",
         },
         {
             content: "Check record saved",
-            trigger: "div.o_form_view.o_form_readonly",
+            trigger: ".o_form_status_indicator_buttons.invisible",
         },
     ]);
     return {};
