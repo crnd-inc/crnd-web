@@ -1,6 +1,6 @@
 {
     "name": 'CRND Web Widget Scan QR-Code',
-    'version': "16.0.0.2.0",
+    'version': "15.0.0.3.0",
     'author': 'Center of Research and Development',
     'website': 'https://crnd.pro',
     'summary': 'Scan QR-Code Widget',
