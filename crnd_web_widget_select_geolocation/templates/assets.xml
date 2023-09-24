@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="crnd_webwidget_Select_geolocation_assets" inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">
+            <link rel="stylesheet" type="text/scss" href="/crnd_web_widget_select_geolocation/static/src/scss/widget_select_geolocation.scss"/>
+
+            <script type="text/javascript" src="/crnd_web_widget_select_geolocation/static/src/js/widget_select_geolocation.js"/>
+        </xpath>
+    </template>
+</odoo>

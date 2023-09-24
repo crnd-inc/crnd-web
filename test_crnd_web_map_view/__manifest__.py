@@ -7,6 +7,7 @@
 
     'depends': [
         'crnd_web_map_view',
+        'crnd_web_widget_select_geolocation',
     ],
     'data': [
         'security/ir.model.access.csv',
