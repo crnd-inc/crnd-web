@@ -36,11 +36,12 @@ Example:
                             <field name="latitude"/>
                             <field name="longitude"/>
                             <field name="address"/>
-                            <field name="point" widget="select_geolocation"
-                                    options="{'latitude_field': 'latitude', 'longitude_field': 'longitude', 'address_field': 'address', 'zoom': 12}"/>
+                            <field name="point" widget="select_geolocation" options="{'latitude_field': 'latitude', 'longitude_field': 'longitude', 'address_field': 'address', 'zoom': 12}"/>
                         </group>
                         <group></group>
+
                     </group>
+
                 </sheet>
 
             </form>
