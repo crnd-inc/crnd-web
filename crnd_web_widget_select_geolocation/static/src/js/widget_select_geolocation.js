@@ -58,7 +58,8 @@ odoo.define('generic_location_geolocalize.MapWidget', function (require) {
             }
             if (self.options.address_field) {
                 var url = "https://maps.googleapis.com/maps/api/geocode/json?latlng="+this.newGeolocation.lat+","+this.newGeolocation.lng+"&key="+this.api_key;
-
+                // todo
+                //  When zoom is small geocode request returns several addresses. Now we select first. How to resolve this situation?
                 await $.ajax({
                     url: url,
                     success: function (result) {
