@@ -25,30 +25,31 @@ Example:
 
     .. code:: xml
 
-    <record id="test_select_geolocation_form_view" model="ir.ui.view">
-        <field name="model">model.name</field>
-        <field name="arch" type="xml">
-            <form>
-                <sheet>
-                    <group>
+        <record id="test_select_geolocation_form_view" model="ir.ui.view">
+            <field name="model">model.name</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
                         <group>
-                            <field name="name"/>
-                            <field name="latitude"/>
-                            <field name="longitude"/>
-                            <field name="address"/>
-                            <field name="point" widget="select_geolocation" options="{'latitude_field': 'latitude', 'longitude_field': 'longitude', 'address_field': 'address', 'zoom': 12}"/>
+                            <group>
+                                <field name="name"/>
+                                <field name="latitude"/>
+                                <field name="longitude"/>
+                                <field name="address"/>
+                                <field name="point" widget="select_geolocation" options="{'latitude_field': 'latitude', 'longitude_field': 'longitude', 'address_field': 'address', 'zoom': 12}"/>
+                            </group>
+
+                            <group></group>
+
                         </group>
-                        <group></group>
 
-                    </group>
+                    </sheet>
 
-                </sheet>
+                </form>
 
-            </form>
+            </field>
 
-        </field>
-
-    </record>
+        </record>
 
 
 Launch your own ITSM system in 60 seconds:
