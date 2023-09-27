@@ -7,7 +7,7 @@
     'support': 'info@crnd.pro',
     'website': "https://crnd.pro",
     'license': 'LGPL-3',
-    'version': '15.0.0.2.2',
+    'version': '15.0.0.3.1',
 
     'depends': [
         'base_geolocalize',
