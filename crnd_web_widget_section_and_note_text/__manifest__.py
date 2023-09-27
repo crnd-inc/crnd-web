@@ -1,6 +1,6 @@
 {
     "name": "CRND Web Widget Section And Note Text",
-    "version": "13.0.0.0.1",
+    "version": "13.0.0.0.2",
     "author": "Center of Research and Development",
     "website": "https://crnd.pro",
     'summary': 'Makes the standard section_and_note_text widget compatible '
