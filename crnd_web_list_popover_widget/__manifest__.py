@@ -1,6 +1,6 @@
 {
     "name": "CRND Web List Popover Widget",
-    "version": "14.0.0.7.0",
+    "version": "14.0.0.8.0",
     "author": "Center of Research and Development",
     "website": "https://crnd.pro",
     'summary': 'Tooltips message for text fields on tree view.',

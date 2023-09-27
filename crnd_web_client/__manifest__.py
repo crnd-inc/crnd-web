@@ -3,7 +3,7 @@
 #  See LICENSE file for licensing details.
 {
     'name': 'CRnD Web Client',
-    'version': '14.0.1.4.0',
+    'version': '14.0.1.5.0',
     'summary': 'Web Client Extention',
     'category': 'Tools',
     'author': 'Center of Research and Development ',
