@@ -1,7 +1,7 @@
 # flake8: noqa: E501
 {
     "name": "CRND Web Widget Section And Note Text",
-    "version": "15.0.0.1.0",
+    "version": "15.0.0.0.3",
     "author": "Center of Research and Development",
     "website": "https://crnd.pro",
     'summary': 'Makes the standard section_and_note_text widget compatible '
