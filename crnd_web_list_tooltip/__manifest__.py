@@ -1,7 +1,7 @@
 # flake8: noqa: E501
 {
     "name": "CRND Web List Tooltip",
-    "version": "16.0.0.1.0",
+    "version": "16.0.0.1.1",
     "author": "Center of Research and Development",
     "website": "https://crnd.pro",
     'summary': 'List view tooltips improvements.',
@@ -16,7 +16,7 @@
             'crnd_web_list_tooltip/static/src/*.xml',
         ],
     },
-    'images': [],
+    'images': ['static/description/banner.png'],
     'installable': True,
     'auto_install': False,
 }
