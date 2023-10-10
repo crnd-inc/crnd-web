@@ -13,7 +13,7 @@ odoo.define('crnd_web_field_domain.field_domain', function (require) {
                 return this._super.apply(this, arguments);
             }
             var field_name = options ? options.fieldName: undefined;
-            var viewType = options.viewType;
+            var viewType = options.viewType || element.viewType;
             var element_options = field_name && viewType ? element.fieldsInfo[viewType][field_name].options : undefined;
             var domain_field = element_options ? element_options.domain_field : undefined;
             var domain_field_value = domain_field && element._changes && element._changes[domain_field] ? element._changes[domain_field] : element.data[domain_field] || "[]";
