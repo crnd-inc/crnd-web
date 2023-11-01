@@ -19,6 +19,7 @@ odoo.define('generic_location_geolocalize.MapWidget', function (require) {
             this._super.apply(this, arguments);
             this.record = record;
             this.parent = parent;
+            this.init_options = options;
             this.options = this.nodeOptions;
             this.data = this.recordData;
             this.navigator_pos = false;
@@ -50,6 +51,14 @@ odoo.define('generic_location_geolocalize.MapWidget', function (require) {
             else {
                 this.get_error_warning('Google map API key is required!', true);
             }
+        },
+
+        _renderEdit: function () {
+        },
+
+        _renderReadonly: function () {
+            this._super.apply(this, arguments);
+            this.$el.addClass('show_widget');
         },
 
         get_error_warning: function (text, sticky) {

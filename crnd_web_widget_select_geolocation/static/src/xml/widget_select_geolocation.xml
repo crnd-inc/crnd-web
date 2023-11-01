@@ -2,12 +2,10 @@
 <templates>
 
     <t t-name="select_geolocation_widget">
-        <t t-if="widget.res_id">
             <button class="geo-button">
                 <i class="fa fa-map-marker"/>
                 Select on the map
             </button>
-        </t>
 
     </t>
 
