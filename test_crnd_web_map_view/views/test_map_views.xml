@@ -18,9 +18,10 @@
                 <field name="name"/>
                 <field name="latitude"/>
                 <field name="longitude"/>
-                <field name="address"/>
-                <field name="point" widget="select_geolocation"
-                                    options="{'latitude_field': 'latitude', 'longitude_field': 'longitude', 'zoom': 12}"/>
+                <field name="point_readonly"
+                       widget="select_geolocation"
+                       string="Point draggable"
+                       options="{'latitude_field': 'latitude', 'longitude_field': 'longitude', 'readonly': 1, 'zoom': 12}"/>
             </tree>
         </field>
     </record>
@@ -35,9 +36,15 @@
                             <field name="name"/>
                             <field name="latitude"/>
                             <field name="longitude"/>
-                            <field name="address"/>
-                            <field name="point" widget="select_geolocation"
-                                    options="{'latitude_field': 'latitude', 'longitude_field': 'longitude', 'zoom': 12}"/>
+
+                            <field name="point_draggable"
+                                    widget="select_geolocation"
+                                   string="Point draggable"
+                                   options="{'latitude_field': 'latitude', 'longitude_field': 'longitude', 'zoom': 12}"/>
+                            <field name="point_readonly"
+                                   widget="select_geolocation"
+                                   string="Point readonly"
+                                   options="{'latitude_field': 'latitude', 'longitude_field': 'longitude', 'readonly': 1, 'zoom': 12}"/>
                         </group>
                         <group></group>
                     </group>

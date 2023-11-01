@@ -13,8 +13,11 @@
         <div class="map_field_widget_wrapper">
             <div class="map_container">
                 <div class="map_header p-3 text-right">
-                    <button type="button" class="btn btn-primary save_geolocation_btn mr8">Save &amp; Close</button>
-                    <button type="button" class="btn btn-secondary close_map_popover_btn">Cancel</button>
+                    <t t-if="!readonly_mode">
+                        <button type="button" class="btn btn-primary save_geolocation_btn mr8">Save &amp; Close</button>
+                    </t>
+
+                    <button type="button" class="btn btn-secondary close_map_popover_btn">Close</button>
                 </div>
                 <div t-att-id="mapId" class="map"/>
             </div>

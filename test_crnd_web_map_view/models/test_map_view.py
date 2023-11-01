@@ -7,5 +7,5 @@ class TestMapView(models.Model):
     name = fields.Char()
     latitude = fields.Float(digits=(10, 7))
     longitude = fields.Float(digits=(10, 7))
-    point = fields.Char()
-    address = fields.Char()
+    point_readonly = fields.Char()
+    point_draggable = fields.Char()

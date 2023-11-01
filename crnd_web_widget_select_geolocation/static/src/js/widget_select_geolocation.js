@@ -19,7 +19,6 @@ odoo.define('generic_location_geolocalize.MapWidget', function (require) {
             this._super.apply(this, arguments);
             this.record = record;
             this.parent = parent;
-            this.init_options = options;
             this.options = this.nodeOptions;
             this.data = this.recordData;
             this.navigator_pos = false;
@@ -33,14 +32,16 @@ odoo.define('generic_location_geolocalize.MapWidget', function (require) {
             this.mapId = new Date().getTime().toString();
             let body = document.querySelector('body');
             let popoverTemplate = document.createElement('template');
-            popoverTemplate.innerHTML = qweb.render('crnd_web_widget_select_geolocation.map_field_widget_popover', {'mapId': this.mapId});
+            popoverTemplate.innerHTML = qweb.render('crnd_web_widget_select_geolocation.map_field_widget_popover', {'mapId': this.mapId, 'readonly_mode': this.options.readonly});
             body.appendChild(popoverTemplate.content);
             this.mapPopover = document.querySelector('div.map_field_widget_wrapper');
             this.mapContainer = document.querySelector('div.map_container');
             this.closeBtn = document.querySelector('button.close_map_popover_btn');
             this.saveBtn = document.querySelector('button.save_geolocation_btn')
             this.closeBtn.addEventListener('click', this._closeMapPopover.bind(this));
-            this.saveBtn.addEventListener('click', this._saveGeolocation.bind(this));
+            if (this.saveBtn) {
+                this.saveBtn.addEventListener('click', this._saveGeolocation.bind(this));
+            }
 
             var loader = this.get_loader();
             this.api_key = await this.get_map_api_key();
@@ -71,29 +72,11 @@ odoo.define('generic_location_geolocalize.MapWidget', function (require) {
             if (!this.newGeolocation) {
                 this.newGeolocation = await this._getGeolocation();
             }
-            if (self.options.address_field) {
-                var url = "https://maps.googleapis.com/maps/api/geocode/json?latlng="+this.newGeolocation.lat+","+this.newGeolocation.lng+"&key="+this.api_key;
-                // todo
-                //  When zoom is small geocode request returns several addresses. Now we select first. How to resolve this situation?
-                await $.ajax({
-                    url: url,
-                    success: function (result) {
-                        console.log(result);
-                        self.newGeolocation.address = result.results[0].formatted_address;
-                    },
-                    error: function (error) {
-                        console.log(error)
-                        self.get_error_warning('Get address error! Addres info is unavailable', false);
-                    }
-                });
-                await self._saveData(self.options.latitude_field, self.newGeolocation.lat);
-                await self._saveData(self.options.longitude_field, self.newGeolocation.lng);
-                await self._saveData(self.options.address_field, self.newGeolocation.address);
-            }
-            else {
-                await self._saveData(self.options.latitude_field, self.newGeolocation.lat);
-                await self._saveData(self.options.longitude_field, self.newGeolocation.lng);
-            }
+
+
+            await self._saveData(self.options.latitude_field, self.newGeolocation.lat);
+            await self._saveData(self.options.longitude_field, self.newGeolocation.lng);
+
             self._closeMapPopover ();
         },
 
@@ -113,28 +96,27 @@ odoo.define('generic_location_geolocalize.MapWidget', function (require) {
 
         async _createMarker () {
             let self = this;
+            if (!this.options.readonly) {
+                this.marker = new google.maps.Marker({
+                    position: await this._getGeolocation(),
+                    map: this.map,
+                    draggable: true,
+                });
 
-            this.marker = new google.maps.Marker({
-                position: await this._getGeolocation(),
-                map: this.map,
-                draggable: true,
-            });
-
-            google.maps.event.addListener(this.marker, 'dragend', function(event) {
-                if (!self.options.address_field) {
+                google.maps.event.addListener(this.marker, 'dragend', function (event) {
                     self.newGeolocation = {
                         lat: event.latLng.lat(),
                         lng: event.latLng.lng(),
                     };
-                }
-                else {
-                    self.newGeolocation = {
-                        lat: event.latLng.lat(),
-                        lng: event.latLng.lng(),
-                        address: '',
-                    };
-                }
-            });
+                });
+            }
+            else {
+                this.marker = new google.maps.Marker({
+                    position: await this._getGeolocation(),
+                    map: this.map,
+                    draggable: false,
+                });
+            }
         },
 
         get_default_geolocation: function () {

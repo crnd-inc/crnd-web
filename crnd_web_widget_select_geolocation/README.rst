@@ -14,9 +14,9 @@ CRND Web Widget Select Geolocation
 
 |badge2| |badge5|
 
-This addon adds a widget that allows you to select a geolocation on a map. Wdget has two reauired options:
-'latitude_field' and 'longitude_field' and additional options 'address_field' and 'zoom'.
-Fields defined in 'latitude_field', 'longitude_field', 'address_field' should be present in view definition
+This addon adds a widget that allows you to select or view a geolocation on a map. Wdget has two reauired options:
+'latitude_field' and 'longitude_field' and additional options 'readonly' and 'zoom'.
+Fields defined in 'latitude_field', 'longitude_field', should be present in view definition
 
 Usage
 '''''
@@ -35,8 +35,7 @@ Example:
                                 <field name="name"/>
                                 <field name="latitude"/>
                                 <field name="longitude"/>
-                                <field name="address"/>
-                                <field name="point" widget="select_geolocation" options="{'latitude_field': 'latitude', 'longitude_field': 'longitude', 'address_field': 'address', 'zoom': 12}"/>
+                                <field name="point" widget="select_geolocation" options="{'latitude_field': 'latitude', 'longitude_field': 'longitude', 'readonly': '1', 'zoom': 12}"/>
                             </group>
 
                             <group></group>
