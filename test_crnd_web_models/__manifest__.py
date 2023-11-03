@@ -1,6 +1,6 @@
 {
     "name": "Test CRND Web Models",
-    "version": "12.0.0.13.0",
+    "version": "12.0.0.14.0",
     "author": "Center of Research and Development",
     "website": "https://crnd.pro",
     'summary': 'Module for testing web addons.',
@@ -43,7 +43,7 @@
         'wizard/book_wizard_create.xml',
         'views/assets.xml',
     ],
-    'images': [],
+    'images': ['static/description/banner.png'],
     'installable': True,
     'auto_install': False,
 }
