@@ -1,6 +1,6 @@
 {
     "name": "CRND Web Image Popup Widget",
-    "version": "13.0.0.5.0",
+    "version": "13.0.0.6.0",
     "author": "Center of Research and Development",
     "website": "https://crnd.pro",
     'summary': 'Popup images from the binary fields',
@@ -12,7 +12,7 @@
     'data': [
         'views/assets_backend.xml',
     ],
-    'images': ['static/description/banner.gif'],
+    'images': ['static/description/banner.png'],
     'installable': True,
     'auto_install': False,
 }
