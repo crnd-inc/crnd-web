@@ -1,6 +1,6 @@
 {
     "name": "CRND Web Button Box Fullwidth",
-    "version": "15.0.0.4.0",
+    "version": "15.0.0.5.0",
     "author": "Center of Research and Development",
     "website": "https://crnd.pro",
     'summary': 'Button_box at the top of the form',
@@ -14,7 +14,7 @@
             'crnd_web_button_box_full_width/static/src/scss/style.scss',
         ],
     },
-    'images': ['static/description/banner.gif'],
+    'images': ['static/description/banner.png'],
     'installable': True,
     'auto_install': False,
 }

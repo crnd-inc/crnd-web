@@ -7,7 +7,7 @@
     'support': 'info@crnd.pro',
     'website': "https://crnd.pro",
     'license': 'LGPL-3',
-    'version': '15.0.0.3.1',
+    'version': '15.0.0.4.0',
 
     'depends': [
         'base_geolocalize',
@@ -28,6 +28,7 @@
     },
 
     'installable': True,
+    'images': ['static/description/banner.png'],
     'auto_install': False,
     'application': False,
 }

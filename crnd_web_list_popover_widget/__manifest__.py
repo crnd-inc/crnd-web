@@ -1,7 +1,7 @@
 # flake8: noqa: E501
 {
     "name": "CRND Web List Popover Widget",
-    "version": "15.0.0.8.0",
+    "version": "15.0.0.9.0",
     "author": "Center of Research and Development",
     "website": "https://crnd.pro",
     'summary': 'Tooltips message for text fields on tree view.',
@@ -23,7 +23,7 @@
             'crnd_web_list_popover_widget/static/src/js/list_html_popover_widget.js',
         ],
     },
-    'images': [],
+    'images': ['static/description/banner.png'],
     'installable': True,
     'auto_install': False,
 }
