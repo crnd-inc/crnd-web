@@ -1,6 +1,6 @@
 {
     "name": "CRND Web List Popover Widget",
-    "version": "14.0.0.8.0",
+    "version": "14.0.0.9.0",
     "author": "Center of Research and Development",
     "website": "https://crnd.pro",
     'summary': 'Tooltips message for text fields on tree view.',
@@ -15,7 +15,7 @@
     'qweb': [
         "static/src/xml/popover_templates.xml",
     ],
-    'images': [],
+    'images': ['static/description/banner.png'],
     'installable': True,
     'auto_install': False,
 }
