@@ -3,7 +3,7 @@
     'author': "Center of Research and Development",
     'website': "https://crnd.pro",
     'license': 'LGPL-3',
-    'version': '16.0.0.3.0',
+    'version': '16.0.0.3.1',
 
     'depends': [
         'crnd_web_map_view',
@@ -19,6 +19,7 @@
     ],
 
     'installable': True,
+    'images': ['static/description/banner.png'],
     'auto_install': False,
     'application': False,
 }

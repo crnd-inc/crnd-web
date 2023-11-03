@@ -5,7 +5,7 @@
     'author': "Center of Research and Development",
     'website': "https://crnd.pro",
     'license': 'LGPL-3',
-    'version': '15.0.0.9.0',
+    'version': '15.0.0.10.0',
 
     'depends': [
         'web',
@@ -22,6 +22,7 @@
         ],
     },
     'installable': False,
+    'images': ['static/description/banner.png'],
     'application': False,
     'auto_install': False,
 }

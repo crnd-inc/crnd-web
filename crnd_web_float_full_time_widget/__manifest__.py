@@ -1,7 +1,7 @@
 # flake8: noqa: E501
 {
     "name": "CRND Web Float Full Time Widget",
-    "version": "15.0.0.5.0",
+    "version": "16.0.0.6.0",
     "author": "Center of Research and Development",
     "website": "https://crnd.pro",
     'summary': 'Float Time Duration Widget',
@@ -20,7 +20,7 @@
             'crnd_web_float_full_time_widget/static/tests/float_full_time_widget_tests.js',
         ],
     },
-    'images': ['static/description/banner.gif'],
     'installable': False,
+    'images': ['static/description/banner.png'],
     'auto_install': False,
 }

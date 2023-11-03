@@ -8,7 +8,7 @@
     'support': 'info@crnd.pro',
     'website': 'https://crnd.pro',
     'license': 'LGPL-3',
-    'version': '16.0.0.3.0',
+    'version': '16.0.0.4.0',
     'depends': [
         'web',
     ],
@@ -22,8 +22,7 @@
     'qweb': [
     ],
     'demo': [],
-    'images': [
-    ],
+    'images': ['static/description/banner.png'],
     'installable': True,
     'auto_install': False,
 }
