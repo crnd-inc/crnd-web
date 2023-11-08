@@ -33,7 +33,7 @@ odoo.define('crnd_web_field_domain.field_domain', function (require) {
                 }
                 var fieldParams = element.fields[options.fieldName];
                 if (fieldParams.domain) {
-                    var origin_domain = fieldParams.domain.length !== 0 ? fieldParams.domain : "[]";
+                    var origin_domain = fieldParams.domain.length !== 0 && typeof fieldParams.domain === 'string' ? fieldParams.domain : "[]";
                     var assembled_domain = pyUtils.assembleDomains([origin_domain, domain_field_value], "AND");
                     return Domain.prototype.stringToArray(assembled_domain, this._getEvalContext(element, true));
                 }
