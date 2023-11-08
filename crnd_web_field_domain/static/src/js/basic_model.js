@@ -20,14 +20,14 @@ odoo.define('crnd_web_field_domain.field_domain', function (require) {
 
             if (options && options.fieldName && domain_field) {
                 if (element._domains[options.fieldName]) {
-                    var origin_domain = element._domains[options.fieldName].length !== 0 ? element._domains[options.fieldName] : "[]";
+                    var origin_domain = element._domains[options.fieldName].length !== 0 && typeof element._domains[options.fieldName] === 'string' ? element._domains[options.fieldName] : "[]";
                     var assembled_domain = pyUtils.assembleDomains([origin_domain, domain_field_value], "AND");
                     return Domain.prototype.stringToArray(assembled_domain, this._getEvalContext(element, true));
                 }
                 var viewType = options.viewType || element.viewType;
                 var fieldInfo = element.fieldsInfo[viewType][options.fieldName];
                 if (fieldInfo && fieldInfo.domain) {
-                    var origin_domain = fieldInfo.domain.length !== 0 ? fieldInfo.domain : "[]";
+                    var origin_domain = fieldInfo.domain.length !== 0 && typeof fieldInfo.domain === 'string' ? fieldInfo.domain : "[]";
                     var assembled_domain = pyUtils.assembleDomains([origin_domain, domain_field_value], "AND");
                     return Domain.prototype.stringToArray(assembled_domain, this._getEvalContext(element, true));
                 }
