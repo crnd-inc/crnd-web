@@ -18,22 +18,28 @@ odoo.define('crnd_web_field_domain.field_domain', function (require) {
             var domain_field = element_options ? element_options.domain_field : undefined;
             var domain_field_value = domain_field && element._changes && element._changes[domain_field] ? element._changes[domain_field] : element.data[domain_field] || "[]";
 
-            if (options && options.fieldName && domain_field) {
+            if (options.fieldName && domain_field) {
                 if (element._domains[options.fieldName]) {
-                    var origin_domain = element._domains[options.fieldName].length !== 0 ? element._domains[options.fieldName] : "[]";
+                    var field_domain = element._domains[options.fieldName];
+                    var is_field_domain_string = typeof field_domain === "string";
+                    var origin_domain = field_domain.length !== 0 && is_field_domain_string ? field_domain : "[]";
                     var assembled_domain = pyUtils.assembleDomains([origin_domain, domain_field_value], "AND");
                     return Domain.prototype.stringToArray(assembled_domain, this._getEvalContext(element, true));
                 }
                 var viewType = options.viewType || element.viewType;
                 var fieldInfo = element.fieldsInfo[viewType][options.fieldName];
                 if (fieldInfo && fieldInfo.domain) {
-                    var origin_domain = fieldInfo.domain.length !== 0 ? fieldInfo.domain : "[]";
+                    var field_domain = fieldInfo.domain;
+                    var is_field_domain_string = typeof field_domain === "string";
+                    var origin_domain = field_domain.length !== 0 && is_field_domain_string ? field_domain : "[]";
                     var assembled_domain = pyUtils.assembleDomains([origin_domain, domain_field_value], "AND");
                     return Domain.prototype.stringToArray(assembled_domain, this._getEvalContext(element, true));
                 }
                 var fieldParams = element.fields[options.fieldName];
                 if (fieldParams.domain) {
-                    var origin_domain = fieldParams.domain.length !== 0 ? fieldParams.domain : "[]";
+                    var field_domain = fieldParams.domain;
+                    var is_field_domain_string = typeof field_domain === "string";
+                    var origin_domain = field_domain.length !== 0 && is_field_domain_string ? field_domain : "[]";
                     var assembled_domain = pyUtils.assembleDomains([origin_domain, domain_field_value], "AND");
                     return Domain.prototype.stringToArray(assembled_domain, this._getEvalContext(element, true));
                 }
