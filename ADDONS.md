@@ -3,7 +3,7 @@
 | crnd_web_actions | CRND web actions | LGPL-3 | 15.0.0.4.0 |  |  |
 | crnd_web_button_box_full_width | CRND Web Button Box Fullwidth | LGPL-3 | 15.0.0.5.0 | Button_box at the top of the form |  |
 | crnd_web_diagram_plus | CRnD Web Diagram Plus | LGPL-3 | 15.0.0.13.0 | Odoo Web Diagram view by CRnD. |  |
-| crnd_web_field_domain | CRnD Web Field Domain | LGPL-3 | 15.0.0.4.0 | Web Field Domain by CRnD allows create computed field domains. |  |
+| crnd_web_field_domain | CRnD Web Field Domain | LGPL-3 | 15.0.0.5.0 | Web Field Domain by CRnD allows create computed field domains. |  |
 | crnd_web_float_full_time_widget | CRND Web Float Full Time Widget | LGPL-3 | 15.0.0.6.0 | Float Time Duration Widget |  |
 | crnd_web_list_popover_widget | CRND Web List Popover Widget | LGPL-3 | 15.0.0.9.0 | Tooltips message for text fields on tree view. |  |
 | crnd_web_m2o_info_widget | Many2One Info Widget | LGPL-3 | 15.0.0.10.0 | Many2One Info Widget |  |
