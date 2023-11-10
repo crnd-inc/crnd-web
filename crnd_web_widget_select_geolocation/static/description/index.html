@@ -15,23 +15,32 @@
     <div>
         <p>CRND Web Widget Select Geolocation is a module developed by the <a href="https://crnd.pro/">Center of Research &amp; Development</a> company.</p>
         <p>This addon adds a widget that allows you to select a geolocation.</p>
+
         <p>
+            Example model definition
             <pre>
                 <code>
-<!--                    &lt;record id=&quot;some_id&quot; model=&quot;ir.ui.view&quot;&gt;-->
-<!--                        &lt;field name=&quot;model&quot;&gt;model.name&lt;/field&gt;-->
-<!--                        &lt;field name=&quot;arch&quot; type=&quot;xml&quot;&gt;-->
-<!--                            &lt;crnd_map_view-->
-<!--                                    latitude_field=&quot;name_of_latitude_field&quot;-->
-<!--                                    longitude_field=&quot;name_of_longitude_field&quot;-->
-<!--                                    title_field=&quot;name_of_marker_title_field&quot;&gt;-->
-<!--                            &lt;/crnd_map_view&gt;-->
-<!--                        &lt;/field&gt;-->
-<!--                    &lt;/record&gt;-->
+                    class TestMapView(models.Model):
+                        _name = 'test.map.view'
+
+                        point_simple_json = fields.Char()
                 </code>
             </pre>
         </p>
-        <p></p>
+
+        <p>
+            Example of definition of field in form view
+            <pre>
+                <code>
+                    &lt;field name=&quot;point_simple_json&quot;
+                           widget=&quot;select_geolocation&quot;/&gt;
+                </code>
+            </pre>
+        </p>
+
+        <p>
+            The geolocation coordinates will be stored as json dict <code>{'lat': latitude, 'lng': longitude}</code> in the field.
+        </p>
     </div>
 
 <p style="font-size: 120%;">

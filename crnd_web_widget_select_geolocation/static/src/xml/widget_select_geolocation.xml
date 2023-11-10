@@ -2,19 +2,11 @@
 <templates>
 
     <t t-name="select_geolocation_widget">
-        <t t-if="widget.options.readonly">
-            <button class="geo-button">
-                <i class="fa fa-map-marker"/>
-                View on the map
-            </button>
-            </t>
-        <t t-else="">
-            <button class="geo-button">
-                <i class="fa fa-map-marker"/>
-                Select on the map
-            </button>
-        </t>
-
+        <button class="geo-button btn btn-sm btn-primary w-auto">
+            <i class="fa fa-map-marker"/>
+            <t t-if="widget.mode == 'readonly'">View on the map</t>
+            <t t-if="widget.mode == 'edit'">Select on the map</t>
+        </button>
     </t>
 
     <t t-name="crnd_web_widget_select_geolocation.map_field_widget_popover">

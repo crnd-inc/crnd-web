@@ -24,15 +24,12 @@ odoo.define('generic_location_geolocalize.MapWidget', function (require) {
             this.navigator_pos = false;
         },
 
-        async _onClickGeoButton() {
-            if (!this.options.latitude_field || !this.options.longitude_field) {
-                this.do_notify(_t('Warning'), _t('Widget definition is incorrect. Required latitude_field or longitude_field options are not set!'), true, 'bg-danger');
-                return;
-            }
+        async _onClickGeoButton(e) {
+            e.stopPropagation();
             this.mapId = new Date().getTime().toString();
             let body = document.querySelector('body');
             let popoverTemplate = document.createElement('template');
-            popoverTemplate.innerHTML = qweb.render('crnd_web_widget_select_geolocation.map_field_widget_popover', {'mapId': this.mapId, 'readonly_mode': this.options.readonly});
+            popoverTemplate.innerHTML = qweb.render('crnd_web_widget_select_geolocation.map_field_widget_popover', {'mapId': this.mapId, 'readonly_mode': this.mode === 'readonly'});
             body.appendChild(popoverTemplate.content);
             this.mapPopover = document.querySelector('div.map_field_widget_wrapper');
             this.mapContainer = document.querySelector('div.map_container');
@@ -54,30 +51,16 @@ odoo.define('generic_location_geolocalize.MapWidget', function (require) {
             }
         },
 
-        _renderEdit: function () {
-        },
-
-        _renderReadonly: function () {
-            this._super.apply(this, arguments);
-            this.$el.addClass('show_widget');
-        },
-
         get_error_warning: function (text, sticky) {
             this.do_notify(_t('Warning'), _t(text), sticky, 'bg-danger');
         },
 
         async _saveGeolocation () {
-            var args = {};
-            var self = this;
             if (!this.newGeolocation) {
                 this.newGeolocation = await this._getGeolocation();
             }
-
-
-            await self._saveData(self.options.latitude_field, self.newGeolocation.lat);
-            await self._saveData(self.options.longitude_field, self.newGeolocation.lng);
-
-            self._closeMapPopover ();
+            this._setValue(JSON.stringify(this.newGeolocation));
+            this._closeMapPopover ();
         },
 
         async _saveData (name, value){
@@ -96,7 +79,7 @@ odoo.define('generic_location_geolocalize.MapWidget', function (require) {
 
         async _createMarker () {
             let self = this;
-            if (!this.options.readonly) {
+            if (this.mode === 'edit') {
                 this.marker = new google.maps.Marker({
                     position: await this._getGeolocation(),
                     map: this.map,
@@ -155,7 +138,7 @@ odoo.define('generic_location_geolocalize.MapWidget', function (require) {
 
         async _getGeolocation () {
             var pos;
-            if (!this.record.data[this.options.latitude_field] || !this.record.data[this.options.longitude_field]) {
+            if (!this.value) {
                 if (!self.navigator_pos) {
                     self.navigator_pos = await this.get_current_geolocation();
                 }
@@ -167,10 +150,7 @@ odoo.define('generic_location_geolocalize.MapWidget', function (require) {
                 }
             }
             else {
-                pos = {
-                    lat: this.record.data[this.options.latitude_field],
-                    lng: this.record.data[this.options.longitude_field],
-                };
+                pos = JSON.parse(this.value);
             }
             return pos
         },
