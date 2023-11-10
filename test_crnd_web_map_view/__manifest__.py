@@ -3,10 +3,11 @@
     'author': "Center of Research and Development",
     'website': "https://crnd.pro",
     'license': 'LGPL-3',
-    'version': '14.0.0.3.0',
+    'version': '14.0.0.3.1',
 
     'depends': [
         'crnd_web_map_view',
+        'crnd_web_widget_select_geolocation',
     ],
     'data': [
         'security/ir.model.access.csv',

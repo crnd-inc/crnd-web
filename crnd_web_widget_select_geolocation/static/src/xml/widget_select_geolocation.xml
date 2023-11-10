@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<templates>
+
+    <t t-name="select_geolocation_widget">
+        <button class="geo-button btn btn-sm btn-primary w-auto">
+            <i class="fa fa-map-marker"/>
+            <t t-if="widget.mode == 'readonly'">View on the map</t>
+            <t t-if="widget.mode == 'edit'">Select on the map</t>
+        </button>
+    </t>
+
+    <t t-name="crnd_web_widget_select_geolocation.map_field_widget_popover">
+        <div class="map_field_widget_wrapper">
+            <div class="map_container">
+                <div class="map_header p-3 text-right">
+                    <t t-if="!readonly_mode">
+                        <button type="button" class="btn btn-primary save_geolocation_btn mr8">Save &amp; Close</button>
+                    </t>
+
+                    <button type="button" class="btn btn-secondary close_map_popover_btn">Close</button>
+                </div>
+                <div t-att-id="mapId" class="map"/>
+            </div>
+        </div>
+    </t>
+
+</templates>
