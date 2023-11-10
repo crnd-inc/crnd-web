@@ -13,12 +13,15 @@
         'web',
         'base',
     ],
-    'data': [
-        'templates/assets.xml',
-    ],
-    'qweb': [
-        'static/src/xml/widget_select_geolocation.xml',
-    ],
+    'assets': {
+        'web.assets_backend': [
+            'crnd_web_widget_select_geolocation/static/src/js/*.js',
+            'crnd_web_widget_select_geolocation/static/src/scss/*.scss',
+        ],
+        'web.assets_qweb': [
+            'crnd_web_widget_select_geolocation/static/src/xml/*.xml',
+        ],
+    },
 
     'installable': True,
     'auto_install': False,

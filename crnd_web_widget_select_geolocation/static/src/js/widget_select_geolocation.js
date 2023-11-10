@@ -5,6 +5,7 @@ odoo.define('generic_location_geolocalize.MapWidget', function (require) {
     const fieldRegistry = require('web.field_registry');
     const { qweb } = require('web.core');
     var core = require("web.core");
+    var Dialog = require("web.Dialog");
 
     var _t = core._t;
 
@@ -52,7 +53,7 @@ odoo.define('generic_location_geolocalize.MapWidget', function (require) {
         },
 
         get_error_warning: function (text, sticky) {
-            this.do_notify(_t('Warning'), _t(text), sticky, 'bg-danger');
+            Dialog.alert(this, _t(text), {title: _t('Warning')});
         },
 
         async _saveGeolocation () {
