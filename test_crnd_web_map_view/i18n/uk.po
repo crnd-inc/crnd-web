@@ -100,6 +100,32 @@ msgid "Open map"
 msgstr ""
 
 #. module: test_crnd_web_map_view
+#: model:ir.model.fields,field_description:test_crnd_web_map_view.field_test_map_view__point_draggable_json
+msgid "Point Draggable Json"
+msgstr ""
+
+#. module: test_crnd_web_map_view
+#: model:ir.model.fields,field_description:test_crnd_web_map_view.field_test_map_view__point_readonly_json
+msgid "Point Readonly Json"
+msgstr ""
+
+#. module: test_crnd_web_map_view
+#: model:ir.model.fields,field_description:test_crnd_web_map_view.field_test_map_view__point_simple_json
+msgid "Point Simple Json"
+msgstr ""
+
+#. module: test_crnd_web_map_view
+#: model_terms:ir.ui.view,arch_db:test_crnd_web_map_view.test_map_view_form_view
+#: model_terms:ir.ui.view,arch_db:test_crnd_web_map_view.test_map_view_tree_view
+msgid "Point draggable"
+msgstr ""
+
+#. module: test_crnd_web_map_view
+#: model_terms:ir.ui.view,arch_db:test_crnd_web_map_view.test_map_view_form_view
+msgid "Point readonly"
+msgstr ""
+
+#. module: test_crnd_web_map_view
 #: model:ir.actions.act_window,name:test_crnd_web_map_view.action_test_map_view
 #: model:ir.actions.act_window,name:test_crnd_web_map_view.action_test_map_view_only
 #: model:ir.ui.menu,name:test_crnd_web_map_view.crnd_web_map_view_test
