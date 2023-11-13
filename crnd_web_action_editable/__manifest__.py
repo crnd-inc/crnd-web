@@ -1,6 +1,6 @@
 {
     'name': 'CRND web action editable',
-    'version': '12.0.0.5.0',
+    'version': '12.0.0.6.0',
     'author': "Center of Research and Development",
     'website': "https://crnd.pro",
     'summary': """""",
