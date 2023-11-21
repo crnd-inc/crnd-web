@@ -10,10 +10,10 @@
 
 <section style="margin: 0 auto; max-width: 896px;">
 <div>
-<p>CRnD Web Tree Colored Field widget provide to display tree cell with color from another field.</p>
+<p>CRnD Web Tree Colored Field widget provide to display tree cell with color from another field or color, that depends on value of other field.</p>
 </div>
 <p><br></p>
-    <p>An example of internal usage:</p>
+    <p>An example of internal usage defining color from another field:</p>
     <p>In Python code:</p>
     <pre>
         line_bg_color = fields.Char('rgba(R,G,B[,A])')
@@ -30,6 +30,35 @@
                               'field_label_color': 'line_label_color'}"/&gt;
                 &lt;field name="line_bg_color" invisible="1"/&gt;
                 &lt;field name="line_label_color" invisible="1"/&gt;
+            &lt;/tree&gt;
+        &lt;/field&gt;
+    &lt;/record&gt;
+    </pre>
+    <p><br></p>
+    <p>An example of internal usage defining color, depends on value of another field:</p>
+    <p>In Python code:</p>
+    <pre>
+        state = fields.Selection([
+        ('ok', 'Ok'),
+        ('warning', 'Warning'),
+        ('fail', 'Fail')
+        ])
+    </pre>
+    <p>In XML code:</p>
+    <pre>   &lt;record id="some_id" model="ir.ui.view"&gt;
+        &lt;field name="model"&gt;model.name&lt;/field&gt;
+        &lt;field name="arch" type="xml"&gt;
+            &lt;tree&gt;
+                &lt;field name="colored_field"
+                          options="{&quot;field_label_color_expression&quot;: &quot;
+                       red:state == 'fail';
+                       #2F4F4F:state == 'warning';
+                       green:state == 'ok'&quot;,
+                                &quot;field_bg_color_expression&quot;: &quot;
+                       white:state == fail;
+                       yellow:state == 'warning';
+                       #D3D3D3:state == 'ok'&quot;}"/>/&gt;
+                &lt;field name="state" invisible="1"/&gt;
             &lt;/tree&gt;
         &lt;/field&gt;
     &lt;/record&gt;
