@@ -52,6 +52,7 @@ class TreeColoredField(models.Model):
         required=True,
         help='This field defines background color of cell '
              '"field_colorized_by_state_expression" field')
+
     @api.depends('bg_color', 'label_color')
     def _compute_state_color(self):
         """
