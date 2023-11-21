@@ -34,6 +34,24 @@ class TreeColoredField(models.Model):
     line_label_color = fields.Char(
         compute='_compute_state_color')
 
+    # expression test fields
+    field_colorized_by_state_expression = fields.Char(
+        required=True,
+        help='Field, colorized by expression')
+    label_state = fields.Selection(
+        [('ok', 'Ok'),
+         ('warning', 'Warning'),
+         ('fail', 'Fail')], default='ok',
+        required=True,
+        help='This field defines color of label '
+             '"field_colorized_by_state_expression" field')
+    bg_state = fields.Selection(
+        [('ok', 'Ok'),
+         ('warning', 'Warning'),
+         ('fail', 'Fail')], default='fail',
+        required=True,
+        help='This field defines background color of cell '
+             '"field_colorized_by_state_expression" field')
     @api.depends('bg_color', 'label_color')
     def _compute_state_color(self):
         """
