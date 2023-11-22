@@ -56,8 +56,8 @@ odoo.define('crnd_web_tree_colored_field', function (require) {
                 }
             }
 
-            // Default color if no condition is met
-            return '$table-dark-color';
+            // Return false if no condition is met
+            return false;
         },
         _checkCondition: function (obj, statement) {
 
