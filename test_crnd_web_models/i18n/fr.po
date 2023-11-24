@@ -48,6 +48,11 @@ msgid "Bg Color"
 msgstr ""
 
 #. module: test_crnd_web_models
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_tree_colored_field__bg_state
+msgid "Bg State"
+msgstr ""
+
+#. module: test_crnd_web_models
 #: model:ir.model,name:test_crnd_web_models.model_book_wizard_create
 msgid "Book wizard: Create"
 msgstr ""
@@ -240,6 +245,17 @@ msgid "Display Name"
 msgstr ""
 
 #. module: test_crnd_web_models
+#: model:ir.model.fields.selection,name:test_crnd_web_models.selection__tree_colored_field__bg_state__fail
+#: model:ir.model.fields.selection,name:test_crnd_web_models.selection__tree_colored_field__label_state__fail
+msgid "Fail"
+msgstr ""
+
+#. module: test_crnd_web_models
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_tree_colored_field__field_colorized_by_state_expression
+msgid "Field Colorized By State Expression"
+msgstr ""
+
+#. module: test_crnd_web_models
 #: model_terms:ir.ui.view,arch_db:test_crnd_web_models.view_m2o_info_widget_form
 msgid "Field with M2o Info Widget (fields)"
 msgstr ""
@@ -252,6 +268,11 @@ msgstr ""
 #. module: test_crnd_web_models
 #: model_terms:ir.ui.view,arch_db:test_crnd_web_models.view_m2o_info_widget_form
 msgid "Field without M2o Info Widget"
+msgstr ""
+
+#. module: test_crnd_web_models
+#: model:ir.model.fields,help:test_crnd_web_models.field_tree_colored_field__field_colorized_by_state_expression
+msgid "Field, colorized by expression"
 msgstr ""
 
 #. module: test_crnd_web_models
@@ -365,6 +386,11 @@ msgstr ""
 #. module: test_crnd_web_models
 #: model:ir.model.fields,field_description:test_crnd_web_models.field_tree_colored_field__label_color
 msgid "Label Color"
+msgstr ""
+
+#. module: test_crnd_web_models
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_tree_colored_field__label_state
+msgid "Label State"
 msgstr ""
 
 #. module: test_crnd_web_models
@@ -499,6 +525,12 @@ msgid "Nodes"
 msgstr ""
 
 #. module: test_crnd_web_models
+#: model:ir.model.fields.selection,name:test_crnd_web_models.selection__tree_colored_field__bg_state__ok
+#: model:ir.model.fields.selection,name:test_crnd_web_models.selection__tree_colored_field__label_state__ok
+msgid "Ok"
+msgstr ""
+
+#. module: test_crnd_web_models
 #: model:ir.model.fields,field_description:test_crnd_web_models.field_web_diagram_plus_node__arrow_out_ids
 msgid "Outgoing Arrows"
 msgstr ""
@@ -613,6 +645,20 @@ msgid "The field on the basis of whichthe background color of other fields"
 msgstr ""
 
 #. module: test_crnd_web_models
+#: model:ir.model.fields,help:test_crnd_web_models.field_tree_colored_field__bg_state
+msgid ""
+"This field defines background color of cell "
+"\"field_colorized_by_state_expression\" field"
+msgstr ""
+
+#. module: test_crnd_web_models
+#: model:ir.model.fields,help:test_crnd_web_models.field_tree_colored_field__label_state
+msgid ""
+"This field defines color of label \"field_colorized_by_state_expression\" "
+"field"
+msgstr ""
+
+#. module: test_crnd_web_models
 #: model:ir.model.fields,field_description:test_crnd_web_models.field_float_full_time_widget__time_1
 #: model:ir.model.fields,field_description:test_crnd_web_models.field_float_time_duration_widget__time_1
 msgid "Time 1"
@@ -668,6 +714,12 @@ msgstr ""
 #. module: test_crnd_web_models
 #: model_terms:ir.ui.view,arch_db:test_crnd_web_models.view_web_diagram_plus_form
 msgid "View Diagram"
+msgstr ""
+
+#. module: test_crnd_web_models
+#: model:ir.model.fields.selection,name:test_crnd_web_models.selection__tree_colored_field__bg_state__warning
+#: model:ir.model.fields.selection,name:test_crnd_web_models.selection__tree_colored_field__label_state__warning
+msgid "Warning"
 msgstr ""
 
 #. module: test_crnd_web_models
