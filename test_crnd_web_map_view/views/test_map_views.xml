@@ -18,6 +18,10 @@
                 <field name="name"/>
                 <field name="latitude"/>
                 <field name="longitude"/>
+                <field name="point_readonly_json"
+                       widget="select_geolocation"
+                       string="Point draggable"
+                       options="{'zoom': 12}"/>
             </tree>
         </field>
     </record>
@@ -32,8 +36,21 @@
                             <field name="name"/>
                             <field name="latitude"/>
                             <field name="longitude"/>
+
+                            <field name="point_draggable_json"
+                                   widget="select_geolocation"
+                                   string="Point draggable"
+                                   options="{'zoom': 12}"/>
+                            <field name="point_readonly_json"
+                                   widget="select_geolocation"
+                                   string="Point readonly"
+                                   options="{'zoom': 12}"/>
                         </group>
-                        <group></group>
+                        <group>
+                            <field name="point_simple_json"
+                                   widget="select_geolocation"
+                                   options="{'zoom': 12}"/>
+                        </group>
                     </group>
                 </sheet>
 
