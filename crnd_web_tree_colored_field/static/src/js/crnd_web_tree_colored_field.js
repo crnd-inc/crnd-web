@@ -49,7 +49,7 @@ odoo.define('crnd_web_tree_colored_field', function (require) {
                 // Split each condition into color and statement
                 var [color, statement] = condition.split(':');
 
-                // Convert statement to evaluate it, remove leading and trailing spaces
+                // Parse statement to evaluate it
                 statement = py.parse(py.tokenize(statement.trim()));
 
                 // Evaluate the statement
