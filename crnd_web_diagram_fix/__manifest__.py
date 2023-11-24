@@ -1,19 +1,15 @@
 {
-    "name": "CRND Web List Popover Widget",
-    "version": "13.0.0.10.0",
+    "name": "CRND Web Diagram Fix",
+    "version": "13.0.0.5.0",
     "author": "Center of Research and Development",
     "website": "https://crnd.pro",
-    'summary': 'Tooltips message for text fields on tree view.',
+    'summary': 'Fix for web diagram view',
     "license": "LGPL-3",
     'category': 'Technical Settings',
     'depends': [
-        'web',
+        'web_diagram',
     ],
     'data': [
-        'views/assets_backend.xml',
-    ],
-    'qweb': [
-        "static/src/xml/popover_templates.xml",
     ],
     'images': ['static/description/banner.png'],
     'installable': True,
