@@ -3,7 +3,7 @@
     'author': "Center of Research and Development",
     'website': "https://crnd.pro",
     'license': 'LGPL-3',
-    'version': '16.0.0.3.1',
+    'version': '17.0.0.3.1',
 
     'depends': [
         'contacts',
