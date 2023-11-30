@@ -1,23 +1,33 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <templates>
 
-    <t t-name="select_geolocation_widget">
-        <button class="geo-button btn btn-sm btn-primary w-auto">
-            <i class="fa fa-map-marker"/>
-            <t t-if="widget.mode == 'readonly'">View on the map</t>
-            <t t-if="widget.mode == 'edit'">Select on the map</t>
+    <t t-name="crnd_web_widget_select_geolocation.select_geolocation_widget" owl="1">
+        <button class="geo-button btn btn-sm btn-primary w-auto" t-on-click="_onClickGeoButton">
+            <i class="fa fa-map-marker mr8"/>
+            <span t-if="props.readonly">View on the map</span>
+            <span t-else="">Select on the map</span>
         </button>
+        <t t-if="props.showPopover">
+            <SelectGeolocationPopover
+                    record="props.record"
+                    options="props.options"
+                    mapId="props.mapId"
+                    readonly="props.readonly"
+                    showPopover="props.showPopover"
+                    value="props.value"/>
+        </t>
     </t>
 
-    <t t-name="crnd_web_widget_select_geolocation.map_field_widget_popover">
+    <t t-name="crnd_web_widget_select_geolocation.map_field_widget_popover" owl="1">
+
         <div class="map_field_widget_wrapper">
             <div class="map_container">
                 <div class="map_header p-3 text-right">
-                    <t t-if="!readonly_mode">
-                        <button type="button" class="btn btn-primary save_geolocation_btn mr8">Save &amp; Close</button>
+                    <t t-if="!readonly">
+                        <button type="button" class="btn btn-primary save_geolocation_btn mr8" t-on-click="_saveGeolocation">Save &amp; Close</button>
                     </t>
 
-                    <button type="button" class="btn btn-secondary close_map_popover_btn">Close</button>
+                    <button type="button" class="btn btn-secondary close_map_popover_btn" t-on-click="_closeMapPopover">Close</button>
                 </div>
                 <div t-att-id="mapId" class="map"/>
             </div>
