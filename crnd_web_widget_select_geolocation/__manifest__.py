@@ -15,7 +15,7 @@
     ],
     'assets': {
         'web.assets_backend': [
-            'crnd_web_widget_select_geolocation/static/src/js/widget_select_geolocation_owl.js',
+            'crnd_web_widget_select_geolocation/static/src/js/*.js',
             'crnd_web_widget_select_geolocation/static/src/scss/*.scss',
             'crnd_web_widget_select_geolocation/static/src/xml/*.xml',
         ],
