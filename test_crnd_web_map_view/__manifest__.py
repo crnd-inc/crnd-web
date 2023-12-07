@@ -18,7 +18,7 @@
         'demo/demo_test_map_view.xml',
     ],
 
-    'installable': True,
+    'installable': False,
     'images': ['static/description/banner.png'],
     'auto_install': False,
     'application': False,

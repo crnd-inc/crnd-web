@@ -13,7 +13,7 @@
         'views/contact_views.xml',
     ],
 
-    'installable': True,
+    'installable': False,
     'images': ['static/description/banner.png'],
     'auto_install': False,
     'application': False,
