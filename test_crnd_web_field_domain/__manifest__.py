@@ -14,7 +14,6 @@
 
     ],
     'demo': [
-        'demo/demo_test_map_view.xml',
     ],
 
     'installable': True,
