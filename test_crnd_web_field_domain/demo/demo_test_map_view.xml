@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="demo_test_map_view_1" model="test.map.view">
+        <field name="name">Albania</field>
+        <field name="latitude">41.1533320</field>
+        <field name="longitude">20.1683310</field>
+    </record>
+
+    <record id="demo_test_map_view_2" model="test.map.view">
+        <field name="name">Andorra</field>
+        <field name="latitude">42.5062850</field>
+        <field name="longitude">1.5218010</field>
+    </record>
+
+    <record id="demo_test_map_view_3" model="test.map.view">
+        <field name="name">Belgium</field>
+        <field name="latitude">50.5038870</field>
+        <field name="longitude">4.4699360</field>
+    </record>
+
+    <record id="demo_test_map_view_4" model="test.map.view">
+        <field name="name">USA</field>
+        <field name="latitude">37.0902400</field>
+        <field name="longitude">-95.7128910</field>
+    </record>
+</odoo>

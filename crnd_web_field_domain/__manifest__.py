@@ -8,7 +8,7 @@
     'support': 'info@crnd.pro',
     'website': 'https://crnd.pro',
     'license': 'LGPL-3',
-    'version': '17.0.0.5.0',
+    'version': '17.0.0.5.1',
     'depends': [
         'web',
     ],
@@ -16,13 +16,13 @@
     ],
     'assets': {
         'web.assets_backend': [
-            'crnd_web_field_domain/static/src/js/basic_model.js',
+            'crnd_web_field_domain/static/src/js/field_domain_owl.js',
         ],
     },
     'qweb': [
     ],
     'demo': [],
     'images': ['static/description/banner.png'],
-    'installable': False,
+    'installable': True,
     'auto_install': False,
 }

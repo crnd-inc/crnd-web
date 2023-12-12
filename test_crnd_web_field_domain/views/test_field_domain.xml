@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="test_test_field_domain_tree_view" model="ir.ui.view">
+        <field name="model">test.field.domain.table</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="test_test_field_domain_form_view" model="ir.ui.view">
+        <field name="model">test.field.domain.table</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <field name="name"/>
+                    <group>
+                        <group>
+                            <field name="user1_id" string="Many2one field without additional domain"/>
+                            <field name="user_id" string="Many2one field with additional domain" options="{'domain_field': 'user_domain'}"/>
+                            <field name="user_domain" string="Additional domain for many2one"/>
+                        </group>
+                        <group>
+                            <field name="user_ids" string="Many2many field with additional domain" options="{'domain_field': 'users_domain'}"/>
+                            <field name="users_domain" string="Additional domain for many2many"/>
+                        </group>
+                    </group>
+                </sheet>
+
+            </form>
+        </field>
+    </record>
+
+    <record id="action_test_field_domain" model="ir.actions.act_window">
+        <field name="name">Test field domain</field>
+        <field name="res_model">test.field.domain.table</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem name="CRND Web Testfield Domain"
+              id="crnd_web_test_field_domain_root"
+              sequence="1"/>
+
+    <menuitem id="crnd_web_test_field_domain_main"
+              sequence="1"
+              name="Test field domain"
+              parent="crnd_web_test_field_domain_root"/>
+    <menuitem id="crnd_web_map_view_test"
+              sequence="1"
+              action="action_test_field_domain"
+              parent="crnd_web_test_field_domain_main"/>
+</odoo>
