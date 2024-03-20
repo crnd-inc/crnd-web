@@ -21,24 +21,22 @@ const onCreateActionControllerMixin = {
 };
 
 for (let ViewController of [ListController, KanbanController]) {
-    patch(ViewController.prototype, 'crnd_web_on_create_action', {
+    patch(ViewController.prototype, {
         ...onCreateActionControllerMixin,
-        ...{
-            async createRecord() {
-                if (!this.onCreateAction()) {
-                    await this._super(...arguments);
-                }
+        async createRecord() {
+            if (!this.onCreateAction()) {
+                await super.createRecord(...arguments);
             }
-        },
+        }
     });
 }
 
-patch(FormController.prototype, 'crnd_web_on_create_action', {
+patch(FormController.prototype, {
     ...onCreateActionControllerMixin,
     ...{
         async create() {
             if (!this.onCreateAction()) {
-                await this._super(...arguments);
+                await super.create(...arguments);
             }
         }
     },
