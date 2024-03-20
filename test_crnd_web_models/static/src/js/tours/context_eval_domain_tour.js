@@ -1,13 +1,11 @@
-odoo.define('test_crnd_web_field_domain.context_eval_domain_tour', function (require) {
-    'use strict';
+/** @odoo-module **/
 
-    var tour = require('web_tour.tour');
+import { registry } from "@web/core/registry";
 
-    tour.register('test_crnd_web_field_domain_context_eval_domain_tour', {
-        test: true,
-        rainbowMan: false,
-        url: '/web',
-    }, [
+registry.category("web_tour.tours").add('test_crnd_web_field_domain_context_eval_domain_tour', {
+    test: true,
+    url: "/web",
+    steps: () => [
         {
             content: "Click on main menu",
             trigger: "nav.o_main_navbar button.dropdown-toggle",
@@ -28,7 +26,7 @@ odoo.define('test_crnd_web_field_domain.context_eval_domain_tour', function (req
         },
         {
             content: "Check in menu 'Cars'",
-            trigger: "div.o_view_controller div.o_control_panel ol.breadcrumb li.breadcrumb-item span:containsExact('Car')",
+            trigger: "span:containsExact('Car')",
         },
         {
             content: "Check record list has 'EcoCruiser'(waiting to form load)",
@@ -47,7 +45,7 @@ odoo.define('test_crnd_web_field_domain.context_eval_domain_tour', function (req
 //        Use context 'model_id' in domain
         {
             content: "Input context domain into domain field",
-            trigger: "input[id='brand_id_field_domain']",
+            trigger: "div[name='brand_id_field_domain'] input",
             run: "text [('id', '=', model_id)]",
         },
 //        The following mapping uses in test domain:
@@ -61,7 +59,7 @@ odoo.define('test_crnd_web_field_domain.context_eval_domain_tour', function (req
 //        | 5  |    TrekDrive       |     AX-4x4        |
         {
             content: "Click Brand field",
-            trigger: "div[name='brand_id'] input[id='brand_id']",
+            trigger: "div[name='brand_id'] input",
             run: "click",
         },
         {
@@ -92,14 +90,14 @@ odoo.define('test_crnd_web_field_domain.context_eval_domain_tour', function (req
         },
         {
             content: "Click Brand field",
-            trigger: "div[name='brand_id'] input[id='brand_id']",
+            trigger: "div[name='brand_id'] input",
             run: "click",
         },
 
 //        Change model_id in record
         {
             content: "Click Model field",
-            trigger: "div[name='model_id'] input[id='model_id']",
+            trigger: "div[name='model_id'] input",
             run: "click",
         },
         {
@@ -149,6 +147,4 @@ odoo.define('test_crnd_web_field_domain.context_eval_domain_tour', function (req
             content: "Check record saved",
             trigger: ".o_form_status_indicator_buttons.invisible",
         },
-    ]);
-    return {};
-});
+]});
