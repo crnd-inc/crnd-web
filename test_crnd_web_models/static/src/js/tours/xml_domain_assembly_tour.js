@@ -1,13 +1,11 @@
-odoo.define('test_crnd_web_field_domain.xml_assembly_domain_tour', function (require) {
-    'use strict';
+/** @odoo-module **/
 
-    var tour = require('web_tour.tour');
+import { registry } from "@web/core/registry";
 
-    tour.register('test_crnd_web_field_domain_xml_assembly_domain_tour', {
-        test: true,
-        rainbowMan: false,
-        url: '/web',
-    }, [
+registry.category("web_tour.tours").add('test_crnd_web_field_domain_xml_assembly_domain_tour', {
+    test: true,
+    url: "/web",
+    steps: () => [
         {
             content: "Click on main menu",
             trigger: "nav.o_main_navbar button.dropdown-toggle",
@@ -28,8 +26,7 @@ odoo.define('test_crnd_web_field_domain.xml_assembly_domain_tour', function (req
         },
         {
             content: "Check in menu 'Car Rental'",
-            trigger: "div.o_view_controller div.o_control_panel ol.breadcrumb" +
-            " li.breadcrumb-item span:containsExact('Car Rental')",
+            trigger: "span:containsExact('Car Rental')",
         },
         {
             content: "Check record list has 'Azure Interior' partner(waiting to form load)",
@@ -46,7 +43,7 @@ odoo.define('test_crnd_web_field_domain.xml_assembly_domain_tour', function (req
         },
         {
             content: "Wait for download form",
-            trigger: ":has(div[name='customer_id']) :has(input[id='customer_id'])",
+            trigger: ":has(div[name='customer_id']) :has(input)",
         },
         {
             content: "Click Car field",
@@ -85,7 +82,7 @@ odoo.define('test_crnd_web_field_domain.xml_assembly_domain_tour', function (req
         },
         {
             content: "Input domain into domain field",
-            trigger: "input[id='car_id_field_domain']",
+            trigger: "div[name='car_id_field_domain'] input",
             run: "text [('id', '=', 3)]",
         },
         {
@@ -117,7 +114,7 @@ odoo.define('test_crnd_web_field_domain.xml_assembly_domain_tour', function (req
         },
         {
             content: "Input domain into domain field",
-            trigger: "input[id='car_id_field_domain']",
+            trigger: "div[name='car_id_field_domain'] input",
             run: "text [('id', '=', 4)]",
         },
         {
@@ -149,7 +146,7 @@ odoo.define('test_crnd_web_field_domain.xml_assembly_domain_tour', function (req
         },
         {
             content: "Input domain into domain field",
-            trigger: "input[id='car_id_field_domain']",
+            trigger: "div[name='car_id_field_domain'] input",
             run: "text [('id', '=', 5)]",
         },
         {
@@ -184,6 +181,4 @@ odoo.define('test_crnd_web_field_domain.xml_assembly_domain_tour', function (req
             content: "Check record saved",
             trigger: ".o_form_status_indicator_buttons.invisible",
         },
-    ]);
-    return {};
-});
+]});

@@ -25,12 +25,7 @@
     ],
     'assets': {
         'web.assets_tests': [
-            'test_crnd_web_models/static/src/js/tours/'
-            'on_create_action_tour.js',
-            'test_crnd_web_models/static/src/js/tours/'
-            'simply_domain_tour.js',
-            'test_crnd_web_models/static/src/js/tours/'
-            'context_eval_domain_tour.js',
+            'test_crnd_web_models/static/src/js/tours/*.js'
         ]
     },
     'data': [
