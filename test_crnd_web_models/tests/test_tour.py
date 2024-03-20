@@ -19,11 +19,11 @@ class TestCrndWebModels(odoo.tests.HttpCase):
         self.assertEqual(wizard_count_after, 1)
         self.assertEqual(new_record.title, 'Lord of Rings')
 
-    # def test_simply_field_domain(self):
-    #     self.run_js_tour(
-    #         start_url='/web',
-    #         tour_name='test_crnd_web_field_domain_simply_domain_tour',
-    #         login='admin')
+    def test_simply_field_domain(self):
+        self.start_tour(
+            url_path='/web',
+            tour_name='test_crnd_web_field_domain_simply_domain_tour',
+            login='admin')
 
     # def test_context_eval_field_domain(self):
     #     self.run_js_tour(

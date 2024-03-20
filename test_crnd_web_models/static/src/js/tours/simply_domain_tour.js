@@ -1,14 +1,12 @@
-odoo.define('test_crnd_web_field_domain.simply_domain_tour', function (require) {
-    'use strict';
+/** @odoo-module **/
 
-    var tour = require('web_tour.tour');
+import { registry } from "@web/core/registry";
 
-    tour.register('test_crnd_web_field_domain_simply_domain_tour', {
-        test: true,
-        rainbowMan: false,
-        url: '/web',
-    }, [
-        {
+registry.category("web_tour.tours").add('test_crnd_web_field_domain_simply_domain_tour', {
+    test: true,
+    url: "/web",
+    steps: () => [
+    {
             content: "Click on main menu",
             trigger: "nav.o_main_navbar button.dropdown-toggle",
             run: 'click',
@@ -28,7 +26,7 @@ odoo.define('test_crnd_web_field_domain.simply_domain_tour', function (require) 
         },
         {
             content: "Check in menu 'Cars'",
-            trigger: "div.o_view_controller div.o_control_panel ol.breadcrumb li.breadcrumb-item span:containsExact('Car')",
+            trigger: "span:containsExact('Car')",
         },
         {
             content: "Check record list has 'EcoCruiser'(waiting to form load)",
@@ -45,7 +43,7 @@ odoo.define('test_crnd_web_field_domain.simply_domain_tour', function (require) 
         },
         {
             content: "Input domain into domain field",
-            trigger: "input[id='brand_id_field_domain']",
+            trigger: "div[name='brand_id_field_domain'] input",
             run: "text [('id', '=', 1)]",
         },
 //        The brand record with id 1 is 'GreenDrive',
@@ -74,12 +72,12 @@ odoo.define('test_crnd_web_field_domain.simply_domain_tour', function (require) 
 //        so lets check this
         {
             content: "Input domain into domain field",
-            trigger: "input[id='brand_id_field_domain']",
+            trigger: "div[name='brand_id_field_domain'] input",
             run: "text [('id', '=', 2)]",
         },
         {
             content: "Click Brand field",
-            trigger: "div[name='brand_id'] input[id='brand_id']",
+            trigger: "div[name='brand_id'] input",
             run: "click",
         },
         {
@@ -117,7 +115,7 @@ odoo.define('test_crnd_web_field_domain.simply_domain_tour', function (require) 
 //        Input empty domain to make sure all records in dropdown list
         {
             content: "Input empty domain into domain field",
-            trigger: "input[id='brand_id_field_domain']",
+            trigger: "div[name='brand_id_field_domain'] input",
             run: "text []",
         },
         {
@@ -161,6 +159,4 @@ odoo.define('test_crnd_web_field_domain.simply_domain_tour', function (require) 
             content: "Check record saved",
             trigger: ".o_form_status_indicator_buttons.invisible",
         },
-    ]);
-    return {};
-});
+]});
