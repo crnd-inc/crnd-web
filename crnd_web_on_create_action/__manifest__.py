@@ -1,6 +1,6 @@
 {
     'name': 'CRND web on create action',
-    'version': '17.0.0.6.0',
+    'version': '17.0.0.5.1',
     'author': "Center of Research and Development",
     'website': "https://crnd.pro",
     'summary': "Make it possible to use wizards to create records",
