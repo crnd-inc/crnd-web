@@ -33,11 +33,9 @@ for (let ViewController of [ListController, KanbanController]) {
 
 patch(FormController.prototype, {
     ...onCreateActionControllerMixin,
-    ...{
-        async create() {
-            if (!this.onCreateAction()) {
-                await super.create(...arguments);
-            }
+    async create() {
+        if (!this.onCreateAction()) {
+            await super.create(...arguments);
         }
-    },
+    }
 });
