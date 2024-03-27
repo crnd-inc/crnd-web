@@ -1,0 +1,112 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* test_crnd_web_field_domain
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: test_crnd_web_field_domain
+#: model_terms:ir.ui.view,arch_db:test_crnd_web_field_domain.test_test_field_domain_form_view
+msgid "Additional domain for many2many"
+msgstr ""
+
+#. module: test_crnd_web_field_domain
+#: model_terms:ir.ui.view,arch_db:test_crnd_web_field_domain.test_test_field_domain_form_view
+msgid "Additional domain for many2one"
+msgstr ""
+
+#. module: test_crnd_web_field_domain
+#: model:ir.ui.menu,name:test_crnd_web_field_domain.crnd_web_test_field_domain_root
+msgid "CRND Web Testfield Domain"
+msgstr ""
+
+#. module: test_crnd_web_field_domain
+#: model:ir.model.fields,field_description:test_crnd_web_field_domain.field_test_field_domain_table__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: test_crnd_web_field_domain
+#: model:ir.model.fields,field_description:test_crnd_web_field_domain.field_test_field_domain_table__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: test_crnd_web_field_domain
+#: model:ir.model.fields,field_description:test_crnd_web_field_domain.field_test_field_domain_table__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: test_crnd_web_field_domain
+#: model:ir.model.fields,field_description:test_crnd_web_field_domain.field_test_field_domain_table__id
+msgid "ID"
+msgstr ""
+
+#. module: test_crnd_web_field_domain
+#: model:ir.model.fields,field_description:test_crnd_web_field_domain.field_test_field_domain_table__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: test_crnd_web_field_domain
+#: model:ir.model.fields,field_description:test_crnd_web_field_domain.field_test_field_domain_table__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: test_crnd_web_field_domain
+#: model_terms:ir.ui.view,arch_db:test_crnd_web_field_domain.test_test_field_domain_form_view
+msgid "Many2many field with additional domain"
+msgstr ""
+
+#. module: test_crnd_web_field_domain
+#: model_terms:ir.ui.view,arch_db:test_crnd_web_field_domain.test_test_field_domain_form_view
+msgid "Many2one field with additional domain"
+msgstr ""
+
+#. module: test_crnd_web_field_domain
+#: model_terms:ir.ui.view,arch_db:test_crnd_web_field_domain.test_test_field_domain_form_view
+msgid "Many2one field without additional domain"
+msgstr ""
+
+#. module: test_crnd_web_field_domain
+#: model:ir.model.fields,field_description:test_crnd_web_field_domain.field_test_field_domain_table__name
+msgid "Name"
+msgstr ""
+
+#. module: test_crnd_web_field_domain
+#: model:ir.actions.act_window,name:test_crnd_web_field_domain.action_test_field_domain
+#: model:ir.ui.menu,name:test_crnd_web_field_domain.crnd_web_map_view_test
+#: model:ir.ui.menu,name:test_crnd_web_field_domain.crnd_web_test_field_domain_main
+msgid "Test field domain"
+msgstr ""
+
+#. module: test_crnd_web_field_domain
+#: model:ir.model.fields,field_description:test_crnd_web_field_domain.field_test_field_domain_table__user_id
+#: model:ir.model.fields,field_description:test_crnd_web_field_domain.field_test_field_domain_table__user_ids
+msgid "User"
+msgstr ""
+
+#. module: test_crnd_web_field_domain
+#: model:ir.model.fields,field_description:test_crnd_web_field_domain.field_test_field_domain_table__user_domain
+msgid "User Domain"
+msgstr ""
+
+#. module: test_crnd_web_field_domain
+#: model:ir.model.fields,field_description:test_crnd_web_field_domain.field_test_field_domain_table__user1_id
+msgid "User1"
+msgstr ""
+
+#. module: test_crnd_web_field_domain
+#: model:ir.model.fields,field_description:test_crnd_web_field_domain.field_test_field_domain_table__users_domain
+msgid "Users Domain"
+msgstr ""
+
+#. module: test_crnd_web_field_domain
+#: model:ir.model,name:test_crnd_web_field_domain.model_test_field_domain_table
+msgid "test.field.domain.table"
+msgstr ""
