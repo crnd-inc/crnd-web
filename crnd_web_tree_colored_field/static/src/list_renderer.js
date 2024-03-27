@@ -6,7 +6,7 @@ import { patch } from "@web/core/utils/patch";
 const FIELD_BG_COLOR_PARAM = 'field_bg_color';
 const FIELD_LABEL_COLOR_PARAM = 'field_label_color';
 
-patch(ListRenderer.prototype, 'crnd_web_tree_colored_field', {
+patch(ListRenderer.prototype, {
     getCellColorStyle(column, record) {
         let style = '';
         const fieldBgColor = column.options[FIELD_BG_COLOR_PARAM];
