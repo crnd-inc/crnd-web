@@ -1,4 +1,5 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_tree_colored_field_user,crnd_web_tree_colored_field,model_tree_colored_field,base.group_system,1,1,1,1
 access_book_model,book,model_test_crnd_web_model_book,base.group_system,1,1,1,1
 access_book_wizard_create, book_wizard_create,model_book_wizard_create,base.group_system,1,1,1,1
 
