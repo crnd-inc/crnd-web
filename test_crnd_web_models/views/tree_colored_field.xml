@@ -11,6 +11,17 @@
                 <field name="line_label_color" invisible="1"/>
                 <field name="bg_color"/>
                 <field name="label_color"/>
+                <field name="field_colorized_by_state_expression"
+                       options="{&quot;field_label_color_expression&quot;: &quot;
+                       #4B0082:label_state == 'fail';
+                       #2F4F4F:label_state == 'warning';
+                       #00008B:label_state == 'ok'&quot;,
+                                &quot;field_bg_color_expression&quot;: &quot;
+                       #E6E6FA:bg_state == 'fail';
+                       #98FB98:bg_state == 'warning';
+                       #D3D3D3:bg_state == 'ok'&quot;}"/>
+                <field name="label_state"/>
+                <field name="bg_state"/>
             </tree>
         </field>
     </record>
@@ -24,6 +35,11 @@
                         <field name="name"/>
                         <field name="bg_color"/>
                         <field name="label_color"/>
+                    </group>
+                    <group>
+                        <field name="field_colorized_by_state_expression"/>
+                        <field name="label_state"/>
+                        <field name="bg_state"/>
                     </group>
                 </sheet>
             </form>
