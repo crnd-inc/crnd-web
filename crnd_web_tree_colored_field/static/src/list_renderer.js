@@ -2,7 +2,7 @@
 
 import { ListRenderer } from '@web/views/list/list_renderer';
 import { patch } from "@web/core/utils/patch";
-import pyUtils from 'web.py_utils';
+import { evaluateExpr } from "@web/core/py_js/py";
 
 const FIELD_BG_COLOR_PARAM = 'field_bg_color';
 const FIELD_LABEL_COLOR_PARAM = 'field_label_color';
@@ -29,7 +29,7 @@ patch(ListRenderer.prototype, {
         const fieldBgColorExpression = column.options[FIELD_BG_COLOR_EXPRESSION];
         if (fieldBgColorExpression) {
             var expression = column.options[FIELD_BG_COLOR_EXPRESSION];
-            var ctx = _.extend({}, record.data, pyUtils.context());
+            var ctx = record.evalContext;
             var bgColor = this._getColorBasedOnExpression(ctx, expression)
             if (bgColor) {
                 style += `background-color: ${bgColor};`;
@@ -38,7 +38,7 @@ patch(ListRenderer.prototype, {
         const fieldLabelColorExpression = column.options[FIELD_LABEL_COLOR_EXPRESSION];
         if (fieldLabelColorExpression) {
             var expression = column.options[FIELD_LABEL_COLOR_EXPRESSION];
-            var ctx = _.extend({}, record.data, pyUtils.context());
+            var ctx = record.evalContext;
             var labelColor = this._getColorBasedOnExpression(ctx, expression)
             if (labelColor) {
                 style += `color: ${labelColor};`;
@@ -57,11 +57,8 @@ patch(ListRenderer.prototype, {
             // Split each condition into color and statement
             var [color, statement] = condition.split(':');
 
-            // Parse statement to evaluate it
-            statement = py.parse(py.tokenize(statement.trim()));
-
             // Evaluate the statement
-            if (py.evaluate(statement, ctx).toJSON()){
+            if (evaluateExpr(statement, ctx)){
                 return color;
             }
         }
