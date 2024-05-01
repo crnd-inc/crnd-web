@@ -78,7 +78,7 @@ class IrUiView(models.Model):
                     "Only 'node' and 'arrow' tags allowed in "
                     "'diagram_plus_view', but %(tag_name)s found.",
                 ) % {'tag_name': child.tag}
-                self.handle_view_error(msg)
+                self._raise_view_error(msg)
             if child.tag == "node" and not auto_layout:
                 d_position_field = \
                     child.get('d_position_field', False)
@@ -87,7 +87,7 @@ class IrUiView(models.Model):
                         "Field d_position_field must be present in"
                         " diagram_plus[node], because set auto_layout='False'"
                     )
-                    self.handle_view_error(message)
+                    self._raise_view_error(message)
 
     @api.model
     def crnd_diagram_plus_graph_get(self, record_id, model, node_obj, conn_obj,

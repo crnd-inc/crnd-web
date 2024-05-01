@@ -35,8 +35,14 @@ class DiagramPlusView(http.Controller):
     # pylint: disable=too-many-branches
     @http.route('/web_diagram_plus/diagram/get_diagram_info',
                 type='json', auth='user')
-    def get_diagram_info(self, id, model, node, connector,
-                         src_node, des_node, label, **kw):
+    def get_diagram_info(self, **kw):
+        res_id = kw.get('id', False)
+        model = kw.get('model', '')
+        node = kw.get('node', '')
+        connector = kw.get('connector', '')
+        src_node = kw.get('src_node', '')
+        des_node = kw.get('des_node', '')
+        label = kw.get('label', '')
         visible_node_fields = kw.get('visible_node_fields', [])
         invisible_node_fields = kw.get('invisible_node_fields', [])
         node_fields_string = kw.get('node_fields_string', [])
@@ -72,13 +78,13 @@ class DiagramPlusView(http.Controller):
 
         ir_view = http.request.env['ir.ui.view']
         graphs = ir_view.crnd_diagram_plus_graph_get(
-            int(id), model, node, connector, src_node, des_node,
+            int(res_id), model, node, connector, src_node, des_node,
             label, (140, 180))
         nodes = {}
         isolate_nodes = {}
         if not auto_layout and not calc_auto_layout:
             nodes_data = self._diagram_plus_view__find_nodes(
-                diagram_id=id, diagram_model=model, node_model=node)
+                diagram_id=res_id, diagram_model=model, node_model=node)
             for n in nodes_data:
                 if n[d_position_field]:
                     nodes[str(n.id)] = {
@@ -153,7 +159,7 @@ class DiagramPlusView(http.Controller):
 
         # CRND FIX: restrict field by type (move computation to separate meth)
         search_acts = self._diagram_plus_view__find_nodes(
-            diagram_id=id, diagram_model=model, node_model=node)
+            diagram_id=res_id, diagram_model=model, node_model=node)
         # CRND FIX END
         data_acts = search_acts.read(
             invisible_node_fields + visible_node_fields)
@@ -205,7 +211,8 @@ class DiagramPlusView(http.Controller):
                         })
                     })
 
-        _id, name = http.request.env[model].sudo().browse([id]).name_get()[0]
+        _id, name =\
+            http.request.env[model].sudo().browse([res_id]).name_get()[0]
         highlight_node_id = kw.get('highlight_node_id')
         if highlight_node_id:
             highlight_node = nodes.get(str(highlight_node_id))

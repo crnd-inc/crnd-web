@@ -1,19 +1,38 @@
 <template>
+
+    <t t-name="DiagramPlusView">
+        <div class="o_diagram_plus"/>
+    </t>
+
     <t t-name="DiagramPlusView.buttons">
-        <div t-if="widget.is_action_enabled('create')">
-            <button type="button" class="btn btn-primary o_diagram_plus_new_button">
+        <div t-if="active_create">
+            <button type="button" class="btn btn-primary o_diagram_plus_new_button" t-on-click="_addNode">
                 New Node
             </button>
             <t t-if="!auto_layout">
-                <button type="button" class="btn btn-primary o_diagram_plus_auto_layout">
+                <button type="button" class="btn btn-secondary ml8 o_diagram_plus_auto_layout" t-on-click="_autoLayout">
                     Auto Layout
                 </button>
             </t>
         </div>
     </t>
 
-    <t t-name="DiagramPlusView">
-        <div class="o_diagram_plus_header"/>
-        <div class="o_diagram_plus"/>
+    <t t-name="DiagramPlusView.Controller">
+        <div class="o_diagram_plus_view" t-ref="root">
+            <t t-debug="model"/>
+            <div class="o_diagram_plus_header">
+                <div class="o_control_panel d-flex flex-column gap-3 gap-lg-1 px-3 pt-2 pb-3">
+                    <div class="o_control_panel_main_buttons">
+                        <t t-call="DiagramPlusView.buttons">
+                            <t t-set="active_create" t-value="model.active_actions.create"/>
+                            <t t-set="auto_layout" t-value="model.auto_layout"/>
+                        </t>
+                    </div>
+                </div>
+            </div>
+            <t t-component='props.Renderer'
+               model='model'
+               t-key='state.uuid'/>
+        </div>
     </t>
 </template>

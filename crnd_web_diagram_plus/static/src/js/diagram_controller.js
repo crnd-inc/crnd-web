@@ -1,288 +1,207 @@
 /** @odoo-module **/
 
-import AbstractController from 'web.AbstractController';
-import Dialog from 'web.Dialog';
-import { FormViewDialog } from 'web.view_dialogs';
-import {qweb as QWeb, _t} from 'web.core';
+import {sprintf} from "@web/core/utils/strings";
+import {_t} from "@web/core/l10n/translation";
+import {Layout} from "@web/search/layout";
+import {useModelWithSampleData} from "@web/model/model";
+import {standardViewProps} from "@web/views/standard_view_props";
+import {useSetupView} from "@web/views/view_hook";
+import {FormViewDialog} from "@web/views/view_dialogs/form_view_dialog";
+import {useOwnedDialogs, useService} from "@web/core/utils/hooks";
+import {Component, useSubEnv, useRef, useState} from "@odoo/owl";
+import {uuid} from "@web/views/utils";
+import {
+    ConfirmationDialog
+} from "@web/core/confirmation_dialog/confirmation_dialog";
+
+function useUniqueDialog() {
+    const displayDialog = useOwnedDialogs();
+    let close = null;
+    return (...args) => {
+        if (close) {
+            close();
+        }
+        close = displayDialog(...args);
+    };
+}
 
 /**
  * Diagram Controller
  */
-var DiagramPlusController = AbstractController.extend({
-    className: 'o_diagram_plus_view',
-    custom_events: {
-        add_edge: '_onAddEdge',
-        edit_edge: '_onEditEdge',
-        edit_node: '_onEditNode',
-        remove_edge: '_onRemoveEdge',
-        remove_node: '_onRemoveNode',
-        change_node_position: '_onChangeNodePosition',
-    },
+export class DiagramPlusController extends Component {
+    setup() {
+        useSubEnv({
+            custom_events: {
+                add_edge: this._onAddEdge.bind(this),
+                edit_edge: this._onEditEdge.bind(this),
+                edit_node: this._onEditNode.bind(this),
+                remove_edge: this._onRemoveEdge.bind(this),
+                remove_node: this._onRemoveNode.bind(this),
+                change_node_position: this._onChangeNodePosition.bind(this),
+            }
+        });
+        this.dialog = useService("dialog");
+        this.displayDialog = useUniqueDialog();
+        this.state = useState({
+            uuid: uuid()
+        })
+        this.model = useState(useModelWithSampleData(this.props.Model, this.props.modelParams));
+        useSetupView({
+            rootRef: useRef("root"),
+            getContext: () => this.props.context,
+        });
+    }
 
-    /**
-     * @override
-     * @param {Widget} parent
-     * @param {DiagramModel} model
-     * @param {DiagramRenderer} renderer
-     * @param {Object} params
-     */
-    init: function (parent, model, renderer, params) {
-        this._super.apply(this, arguments);
-        this.domain = params.domain || [];
-        this.context = params.context;
-        this.ids = params.ids;
-        this.currentId = params.currentId;
-        // get from context diagram_readonly value
-        // to disable events, if needed
-        this.diagram_readonly = this.context.diagram_readonly;
-    },
+    async handleDataChange() {
+        await this.model.reload()
+        this.state.uuid = uuid();
+    }
 
-    // --------------------------------------------------------------------
-    // Public
-    // --------------------------------------------------------------------
-
-    /**
-     * Render the buttons according to the DiagramView.buttons template and
-     * add listeners on it. Set this.$buttons with the produced jQuery
-     * element
-     *
-     * @param {jQuery} [$node] a jQuery node where the rendered buttons
-     * should be inserted $node may be undefined, in which case they are
-     * inserted into this.options.$buttons
-     */
-    renderButtons: function ($node) {
-    // Do not render buttons when diagram in readonly mode
-        if (this.diagram_readonly) {
-            return
-        }
-        this.$buttons = $(QWeb.render(
-            "DiagramPlusView.buttons", {
-                widget: this,
-                auto_layout: this.model.auto_layout,
-            }));
-        this.$buttons.on(
-            'click',
-            '.o_diagram_plus_new_button',
-            this._addNode.bind(this)
-        );
-        if (!this.model.auto_layout) {
-            this.$buttons.on(
-                'click',
-                '.o_diagram_plus_auto_layout',
-                this._autoLayout.bind(this)
+    async _addNode(event) {
+        let {node_model} = this.model.get();
+        return new Promise((resolve) => {
+            this.displayDialog(
+                FormViewDialog, {
+                    resModel: node_model,
+                    resId: false,
+                    context: {},
+                    title: sprintf("%s %s", _t("Create:"), _t('Activity')),
+                    onRecordSaved: async () => {
+                        await this.handleDataChange()
+                    },
+                }, {onClose: () => resolve()}
             );
-        }
-        this.$buttons.appendTo($node);
-    },
+        });
+    }
 
-    // --------------------------------------------------------------------
-    // Private
-    // --------------------------------------------------------------------
+    _autoLayout() {
+        let self = this;
+        return this.dialog.add(ConfirmationDialog, {
+            body: _t("Do you really want to change the positions of the nodes?"),
+            confirmLabel: _t("Confirm"),
+            confirm: async () => {
+                self.model.calc_auto_layout = true;
+                await this.handleDataChange()
+            },
+            cancel: () => {
+            },
+        });
+    }
 
-    /**
-     * Creates a popup to add a node to the diagram
-     *
-     * @private
-     */
-    _addNode: function () {
-    // Disable node creation when diagram in readonly mode
-        if (this.diagram_readonly) {
+    _onRemoveNode(record_id) {
+        let {node_model} = this.model.get();
+        let self = this;
+        return this.dialog.add(ConfirmationDialog, {
+            body: _t("Are you sure you want to remove this node? This will remove its connected transitions as well."),
+            confirmLabel: _t("Delete"),
+            confirm: async () => {
+                await self.model.orm.call(node_model, "unlink", [record_id])
+                await this.handleDataChange()
+            },
+            cancel: () => {
+            },
+        });
+    }
+
+    _onEditNode(record_id) {
+        let {diagram_readonly, node_model} = this.model.get();
+        if (diagram_readonly) {
             return
         }
-        var state = this.model.get();
-        var pop = new FormViewDialog(this, {
-            res_model: state.node_model,
-            domain: this.domain,
-            context: this.context,
-            title: _.str.sprintf("%s %s", _t("Create:"), _t('Activity')),
-            disable_multiple_selection: true,
-            on_saved: this.reload.bind(this),
-        }).open();
-
-        // Manually trigger a 'field_changed' on the dialog's form_view
-        // to set the default value of the parent_id field
-        pop.opened().then(function () {
-            var changes = {};
-            changes[state.parent_field] = {
-                id: state.res_id,
-            };
-            pop.form_view.trigger_up('field_changed', {
-                dataPointID: pop.form_view.handle,
-                changes: changes,
-            });
+        return new Promise((resolve) => {
+            this.displayDialog(
+                FormViewDialog, {
+                    resModel: node_model,
+                    resId: record_id,
+                    context: this.context,
+                    title: sprintf("%s %s", _t("Open:"), _t('Activity')),
+                    onRecordSaved: async () => {
+                        await this.handleDataChange()
+                    },
+                }, {onClose: () => resolve()}
+            );
         });
-    },
+    }
 
-    /* eslint-disable */
-    _autoLayout: function () {
-        var self = this;
-        Dialog.confirm(
-            this,
-            "Do you really want to change the positions of the nodes?",
-            {
-                confirm_callback: function () {
-                    self.model.calc_auto_layout = true;
-                    self.reload();
-                },
-            });
-    },
-    /* eslint-enable */
-
-    // --------------------------------------------------------------------
-    // Handlers
-    // --------------------------------------------------------------------
-
-    /**
-     * Custom event handler that opens a popup to add an edge from given
-     * source and dest nodes.
-     *
-     * @private
-     * @param {OdooEvent} event
-     */
-    _onAddEdge: function (event) {
-        // Disable edge creation when diagram in readonly mode
-        if (this.diagram_readonly) {
-            return
-        }
-        var self = this;
-        var state = this.model.get();
-        var pop = new FormViewDialog(self, {
-            res_model: state.connector_model,
-            domain: this.domain,
-            context: this.context,
-            title: _.str.sprintf("%s %s", _t("Create:"), _t('Transition')),
-            disable_multiple_selection: true,
-        }).open();
-
-        // Manually trigger a 'field_changed' on the dialog's form_view to
-        // set the default source and destination values
-        pop.opened().then(function () {
-            var changes = {};
-            changes[state.connectors.attrs.source] = {
-                id: event.data.source_id,
-            };
-            changes[state.connectors.attrs.destination] = {
-                id: event.data.dest_id,
-            };
-            pop.form_view.trigger_up('field_changed', {
-                dataPointID: pop.form_view.handle,
-                changes: changes,
-            });
-        });
-        pop.on('closed', this, this.reload.bind(this));
-    },
-
-    /**
-     * Custom event handler that opens a popup to edit an edge given its id
-     *
-     * @private
-     * @param {OdooEvent} event
-     */
-    _onEditEdge: function (event) {
-    // Disable edge editing when diagram in readonly mode
-        if (this.diagram_readonly) {
-                return
-            }
-        var state = this.model.get();
-        new FormViewDialog(this, {
-            res_model: state.connector_model,
-            res_id: parseInt(event.data.id, 10),
-            context: this.context,
-            title: _.str.sprintf("%s %s", _t("Open:"), _t('Transition')),
-            on_saved: this.reload.bind(this),
-        }).open();
-    },
-
-    /**
-     * Custom event handler that opens a popup to edit the content of
-     * a node given its id
-     *
-     * @private
-     * @param {OdooEvent} event
-     */
-    _onEditNode: function (event) {
-    // Disable node editing when diagram in readonly mode
-        if (this.diagram_readonly) {
-                return
-            }
-        var state = this.model.get();
-        new FormViewDialog(this, {
-            res_model: state.node_model,
-            res_id: event.data.id,
-            context: this.context,
-            title: _.str.sprintf("%s %s", _t("Open:"), _t('Activity')),
-            on_saved: this.reload.bind(this),
-        }).open();
-    },
-
-    _onChangeNodePosition: function (event) {
-        var d_position_field = this.model.nodes.attrs.d_position_field;
-        var node_position = JSON.stringify(event.data.node.get_pos());
-        var values = {};
+    async _onChangeNodePosition(node) {
+        let {node_model} = this.model.get();
+        let d_position_field = $(this.model.nodes).attr('d_position_field');
+        let node_position = JSON.stringify(node.get_pos());
+        let values = {};
         values[d_position_field] = node_position;
-        this._rpc({
-            model: this.model.node_model,
-            method: 'write',
-            args: [
-                [event.data.node.id],
-                values,
-            ],
-        });
-    },
+        await this.model.orm.call(node_model, "write", [[node.id], values])
+        return this.handleDataChange()
+    }
 
-    /**
-     * Custom event handler that removes an edge given its id
-     *
-     * @private
-     * @param {OdooEvent} event
-     */
-    _onRemoveEdge: function (event) {
-    // Disable edge deleting when diagram in readonly mode
-        if (this.diagram_readonly) {
-                return
-            }
-        var self = this;
-        Dialog.confirm(this, _t(
-            "Are you sure you want to remove this transition?"), {
-            confirm_callback: function () {
-                var state = self.model.get();
-                self._rpc({
-                    model: state.connector_model,
-                    method: 'unlink',
-                    args: [event.data.id],
-                })
-                    .then(self.reload.bind(self));
+    _onAddEdge(data) {
+        let {diagram_readonly, connectors, connector_model} = this.model.get();
+        if (diagram_readonly) {
+            return
+        }
+        let ctx = {}
+        ctx[`default_${$(connectors).attr('source')}`] = data.source_id;
+        ctx[`default_${$(connectors).attr('destination')}`] = data.dest_id;
+        return new Promise((resolve) => {
+            this.displayDialog(
+                FormViewDialog, {
+                    resModel: connector_model,
+                    resId: false,
+                    context: ctx,
+                    title: sprintf("%s %s", _t("Create:"), _t('Transition')),
+                    onRecordSaved: async () => {
+                        await this.handleDataChange()
+                    },
+                }, {onClose: () => resolve()}
+            );
+        });
+    }
+
+    _onRemoveEdge(record_id) {
+        let {diagram_readonly, connector_model} = this.model.get();
+        if (diagram_readonly) {
+            return
+        }
+        let self = this;
+        return this.dialog.add(ConfirmationDialog, {
+            body: _t("Are you sure you want to remove this transition?"),
+            confirmLabel: _t("Delete"),
+            confirm: async () => {
+                await self.model.orm.call(connector_model, "unlink", [record_id])
+                await this.handleDataChange()
+            },
+            cancel: () => {
             },
         });
-    },
+    }
 
-    /**
-     * Custom event handler that removes a node given its id
-     *
-     * @private
-     * @param {OdooEvent} event
-     */
-    _onRemoveNode: function (event) {
-    // Disable node deleting when diagram in readonly mode
-        if (this.diagram_readonly) {
-                return
-            }
-        var self = this;
-        var msg = _t(
-            "Are you sure you want to remove this node?" +
-            " This will remove its connected transitions as well.");
-        Dialog.confirm(this, msg, {
-            confirm_callback: function () {
-                var state = self.model.get();
-                self._rpc({
-                    model: state.node_model,
-                    method: 'unlink',
-                    args: [event.data.id],
-                })
-                    .then(self.reload.bind(self));
-            },
+    _onEditEdge(record_id) {
+        let {diagram_readonly, connector_model} = this.model.get();
+
+        if (diagram_readonly) {
+            return
+        }
+        return new Promise((resolve) => {
+            this.displayDialog(
+                FormViewDialog, {
+                    resModel: connector_model,
+                    resId: record_id,
+                    context: this.context,
+                    title: sprintf("%s %s", _t("Open:"), _t('Transition')),
+                    onRecordSaved: async () => {
+                        await this.handleDataChange()
+                    },
+                }, {onClose: () => resolve()}
+            );
         });
-    },
-});
+    }
+}
 
-export default DiagramPlusController;
+DiagramPlusController.template = "DiagramPlusView.Controller";
+DiagramPlusController.components = {Layout};
+DiagramPlusController.props = {
+    ...standardViewProps,
+    Model: Function,
+    modelParams: Object,
+    Renderer: Function,
+    buttonTemplate: String,
+};
