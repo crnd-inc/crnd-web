@@ -48,11 +48,11 @@ export class DiagramPlusModel extends Model {
         this.connector_fields_string = params.connector_fields_string;
         this.labels = params.labels;
         this.auto_layout = params.auto_layout;
-        this.diagram_readonly = params.diagram_readonly;
+        this.diagram_readonly = searchParams.context.diagram_readonly;
         this.active_actions = params.activeActions;
         // fetch from context, passed through action following values
-        this.highlight_node_id = params.context.highlight_node_id;
-        this.highlight_node_color = params.context.highlight_node_color;
+        this.highlight_node_id = searchParams.context.highlight_node_id;
+        this.highlight_node_color = searchParams.context.highlight_node_color;
         await this._fetchDiagramInfo();
     }
 

@@ -19,21 +19,10 @@ export class DiagramPlusArchParser {    parse(xmlDoc, resModel, resId, fields = 
                 let labels = Array.from(node.children)
                     .filter(child => child.tagName === 'LABEL')
                     .map(label => label.getAttribute('string'));
-                let default_ctx = {
-                    highlight_node_id: false,
-                    highlight_node_color: false,
-                }
-                let ctx =
-                    'context' in node.attributes ? (Object.assign(
-                        default_ctx, JSON.parse(node.attributes.context.value.replace(/'/g, '"')))
-                    ) : (default_ctx);
-
                 archInfo = Object.assign(archInfo, {
                     activeActions: getActiveActions(node),
                     labels: labels,
                     auto_layout: 'auto_layout' in node.attributes ? archParseBoolean(node.attributes.auto_layout.value) : true,
-                    diagram_readonly: 'diagram_readonly' in node.attributes ? archParseBoolean(node.attributes.diagram_readonly.value) : false,
-                    context: ctx,
                 });
             } else if (node.tagName === 'node') {
                 let invisible_nodes = [];

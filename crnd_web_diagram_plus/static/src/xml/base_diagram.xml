@@ -23,7 +23,7 @@
             <div class="o_diagram_plus_header">
                 <div class="o_control_panel d-flex flex-column gap-3 gap-lg-1 px-3 pt-2 pb-3">
                     <div class="o_control_panel_main_buttons">
-                        <t t-call="DiagramPlusView.buttons">
+                        <t t-call="DiagramPlusView.buttons" t-if="!model.diagram_readonly">
                             <t t-set="active_create" t-value="model.active_actions.create"/>
                             <t t-set="auto_layout" t-value="model.auto_layout"/>
                         </t>
