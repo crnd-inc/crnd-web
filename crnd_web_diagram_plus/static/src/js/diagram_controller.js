@@ -136,7 +136,7 @@ export class DiagramPlusController extends Component {
     _onAddEdge(data) {
         let {diagram_readonly, connectors, connector_model} = this.model.get();
         if (diagram_readonly) {
-            return
+            return false
         }
         let ctx = {}
         ctx[`default_${$(connectors).attr('source')}`] = data.source_id;

@@ -3,7 +3,8 @@
 import {visitXML} from "@web/core/utils/xml";
 import {archParseBoolean, getActiveActions} from "@web/views/utils";
 
-export class DiagramPlusArchParser {    parse(xmlDoc, resModel, resId, fields = {}) {
+export class DiagramPlusArchParser {
+    parse(xmlDoc, resModel, resId, fields = {}) {
         let archInfo = {
             fields, fieldAttrs: {},
             groupBy: [],
@@ -61,7 +62,7 @@ export class DiagramPlusArchParser {    parse(xmlDoc, resModel, resId, fields = 
     }
 
     toTitleCase(str) {
-        return str.replace(/\b\w/g, function(txt) {
+        return str.replace(/\b\w/g, function (txt) {
             return txt.toUpperCase();
         });
     }
