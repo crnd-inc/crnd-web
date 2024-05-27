@@ -64,7 +64,7 @@ export class DiagramPlusController extends Component {
                 FormViewDialog, {
                     resModel: node_model,
                     resId: false,
-                    context: {},
+                    context: this.props.context || {},
                     title: sprintf("%s %s", _t("Create:"), _t('Activity')),
                     onRecordSaved: async () => {
                         await this.handleDataChange()
@@ -138,7 +138,7 @@ export class DiagramPlusController extends Component {
         if (diagram_readonly) {
             return false
         }
-        let ctx = {}
+        let ctx = this.props.context || {}
         ctx[`default_${$(connectors).attr('source')}`] = data.source_id;
         ctx[`default_${$(connectors).attr('destination')}`] = data.dest_id;
         return new Promise((resolve) => {

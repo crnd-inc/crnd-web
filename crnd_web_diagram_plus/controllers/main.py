@@ -173,7 +173,7 @@ class DiagramPlusView(http.Controller):
                     x=x_min + (
                         0 if auto_layout or calc_auto_layout else x_offset),
                     y=y_max)
-                nodes[act['id']] = n
+                nodes[str(act['id'])] = n
 
             n.update(
                 id=act['id'],
