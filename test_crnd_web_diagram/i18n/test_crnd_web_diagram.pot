@@ -1,0 +1,249 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* test_crnd_web_diagram
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: test_crnd_web_diagram
+#: model:ir.model.fields,field_description:test_crnd_web_diagram.field_development_stage__bg_color
+msgid "Background Color"
+msgstr ""
+
+#. module: test_crnd_web_diagram
+#: model:ir.model.fields,field_description:test_crnd_web_diagram.field_development_stage__res_bg_color
+#: model:ir.model.fields,field_description:test_crnd_web_diagram.field_development_stage_type__bg_color
+msgid "Backgroung Color"
+msgstr ""
+
+#. module: test_crnd_web_diagram
+#: model:ir.model.fields,field_description:test_crnd_web_diagram.field_development_development__create_uid
+#: model:ir.model.fields,field_description:test_crnd_web_diagram.field_development_stage__create_uid
+#: model:ir.model.fields,field_description:test_crnd_web_diagram.field_development_stage_route__create_uid
+#: model:ir.model.fields,field_description:test_crnd_web_diagram.field_development_stage_type__create_uid
+#: model:ir.model.fields,field_description:test_crnd_web_diagram.field_development_type__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: test_crnd_web_diagram
+#: model:ir.model.fields,field_description:test_crnd_web_diagram.field_development_development__create_date
+#: model:ir.model.fields,field_description:test_crnd_web_diagram.field_development_stage__create_date
+#: model:ir.model.fields,field_description:test_crnd_web_diagram.field_development_stage_route__create_date
+#: model:ir.model.fields,field_description:test_crnd_web_diagram.field_development_stage_type__create_date
+#: model:ir.model.fields,field_description:test_crnd_web_diagram.field_development_type__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: test_crnd_web_diagram
+#: model:ir.model.fields,field_description:test_crnd_web_diagram.field_development_type__current_stage_highlight_color
+msgid "Current Stage Highlight Color"
+msgstr ""
+
+#. module: test_crnd_web_diagram
+#: model:ir.model.fields,field_description:test_crnd_web_diagram.field_development_stage_type__development_ids
+msgid "Development"
+msgstr ""
+
+#. module: test_crnd_web_diagram
+#: model:ir.actions.act_window,name:test_crnd_web_diagram.development_stage_action
+#: model:ir.model.fields,field_description:test_crnd_web_diagram.field_development_development__development_stage_id
+msgid "Development Stage"
+msgstr ""
+
+#. module: test_crnd_web_diagram
+#: model:ir.model.fields,field_description:test_crnd_web_diagram.field_development_development__development_stage_type_id
+#: model:ir.model.fields,field_description:test_crnd_web_diagram.field_development_stage__type_id
+msgid "Development Stage Type"
+msgstr ""
+
+#. module: test_crnd_web_diagram
+#: model:ir.ui.menu,name:test_crnd_web_diagram.development_stage_menu
+msgid "Development Stages"
+msgstr ""
+
+#. module: test_crnd_web_diagram
+#: model:ir.model.fields,field_description:test_crnd_web_diagram.field_development_development__development_type_id
+#: model:ir.model.fields,field_description:test_crnd_web_diagram.field_development_stage__development_type_id
+msgid "Development Type"
+msgstr ""
+
+#. module: test_crnd_web_diagram
+#: model:ir.actions.act_window,name:test_crnd_web_diagram.development_type_action
+#: model:ir.ui.menu,name:test_crnd_web_diagram.development_type_menu
+msgid "Development Types"
+msgstr ""
+
+#. module: test_crnd_web_diagram
+#: model:ir.model,name:test_crnd_web_diagram.model_development_type
+#: model:ir.model.fields,field_description:test_crnd_web_diagram.field_development_stage_route__development_type_id
+msgid "Development type"
+msgstr ""
+
+#. module: test_crnd_web_diagram
+#: model:ir.model.fields,field_description:test_crnd_web_diagram.field_development_stage__development_ids
+#: model:ir.model.fields,field_description:test_crnd_web_diagram.field_development_type__development_ids
+#: model:ir.ui.menu,name:test_crnd_web_diagram.developments_menu
+#: model:ir.ui.menu,name:test_crnd_web_diagram.developments_menu_root
+msgid "Developments"
+msgstr ""
+
+#. module: test_crnd_web_diagram
+#: model:ir.model.fields,field_description:test_crnd_web_diagram.field_development_stage__diagram_position
+msgid "Diagram Position"
+msgstr ""
+
+#. module: test_crnd_web_diagram
+#: model:ir.model.fields,field_description:test_crnd_web_diagram.field_development_development__display_name
+#: model:ir.model.fields,field_description:test_crnd_web_diagram.field_development_stage__display_name
+#: model:ir.model.fields,field_description:test_crnd_web_diagram.field_development_stage_route__display_name
+#: model:ir.model.fields,field_description:test_crnd_web_diagram.field_development_stage_type__display_name
+#: model:ir.model.fields,field_description:test_crnd_web_diagram.field_development_type__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: test_crnd_web_diagram
+#: model:ir.model.fields,field_description:test_crnd_web_diagram.field_development_development__id
+#: model:ir.model.fields,field_description:test_crnd_web_diagram.field_development_stage__id
+#: model:ir.model.fields,field_description:test_crnd_web_diagram.field_development_stage_route__id
+#: model:ir.model.fields,field_description:test_crnd_web_diagram.field_development_stage_type__id
+#: model:ir.model.fields,field_description:test_crnd_web_diagram.field_development_type__id
+msgid "ID"
+msgstr ""
+
+#. module: test_crnd_web_diagram
+#: model:ir.model.fields,field_description:test_crnd_web_diagram.field_development_stage__route_in_ids
+msgid "Incoming routes"
+msgstr ""
+
+#. module: test_crnd_web_diagram
+#: model:ir.model.fields,field_description:test_crnd_web_diagram.field_development_stage__label_color
+#: model:ir.model.fields,field_description:test_crnd_web_diagram.field_development_stage__res_label_color
+#: model:ir.model.fields,field_description:test_crnd_web_diagram.field_development_stage_type__label_color
+msgid "Label Color"
+msgstr ""
+
+#. module: test_crnd_web_diagram
+#: model:ir.model.fields,field_description:test_crnd_web_diagram.field_development_development__write_uid
+#: model:ir.model.fields,field_description:test_crnd_web_diagram.field_development_stage__write_uid
+#: model:ir.model.fields,field_description:test_crnd_web_diagram.field_development_stage_route__write_uid
+#: model:ir.model.fields,field_description:test_crnd_web_diagram.field_development_stage_type__write_uid
+#: model:ir.model.fields,field_description:test_crnd_web_diagram.field_development_type__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: test_crnd_web_diagram
+#: model:ir.model.fields,field_description:test_crnd_web_diagram.field_development_development__write_date
+#: model:ir.model.fields,field_description:test_crnd_web_diagram.field_development_stage__write_date
+#: model:ir.model.fields,field_description:test_crnd_web_diagram.field_development_stage_route__write_date
+#: model:ir.model.fields,field_description:test_crnd_web_diagram.field_development_stage_type__write_date
+#: model:ir.model.fields,field_description:test_crnd_web_diagram.field_development_type__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: test_crnd_web_diagram
+#: model:ir.model.fields,field_description:test_crnd_web_diagram.field_development_development__name
+#: model:ir.model.fields,field_description:test_crnd_web_diagram.field_development_stage__name
+#: model:ir.model.fields,field_description:test_crnd_web_diagram.field_development_stage_route__name
+#: model:ir.model.fields,field_description:test_crnd_web_diagram.field_development_stage_type__name
+#: model:ir.model.fields,field_description:test_crnd_web_diagram.field_development_type__name
+msgid "Name"
+msgstr ""
+
+#. module: test_crnd_web_diagram
+#: model:ir.model.fields,field_description:test_crnd_web_diagram.field_development_stage__route_out_ids
+msgid "Outgoing routes"
+msgstr ""
+
+#. module: test_crnd_web_diagram
+#: model:ir.model.fields,help:test_crnd_web_diagram.field_development_stage__use_custom_colors
+msgid "Select colors from the palette manually"
+msgstr ""
+
+#. module: test_crnd_web_diagram
+#: model:ir.model.fields,field_description:test_crnd_web_diagram.field_development_type__route_ids
+msgid "Stage Routes"
+msgstr ""
+
+#. module: test_crnd_web_diagram
+#: model:ir.model.fields,field_description:test_crnd_web_diagram.field_development_stage_route__stage_from_id
+msgid "Stage from"
+msgstr ""
+
+#. module: test_crnd_web_diagram
+#: model:ir.model.fields,field_description:test_crnd_web_diagram.field_development_stage_route__stage_to_id
+msgid "Stage to"
+msgstr ""
+
+#. module: test_crnd_web_diagram
+#: model:ir.model.fields,field_description:test_crnd_web_diagram.field_development_type__stage_ids
+msgid "Stages"
+msgstr ""
+
+#. module: test_crnd_web_diagram
+#: model:ir.model.fields,help:test_crnd_web_diagram.field_development_type__current_stage_highlight_color
+msgid "The color to highlight the current stage on flow"
+msgstr ""
+
+#. module: test_crnd_web_diagram
+#: model:ir.model,name:test_crnd_web_diagram.model_development_development
+msgid "The development"
+msgstr ""
+
+#. module: test_crnd_web_diagram
+#: model:ir.model,name:test_crnd_web_diagram.model_development_stage_route
+msgid "The development stage route"
+msgstr ""
+
+#. module: test_crnd_web_diagram
+#: model:ir.model,name:test_crnd_web_diagram.model_development_stage
+msgid "The stage of development"
+msgstr ""
+
+#. module: test_crnd_web_diagram
+#: model:ir.model.fields,field_description:test_crnd_web_diagram.field_development_stage__use_custom_colors
+msgid "Use Custom Colors"
+msgstr ""
+
+#. module: test_crnd_web_diagram
+#: model_terms:ir.ui.view,arch_db:test_crnd_web_diagram.development_type_view_form
+#: model_terms:ir.ui.view,arch_db:test_crnd_web_diagram.development_view_form
+msgid "View Flow"
+msgstr ""
+
+#. module: test_crnd_web_diagram
+#. odoo-python
+#: code:addons/test_crnd_web_diagram/models/development.py:0
+#, python-format
+msgid "Workflow: %(development_name)s"
+msgstr ""
+
+#. module: test_crnd_web_diagram
+#. odoo-python
+#: code:addons/test_crnd_web_diagram/models/development_type.py:0
+#, python-format
+msgid "Workflow: %(type_name)s"
+msgstr ""
+
+#. module: test_crnd_web_diagram
+#: model_terms:ir.ui.view,arch_db:test_crnd_web_diagram.view_development_development_diagram
+#: model_terms:ir.ui.view,arch_db:test_crnd_web_diagram.view_development_type_diagram
+msgid "['name']"
+msgstr ""
+
+#. module: test_crnd_web_diagram
+#: model:ir.actions.act_window,name:test_crnd_web_diagram.development_action
+msgid "development"
+msgstr ""
+
+#. module: test_crnd_web_diagram
+#: model:ir.model,name:test_crnd_web_diagram.model_development_stage_type
+msgid "development.stage.type"
+msgstr ""
