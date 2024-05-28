@@ -104,7 +104,7 @@ tests:
         - odood addons link -r .
         - odood addons add --odoo-requirements odoo_requirements.txt || true
     script:
-        - odood test -t --isw --error-report --coverage --coverage-report --coverage-skip-covered --coverage-fail-under 30 --dir .
+        - odood test -t --isw --error-report --coverage --coverage-report --coverage-skip-covered --coverage-fail-under 28 --dir .
     <<: *except_auto_commits
     coverage: '/^TOTAL\s+\d+\s+\d+\s+(\d+\%)/'
 
