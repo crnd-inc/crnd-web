@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="development_type_view_form" model="ir.ui.view">
+        <field name="model">development.type</field>
+        <field name="arch" type="xml">
+            <form>
+                <field name="id" invisible="1"/>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_development_type_diagram"
+                                type="object"
+                                string="View Flow"
+                                class="oe_stat_button"
+                                icon="fa-code-fork">
+                        </button>
+                    </div>
+                    <group>
+                        <field name="name"/>
+                        <field name="stage_ids" widget="many2many_tags"/>
+                        <field name="route_ids" widget="many2many_tags"/>
+                        <field name="development_ids" widget="many2many_tags"/>
+                        <field name="current_stage_highlight_color" widget="color"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="development_type_view_tree" model="ir.ui.view">
+        <field name="model">development.type</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="stage_ids" widget="many2many_tags"/>
+                <field name="route_ids" widget="many2many_tags"/>
+                <field name="development_ids" widget="many2many_tags"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_development_type_diagram">
+        <field name="model">development.type</field>
+        <field name="type">diagram_plus</field>
+        <field name="arch" type="xml">
+            <diagram_plus auto_layout="false">
+                <node object="development.stage"
+                      bgcolor="gray:closed"
+                      bg_color_field="res_bg_color"
+                      fg_color_field="res_label_color"
+                      d_position_field="diagram_position">
+                </node>
+                <arrow object="development.stage.route"
+                       source="stage_from_id"
+                       destination="stage_to_id"
+                       label="['name']">
+                </arrow>
+            </diagram_plus>
+        </field>
+    </record>
+
+    <record id="development_type_action" model="ir.actions.act_window">
+        <field name="name">Development Types</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">development.type</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="development_type_menu"
+              sequence="3"
+              name="Development Types"
+              parent="developments_menu_root"
+              action="development_type_action"/>
+
+</odoo>

@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+<!--    Development Types-->
+    <record id="product_development_type" model="development.type">
+        <field name="name">Product Development</field>
+    </record>
+
+    <record id="software_development_type" model="development.type">
+        <field name="name">Software Development</field>
+    </record>
+
+<!--    Development Stage Types-->
+    <record id="concept_stage_type" model="development.stage.type">
+        <field name="name">Concept</field>
+    </record>
+
+    <record id="design_stage_type" model="development.stage.type">
+        <field name="name">Design</field>
+    </record>
+
+    <record id="development_stage_type" model="development.stage.type">
+        <field name="name">Development</field>
+    </record>
+
+    <record id="testing_stage_type" model="development.stage.type">
+        <field name="name">Testing</field>
+    </record>
+
+    <record id="launch_stage_type" model="development.stage.type">
+        <field name="name">Launch</field>
+    </record>
+
+<!--    Product Development Stages-->
+    <record id="product_concept_development_stage" model="development.stage">
+        <field name="name">Concept</field>
+        <field name="type_id" ref="concept_stage_type"/>
+        <field name="development_type_id" ref="product_development_type"/>
+    </record>
+
+    <record id="product_design_development_stage" model="development.stage">
+        <field name="name">Design</field>
+        <field name="type_id" ref="design_stage_type"/>
+        <field name="development_type_id" ref="product_development_type"/>
+    </record>
+
+    <record id="product_development_development_stage" model="development.stage">
+        <field name="name">Development</field>
+        <field name="type_id" ref="development_stage_type"/>
+        <field name="development_type_id" ref="product_development_type"/>
+    </record>
+
+    <record id="product_testing_development_stage" model="development.stage">
+        <field name="name">Testing</field>
+        <field name="type_id" ref="testing_stage_type"/>
+        <field name="development_type_id" ref="product_development_type"/>
+    </record>
+
+    <record id="product_launch_development_stage" model="development.stage">
+        <field name="name">Launch</field>
+        <field name="type_id" ref="launch_stage_type"/>
+        <field name="development_type_id" ref="product_development_type"/>
+    </record>
+
+<!--    Software development stages-->
+    <record id="software_requirements_development_stage" model="development.stage">
+        <field name="name">Requirements</field>
+        <field name="type_id" ref="concept_stage_type"/>
+        <field name="development_type_id" ref="software_development_type"/>
+    </record>
+
+    <record id="software_design_development_stage" model="development.stage">
+        <field name="name">Design</field>
+        <field name="type_id" ref="design_stage_type"/>
+        <field name="development_type_id" ref="software_development_type"/>
+    </record>
+
+    <record id="software_implementation_development_stage" model="development.stage">
+        <field name="name">Implementation</field>
+        <field name="type_id" ref="development_stage_type"/>
+        <field name="development_type_id" ref="software_development_type"/>
+    </record>
+
+    <record id="software_testing_development_stage" model="development.stage">
+        <field name="name">Testing</field>
+        <field name="type_id" ref="testing_stage_type"/>
+        <field name="development_type_id" ref="software_development_type"/>
+    </record>
+
+    <record id="software_deployment_development_stage" model="development.stage">
+        <field name="name">Deployment</field>
+        <field name="type_id" ref="launch_stage_type"/>
+        <field name="development_type_id" ref="software_development_type"/>
+    </record>
+
+    <record id="software_maintenance_development_stage" model="development.stage">
+        <field name="name">Maintenance</field>
+        <field name="type_id" ref="launch_stage_type"/>
+        <field name="development_type_id" ref="software_development_type"/>
+    </record>
+
+<!--    Product Development Stage Routes-->
+    <record id="product_concept_design_stage_route" model="development.stage.route">
+        <field name="name">Concept to design</field>
+        <field name="stage_from_id" ref="product_concept_development_stage"/>
+        <field name="stage_to_id" ref="product_design_development_stage"/>
+        <field name="development_type_id" ref="product_development_type"/>
+    </record>
+
+    <record id="product_design_development_stage_route" model="development.stage.route">
+        <field name="name">Design to development</field>
+        <field name="stage_from_id" ref="product_design_development_stage"/>
+        <field name="stage_to_id" ref="product_development_development_stage"/>
+        <field name="development_type_id" ref="product_development_type"/>
+    </record>
+
+    <record id="product_development_testing_stage_route" model="development.stage.route">
+        <field name="name">Development to testing</field>
+        <field name="stage_from_id" ref="product_development_development_stage"/>
+        <field name="stage_to_id" ref="product_testing_development_stage"/>
+        <field name="development_type_id" ref="product_development_type"/>
+    </record>
+
+    <record id="product_testing_launch_stage_route" model="development.stage.route">
+        <field name="name">Testing to launch</field>
+        <field name="stage_from_id" ref="product_testing_development_stage"/>
+        <field name="stage_to_id" ref="product_launch_development_stage"/>
+        <field name="development_type_id" ref="product_development_type"/>
+    </record>
+
+<!--    Software Development Stage Routes-->
+    <record id="software_requirements_design_stage_route" model="development.stage.route">
+        <field name="name">Requirements to design</field>
+        <field name="stage_from_id" ref="software_requirements_development_stage"/>
+        <field name="stage_to_id" ref="software_design_development_stage"/>
+        <field name="development_type_id" ref="software_development_type"/>
+    </record>
+
+    <record id="software_design_implementation_stage_route" model="development.stage.route">
+        <field name="name">Design to implementation</field>
+        <field name="stage_from_id" ref="software_design_development_stage"/>
+        <field name="stage_to_id" ref="software_implementation_development_stage"/>
+        <field name="development_type_id" ref="software_development_type"/>
+    </record>
+
+    <record id="software_implementation_testing_stage_route" model="development.stage.route">
+        <field name="name">Implementation to testing</field>
+        <field name="stage_from_id" ref="software_implementation_development_stage"/>
+        <field name="stage_to_id" ref="software_testing_development_stage"/>
+        <field name="development_type_id" ref="software_development_type"/>
+    </record>
+
+    <record id="software_testing_deployment_stage_route" model="development.stage.route">
+        <field name="name">Testing to deployment</field>
+        <field name="stage_from_id" ref="software_testing_development_stage"/>
+        <field name="stage_to_id" ref="software_deployment_development_stage"/>
+        <field name="development_type_id" ref="software_development_type"/>
+    </record>
+
+    <record id="software_deployment_maintenance_stage_route" model="development.stage.route">
+        <field name="name">Deployment to maintenance</field>
+        <field name="stage_from_id" ref="software_deployment_development_stage"/>
+        <field name="stage_to_id" ref="software_maintenance_development_stage"/>
+        <field name="development_type_id" ref="software_development_type"/>
+    </record>
+
+<!--    Demo Developments-->
+    <record id="product_development_solar_backpack" model="development.development">
+        <field name="name">SolarCharge Backpack</field>
+        <field name="development_type_id" ref="product_development_type"/>
+        <field name="development_stage_id" ref="product_design_development_stage"/>
+    </record>
+
+    <record id="software_development_tracker" model="development.development">
+        <field name="name">FitLife Tracker</field>
+        <field name="development_type_id" ref="software_development_type"/>
+        <field name="development_stage_id" ref="software_testing_development_stage"/>
+    </record>
+
+</odoo>

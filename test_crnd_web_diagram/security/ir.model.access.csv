@@ -1,0 +1,6 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+"access_development_any","access_development_any","model_development_development",,1,1,1,1
+"access_development_stage_any","access_development_stage_any","model_development_stage",,1,1,1,1
+"access_development_stage_route_any","access_development_stage_route_any","model_development_stage_route",,1,1,1,1
+"access_development_type_any","access_development_type_any","model_development_type",,1,1,1,1
+"access_development_stage_type_any","access_development_stage_type_any","model_development_stage_type",,1,1,1,1
