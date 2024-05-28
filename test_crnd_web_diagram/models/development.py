@@ -20,7 +20,8 @@ class Development(models.Model):
     def action_development_development_diagram(self):
         self.ensure_one()
         current_stage_id = self.development_stage_id.id
-        highlight_color = self.sudo().development_type_id.current_stage_highlight_color
+        highlight_color = (self.sudo().development_type_id.
+                           current_stage_highlight_color)
         action = self.env['generic.mixin.get.action'].get_action_by_xmlid(
             'test_crnd_web_diagram.development_type_action',
             name=_('Workflow: %(development_name)s') % {
