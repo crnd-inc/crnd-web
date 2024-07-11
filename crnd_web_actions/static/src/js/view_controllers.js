@@ -9,10 +9,9 @@ import { useSetupView } from "@web/views/view_hook";
 for (let ViewController of [FormController, KanbanController, ListController]) {
     patch(
         ViewController.prototype,
-        'crnd_web_actions',
         {
             setup() {
-                this._super(...arguments)
+                super.setup(...arguments);
                 useSetupView({
                     getLocalState: () => ({ model: this.model }),
                 });

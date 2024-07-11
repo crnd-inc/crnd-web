@@ -3,13 +3,12 @@
 import { ViewButton } from "@web/views/view_button/view_button";
 import { patch } from "@web/core/utils/patch";
 import { getControllerModel } from './client_action';
-import { eval_domains_and_contexts } from 'web.py_utils';
+import { eval_domains_and_contexts } from "@web/core/py_js/py_utils";
 
 const FORCE_RELOAD = 'force_reload';
 
 patch(
     ViewButton.prototype,
-    'crnd_web_actions',
     {
         onClick(ev) {
             const context = this.clickParams.context
@@ -22,7 +21,7 @@ patch(
                     return;
                 }
             }
-            this._super(...arguments);
+            super.onClick(...arguments);
         }
     },
 );

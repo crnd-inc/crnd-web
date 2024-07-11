@@ -1,6 +1,6 @@
 {
     'name': 'CRND web actions',
-    'version': '17.0.0.4.0',
+    'version': '17.0.0.4.1',
     'author': "Center of Research and Development",
     'website': "https://crnd.pro",
     'summary': """""",
@@ -19,6 +19,6 @@
         ],
     },
     'images': ['static/description/banner.png'],
-    'installable': False,
+    'installable': True,
     'auto_install': False,
 }
