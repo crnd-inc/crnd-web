@@ -22,14 +22,14 @@ msgid "Action Window View"
 msgstr "Перегляд вікна дії"
 
 #. module: crnd_web_diagram_plus
-#. openerp-web
+#. odoo-javascript
 #: code:addons/crnd_web_diagram_plus/static/src/js/diagram_controller.js:0
 #, python-format
 msgid "Activity"
 msgstr "Діяльність"
 
 #. module: crnd_web_diagram_plus
-#. openerp-web
+#. odoo-javascript
 #: code:addons/crnd_web_diagram_plus/static/src/js/diagram_controller.js:0
 #, python-format
 msgid ""
@@ -38,20 +38,21 @@ msgid ""
 msgstr "Ви впевнені що хочете видалити цей вузол? Це також видалить звʼязки."
 
 #. module: crnd_web_diagram_plus
-#. openerp-web
+#. odoo-javascript
 #: code:addons/crnd_web_diagram_plus/static/src/js/diagram_controller.js:0
 #, python-format
 msgid "Are you sure you want to remove this transition?"
 msgstr "Ви впевнені що хочете видалити це зʼєднання"
 
 #. module: crnd_web_diagram_plus
-#. openerp-web
+#. odoo-javascript
 #: code:addons/crnd_web_diagram_plus/static/src/xml/base_diagram.xml:0
 #, python-format
 msgid "Auto Layout"
 msgstr ""
 
 #. module: crnd_web_diagram_plus
+#. odoo-python
 #: code:addons/crnd_web_diagram_plus/tools/graph.py:0
 #, python-format
 msgid ""
@@ -60,14 +61,28 @@ msgid ""
 msgstr ""
 
 #. module: crnd_web_diagram_plus
-#. openerp-web
+#. odoo-javascript
+#: code:addons/crnd_web_diagram_plus/static/src/js/diagram_controller.js:0
+#, python-format
+msgid "Confirm"
+msgstr ""
+
+#. module: crnd_web_diagram_plus
+#. odoo-javascript
 #: code:addons/crnd_web_diagram_plus/static/src/js/diagram_controller.js:0
 #, python-format
 msgid "Create:"
 msgstr "Створити"
 
 #. module: crnd_web_diagram_plus
-#. openerp-web
+#. odoo-javascript
+#: code:addons/crnd_web_diagram_plus/static/src/js/diagram_controller.js:0
+#, python-format
+msgid "Delete"
+msgstr ""
+
+#. module: crnd_web_diagram_plus
+#. odoo-javascript
 #: code:addons/crnd_web_diagram_plus/static/src/js/diagram_view.js:0
 #: model:ir.model.fields.selection,name:crnd_web_diagram_plus.selection__ir_actions_act_window_view__view_mode__diagram_plus
 #: model:ir.model.fields.selection,name:crnd_web_diagram_plus.selection__ir_ui_view__type__diagram_plus
@@ -76,6 +91,14 @@ msgid "DiagramPlus"
 msgstr ""
 
 #. module: crnd_web_diagram_plus
+#. odoo-javascript
+#: code:addons/crnd_web_diagram_plus/static/src/js/diagram_controller.js:0
+#, python-format
+msgid "Do you really want to change the positions of the nodes?"
+msgstr ""
+
+#. module: crnd_web_diagram_plus
+#. odoo-python
 #: code:addons/crnd_web_diagram_plus/models/ir_ui_view.py:0
 #, python-format
 msgid ""
@@ -84,13 +107,14 @@ msgid ""
 msgstr ""
 
 #. module: crnd_web_diagram_plus
-#. openerp-web
+#. odoo-javascript
 #: code:addons/crnd_web_diagram_plus/static/src/xml/base_diagram.xml:0
 #, python-format
 msgid "New Node"
 msgstr "Новий вузол"
 
 #. module: crnd_web_diagram_plus
+#. odoo-python
 #: code:addons/crnd_web_diagram_plus/models/ir_ui_view.py:0
 #, python-format
 msgid ""
@@ -99,14 +123,14 @@ msgid ""
 msgstr ""
 
 #. module: crnd_web_diagram_plus
-#. openerp-web
+#. odoo-javascript
 #: code:addons/crnd_web_diagram_plus/static/src/js/diagram_controller.js:0
 #, python-format
 msgid "Open:"
 msgstr "Відкрити:"
 
 #. module: crnd_web_diagram_plus
-#. openerp-web
+#. odoo-javascript
 #: code:addons/crnd_web_diagram_plus/static/src/js/diagram_controller.js:0
 #, python-format
 msgid "Transition"
