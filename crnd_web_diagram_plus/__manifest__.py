@@ -7,8 +7,8 @@
     'author': 'Center of Research and Development',
     'support': 'info@crnd.pro',
     'website': 'https://crnd.pro',
-    'license': 'LGPL-3',
-    'version': '17.0.0.14.0',
+    'license': 'OPL-1',
+    'version': '17.0.0.14.1',
     'depends': [
         'web',
     ],
@@ -30,4 +30,6 @@
     'images': ['static/description/banner.png'],
     'installable': True,
     'auto_install': False,
+    'price': 50.0,
+    'currency': 'EUR',
 }
