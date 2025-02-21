@@ -211,8 +211,8 @@ class DiagramPlusView(http.Controller):
                         })
                     })
 
-        _id, name =\
-            http.request.env[model].sudo().browse([res_id]).name_get()[0]
+        name =\
+            http.request.env[model].sudo().browse([res_id]).display_name
         highlight_node_id = kw.get('highlight_node_id')
         if highlight_node_id:
             highlight_node = nodes.get(str(highlight_node_id))
