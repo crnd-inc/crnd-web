@@ -28,7 +28,7 @@
         ],
     },
     'images': ['static/description/banner.png'],
-    'installable': True,
+    'installable': False,
     'auto_install': False,
     'price': 50.0,
     'currency': 'EUR',
