@@ -22,6 +22,11 @@ class IrUiView(models.Model):
         ondelete={'diagram_plus': 'cascade'}
     )
 
+    def _get_view_info(self):
+        res = super()._get_view_info()
+        res.update({'diagram_plus': {'icon': 'fa fa-project-diagram'}})
+        return res
+
     def _postprocess_tag_node(self, node, name_manager, node_info):
         if node.get('bg_color_field'):
             name_manager.has_field(node, node.get('bg_color_field'), {})

@@ -8,7 +8,7 @@
     'support': 'info@crnd.pro',
     'website': 'https://crnd.pro',
     'license': 'OPL-1',
-    'version': '17.0.0.14.2',
+    'version': '18.0.0.14.3',
     'depends': [
         'web',
     ],
@@ -28,7 +28,7 @@
         ],
     },
     'images': ['static/description/banner.png'],
-    'installable': False,
+    'installable': True,
     'auto_install': False,
     'price': 50.0,
     'currency': 'EUR',
