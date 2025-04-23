@@ -29,24 +29,36 @@ class IrUiView(models.Model):
 
     def _postprocess_tag_node(self, node, name_manager, node_info):
         if node.get('bg_color_field'):
-            name_manager.has_field(node, node.get('bg_color_field'), {})
+            name_manager.has_field(
+                node, node.get('bg_color_field'), node_info, {}
+            )
         if node.get('fg_color_field'):
-            name_manager.has_field(node, node.get('fg_color_field'), {})
+            name_manager.has_field(
+                node, node.get('fg_color_field'), node_info, {}
+            )
         if node.get('d_position_field'):
-            name_manager.has_field(node, node.get('d_position_field'), {})
+            name_manager.has_field(
+                node, node.get('d_position_field'), node_info, {}
+            )
         for child in node:
             if child.tag == 'field':
-                name_manager.has_field(node, child.get('name'), {})
+                name_manager.has_field(node, child.get('name'), node_info, {})
                 node.remove(child)
 
     def _postprocess_tag_arrow(self, node, name_manager, node_info):
         if node.get('source'):
-            name_manager.has_field(node, node.get('source'), {})
+            name_manager.has_field(
+                node, node.get('source'), node_info, {}
+            )
         if node.get('destination'):
-            name_manager.has_field(node, node.get('destination'), {})
+            name_manager.has_field(
+                node, node.get('destination'), node_info, {}
+            )
         for child in node:
             if child.tag == 'field':
-                name_manager.has_field(node, child.get('name'), {})
+                name_manager.has_field(
+                    node, child.get('name'), node_info, {}
+                )
                 node.remove(child)
 
     def _postprocess_tag_diagram_plus(self, node, name_manager, node_info):
@@ -60,6 +72,7 @@ class IrUiView(models.Model):
                 )._postprocess_view(
                     child, child.get('object'),
                     editable=node_info['editable'],
+                    node_info=node_info,
                 )
             elif child.tag == 'node':
                 sub_name_manager = self.with_context(
@@ -67,6 +80,7 @@ class IrUiView(models.Model):
                 )._postprocess_view(
                     child, child.get('object'),
                     editable=node_info['editable'],
+                    node_info=node_info,
                 )
                 has_create_access = sub_name_manager.model.check_access_rights(
                     'create', raise_exception=False)

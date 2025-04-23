@@ -1,13 +1,13 @@
 /** @odoo-module **/
-import {KeepLast, Race} from "@web/core/utils/concurrency";
-import {Model} from "@web/model/model";
-import { useService } from "@web/core/utils/hooks";
+import { KeepLast, Race } from "@web/core/utils/concurrency";
+import { Model } from "@web/model/model";
+import { rpc } from "@web/core/network/rpc";
 /**
  * DiagramModel
  */
 export class DiagramPlusModel extends Model {
     setup(params) {
-        this.rpc = useService('rpc');
+        this.rpc = rpc;
         this.keepLast = new KeepLast();
         this.race = new Race();
         this.params = params;

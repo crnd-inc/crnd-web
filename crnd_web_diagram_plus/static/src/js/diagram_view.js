@@ -27,7 +27,7 @@ export const DiagramPlusView = {
     buttonTemplate: "DiagramPlusView.buttons",
     props: (genericProps, view) => {
         const { ArchParser } = view;
-        const { arch, resModel, resId, fields} = genericProps;
+        const { arch, resModel, resId, fields } = genericProps;
         let archInfo = new ArchParser().parse(arch, resModel, resId, fields);
         return {
             ...genericProps,

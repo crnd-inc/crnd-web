@@ -1,7 +1,7 @@
 /** @odoo-module **/
 
-import {visitXML} from "@web/core/utils/xml";
-import {archParseBoolean, getActiveActions} from "@web/views/utils";
+import { visitXML } from "@web/core/utils/xml";
+import { archParseBoolean, getActiveActions } from "@web/views/utils";
 
 export class DiagramPlusArchParser {
     parse(xmlDoc, resModel, resId, fields = {}) {

@@ -5,14 +5,11 @@ import {
     GraphNode as CuteNodePlus,
     GraphEdge as CuteEdgePlus,
     wordwrap as CuteGraphPlus_wordwrap,
-} from '../../lib/js/graph';
-import {
-    Component,
-    onMounted,
-    onWillUnmount,
-    useState
-} from "@odoo/owl";
-import {useService} from "@web/core/utils/hooks";
+} from "../../lib/js/graph";
+import { Component, onMounted, onWillUnmount, useState } from "@odoo/owl";
+import { useService } from "@web/core/utils/hooks";
+import { ensureJQuery } from "@web/core/ensure_jquery";
+
 
 /**
  * Diagram Renderer
@@ -24,6 +21,13 @@ import {useService} from "@web/core/utils/hooks";
  */
 
 export class DiagramPlusRenderer extends Component {
+
+    static template = "DiagramPlusView";
+    static components = {};
+    static props = {
+        model: Object,
+    };
+
     setup() {
         this.uiService = useService("ui");
         this.model = this.props.model;
@@ -43,6 +47,10 @@ export class DiagramPlusRenderer extends Component {
         this.events
         onMounted(async () => {
             await Promise.resolve();
+
+            // Ensure jQuery is loaded
+            await ensureJQuery();
+
             this.$el = $(this.uiService.activeElement).find('.o_diagram_plus_view');
             this.$diagram_container = this.$el.find('.o_diagram_plus');
             this.renderChart()
@@ -53,7 +61,7 @@ export class DiagramPlusRenderer extends Component {
     }
     renderChart() {
         let self = this;
-        let {nodes, edges} = this.state;
+        let { nodes, edges } = this.state;
         let id_to_node = {};
         let style = this.getDiagramStyle();
         // Remove previous diagram
@@ -102,41 +110,41 @@ export class DiagramPlusRenderer extends Component {
         $div.remove();
 
         CuteNodePlus.destruction_callback = function (cutenode) {
-            let {remove_node} = self.env.custom_events
+            let { remove_node } = self.env.custom_events
             remove_node(cutenode.id);
-            return new Promise(() => {});
+            return new Promise(() => { });
         };
         CuteNodePlus.double_click_callback = function (cutenode) {
-            let {edit_node} = self.env.custom_events
+            let { edit_node } = self.env.custom_events
             edit_node(cutenode.id);
         };
         CuteNodePlus.drag_up_callback = function (cutenode) {
             if (!self.state.auto_layout) {
-                let {change_node_position} = self.env.custom_events
+                let { change_node_position } = self.env.custom_events
                 change_node_position(cutenode);
             }
         };
         CuteEdgePlus.new_edge_callback = function (cuteedge) {
-            let {add_edge} = self.env.custom_events
+            let { add_edge } = self.env.custom_events
             add_edge({
                 source_id: cuteedge.get_start().id,
                 dest_id: cuteedge.get_end().id,
             });
-            return new Promise(() => {});
+            return new Promise(() => { });
         };
         CuteEdgePlus.destruction_callback = function (cuteedge) {
-            let {remove_edge} = self.env.custom_events
+            let { remove_edge } = self.env.custom_events
             remove_edge(cuteedge.id);
-            return new Promise(() => {});
+            return new Promise(() => { });
         };
 
         CuteEdgePlus.double_click_callback = function (cuteedge) {
-            let {edit_edge} = self.env.custom_events
+            let { edit_edge } = self.env.custom_events
             edit_edge(cuteedge.id);
         };
 
         CuteEdgePlus.creation_callback = function (node_start, node_end) {
-            return {label: ''};
+            return { label: '' };
         };
 
         this.diagram_in_dom = true;
@@ -206,7 +214,3 @@ export class DiagramPlusRenderer extends Component {
         }
     }
 }
-
-DiagramPlusRenderer.template = "DiagramPlusView";
-DiagramPlusRenderer.components = {};
-DiagramPlusRenderer.props = ['model']

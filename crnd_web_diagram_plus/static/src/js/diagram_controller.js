@@ -1,15 +1,15 @@
 /** @odoo-module **/
 
-import {sprintf} from "@web/core/utils/strings";
-import {_t} from "@web/core/l10n/translation";
-import {Layout} from "@web/search/layout";
-import {useModelWithSampleData} from "@web/model/model";
-import {standardViewProps} from "@web/views/standard_view_props";
-import {useSetupView} from "@web/views/view_hook";
-import {FormViewDialog} from "@web/views/view_dialogs/form_view_dialog";
-import {useOwnedDialogs, useService} from "@web/core/utils/hooks";
-import {Component, useSubEnv, useRef, useState} from "@odoo/owl";
-import {uuid} from "@web/views/utils";
+import { sprintf } from "@web/core/utils/strings";
+import { _t } from "@web/core/l10n/translation";
+import { Layout } from "@web/search/layout";
+import { useModelWithSampleData } from "@web/model/model";
+import { standardViewProps } from "@web/views/standard_view_props";
+import { useSetupAction } from "@web/search/action_hook";
+import { FormViewDialog } from "@web/views/view_dialogs/form_view_dialog";
+import { useOwnedDialogs, useService } from "@web/core/utils/hooks";
+import { Component, useSubEnv, useRef, useState } from "@odoo/owl";
+import { uuid } from "@web/views/utils";
 import {
     ConfirmationDialog
 } from "@web/core/confirmation_dialog/confirmation_dialog";
@@ -29,6 +29,17 @@ function useUniqueDialog() {
  * Diagram Controller
  */
 export class DiagramPlusController extends Component {
+
+    static template = "DiagramPlusView.Controller";
+    static components = { Layout };
+    static props = {
+        ...standardViewProps,
+        Model: Function,
+        modelParams: Object,
+        Renderer: Function,
+        buttonTemplate: String,
+    };
+
     setup() {
         useSubEnv({
             custom_events: {
@@ -46,7 +57,7 @@ export class DiagramPlusController extends Component {
             uuid: uuid()
         })
         this.model = useState(useModelWithSampleData(this.props.Model, this.props.modelParams));
-        useSetupView({
+        useSetupAction({
             rootRef: useRef("root"),
             getContext: () => this.props.context,
         });
@@ -58,18 +69,18 @@ export class DiagramPlusController extends Component {
     }
 
     async _addNode(event) {
-        let {node_model} = this.model.get();
+        let { node_model } = this.model.get();
         return new Promise((resolve) => {
             this.displayDialog(
                 FormViewDialog, {
-                    resModel: node_model,
-                    resId: false,
-                    context: this.props.context || {},
-                    title: sprintf("%s %s", _t("Create:"), _t('Activity')),
-                    onRecordSaved: async () => {
-                        await this.handleDataChange()
-                    },
-                }, {onClose: () => resolve()}
+                resModel: node_model,
+                resId: false,
+                context: this.props.context || {},
+                title: sprintf("%s %s", _t("Create:"), _t('Activity')),
+                onRecordSaved: async () => {
+                    await this.handleDataChange()
+                },
+            }, { onClose: () => resolve() }
             );
         });
     }
@@ -89,7 +100,7 @@ export class DiagramPlusController extends Component {
     }
 
     _onRemoveNode(record_id) {
-        let {node_model} = this.model.get();
+        let { node_model } = this.model.get();
         let self = this;
         return this.dialog.add(ConfirmationDialog, {
             body: _t("Are you sure you want to remove this node? This will remove its connected transitions as well."),
@@ -104,27 +115,27 @@ export class DiagramPlusController extends Component {
     }
 
     _onEditNode(record_id) {
-        let {diagram_readonly, node_model} = this.model.get();
+        let { diagram_readonly, node_model } = this.model.get();
         if (diagram_readonly) {
             return
         }
         return new Promise((resolve) => {
             this.displayDialog(
                 FormViewDialog, {
-                    resModel: node_model,
-                    resId: record_id,
-                    context: this.context,
-                    title: sprintf("%s %s", _t("Open:"), _t('Activity')),
-                    onRecordSaved: async () => {
-                        await this.handleDataChange()
-                    },
-                }, {onClose: () => resolve()}
+                resModel: node_model,
+                resId: record_id,
+                context: this.context,
+                title: sprintf("%s %s", _t("Open:"), _t('Activity')),
+                onRecordSaved: async () => {
+                    await this.handleDataChange()
+                },
+            }, { onClose: () => resolve() }
             );
         });
     }
 
     async _onChangeNodePosition(node) {
-        let {node_model} = this.model.get();
+        let { node_model } = this.model.get();
         let d_position_field = $(this.model.nodes).attr('d_position_field');
         let node_position = JSON.stringify(node.get_pos());
         let values = {};
@@ -134,7 +145,7 @@ export class DiagramPlusController extends Component {
     }
 
     _onAddEdge(data) {
-        let {diagram_readonly, connectors, connector_model} = this.model.get();
+        let { diagram_readonly, connectors, connector_model } = this.model.get();
         if (diagram_readonly) {
             return false
         }
@@ -144,20 +155,20 @@ export class DiagramPlusController extends Component {
         return new Promise((resolve) => {
             this.displayDialog(
                 FormViewDialog, {
-                    resModel: connector_model,
-                    resId: false,
-                    context: ctx,
-                    title: sprintf("%s %s", _t("Create:"), _t('Transition')),
-                    onRecordSaved: async () => {
-                        await this.handleDataChange()
-                    },
-                }, {onClose: () => resolve()}
+                resModel: connector_model,
+                resId: false,
+                context: ctx,
+                title: sprintf("%s %s", _t("Create:"), _t('Transition')),
+                onRecordSaved: async () => {
+                    await this.handleDataChange()
+                },
+            }, { onClose: () => resolve() }
             );
         });
     }
 
     _onRemoveEdge(record_id) {
-        let {diagram_readonly, connector_model} = this.model.get();
+        let { diagram_readonly, connector_model } = this.model.get();
         if (diagram_readonly) {
             return
         }
@@ -175,7 +186,7 @@ export class DiagramPlusController extends Component {
     }
 
     _onEditEdge(record_id) {
-        let {diagram_readonly, connector_model} = this.model.get();
+        let { diagram_readonly, connector_model } = this.model.get();
 
         if (diagram_readonly) {
             return
@@ -183,25 +194,15 @@ export class DiagramPlusController extends Component {
         return new Promise((resolve) => {
             this.displayDialog(
                 FormViewDialog, {
-                    resModel: connector_model,
-                    resId: record_id,
-                    context: this.context,
-                    title: sprintf("%s %s", _t("Open:"), _t('Transition')),
-                    onRecordSaved: async () => {
-                        await this.handleDataChange()
-                    },
-                }, {onClose: () => resolve()}
+                resModel: connector_model,
+                resId: record_id,
+                context: this.context,
+                title: sprintf("%s %s", _t("Open:"), _t('Transition')),
+                onRecordSaved: async () => {
+                    await this.handleDataChange()
+                },
+            }, { onClose: () => resolve() }
             );
         });
     }
 }
-
-DiagramPlusController.template = "DiagramPlusView.Controller";
-DiagramPlusController.components = {Layout};
-DiagramPlusController.props = {
-    ...standardViewProps,
-    Model: Function,
-    modelParams: Object,
-    Renderer: Function,
-    buttonTemplate: String,
-};
