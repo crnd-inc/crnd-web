@@ -1,0 +1,338 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* test_crnd_web_models
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-05-16 14:56+0000\n"
+"PO-Revision-Date: 2025-05-16 14:56+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: test_crnd_web_models
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_tree_colored_field__line_bg_color
+msgid "Backgroung Color"
+msgstr ""
+
+#. module: test_crnd_web_models
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_tree_colored_field__bg_color
+msgid "Bg Color"
+msgstr ""
+
+#. module: test_crnd_web_models
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_tree_colored_field__bg_state
+msgid "Bg State"
+msgstr ""
+
+#. module: test_crnd_web_models
+#: model:ir.model,name:test_crnd_web_models.model_book_wizard_create
+msgid "Book wizard: Create"
+msgstr ""
+
+#. module: test_crnd_web_models
+#: model:ir.actions.act_window,name:test_crnd_web_models.book_action_window
+msgid "Books"
+msgstr ""
+
+#. module: test_crnd_web_models
+#: model:ir.actions.act_window,name:test_crnd_web_models.car_rental_brand_action
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_test_car_rental_car__brand_id
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_test_car_rental_model__brand_id
+msgid "Brand"
+msgstr ""
+
+#. module: test_crnd_web_models
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_test_car_rental_car__brand_id_field_domain
+msgid "Brand Id Field Domain"
+msgstr ""
+
+#. module: test_crnd_web_models
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_test_car_rental_brand__name
+msgid "Brand Name"
+msgstr ""
+
+#. module: test_crnd_web_models
+#: model:ir.ui.menu,name:test_crnd_web_models.crnd_web_tests
+msgid "CRND Web Tests"
+msgstr ""
+
+#. module: test_crnd_web_models
+#: model_terms:ir.ui.view,arch_db:test_crnd_web_models.example_wizard_create_form_view
+msgid "Cancel"
+msgstr ""
+
+#. module: test_crnd_web_models
+#: model:ir.actions.act_window,name:test_crnd_web_models.car_rental_car_action
+#: model:ir.model,name:test_crnd_web_models.model_test_car_rental_car
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_test_car_rental__car_id
+msgid "Car"
+msgstr ""
+
+#. module: test_crnd_web_models
+#: model:ir.model,name:test_crnd_web_models.model_test_car_rental_brand
+msgid "Car Brand"
+msgstr ""
+
+#. module: test_crnd_web_models
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_test_car_rental__car_id_field_domain
+msgid "Car Id Field Domain"
+msgstr ""
+
+#. module: test_crnd_web_models
+#: model:ir.model,name:test_crnd_web_models.model_test_car_rental_model
+msgid "Car Model"
+msgstr ""
+
+#. module: test_crnd_web_models
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_test_car_rental_car__name
+msgid "Car Name"
+msgstr ""
+
+#. module: test_crnd_web_models
+#: model:ir.actions.act_window,name:test_crnd_web_models.car_rental_action
+#: model:ir.model,name:test_crnd_web_models.model_test_car_rental
+#: model:ir.ui.menu,name:test_crnd_web_models.test_car_rental_menu
+msgid "Car Rental"
+msgstr ""
+
+#. module: test_crnd_web_models
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_test_car_rental_brand__car_ids
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_test_car_rental_model__car_ids
+#: model:ir.ui.menu,name:test_crnd_web_models.test_car_rental_car_menu
+msgid "Cars"
+msgstr ""
+
+#. module: test_crnd_web_models
+#: model:ir.model.fields,help:test_crnd_web_models.field_tree_colored_field__name
+msgid "Color demonstration field"
+msgstr ""
+
+#. module: test_crnd_web_models
+#: model:ir.actions.act_window,name:test_crnd_web_models.action_wizard_book_create
+#: model_terms:ir.ui.view,arch_db:test_crnd_web_models.example_wizard_create_form_view
+msgid "Create book"
+msgstr ""
+
+#. module: test_crnd_web_models
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_book_wizard_create__create_uid
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_test_car_rental__create_uid
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_test_car_rental_brand__create_uid
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_test_car_rental_car__create_uid
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_test_car_rental_model__create_uid
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_test_crnd_web_model_book__create_uid
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_tree_colored_field__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: test_crnd_web_models
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_book_wizard_create__create_date
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_test_car_rental__create_date
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_test_car_rental_brand__create_date
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_test_car_rental_car__create_date
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_test_car_rental_model__create_date
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_test_crnd_web_model_book__create_date
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_tree_colored_field__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: test_crnd_web_models
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_test_car_rental__customer_id
+msgid "Customer"
+msgstr ""
+
+#. module: test_crnd_web_models
+#: model:ir.model.fields.selection,name:test_crnd_web_models.selection__tree_colored_field__label_color__dark
+msgid "Dark"
+msgstr ""
+
+#. module: test_crnd_web_models
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_book_wizard_create__display_name
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_test_car_rental__display_name
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_test_car_rental_brand__display_name
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_test_car_rental_car__display_name
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_test_car_rental_model__display_name
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_test_crnd_web_model_book__display_name
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_tree_colored_field__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: test_crnd_web_models
+#: model:ir.model.fields.selection,name:test_crnd_web_models.selection__tree_colored_field__bg_state__fail
+#: model:ir.model.fields.selection,name:test_crnd_web_models.selection__tree_colored_field__label_state__fail
+msgid "Fail"
+msgstr ""
+
+#. module: test_crnd_web_models
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_tree_colored_field__field_colorized_by_state_expression
+msgid "Field Colorized By State Expression"
+msgstr ""
+
+#. module: test_crnd_web_models
+#: model:ir.model.fields,help:test_crnd_web_models.field_tree_colored_field__field_colorized_by_state_expression
+msgid "Field, colorized by expression"
+msgstr ""
+
+#. module: test_crnd_web_models
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_book_wizard_create__id
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_test_car_rental__id
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_test_car_rental_brand__id
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_test_car_rental_car__id
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_test_car_rental_model__id
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_test_crnd_web_model_book__id
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_tree_colored_field__id
+msgid "ID"
+msgstr ""
+
+#. module: test_crnd_web_models
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_tree_colored_field__label_color
+msgid "Label Color"
+msgstr ""
+
+#. module: test_crnd_web_models
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_tree_colored_field__label_state
+msgid "Label State"
+msgstr ""
+
+#. module: test_crnd_web_models
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_book_wizard_create__write_uid
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_test_car_rental__write_uid
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_test_car_rental_brand__write_uid
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_test_car_rental_car__write_uid
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_test_car_rental_model__write_uid
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_test_crnd_web_model_book__write_uid
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_tree_colored_field__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: test_crnd_web_models
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_book_wizard_create__write_date
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_test_car_rental__write_date
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_test_car_rental_brand__write_date
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_test_car_rental_car__write_date
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_test_car_rental_model__write_date
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_test_crnd_web_model_book__write_date
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_tree_colored_field__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: test_crnd_web_models
+#: model:ir.model.fields.selection,name:test_crnd_web_models.selection__tree_colored_field__bg_color__l_blue_bg
+msgid "Light Blue"
+msgstr ""
+
+#. module: test_crnd_web_models
+#: model:ir.model.fields.selection,name:test_crnd_web_models.selection__tree_colored_field__bg_color__l_brown_bg
+msgid "Light Brown"
+msgstr ""
+
+#. module: test_crnd_web_models
+#: model:ir.model.fields.selection,name:test_crnd_web_models.selection__tree_colored_field__bg_color__l_green_bg
+msgid "Light Green"
+msgstr ""
+
+#. module: test_crnd_web_models
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_tree_colored_field__line_label_color
+msgid "Line Label Color"
+msgstr ""
+
+#. module: test_crnd_web_models
+#: model:ir.actions.act_window,name:test_crnd_web_models.car_rental_model_action
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_test_car_rental_car__model_id
+msgid "Model"
+msgstr ""
+
+#. module: test_crnd_web_models
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_test_car_rental_model__name
+msgid "Model Name"
+msgstr ""
+
+#. module: test_crnd_web_models
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_tree_colored_field__name
+msgid "Name"
+msgstr ""
+
+#. module: test_crnd_web_models
+#: model:ir.model.fields.selection,name:test_crnd_web_models.selection__tree_colored_field__bg_state__ok
+#: model:ir.model.fields.selection,name:test_crnd_web_models.selection__tree_colored_field__label_state__ok
+msgid "Ok"
+msgstr ""
+
+#. module: test_crnd_web_models
+#: model:ir.ui.menu,name:test_crnd_web_models.crnd_web_field_domain_menu_item
+msgid "Test crnd_web_field_domain"
+msgstr ""
+
+#. module: test_crnd_web_models
+#: model:ir.ui.menu,name:test_crnd_web_models.crnd_web_on_create_action_menu_item
+#: model:ir.ui.menu,name:test_crnd_web_models.test_crnd_web_on_create_action
+msgid "Test crnd_web_on_create_action"
+msgstr ""
+
+#. module: test_crnd_web_models
+#: model:ir.model,name:test_crnd_web_models.model_test_crnd_web_model_book
+msgid "Test model for crnd_web_on_create_action"
+msgstr ""
+
+#. module: test_crnd_web_models
+#: model:ir.model.fields,help:test_crnd_web_models.field_tree_colored_field__label_color
+msgid "The field on the basis of which the label color of other fields"
+msgstr ""
+
+#. module: test_crnd_web_models
+#: model:ir.model.fields,help:test_crnd_web_models.field_tree_colored_field__bg_color
+msgid "The field on the basis of whichthe background color of other fields"
+msgstr ""
+
+#. module: test_crnd_web_models
+#: model:ir.model.fields,help:test_crnd_web_models.field_tree_colored_field__bg_state
+msgid ""
+"This field defines background color of cell "
+"\"field_colorized_by_state_expression\" field"
+msgstr ""
+
+#. module: test_crnd_web_models
+#: model:ir.model.fields,help:test_crnd_web_models.field_tree_colored_field__label_state
+msgid ""
+"This field defines color of label \"field_colorized_by_state_expression\" "
+"field"
+msgstr ""
+
+#. module: test_crnd_web_models
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_book_wizard_create__title
+#: model:ir.model.fields,field_description:test_crnd_web_models.field_test_crnd_web_model_book__title
+msgid "Title"
+msgstr ""
+
+#. module: test_crnd_web_models
+#: model:ir.model,name:test_crnd_web_models.model_tree_colored_field
+#: model:ir.ui.menu,name:test_crnd_web_models.tree_colored_field_menu_item
+#: model:ir.ui.menu,name:test_crnd_web_models.tree_colored_field_parent_menu_item
+msgid "Tree Colored Field"
+msgstr ""
+
+#. module: test_crnd_web_models
+#: model:ir.actions.act_window,name:test_crnd_web_models.action_tree_colored_field_model
+msgid "Tree Colored Field Model"
+msgstr ""
+
+#. module: test_crnd_web_models
+#: model:ir.model.fields.selection,name:test_crnd_web_models.selection__tree_colored_field__bg_state__warning
+#: model:ir.model.fields.selection,name:test_crnd_web_models.selection__tree_colored_field__label_state__warning
+msgid "Warning"
+msgstr ""
+
+#. module: test_crnd_web_models
+#: model:ir.model.fields.selection,name:test_crnd_web_models.selection__tree_colored_field__label_color__white
+msgid "White"
+msgstr ""
+
+#. module: test_crnd_web_models
+#: model_terms:ir.ui.view,arch_db:test_crnd_web_models.test_car_rental_model_view_form
+msgid "car_rental_model_form"
+msgstr ""
