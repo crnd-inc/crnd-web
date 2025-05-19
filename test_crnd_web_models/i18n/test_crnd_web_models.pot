@@ -813,6 +813,11 @@ msgid "Widget Partner Method"
 msgstr ""
 
 #. module: test_crnd_web_models
+#: model_terms:ir.ui.view,arch_db:test_crnd_web_models.view_web_diagram_plus
+msgid "['name']"
+msgstr ""
+
+#. module: test_crnd_web_models
 #: model_terms:ir.ui.view,arch_db:test_crnd_web_models.test_car_rental_model_view_form
 msgid "car_rental_model_form"
 msgstr ""
