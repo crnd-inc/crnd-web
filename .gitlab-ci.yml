@@ -103,6 +103,12 @@ tests:
     before_script:
         - odood addons link -r .
         - odood addons add --odoo-requirements odoo_requirements.txt || true
+        - odood addons link -r .
+        - sudo apt-get remove -y google-chrome-stable
+        - sudo apt-get update -qq && wget -q https://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_127.0.6533.119-1_amd64.deb -O /tmp/chrome.deb && apt install -yqq --no-install-recommends --auto-remove /tmp/chrome.deb && rm /tmp/chrome.deb && rm -rf /var/lib/apt/lists/*
+        - google-chrome --version
+        # Install a specific version of Google Chrome (127.0.6533.119) to ensure stability
+        # Version 128.0.6613.84 caused test tours to fail, so we're using 127 to avoid issues
     script:
         - odood test -t --isw --error-report --coverage --coverage-report --coverage-skip-covered --coverage-fail-under 30 --dir .
     <<: *except_auto_commits
@@ -118,6 +124,12 @@ migration_tests:
 #        - git fetch origin $SERIES_BRANCH
         - odood addons link -r .
         - odood addons add --odoo-requirements odoo_requirements.txt || true
+        - odood addons link -r .
+        # Install a specific version of Google Chrome (127.0.6533.119) to ensure stability
+        # Version 128.0.6613.84 caused test tours to fail, so we're using 127 to avoid issues
+        - apt-get remove -y google-chrome-stable
+        - apt-get update -qq && wget -q https://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_127.0.6533.119-1_amd64.deb -O /tmp/chrome.deb && apt install -yqq --no-install-recommends --auto-remove /tmp/chrome.deb && rm /tmp/chrome.deb && rm -rf /var/lib/apt/lists/*
+        - google-chrome --version
     script:
         - odood test -t --migration --isw --error-report --coverage --coverage-report --coverage-skip-covered --coverage-fail-under=30 --dir .
     coverage: '/^TOTAL\s+\d+\s+\d+\s+(\d+\%)/'

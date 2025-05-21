@@ -154,9 +154,26 @@ class DiagramPlusView(http.Controller):
         # CRND FIX: restrict field by type (move computation to separate meth)
         search_acts = self._diagram_plus_view__find_nodes(
             diagram_id=id, diagram_model=model, node_model=node)
-        # CRND FIX END
-        data_acts = search_acts.read(
-            invisible_node_fields + visible_node_fields)
+        # Make sure we read all necessary fields
+        required_fields = ['id', 'name']
+
+        # Add color fields if they exist
+        if bg_color_field:
+            required_fields.append(bg_color_field)
+        if fg_color_field:
+            required_fields.append(fg_color_field)
+
+        # Add all visible and invisible fields
+        required_fields.extend(invisible_node_fields)
+        required_fields.extend(visible_node_fields)
+
+        # Remove duplicates while preserving order
+        seen = set()
+        unique_fields = [
+            x for x in required_fields if not (x in seen or seen.add(x))]
+
+        # Read all required fields
+        data_acts = search_acts.read(unique_fields)
 
         for act in data_acts:
             n = nodes.get(str(act['id']))
