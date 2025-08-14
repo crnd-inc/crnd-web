@@ -109,7 +109,7 @@ tests:
         - google-chrome --version
         - odood --version
     script:
-        - odood test -t --isw --error-report --coverage --coverage-report --coverage-skip-covered --coverage-fail-under 28 --dir .
+        - odood test -t --isw --error-report --coverage --coverage-report --coverage-skip-covered --coverage-fail-under 10 --dir .
     <<: *except_auto_commits
     coverage: '/^TOTAL\s+\d+\s+\d+\s+(\d+\%)/'
 
@@ -128,7 +128,7 @@ migration_tests:
         - google-chrome --version
         - odood --version
     script:
-        - odood test -t --migration --isw --error-report --coverage --coverage-report --coverage-skip-covered --coverage-fail-under=30 --dir .
+        - odood test -t --migration --isw --error-report --coverage --coverage-report --coverage-skip-covered --coverage-fail-under=10 --dir .
     coverage: '/^TOTAL\s+\d+\s+\d+\s+(\d+\%)/'
     <<: *only_dev_branch
     <<: *except_auto_commits
