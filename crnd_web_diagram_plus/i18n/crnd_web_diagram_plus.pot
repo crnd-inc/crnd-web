@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 17.0\n"
+"Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -21,15 +21,12 @@ msgstr ""
 #. module: crnd_web_diagram_plus
 #. odoo-javascript
 #: code:addons/crnd_web_diagram_plus/static/src/js/diagram_controller.js:0
-#: code:addons/crnd_web_diagram_plus/static/src/js/diagram_controller.js:0
-#, python-format
 msgid "Activity"
 msgstr ""
 
 #. module: crnd_web_diagram_plus
 #. odoo-javascript
 #: code:addons/crnd_web_diagram_plus/static/src/js/diagram_controller.js:0
-#, python-format
 msgid ""
 "Are you sure you want to remove this node? This will remove its connected "
 "transitions as well."
@@ -38,23 +35,18 @@ msgstr ""
 #. module: crnd_web_diagram_plus
 #. odoo-javascript
 #: code:addons/crnd_web_diagram_plus/static/src/js/diagram_controller.js:0
-#, python-format
 msgid "Are you sure you want to remove this transition?"
 msgstr ""
 
 #. module: crnd_web_diagram_plus
 #. odoo-javascript
 #: code:addons/crnd_web_diagram_plus/static/src/xml/base_diagram.xml:0
-#, python-format
 msgid "Auto Layout"
 msgstr ""
 
 #. module: crnd_web_diagram_plus
 #. odoo-python
 #: code:addons/crnd_web_diagram_plus/tools/graph.py:0
-#: code:addons/crnd_web_diagram_plus/tools/graph.py:0
-#: code:addons/crnd_web_diagram_plus/tools/graph.py:0
-#, python-format
 msgid ""
 "Cannot compute diagram view. It seems that the flow is incorrect! Try to "
 "remove some broken routes without using diagram view."
@@ -63,23 +55,18 @@ msgstr ""
 #. module: crnd_web_diagram_plus
 #. odoo-javascript
 #: code:addons/crnd_web_diagram_plus/static/src/js/diagram_controller.js:0
-#, python-format
 msgid "Confirm"
 msgstr ""
 
 #. module: crnd_web_diagram_plus
 #. odoo-javascript
 #: code:addons/crnd_web_diagram_plus/static/src/js/diagram_controller.js:0
-#: code:addons/crnd_web_diagram_plus/static/src/js/diagram_controller.js:0
-#, python-format
 msgid "Create:"
 msgstr ""
 
 #. module: crnd_web_diagram_plus
 #. odoo-javascript
 #: code:addons/crnd_web_diagram_plus/static/src/js/diagram_controller.js:0
-#: code:addons/crnd_web_diagram_plus/static/src/js/diagram_controller.js:0
-#, python-format
 msgid "Delete"
 msgstr ""
 
@@ -88,21 +75,18 @@ msgstr ""
 #: code:addons/crnd_web_diagram_plus/static/src/js/diagram_view.js:0
 #: model:ir.model.fields.selection,name:crnd_web_diagram_plus.selection__ir_actions_act_window_view__view_mode__diagram_plus
 #: model:ir.model.fields.selection,name:crnd_web_diagram_plus.selection__ir_ui_view__type__diagram_plus
-#, python-format
 msgid "DiagramPlus"
 msgstr ""
 
 #. module: crnd_web_diagram_plus
 #. odoo-javascript
 #: code:addons/crnd_web_diagram_plus/static/src/js/diagram_controller.js:0
-#, python-format
 msgid "Do you really want to change the positions of the nodes?"
 msgstr ""
 
 #. module: crnd_web_diagram_plus
 #. odoo-python
 #: code:addons/crnd_web_diagram_plus/models/ir_ui_view.py:0
-#, python-format
 msgid ""
 "Field d_position_field must be present in diagram_plus[node], because set "
 "auto_layout='False'"
@@ -111,14 +95,12 @@ msgstr ""
 #. module: crnd_web_diagram_plus
 #. odoo-javascript
 #: code:addons/crnd_web_diagram_plus/static/src/xml/base_diagram.xml:0
-#, python-format
 msgid "New Node"
 msgstr ""
 
 #. module: crnd_web_diagram_plus
 #. odoo-python
 #: code:addons/crnd_web_diagram_plus/models/ir_ui_view.py:0
-#, python-format
 msgid ""
 "Only 'node' and 'arrow' tags allowed in 'diagram_plus_view', but "
 "%(tag_name)s found."
@@ -127,16 +109,12 @@ msgstr ""
 #. module: crnd_web_diagram_plus
 #. odoo-javascript
 #: code:addons/crnd_web_diagram_plus/static/src/js/diagram_controller.js:0
-#: code:addons/crnd_web_diagram_plus/static/src/js/diagram_controller.js:0
-#, python-format
 msgid "Open:"
 msgstr ""
 
 #. module: crnd_web_diagram_plus
 #. odoo-javascript
 #: code:addons/crnd_web_diagram_plus/static/src/js/diagram_controller.js:0
-#: code:addons/crnd_web_diagram_plus/static/src/js/diagram_controller.js:0
-#, python-format
 msgid "Transition"
 msgstr ""
 
