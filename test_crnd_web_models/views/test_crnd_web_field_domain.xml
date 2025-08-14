@@ -23,10 +23,10 @@
     <record id="test_car_rental_view_tree" model="ir.ui.view">
         <field name="model">test.car.rental</field>
         <field name="arch" type="xml">
-            <tree>
+            <list>
                 <field name="customer_id"/>
                 <field name="car_id"/>
-            </tree>
+            </list>
         </field>
     </record>
 
@@ -34,7 +34,7 @@
         <field name="name">Car Rental</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">test.car.rental</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
     </record>
 
 <!--    Car Rental Brand-->
@@ -56,10 +56,10 @@
     <record id="test_car_rental_brand_view_tree" model="ir.ui.view">
         <field name="model">test.car.rental.brand</field>
         <field name="arch" type="xml">
-            <tree>
+            <list>
                 <field name="name"/>
                 <field name="car_ids" widget="one2many_list"/>
-            </tree>
+            </list>
         </field>
     </record>
 
@@ -67,7 +67,7 @@
         <field name="name">Brand</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">test.car.rental.brand</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
     </record>
 
 <!--    Car Rental Car-->
@@ -92,11 +92,11 @@
     <record id="test_car_rental_car_view_tree" model="ir.ui.view">
         <field name="model">test.car.rental.car</field>
         <field name="arch" type="xml">
-            <tree>
+            <list>
                 <field name="name"/>
                 <field name="brand_id"/>
                 <field name="model_id"/>
-            </tree>
+            </list>
         </field>
     </record>
 
@@ -104,7 +104,7 @@
         <field name="name">Car</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">test.car.rental.car</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
     </record>
 
 <!--    Car Rental Model-->
@@ -127,11 +127,11 @@
     <record id="test_car_rental_model_view_tree" model="ir.ui.view">
         <field name="model">test.car.rental.model</field>
         <field name="arch" type="xml">
-            <tree>
+            <list>
                 <field name="name"/>
                 <field name="brand_id"/>
                 <field name="car_ids" widget="one2many_list"/>
-            </tree>
+            </list>
         </field>
     </record>
 
@@ -139,7 +139,7 @@
         <field name="name">Model</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">test.car.rental.model</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
     </record>
 
 <!--    Menus-->

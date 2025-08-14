@@ -4,12 +4,12 @@
     <record id="view_web_diagram_plus_arrow_tree" model="ir.ui.view">
         <field name="model">web.diagram.plus.arrow</field>
         <field name="arch" type="xml">
-            <tree>
+            <list>
                 <field name="name"/>
                 <field name="web_diagram_id"/>
                 <field name="from_node_id"/>
                 <field name="to_node_id"/>
-            </tree>
+            </list>
         </field>
     </record>
 
@@ -36,7 +36,7 @@
     <record id="action_web_diagram_plus_arrow_model" model="ir.actions.act_window">
         <field name="name">Web Diagram Plus Arrow Model</field>
         <field name="res_model">web.diagram.plus.arrow</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
     </record>
 
     <menuitem name="Web Diagram Plus Arrows"
