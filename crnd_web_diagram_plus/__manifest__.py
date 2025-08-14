@@ -8,7 +8,7 @@
     'support': 'info@crnd.pro',
     'website': 'https://crnd.pro',
     'license': 'OPL-1',
-    'version': '18.0.0.14.4',
+    'version': '18.0.0.14.5',
     'depends': [
         'web',
     ],

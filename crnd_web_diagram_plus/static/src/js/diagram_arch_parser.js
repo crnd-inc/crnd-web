@@ -1,7 +1,8 @@
 /** @odoo-module **/
 
 import { visitXML } from "@web/core/utils/xml";
-import { archParseBoolean, getActiveActions } from "@web/views/utils";
+import { exprToBoolean } from "@web/core/utils/strings";
+import { getActiveActions } from "@web/views/utils";
 
 export class DiagramPlusArchParser {
     parse(xmlDoc, resModel, resId, fields = {}) {
@@ -23,7 +24,7 @@ export class DiagramPlusArchParser {
                 archInfo = Object.assign(archInfo, {
                     activeActions: getActiveActions(node),
                     labels: labels,
-                    auto_layout: 'auto_layout' in node.attributes ? archParseBoolean(node.attributes.auto_layout.value) : true,
+                    auto_layout: 'auto_layout' in node.attributes ? exprToBoolean(node.attributes.auto_layout.value, true) : true,
                 });
             } else if (node.tagName === 'node') {
                 let invisible_nodes = [];
