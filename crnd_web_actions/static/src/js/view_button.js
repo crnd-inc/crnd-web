@@ -3,7 +3,7 @@
 import { ViewButton } from "@web/views/view_button/view_button";
 import { patch } from "@web/core/utils/patch";
 import { getControllerModel } from './client_action';
-import { eval_domains_and_contexts } from "@web/core/py_js/py_utils";
+import { evaluateExpr } from "@web/core/py_js/py";
 
 const FORCE_RELOAD = 'force_reload';
 
@@ -12,7 +12,7 @@ patch(
     {
         onClick(ev) {
             const context = this.clickParams.context
-                ? eval_domains_and_contexts({ contexts: [this.clickParams.context] }).context
+                ? evaluateExpr(this.clickParams.context, this.props.record?.evalContext || {})
                 : {};
             if (context[FORCE_RELOAD] !== undefined && context[FORCE_RELOAD] === false) {
                 const model = getControllerModel(this.env.services.action.currentController);
