@@ -1,6 +1,6 @@
 {
     'name': 'CRND web actions',
-    'version': '17.0.0.5.0',
+    'version': '17.0.0.5.1',
     'author': "Center of Research and Development",
     'website': "https://crnd.pro",
     'summary': """""",
