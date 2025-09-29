@@ -34,9 +34,13 @@ export class DiagramPlusRenderer extends Component {
         this.diagram_in_dom = false;
         this.diagram_offset = this.props.model.auto_layout ? 50 : 0;
         this.diagram_readonly = this.props.model.diagram_readonly;
+        // ADDED: Create ref for direct access to diagram container DOM element
+        // This fixes the "Container not found" issue by providing reliable DOM access
         this.containerRef = useRef("diagramContainer");
+        
+        // MODIFIED: Initialize state with props data for proper reactivity
         this.state = useState({
-            uuid: this.props.uuid,
+            uuid: this.props.uuid,  // ADDED: Track UUID for re-rendering
             nodes: this.props.model.datanodes,
             edges: this.props.model.edges,
             labels: this.props.model.labels,
@@ -46,11 +50,12 @@ export class DiagramPlusRenderer extends Component {
         onMounted(async () => {
             await Promise.resolve();
             
-            // Use the ref to get the container
+            // MODIFIED: Use ref for reliable container access instead of jQuery selectors
+            // This prevents "Container not found" errors by using direct DOM reference
             if (this.containerRef.el) {
                 this.$diagram_container = $(this.containerRef.el);
             } else {
-                // Fallback to jQuery selector
+                // Fallback to jQuery selector for backward compatibility
                 this.$diagram_container = $('.o_diagram_plus');
             }
             
@@ -61,7 +66,8 @@ export class DiagramPlusRenderer extends Component {
             
             this.renderChart();
             
-            // Notify parent component that renderer is ready
+            // ADDED: Notify parent component that renderer is ready via callback
+            // This replaces the deprecated t-ref approach for component communication
             if (this.props.onRendererReady) {
                 this.props.onRendererReady(this);
             }
@@ -71,8 +77,11 @@ export class DiagramPlusRenderer extends Component {
         });
     }
 
+    // ADDED: Handle props updates to ensure diagram re-renders when data changes
+    // This is crucial for fixing the white screen issue after creating new nodes
     willUpdateProps(nextProps) {
         // Update state when props change (especially when uuid changes)
+        // UUID change indicates that model data has been reloaded
         if (nextProps.uuid !== this.props.uuid) {
             this.state.uuid = nextProps.uuid;
             this.state.nodes = nextProps.model.datanodes;
@@ -80,7 +89,7 @@ export class DiagramPlusRenderer extends Component {
             this.state.labels = nextProps.model.labels;
             this.state.auto_layout = nextProps.model.auto_layout;
             
-            // Re-render chart after state update
+            // Re-render chart after state update to show new data
             if (this.diagram_in_dom && this.$diagram_container) {
                 this.renderChart();
             }
@@ -90,7 +99,7 @@ export class DiagramPlusRenderer extends Component {
         let self = this;
         let {nodes, edges} = this.state;
         
-        // Check if we have valid data
+        // ADDED: Validate data before rendering to prevent errors
         if (!nodes || Object.keys(nodes).length === 0) {
             console.warn('DiagramPlusRenderer: No nodes to render');
             return;
@@ -99,7 +108,8 @@ export class DiagramPlusRenderer extends Component {
         let id_to_node = {};
         let style = this.getDiagramStyle();
         
-        // Ensure container exists
+        // ADDED: Ensure container exists before attempting to render
+        // This prevents rendering errors when container is not available
         if (!this.$diagram_container || !this.$diagram_container.length) {
             console.warn('DiagramPlusRenderer: Container not found');
             return;
@@ -192,17 +202,21 @@ export class DiagramPlusRenderer extends Component {
         this.align_diagram();
     }
 
+    // ADDED: Method to force update the diagram with fresh data
+    // This is called by the controller after data changes to ensure diagram refreshes
     forceUpdate() {
-        // Force update the renderer with fresh data from model
+        // Update state with fresh data from model
         this.state.nodes = this.props.model.datanodes;
         this.state.edges = this.props.model.edges;
         this.state.labels = this.props.model.labels;
         
-        // Ensure container exists before rendering
+        // ADDED: Ensure container exists before rendering, with fallback mechanisms
         if (!this.$diagram_container || !this.$diagram_container.length) {
+            // Try to get container via ref first (most reliable)
             if (this.containerRef.el) {
                 this.$diagram_container = $(this.containerRef.el);
             } else {
+                // Fallback to jQuery selector
                 this.$diagram_container = $('.o_diagram_plus');
             }
             
@@ -212,6 +226,7 @@ export class DiagramPlusRenderer extends Component {
             }
         }
         
+        // Re-render the diagram if it's properly mounted
         if (this.diagram_in_dom && this.$diagram_container) {
             this.renderChart();
         }
@@ -283,4 +298,5 @@ export class DiagramPlusRenderer extends Component {
 
 DiagramPlusRenderer.template = "DiagramPlusView";
 DiagramPlusRenderer.components = {};
+// MODIFIED: Updated props to include new callback and uuid for proper reactivity
 DiagramPlusRenderer.props = ['model', 'uuid', 'onRendererReady?']

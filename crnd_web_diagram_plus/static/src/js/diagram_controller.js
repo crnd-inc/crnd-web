@@ -46,6 +46,8 @@ export class DiagramPlusController extends Component {
             uuid: uuid()
         })
         this.model = useState(useModelWithSampleData(this.props.Model, this.props.modelParams));
+        // ADDED: Store renderer component reference for direct method calls
+        // This replaces the deprecated t-ref approach in OWL v2
         this.rendererComponent = null;
         useSetupView({
             rootRef: useRef("root"),
@@ -53,17 +55,22 @@ export class DiagramPlusController extends Component {
         });
     }
 
+    // ADDED: Callback method to receive renderer component reference
+    // Called when renderer is mounted and ready for interaction
     onRendererReady(rendererComponent) {
         this.rendererComponent = rendererComponent;
     }
 
+    // MODIFIED: Enhanced data change handler to fix white screen issue
+    // This method is called after creating/editing nodes to refresh the diagram
     async handleDataChange() {
         try {
             await this.model.reload();
-            // Force re-render by updating uuid
+            // Force re-render by updating uuid - this triggers component re-render
             this.state.uuid = uuid();
             
-            // Try to force renderer update if available
+            // ADDED: Force renderer update to ensure diagram refreshes with new data
+            // This is crucial for fixing the white screen after node creation
             if (this.rendererComponent && this.rendererComponent.forceUpdate) {
                 this.rendererComponent.forceUpdate();
             }

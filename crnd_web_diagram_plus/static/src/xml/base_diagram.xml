@@ -1,5 +1,6 @@
 <template>
 
+    <!-- MODIFIED: Added t-ref for direct DOM access to fix container not found issue -->
     <t t-name="DiagramPlusView">
         <div class="o_diagram_plus" t-ref="diagramContainer"/>
     </t>
@@ -25,6 +26,8 @@
                     </div>
                 </div>
             </div>
+            <!-- MODIFIED: Added callback prop and uuid for proper component communication and reactivity -->
+            <!-- onRendererReady replaces deprecated t-ref, uuid enables re-rendering on data changes -->
             <t t-component='props.Renderer' model='model' uuid='state.uuid' t-key='state.uuid' onRendererReady='onRendererReady'/>
         </div>
     </t>
