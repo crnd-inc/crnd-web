@@ -46,15 +46,30 @@ export class DiagramPlusController extends Component {
             uuid: uuid()
         })
         this.model = useState(useModelWithSampleData(this.props.Model, this.props.modelParams));
+        this.rendererComponent = null;
         useSetupView({
             rootRef: useRef("root"),
             getContext: () => this.props.context,
         });
     }
 
+    onRendererReady(rendererComponent) {
+        this.rendererComponent = rendererComponent;
+    }
+
     async handleDataChange() {
-        await this.model.reload()
-        this.state.uuid = uuid();
+        try {
+            await this.model.reload();
+            // Force re-render by updating uuid
+            this.state.uuid = uuid();
+            
+            // Try to force renderer update if available
+            if (this.rendererComponent && this.rendererComponent.forceUpdate) {
+                this.rendererComponent.forceUpdate();
+            }
+        } catch (error) {
+            console.error('Error in handleDataChange:', error);
+        }
     }
 
     async _addNode(event) {

@@ -10,7 +10,8 @@ import {
     Component,
     onMounted,
     onWillUnmount,
-    useState
+    useState,
+    useRef
 } from "@odoo/owl";
 import {useService} from "@web/core/utils/hooks";
 
@@ -33,6 +34,7 @@ export class DiagramPlusRenderer extends Component {
         this.diagram_in_dom = false;
         this.diagram_offset = this.props.model.auto_layout ? 50 : 0;
         this.diagram_readonly = this.props.model.diagram_readonly;
+        this.containerRef = useRef("diagramContainer");
         this.state = useState({
             uuid: this.props.uuid,
             nodes: this.props.model.datanodes,
@@ -40,22 +42,69 @@ export class DiagramPlusRenderer extends Component {
             labels: this.props.model.labels,
             auto_layout: this.props.model.auto_layout,
         });
-        this.events
+        
         onMounted(async () => {
             await Promise.resolve();
-            this.$el = $(this.uiService.activeElement).find('.o_diagram_plus_view');
-            this.$diagram_container = this.$el.find('.o_diagram_plus');
-            this.renderChart()
+            
+            // Use the ref to get the container
+            if (this.containerRef.el) {
+                this.$diagram_container = $(this.containerRef.el);
+            } else {
+                // Fallback to jQuery selector
+                this.$diagram_container = $('.o_diagram_plus');
+            }
+            
+            if (!this.$diagram_container || !this.$diagram_container.length) {
+                console.error('DiagramPlusRenderer: Container not found');
+                return;
+            }
+            
+            this.renderChart();
+            
+            // Notify parent component that renderer is ready
+            if (this.props.onRendererReady) {
+                this.props.onRendererReady(this);
+            }
         });
         onWillUnmount(() => {
             this.diagram_in_dom = false;
         });
     }
+
+    willUpdateProps(nextProps) {
+        // Update state when props change (especially when uuid changes)
+        if (nextProps.uuid !== this.props.uuid) {
+            this.state.uuid = nextProps.uuid;
+            this.state.nodes = nextProps.model.datanodes;
+            this.state.edges = nextProps.model.edges;
+            this.state.labels = nextProps.model.labels;
+            this.state.auto_layout = nextProps.model.auto_layout;
+            
+            // Re-render chart after state update
+            if (this.diagram_in_dom && this.$diagram_container) {
+                this.renderChart();
+            }
+        }
+    }
     renderChart() {
         let self = this;
         let {nodes, edges} = this.state;
+        
+        // Check if we have valid data
+        if (!nodes || Object.keys(nodes).length === 0) {
+            console.warn('DiagramPlusRenderer: No nodes to render');
+            return;
+        }
+        
         let id_to_node = {};
         let style = this.getDiagramStyle();
+        
+        // Ensure container exists
+        if (!this.$diagram_container || !this.$diagram_container.length) {
+            console.warn('DiagramPlusRenderer: Container not found');
+            return;
+        }
+        
         // Remove previous diagram
         this.$diagram_container.empty();
         let $div = $('<div>').css(
@@ -143,6 +192,31 @@ export class DiagramPlusRenderer extends Component {
         this.align_diagram();
     }
 
+    forceUpdate() {
+        // Force update the renderer with fresh data from model
+        this.state.nodes = this.props.model.datanodes;
+        this.state.edges = this.props.model.edges;
+        this.state.labels = this.props.model.labels;
+        
+        // Ensure container exists before rendering
+        if (!this.$diagram_container || !this.$diagram_container.length) {
+            if (this.containerRef.el) {
+                this.$diagram_container = $(this.containerRef.el);
+            } else {
+                this.$diagram_container = $('.o_diagram_plus');
+            }
+            
+            if (!this.$diagram_container || !this.$diagram_container.length) {
+                console.warn('DiagramPlusRenderer: Container not found during forceUpdate');
+                return;
+            }
+        }
+        
+        if (this.diagram_in_dom && this.$diagram_container) {
+            this.renderChart();
+        }
+    }
+
     getDiagramStyle() {
         return {
             edge_color: "#A0A0A0",
@@ -209,4 +283,4 @@ export class DiagramPlusRenderer extends Component {
 
 DiagramPlusRenderer.template = "DiagramPlusView";
 DiagramPlusRenderer.components = {};
-DiagramPlusRenderer.props = ['model']
+DiagramPlusRenderer.props = ['model', 'uuid', 'onRendererReady?']

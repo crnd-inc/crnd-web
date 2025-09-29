@@ -1,7 +1,7 @@
 <template>
 
     <t t-name="DiagramPlusView">
-        <div class="o_diagram_plus"/>
+        <div class="o_diagram_plus" t-ref="diagramContainer"/>
     </t>
 
     <t t-name="DiagramPlusView.buttons">
@@ -25,7 +25,7 @@
                     </div>
                 </div>
             </div>
-            <t t-component='props.Renderer' model='model' t-key='state.uuid'/>
+            <t t-component='props.Renderer' model='model' uuid='state.uuid' t-key='state.uuid' onRendererReady='onRendererReady'/>
         </div>
     </t>
 </template>
