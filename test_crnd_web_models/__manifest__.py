@@ -1,6 +1,6 @@
 {
     "name": "Test CRND Web Models",
-    "version": "18.0.0.15.2",
+    "version": "19.0.0.15.2",
     "author": "Center of Research and Development",
     "website": "https://crnd.pro",
     'summary': 'Module for testing web addons.',

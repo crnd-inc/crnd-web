@@ -1,7 +1,7 @@
 # flake8: noqa: E501
 {
     'name': 'CRND web tree colored field',
-    'version': '18.0.0.6.1',
+    'version': '19.0.0.6.1',
     'author': "Center of Research and Development",
     'website': "https://crnd.pro",
     'summary': """""",
