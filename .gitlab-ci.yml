@@ -117,6 +117,20 @@ tests:
     <<: *except_auto_commits
     coverage: '/^TOTAL\s+\d+\s+\d+\s+(\d+\%)/'
 
+test_installation_no_demo:
+    image: registry.crnd.pro/crnd-opensource/docker/odoo-ci-x:19.0-ci
+    stage: test
+    variables:
+        ODOO_DB_NAME: test-db-clean
+    <<: *pip_cache_definition
+    before_script:
+        - sudo apt-get update && sudo apt-get install -y libmagic1
+        - odood addons link -r .
+        - odood db create $ODOO_DB_NAME
+    script:
+        - odood addons install --db "$ODOO_DB_NAME" --ual --dir-r .
+    <<: *except_auto_commits
+
 migration_tests:
     image: registry.crnd.pro/crnd-opensource/docker/odoo-ci-x:19.0-ci
     stage: test
