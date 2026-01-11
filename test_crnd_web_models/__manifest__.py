@@ -9,7 +9,7 @@
     'depends': [
         # 'crnd_web_diagram_plus',
         # 'crnd_web_float_full_time_widget',
-        # 'crnd_web_m2o_info_widget',
+        'crnd_web_m2o_info_widget',
         'crnd_web_tree_colored_field',
         'crnd_web_on_create_action',
         # 'crnd_web_actions',
@@ -18,7 +18,7 @@
     ],
     'demo': [
         # 'demo/float_full_time_widget.xml',
-        # 'demo/m2o_info_widget.xml',
+        'demo/m2o_info_widget.xml',
         'demo/tree_colored_field.xml',
         # 'demo/web_diagram_plus.xml',
         'demo/crnd_web_field_domain.xml',
@@ -31,7 +31,7 @@
     'data': [
         'security/ir.model.access.csv',
         'views/menu.xml',
-        # 'views/m2o_info_widget.xml',
+        'views/m2o_info_widget.xml',
         # 'views/float_full_time_widget.xml',
         'views/tree_colored_field.xml',
         # 'views/web_diagram_plus.xml',
