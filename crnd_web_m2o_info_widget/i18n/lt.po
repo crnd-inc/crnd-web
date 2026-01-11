@@ -14,3 +14,17 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
+
+#. module: crnd_web_m2o_info_widget
+#. odoo-javascript
+#: code:addons/crnd_web_m2o_info_widget/static/src/js/m2o_info_widget.js:0
+#, python-format
+msgid "Copied"
+msgstr ""
+
+#. module: crnd_web_m2o_info_widget
+#. odoo-javascript
+#: code:addons/crnd_web_m2o_info_widget/static/src/js/m2o_info_widget.js:0
+#, python-format
+msgid "This browser doesn't allow to copy to clipboard"
+msgstr ""
