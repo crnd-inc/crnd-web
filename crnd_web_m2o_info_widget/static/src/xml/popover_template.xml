@@ -1,10 +1,42 @@
 <templates>
 
-    <t t-name="crnd_web_m2o_info_widget.popover_template">
-        <div class="popover" role="tooltip" style="max-width: none">
-            <div class="arrow"></div>
-            <h3 class="popover-header"></h3>
-            <div class="popover-body"></div>
+    <t t-name="crnd_web_m2o_info_widget.M2OInfoField" owl="1">
+        <div class="m2o_info">
+            <t t-call="web.Many2OneField" />
+            <t t-if="hasInfoButton">
+                <button
+                    type="button"
+                    class="m2o-info-icon btn btn-sm btn-outline-primary ms-2"
+                    t-ref="infoIcon"
+                    t-on-click="onClickInfo"
+                >
+                    <i class="fa fa-info" />
+                </button>
+            </t>
+        </div>
+    </t>
+
+    <t t-name="crnd_web_m2o_info_widget.popover_template" owl="1">
+        <div class="m2o-info-popover">
+            <table class="table table-sm table-borderless mb-0">
+                <t t-foreach="props.info || []" t-as="field_info" t-key="field_info.name">
+                    <t t-if="field_info.value">
+                        <tr>
+                            <th class="info_label"><t t-esc="field_info.string" />:</th>
+                            <td><t t-esc="field_info.value" /></td>
+                            <td>
+                                <button
+                                    type="button"
+                                    class="m2o-info-copy btn btn-sm btn-outline-primary"
+                                    t-on-click="() => copy(field_info.value)"
+                                >
+                                    <i class="fa fa-copy" />
+                                </button>
+                            </td>
+                        </tr>
+                    </t>
+                </t>
+            </table>
         </div>
     </t>
 
