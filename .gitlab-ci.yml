@@ -101,15 +101,10 @@ tests:
     stage: test
     <<: *pip_cache_definition
     before_script:
-<<<<<<< HEAD
-        - odood addons add --single-branch --odoo-requirements=odoo_requirements.txt
-        - odood addons link -r .
-=======
         - sudo apt-get update && sudo apt-get install -y libmagic1
         - odood addons add --single-branch --odoo-requirements=odoo_requirements.txt
         - odood addons link -r .
         - google-chrome --version
->>>>>>> origin/16.0
     script:
         - odood test -t --isw --error-report --coverage --coverage-report --coverage-skip-covered --coverage-fail-under 28 --dir-r . | tail -n 1000
     <<: *except_auto_commits
