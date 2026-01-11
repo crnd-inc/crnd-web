@@ -56,3 +56,20 @@
         }
     }
 }
+
+.m2o_info {
+    display: flex;
+    align-items: center;
+    width: 100%;
+
+    > .o_field_widget,
+    > .o_input_dropdown {
+        flex: 1 1 auto;
+        min-width: 0;
+    }
+
+    .m2o-info-icon {
+        flex: 0 0 auto;
+        white-space: nowrap;
+    }
+}

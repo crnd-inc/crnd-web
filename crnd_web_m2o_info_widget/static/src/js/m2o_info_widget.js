@@ -50,7 +50,7 @@ export class M2OInfoField extends Many2OneField {
     }
 
     get hasInfoButton() {
-        return Boolean(this.props.readonly && this.props.value);
+        return Boolean(this.props.value && (this.infoFields || this.infoMethod));
     }
 
     get infoFields() {
