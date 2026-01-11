@@ -8,5 +8,5 @@ class ResPartner(models.Model):
     def test_helper_many2one_info(self):
         return helper_get_many2one_info_data(self, [
             'name', 'commercial_company_name', 'website',
-            'email', 'phone', 'mobile'
+            'email', 'phone'
         ])

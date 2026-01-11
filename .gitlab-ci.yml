@@ -106,12 +106,10 @@ tests:
     stage: test
     <<: *pip_cache_definition
     before_script:
-        - wget https://github.com/katyukha/Odood/releases/download/v0.4.4/odood_v0.4.4_amd64.deb
-        - sudo dpkg -i odood_v0.4.4_amd64.deb || sudo apt-get install -f -y
-        - odood addons add --odoo-requirements odoo_requirements.txt || true
+        - sudo apt-get update && sudo apt-get install -y libmagic1
+        - odood addons add --single-branch --odoo-requirements=odoo_requirements.txt
         - odood addons link -r .
         - google-chrome --version
-        - odood --version
     script:
         - odood test -t --isw --error-report --coverage --coverage-report --coverage-skip-covered --coverage-fail-under 10 --dir .
     <<: *except_auto_commits
@@ -139,10 +137,10 @@ migration_tests:
         ODOO_DB_NAME: test-db
     <<: *pip_cache_definition
     before_script:
-        - odood addons add --odoo-requirements odoo_requirements.txt || true
-        - odood addons link -r .
-        - google-chrome --version
-        - odood --version
+      - sudo apt-get update && sudo apt-get install -y libmagic1
+      - odood addons add --single-branch --odoo-requirements=odoo_requirements.txt
+      - odood addons link -r .
+      - google-chrome --version
     script:
         - odood test -t --migration --isw --error-report --coverage --coverage-report --coverage-skip-covered --coverage-fail-under=10 --dir .
     coverage: '/^TOTAL\s+\d+\s+\d+\s+(\d+\%)/'

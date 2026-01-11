@@ -1,0 +1,75 @@
+.m2o-info-popover {
+    padding: 8px 10px;
+    max-width: 420px;
+
+    > table {
+        margin-bottom: 0;
+
+        td,
+        th {
+            vertical-align: middle;
+            text-align: left;
+            padding-top: 4px;
+            padding-bottom: 4px;
+        }
+
+        .info_label {
+            text-align: right;
+            white-space: nowrap;
+            color: var(--o-gray-700);
+            font-weight: 500;
+            padding-right: 8px;
+        }
+
+        td {
+            color: var(--o-gray-900);
+            word-break: break-word;
+        }
+
+        .m2o-info-copy {
+            padding: 0.1rem 0.35rem;
+            line-height: 1.2;
+            color: var(--o-brand-primary);
+        }
+
+        .m2o-info-copy i {
+            color: inherit;
+        }
+
+        .m2o-info-copy.btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            box-sizing: border-box;
+            border: 1px solid transparent;
+        }
+
+        .m2o-info-copy.btn:hover {
+            border-color: var(--o-gray-300);
+            background-color: var(--o-gray-100);
+            color: var(--o-brand-primary);
+        }
+
+        .m2o-info-copy.btn:active,
+        .m2o-info-copy.btn:focus {
+            color: var(--o-brand-primary);
+        }
+    }
+}
+
+.m2o_info {
+    display: flex;
+    align-items: center;
+    width: 100%;
+
+    > .o_field_widget,
+    > .o_input_dropdown {
+        flex: 1 1 auto;
+        min-width: 0;
+    }
+
+    .m2o-info-icon {
+        flex: 0 0 auto;
+        white-space: nowrap;
+    }
+}

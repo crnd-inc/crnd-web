@@ -30,7 +30,7 @@
                                    placeholder="Partner..."
                                    widget="m2o_info"
                                    options="{
-                                       'info_fields': ['name', 'commercial_company_name', 'website', 'email', 'phone', 'mobile']}"/>
+                                       'info_fields': ['name', 'commercial_company_name', 'website', 'email', 'phone']}"/>
 
                             <div colspan="2" class="alert alert-info" role="alert">Field with M2o Info Widget (method)</div>
                             <field name="widget_partner_method_id"
