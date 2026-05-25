@@ -1,0 +1,379 @@
+// Повна висота для timeline view
+.o_timeline_view {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    // o_content генерується Layout всередині o_timeline_view
+    .o_content {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        min-height: 0;
+        overflow: hidden;
+        padding: 0;
+    }
+
+    .o_timeline_wrapper {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        min-height: 0;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .o_timeline_toolbar {
+        flex-shrink: 0;
+        background: var(--o-view-background-color, #fff);
+
+        .btn-group .btn {
+            font-size: 0.875rem;
+            padding: 0.25rem 0.75rem;
+
+            &.active {
+                background-color: var(--bs-btn-active-bg, #6c757d);
+                border-color: var(--bs-btn-active-border-color, #6c757d);
+                color: #fff;
+            }
+        }
+    }
+
+    .o_timeline_container {
+        flex: 1;
+        min-height: 0;
+        width: 100%;
+        height: 100%;
+
+        // vis-timeline з verticalScroll: true
+        // Лівий контейнер (labels) - скролбар з правого боку через direction:rtl
+        // Але вміст залишаємо ltr щоб текст не перевертався
+        .vis-panel.vis-left.vis-vertical-scroll {
+            direction: rtl;
+
+            .vis-labelset,
+            .vis-label {
+                direction: ltr;
+            }
+        }
+
+        // Правий контейнер - ховаємо скролбар (він дублює лівий)
+        .vis-panel.vis-right.vis-vertical-scroll {
+            scrollbar-width: none;
+            &::-webkit-scrollbar { width: 0; }
+        }
+
+        // Фонові зони
+        .vis-item.vis-background {
+            &.o_vis_bg_weekend {
+                background-color: rgba(255, 243, 176, 0.55);
+                border: none;
+            }
+            &.o_vis_bg_workhours {
+                background-color: rgba(207, 226, 255, 0.5);
+                border: none;
+            }
+            &.o_vis_bg_night {
+                background-color: rgba(50, 50, 80, 0.18);
+                border: none;
+            }
+            &.o_vis_bg_lunch {
+                background-color: rgba(255, 165, 0, 0.22);
+                border: none;
+            }
+        }
+
+        // Custom time markers (vis-timeline addCustomTime)
+        .vis-custom-time.__gmt_now__ {
+            background-color: #2980b9;
+            width: 2px;
+            .vis-custom-time-marker {
+                background-color: #2980b9;
+                color: #fff;
+                font-size: 10px;
+                padding: 1px 4px;
+                border-radius: 2px;
+            }
+        }
+
+        // Висота item
+        .vis-item {
+            height: 28px;
+            line-height: 26px;
+            font-size: 12px;
+            box-sizing: border-box;
+
+            &.vis-range {
+                .vis-item-overflow {
+                    height: 26px;
+                    overflow: hidden;
+                }
+                .vis-item-content {
+                    height: 26px;
+                    line-height: 26px;
+                    padding: 0 4px;
+                    box-sizing: border-box;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                }
+            }
+
+            &.vis-point {
+                .vis-item-content {
+                    padding: 0 4px;
+                    line-height: 26px;
+                }
+
+                &.yodoo-point-item {
+                    background-color: transparent !important;
+                    border-color: transparent !important;
+
+                    .vis-dot {
+                        background-color: var(--yodoo-point-color) !important;
+                        border-color: var(--yodoo-point-color) !important;
+                    }
+
+                    .vis-item-content {
+                        background-color: transparent !important;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Кнопки фонів в toolbar
+.o_timeline_bg_buttons {
+    .o_bg_weekends {
+        background-color: rgba(255, 243, 176, 0.7);
+        border: 1px solid #e0c840;
+        color: #7a6500;
+        &.active {
+            background-color: rgba(255, 236, 80, 0.85);
+            border-color: #b89a00;
+            color: #5a4a00;
+            font-weight: 600;
+        }
+        &:hover { background-color: rgba(255, 240, 130, 0.9); }
+    }
+    .o_bg_workhours {
+        background-color: rgba(207, 226, 255, 0.7);
+        border: 1px solid #80aaff;
+        color: #0044aa;
+        &.active {
+            background-color: rgba(150, 195, 255, 0.85);
+            border-color: #0055cc;
+            color: #003388;
+            font-weight: 600;
+        }
+        &:hover { background-color: rgba(180, 210, 255, 0.9); }
+    }
+    .o_bg_night {
+        background-color: rgba(100, 100, 140, 0.2);
+        border: 1px solid #8888bb;
+        color: #333366;
+        &.active {
+            background-color: rgba(80, 80, 120, 0.4);
+            border-color: #555599;
+            color: #222255;
+            font-weight: 600;
+        }
+        &:hover { background-color: rgba(90, 90, 130, 0.3); }
+    }
+    .o_bg_currenttime {
+        background-color: #fff;
+        border: 1px solid #aaa;
+        color: #555;
+        &.active {
+            background-color: #e8f5e9;
+            border-color: #4caf50;
+            color: #2e7d32;
+            font-weight: 600;
+        }
+        &:hover { background-color: #f1f1f1; }
+    }
+}
+
+// Yodoo Time View Styles
+.yodoo-timeline-view {
+    .yodoo-timeline-toolbar {
+        background: #f8f9fa;
+        padding: 10px;
+        border-radius: 4px;
+        border: 1px solid #dee2e6;
+        
+        .btn-group {
+            .btn {
+                font-size: 0.875rem;
+                padding: 0.25rem 0.5rem;
+                
+                &.active {
+                    background-color: #007bff;
+                    border-color: #007bff;
+                    color: white;
+                }
+                
+                i {
+                    margin-right: 4px;
+                }
+            }
+        }
+    }
+    
+    .yodoo-timeline-loading {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 400px;
+        
+        .spinner-border {
+            width: 3rem;
+            height: 3rem;
+        }
+    }
+    
+    .yodoo-timeline-container {
+        position: relative;
+        background: white;
+        
+        // Vis-timeline customization
+        .vis-timeline {
+            .vis-panel {
+                .vis-labelset {
+                    .vis-label {
+                        font-size: 12px;
+                        padding: 5px;
+                    }
+                }
+                
+                .vis-time-axis {
+                    .vis-text {
+                        font-size: 11px;
+                    }
+                }
+            }
+            
+            .vis-item {
+                border-radius: 3px;
+                font-size: 12px;
+                padding: 2px 5px;
+                
+                &.vis-selected {
+                    box-shadow: 0 0 0 2px #007bff;
+                }
+            }
+        }
+        
+        // Custom styles for background items
+        .yodoo-background-item {
+            pointer-events: none;
+            
+            &.yodoo-background-weekend {
+                background-color: #ff6b6b !important;
+                opacity: 0.2 !important;
+            }
+            
+            &.yodoo-background-holiday {
+                background-color: #e74c3c !important;
+                opacity: 0.3 !important;
+            }
+            
+            &.yodoo-background-work-shift {
+                background-color: #3498db !important;
+                opacity: 0.15 !important;
+            }
+            
+            &.yodoo-background-daylight {
+                background-color: #f39c12 !important;
+                opacity: 0.1 !important;
+            }
+            
+            &.yodoo-background-season {
+                background-color: #27ae60 !important;
+                opacity: 0.08 !important;
+            }
+        }
+        
+        // Custom styles for time markers
+        .yodoo-time-marker {
+            position: absolute;
+            pointer-events: none;
+            z-index: 1000;
+            
+            .yodoo-time-marker-label {
+                position: absolute;
+                font-size: 11px;
+                white-space: nowrap;
+                background-color: inherit;
+                color: white;
+                padding: 2px 4px;
+                border-radius: 2px;
+                transform: translateX(-50%);
+            }
+            
+            &.yodoo-marker-current-time {
+                background-color: #e74c3c !important;
+            }
+            
+            &.yodoo-marker-deadline {
+                background-color: #e67e22 !important;
+            }
+            
+            &.yodoo-marker-milestone {
+                background-color: #27ae60 !important;
+            }
+            
+            &.yodoo-marker-breakpoint {
+                background-color: #95a5a6 !important;
+            }
+        }
+    }
+}
+
+
+// Timestamp marker overlay — absolute px coordinates computed from timeline window.
+// Placed inside .vis-panel.vis-center .vis-content, sibling of .vis-itemset.
+.yodoo-ts-marker-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 4;
+
+    .o_ts_marker_item {
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        margin-left: -5px;
+        margin-top: -5px;
+        transform: rotate(45deg);
+        opacity: 0.9;
+        border: 1px solid rgba(0, 0, 0, 0.15);
+        cursor: default;
+
+        &:hover {
+            opacity: 1;
+            transform: rotate(45deg) scale(1.25);
+        }
+    }
+}
+
+// Responsive design
+@media (max-width: 768px) {
+    .yodoo-timeline-view {
+        .yodoo-timeline-toolbar {
+            .btn-group {
+                margin-bottom: 5px;
+                
+                .btn {
+                    font-size: 0.75rem;
+                    padding: 0.2rem 0.4rem;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Dates are relative to current day (datetime.now() + timedelta) -->
+<odoo noupdate="0">
+    <data>
+        <!-- === type_alpha: tasks around current week === -->
+        <record id="yodoo_gantt_demo_record_1" model="yodoo.time.view.test.record">
+            <field name="name">Task Alpha 1</field>
+            <field name="record_type">type_alpha</field>
+            <field name="kind">kind_class_a</field>
+            <field name="datetime_start" eval="datetime.now().replace(hour=8, minute=0, second=0, microsecond=0) + timedelta(days=-2)"/>
+            <field name="datetime_stop"  eval="datetime.now().replace(hour=12, minute=0, second=0, microsecond=0) + timedelta(days=-2)"/>
+            <field name="color">#3498db</field>
+            <field name="progress">75</field>
+        </record>
+        <record id="yodoo_gantt_demo_record_2" model="yodoo.time.view.test.record">
+            <field name="name">Task Alpha 2 (3 days)</field>
+            <field name="record_type">type_alpha</field>
+            <field name="kind">kind_class_b</field>
+            <field name="datetime_start" eval="datetime.now().replace(hour=10, minute=0, second=0, microsecond=0) + timedelta(days=-2)"/>
+            <field name="datetime_stop"  eval="datetime.now().replace(hour=16, minute=0, second=0, microsecond=0) + timedelta(days=1)"/>
+            <field name="datetime_3"     eval="datetime.now().replace(hour=10, minute=0, second=0, microsecond=0) + timedelta(days=-1)"/>
+            <field name="datetime_4"     eval="datetime.now().replace(hour=14, minute=0, second=0, microsecond=0) + timedelta(days=0)"/>
+            <field name="datetime_5"     eval="datetime.now().replace(hour=9,  minute=0, second=0, microsecond=0) + timedelta(days=1)"/>
+            <field name="color">#2980b9</field>
+            <field name="progress">50</field>
+        </record>
+        <record id="yodoo_gantt_demo_record_3" model="yodoo.time.view.test.record">
+            <field name="name">Task Alpha 3</field>
+            <field name="record_type">type_alpha</field>
+            <field name="kind">kind_class_c</field>
+            <field name="datetime_start" eval="datetime.now().replace(hour=9, minute=0, second=0, microsecond=0) + timedelta(days=-1)"/>
+            <field name="datetime_stop"  eval="datetime.now().replace(hour=14, minute=0, second=0, microsecond=0) + timedelta(days=-1)"/>
+            <field name="color">#1abc9c</field>
+            <field name="progress">30</field>
+        </record>
+        <record id="yodoo_gantt_demo_record_13" model="yodoo.time.view.test.record">
+            <field name="name">Task Alpha 4 (today)</field>
+            <field name="record_type">type_alpha</field>
+            <field name="kind">kind_class_a</field>
+            <field name="datetime_start" eval="datetime.now().replace(hour=8, minute=0, second=0, microsecond=0)"/>
+            <field name="datetime_stop"  eval="datetime.now().replace(hour=14, minute=0, second=0, microsecond=0)"/>
+            <field name="datetime_3"     eval="datetime.now().replace(hour=9,  minute=30, second=0, microsecond=0)"/>
+            <field name="datetime_4"     eval="datetime.now().replace(hour=11, minute=0, second=0, microsecond=0)"/>
+            <field name="color">#5dade2</field>
+            <field name="progress">65</field>
+        </record>
+        <record id="yodoo_gantt_demo_record_14" model="yodoo.time.view.test.record">
+            <field name="name">Task Alpha 5 (today)</field>
+            <field name="record_type">type_alpha</field>
+            <field name="kind">kind_class_b</field>
+            <field name="datetime_start" eval="datetime.now().replace(hour=13, minute=0, second=0, microsecond=0)"/>
+            <field name="datetime_stop"  eval="datetime.now().replace(hour=18, minute=0, second=0, microsecond=0)"/>
+            <field name="datetime_3"     eval="datetime.now().replace(hour=14, minute=0, second=0, microsecond=0)"/>
+            <field name="datetime_4"     eval="datetime.now().replace(hour=15, minute=30, second=0, microsecond=0)"/>
+            <field name="datetime_5"     eval="datetime.now().replace(hour=17, minute=0, second=0, microsecond=0)"/>
+            <field name="color">#85c1e9</field>
+            <field name="progress">25</field>
+        </record>
+        <record id="yodoo_gantt_demo_record_20" model="yodoo.time.view.test.record">
+            <field name="name">Task Alpha 6</field>
+            <field name="record_type">type_alpha</field>
+            <field name="kind">kind_class_d</field>
+            <field name="datetime_start" eval="datetime.now().replace(hour=10, minute=0, second=0, microsecond=0) + timedelta(days=1)"/>
+            <field name="datetime_stop"  eval="datetime.now().replace(hour=16, minute=0, second=0, microsecond=0) + timedelta(days=1)"/>
+            <field name="color">#aed6f1</field>
+            <field name="progress">95</field>
+        </record>
+        <record id="yodoo_gantt_demo_record_29" model="yodoo.time.view.test.record">
+            <field name="name">Task Alpha 7</field>
+            <field name="record_type">type_alpha</field>
+            <field name="kind">kind_class_a</field>
+            <field name="datetime_start" eval="datetime.now().replace(hour=8, minute=0, second=0, microsecond=0) + timedelta(days=2)"/>
+            <field name="datetime_stop"  eval="datetime.now().replace(hour=14, minute=0, second=0, microsecond=0) + timedelta(days=2)"/>
+            <field name="color">#d6eaf8</field>
+            <field name="progress">85</field>
+        </record>
+
+        <!-- === type_beta === -->
+        <record id="yodoo_gantt_demo_record_4" model="yodoo.time.view.test.record">
+            <field name="name">Task Beta 1</field>
+            <field name="record_type">type_beta</field>
+            <field name="kind">kind_class_a</field>
+            <field name="datetime_start" eval="datetime.now().replace(hour=13, minute=0, second=0, microsecond=0) + timedelta(days=-2)"/>
+            <field name="datetime_stop"  eval="datetime.now().replace(hour=18, minute=0, second=0, microsecond=0) + timedelta(days=-2)"/>
+            <field name="color">#e74c3c</field>
+            <field name="progress">90</field>
+        </record>
+        <record id="yodoo_gantt_demo_record_5" model="yodoo.time.view.test.record">
+            <field name="name">Task Beta 2</field>
+            <field name="record_type">type_beta</field>
+            <field name="kind">kind_class_d</field>
+            <field name="datetime_start" eval="datetime.now().replace(hour=8, minute=0, second=0, microsecond=0) + timedelta(days=-1)"/>
+            <field name="datetime_stop"  eval="datetime.now().replace(hour=12, minute=0, second=0, microsecond=0) + timedelta(days=-1)"/>
+            <field name="color">#c0392b</field>
+            <field name="progress">60</field>
+        </record>
+        <record id="yodoo_gantt_demo_record_6" model="yodoo.time.view.test.record">
+            <field name="name">Task Beta 3 (2 days)</field>
+            <field name="record_type">type_beta</field>
+            <field name="kind">kind_class_b</field>
+            <field name="datetime_start" eval="datetime.now().replace(hour=11, minute=0, second=0, microsecond=0)"/>
+            <field name="datetime_stop"  eval="datetime.now().replace(hour=19, minute=0, second=0, microsecond=0) + timedelta(days=2)"/>
+            <field name="color">#e67e22</field>
+            <field name="progress">40</field>
+        </record>
+        <record id="yodoo_gantt_demo_record_15" model="yodoo.time.view.test.record">
+            <field name="name">Task Beta 4 (today)</field>
+            <field name="record_type">type_beta</field>
+            <field name="kind">kind_class_c</field>
+            <field name="datetime_start" eval="datetime.now().replace(hour=10, minute=0, second=0, microsecond=0)"/>
+            <field name="datetime_stop"  eval="datetime.now().replace(hour=16, minute=0, second=0, microsecond=0)"/>
+            <field name="color">#ec7063</field>
+            <field name="progress">70</field>
+        </record>
+        <record id="yodoo_gantt_demo_record_16" model="yodoo.time.view.test.record">
+            <field name="name">Task Beta 5</field>
+            <field name="record_type">type_beta</field>
+            <field name="kind">kind_class_d</field>
+            <field name="datetime_start" eval="datetime.now().replace(hour=9, minute=0, second=0, microsecond=0) + timedelta(days=1)"/>
+            <field name="datetime_stop"  eval="datetime.now().replace(hour=15, minute=0, second=0, microsecond=0) + timedelta(days=1)"/>
+            <field name="color">#f1948a</field>
+            <field name="progress">35</field>
+        </record>
+        <record id="yodoo_gantt_demo_record_21" model="yodoo.time.view.test.record">
+            <field name="name">Task Beta 6</field>
+            <field name="record_type">type_beta</field>
+            <field name="kind">kind_class_a</field>
+            <field name="datetime_start" eval="datetime.now().replace(hour=7, minute=0, second=0, microsecond=0) + timedelta(days=-3)"/>
+            <field name="datetime_stop"  eval="datetime.now().replace(hour=13, minute=0, second=0, microsecond=0) + timedelta(days=-3)"/>
+            <field name="color">#f5b7b1</field>
+            <field name="progress">40</field>
+        </record>
+        <record id="yodoo_gantt_demo_record_30" model="yodoo.time.view.test.record">
+            <field name="name">Task Beta 7</field>
+            <field name="record_type">type_beta</field>
+            <field name="kind">kind_class_b</field>
+            <field name="datetime_start" eval="datetime.now().replace(hour=8, minute=0, second=0, microsecond=0) + timedelta(days=3)"/>
+            <field name="datetime_stop"  eval="datetime.now().replace(hour=14, minute=0, second=0, microsecond=0) + timedelta(days=3)"/>
+            <field name="color">#fadbd8</field>
+            <field name="progress">50</field>
+        </record>
+
+        <!-- === type_gamma === -->
+        <record id="yodoo_gantt_demo_record_7" model="yodoo.time.view.test.record">
+            <field name="name">Task Gamma 1 (milestone)</field>
+            <field name="record_type">type_gamma</field>
+            <field name="kind">kind_class_c</field>
+            <field name="datetime_start" eval="datetime.now().replace(hour=7, minute=0, second=0, microsecond=0) + timedelta(days=2)"/>
+            <field name="color">#9b59b6</field>
+            <field name="progress">100</field>
+        </record>
+        <record id="yodoo_gantt_demo_record_8" model="yodoo.time.view.test.record">
+            <field name="name">Task Gamma 2</field>
+            <field name="record_type">type_gamma</field>
+            <field name="kind">kind_class_d</field>
+            <field name="datetime_start" eval="datetime.now().replace(hour=9, minute=0, second=0, microsecond=0) + timedelta(days=-1)"/>
+            <field name="datetime_stop"  eval="datetime.now().replace(hour=15, minute=0, second=0, microsecond=0) + timedelta(days=-1)"/>
+            <field name="color">#8e44ad</field>
+            <field name="progress">20</field>
+        </record>
+        <record id="yodoo_gantt_demo_record_9" model="yodoo.time.view.test.record">
+            <field name="name">Task Gamma 3</field>
+            <field name="record_type">type_gamma</field>
+            <field name="kind">kind_class_a</field>
+            <field name="datetime_start" eval="datetime.now().replace(hour=8, minute=0, second=0, microsecond=0) + timedelta(days=1)"/>
+            <field name="datetime_stop"  eval="datetime.now().replace(hour=13, minute=0, second=0, microsecond=0) + timedelta(days=1)"/>
+            <field name="color">#f39c12</field>
+            <field name="progress">85</field>
+        </record>
+        <record id="yodoo_gantt_demo_record_10" model="yodoo.time.view.test.record">
+            <field name="name">Task Gamma 4</field>
+            <field name="record_type">type_gamma</field>
+            <field name="kind">kind_class_b</field>
+            <field name="datetime_start" eval="datetime.now().replace(hour=12, minute=0, second=0, microsecond=0) + timedelta(days=2)"/>
+            <field name="datetime_stop"  eval="datetime.now().replace(hour=18, minute=0, second=0, microsecond=0) + timedelta(days=2)"/>
+            <field name="color">#16a085</field>
+            <field name="progress">55</field>
+        </record>
+        <record id="yodoo_gantt_demo_record_17" model="yodoo.time.view.test.record">
+            <field name="name">Task Gamma 5 (2 days)</field>
+            <field name="record_type">type_gamma</field>
+            <field name="kind">kind_class_a</field>
+            <field name="datetime_start" eval="datetime.now().replace(hour=8, minute=0, second=0, microsecond=0) + timedelta(days=-1)"/>
+            <field name="datetime_stop"  eval="datetime.now().replace(hour=12, minute=0, second=0, microsecond=0)"/>
+            <field name="color">#af7ac5</field>
+            <field name="progress">80</field>
+        </record>
+        <record id="yodoo_gantt_demo_record_18" model="yodoo.time.view.test.record">
+            <field name="name">Task Gamma 6 (milestone)</field>
+            <field name="record_type">type_gamma</field>
+            <field name="kind">kind_class_b</field>
+            <field name="datetime_start" eval="datetime.now().replace(hour=11, minute=0, second=0, microsecond=0) + timedelta(days=-3)"/>
+            <field name="color">#bb8fce</field>
+            <field name="progress">15</field>
+        </record>
+        <record id="yodoo_gantt_demo_record_22" model="yodoo.time.view.test.record">
+            <field name="name">Task Gamma 7</field>
+            <field name="record_type">type_gamma</field>
+            <field name="kind">kind_class_b</field>
+            <field name="datetime_start" eval="datetime.now().replace(hour=9, minute=0, second=0, microsecond=0) + timedelta(days=3)"/>
+            <field name="datetime_stop"  eval="datetime.now().replace(hour=15, minute=0, second=0, microsecond=0) + timedelta(days=3)"/>
+            <field name="color">#d2b4de</field>
+            <field name="progress">60</field>
+        </record>
+
+        <!-- === type_delta === -->
+        <record id="yodoo_gantt_demo_record_11" model="yodoo.time.view.test.record">
+            <field name="name">Task Delta 1 (5 days)</field>
+            <field name="record_type">type_delta</field>
+            <field name="kind">kind_class_c</field>
+            <field name="datetime_start" eval="datetime.now().replace(hour=9, minute=0, second=0, microsecond=0) + timedelta(days=-3)"/>
+            <field name="datetime_stop"  eval="datetime.now().replace(hour=17, minute=30, second=0, microsecond=0) + timedelta(days=1)"/>
+            <field name="color">#27ae60</field>
+            <field name="progress">10</field>
+        </record>
+        <record id="yodoo_gantt_demo_record_12" model="yodoo.time.view.test.record">
+            <field name="name">Task Delta 2 (milestone)</field>
+            <field name="record_type">type_delta</field>
+            <field name="kind">kind_class_d</field>
+            <field name="datetime_start" eval="datetime.now().replace(hour=14, minute=0, second=0, microsecond=0) + timedelta(days=-3)"/>
+            <field name="color">#2ecc71</field>
+            <field name="progress">45</field>
+        </record>
+        <record id="yodoo_gantt_demo_record_19" model="yodoo.time.view.test.record">
+            <field name="name">Task Delta 3 (today)</field>
+            <field name="record_type">type_delta</field>
+            <field name="kind">kind_class_c</field>
+            <field name="datetime_start" eval="datetime.now().replace(hour=8, minute=0, second=0, microsecond=0)"/>
+            <field name="datetime_stop"  eval="datetime.now().replace(hour=14, minute=0, second=0, microsecond=0)"/>
+            <field name="color">#52be80</field>
+            <field name="progress">50</field>
+        </record>
+
+        <!-- === type_epsilon === -->
+        <record id="yodoo_gantt_demo_record_23" model="yodoo.time.view.test.record">
+            <field name="name">Task Epsilon 1</field>
+            <field name="record_type">type_epsilon</field>
+            <field name="kind">kind_class_c</field>
+            <field name="datetime_start" eval="datetime.now().replace(hour=8, minute=0, second=0, microsecond=0) + timedelta(days=-1)"/>
+            <field name="datetime_stop"  eval="datetime.now().replace(hour=14, minute=0, second=0, microsecond=0) + timedelta(days=-1)"/>
+            <field name="color">#f4d03f</field>
+            <field name="progress">30</field>
+        </record>
+        <record id="yodoo_gantt_demo_record_24" model="yodoo.time.view.test.record">
+            <field name="name">Task Epsilon 2</field>
+            <field name="record_type">type_epsilon</field>
+            <field name="kind">kind_class_d</field>
+            <field name="datetime_start" eval="datetime.now().replace(hour=13, minute=0, second=0, microsecond=0) + timedelta(days=-1)"/>
+            <field name="datetime_stop"  eval="datetime.now().replace(hour=19, minute=0, second=0, microsecond=0) + timedelta(days=-1)"/>
+            <field name="color">#f7dc6f</field>
+            <field name="progress">55</field>
+        </record>
+        <record id="yodoo_gantt_demo_record_25" model="yodoo.time.view.test.record">
+            <field name="name">Task Epsilon 3 (today)</field>
+            <field name="record_type">type_epsilon</field>
+            <field name="kind">kind_class_a</field>
+            <field name="datetime_start" eval="datetime.now().replace(hour=9, minute=0, second=0, microsecond=0)"/>
+            <field name="datetime_stop"  eval="datetime.now().replace(hour=15, minute=0, second=0, microsecond=0)"/>
+            <field name="color">#f9e79f</field>
+            <field name="progress">75</field>
+        </record>
+        <record id="yodoo_gantt_demo_record_26" model="yodoo.time.view.test.record">
+            <field name="name">Task Epsilon 4 (milestone)</field>
+            <field name="record_type">type_epsilon</field>
+            <field name="kind">kind_class_b</field>
+            <field name="datetime_start" eval="datetime.now().replace(hour=8, minute=0, second=0, microsecond=0) + timedelta(days=1)"/>
+            <field name="color">#fcf3cf</field>
+            <field name="progress">20</field>
+        </record>
+        <record id="yodoo_gantt_demo_record_27" model="yodoo.time.view.test.record">
+            <field name="name">Task Epsilon 5</field>
+            <field name="record_type">type_epsilon</field>
+            <field name="kind">kind_class_c</field>
+            <field name="datetime_start" eval="datetime.now().replace(hour=11, minute=0, second=0, microsecond=0) + timedelta(days=1)"/>
+            <field name="datetime_stop"  eval="datetime.now().replace(hour=17, minute=0, second=0, microsecond=0) + timedelta(days=1)"/>
+            <field name="color">#f8c471</field>
+            <field name="progress">90</field>
+        </record>
+        <record id="yodoo_gantt_demo_record_28" model="yodoo.time.view.test.record">
+            <field name="name">Task Epsilon 6</field>
+            <field name="record_type">type_epsilon</field>
+            <field name="kind">kind_class_d</field>
+            <field name="datetime_start" eval="datetime.now().replace(hour=10, minute=0, second=0, microsecond=0) + timedelta(days=2)"/>
+            <field name="datetime_stop"  eval="datetime.now().replace(hour=14, minute=0, second=0, microsecond=0) + timedelta(days=2)"/>
+            <field name="color">#eb984e</field>
+            <field name="progress">45</field>
+        </record>
+    </data>
+</odoo>

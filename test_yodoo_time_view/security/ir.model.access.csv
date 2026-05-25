@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+yodoo_time_view_test_record_user,yodoo.time.view.test.record,model_yodoo_time_view_test_record,base.group_user,1,1,1,1
+yodoo_time_view_background_period_user,yodoo.time.view.background.period,model_yodoo_time_view_background_period,base.group_user,1,0,0,0

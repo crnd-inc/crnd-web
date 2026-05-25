@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Dates are relative to current day (datetime.now() + timedelta) -->
+<odoo>
+    <data noupdate="1">
+
+        <!-- Current time (today, ~14:30) -->
+        <record id="marker_current_time" model="yodoo.time.view.time.marker">
+            <field name="name">Current Time</field>
+            <field name="type">current_time</field>
+            <field name="timestamp" eval="datetime.now().replace(hour=14, minute=30, second=0, microsecond=0)"/>
+            <field name="color">#e74c3c</field>
+            <field name="style">solid</field>
+            <field name="width">2</field>
+            <field name="show_label">True</field>
+            <field name="label_position">top</field>
+            <field name="active">True</field>
+        </record>
+
+        <!-- Deadline in 5 days -->
+        <record id="marker_deadline_project_alpha" model="yodoo.time.view.time.marker">
+            <field name="name">Deadline Project Alpha</field>
+            <field name="type">deadline</field>
+            <field name="timestamp" eval="datetime.now().replace(hour=23, minute=59, second=59, microsecond=0) + timedelta(days=5)"/>
+            <field name="color">#e74c3c</field>
+            <field name="style">dashed</field>
+            <field name="width">3</field>
+            <field name="show_label">True</field>
+            <field name="label_position">top</field>
+            <field name="icon">⚠️</field>
+            <field name="description">Critical completion deadline for Project Alpha</field>
+            <field name="active">True</field>
+        </record>
+
+        <!-- Deadline in 12 days -->
+        <record id="marker_deadline_project_beta" model="yodoo.time.view.time.marker">
+            <field name="name">Deadline Project Beta</field>
+            <field name="type">deadline</field>
+            <field name="timestamp" eval="datetime.now().replace(hour=18, minute=0, second=0, microsecond=0) + timedelta(days=12)"/>
+            <field name="color">#e67e22</field>
+            <field name="style">dashed</field>
+            <field name="width">2</field>
+            <field name="show_label">True</field>
+            <field name="label_position">bottom</field>
+            <field name="icon">⏰</field>
+            <field name="description">Project Beta deadline</field>
+            <field name="active">True</field>
+        </record>
+
+        <!-- Milestone: start of current month -->
+        <record id="marker_milestone_start" model="yodoo.time.view.time.marker">
+            <field name="name">Month Start</field>
+            <field name="type">milestone</field>
+            <field name="timestamp" eval="datetime.now().replace(day=1, hour=9, minute=0, second=0, microsecond=0)"/>
+            <field name="color">#27ae60</field>
+            <field name="style">solid</field>
+            <field name="width">2</field>
+            <field name="show_label">True</field>
+            <field name="label_position">top</field>
+            <field name="icon">🚀</field>
+            <field name="description">Start of current month</field>
+            <field name="active">True</field>
+        </record>
+
+        <!-- Milestone: mid-week (d+3) -->
+        <record id="marker_milestone_mid_week" model="yodoo.time.view.time.marker">
+            <field name="name">Mid-Week Review</field>
+            <field name="type">milestone</field>
+            <field name="timestamp" eval="datetime.now().replace(hour=12, minute=0, second=0, microsecond=0) + timedelta(days=3)"/>
+            <field name="color">#3498db</field>
+            <field name="style">solid</field>
+            <field name="width">2</field>
+            <field name="show_label">True</field>
+            <field name="label_position">bottom</field>
+            <field name="icon">📊</field>
+            <field name="description">Progress review</field>
+            <field name="active">True</field>
+        </record>
+
+        <!-- Breakpoint: lunch break (today) -->
+        <record id="marker_breakpoint_lunch" model="yodoo.time.view.time.marker">
+            <field name="name">Lunch Break</field>
+            <field name="type">breakpoint</field>
+            <field name="timestamp" eval="datetime.now().replace(hour=13, minute=0, second=0, microsecond=0)"/>
+            <field name="color">#95a5a6</field>
+            <field name="style">dotted</field>
+            <field name="width">1</field>
+            <field name="show_label">True</field>
+            <field name="label_position">top</field>
+            <field name="icon">🍽️</field>
+            <field name="description">Daily lunch break</field>
+            <field name="recurring_type">daily</field>
+            <field name="active">True</field>
+        </record>
+
+        <!-- Breakpoint: start of weekend (d+5 = Friday ~18:00) -->
+        <record id="marker_breakpoint_weekend_start" model="yodoo.time.view.time.marker">
+            <field name="name">Weekend Start</field>
+            <field name="type">breakpoint</field>
+            <field name="timestamp" eval="datetime.now().replace(hour=18, minute=0, second=0, microsecond=0) + timedelta(days=5)"/>
+            <field name="color">#2ecc71</field>
+            <field name="style">solid</field>
+            <field name="width">2</field>
+            <field name="show_label">True</field>
+            <field name="label_position">bottom</field>
+            <field name="icon">🎉</field>
+            <field name="description">Start of the weekend</field>
+            <field name="recurring_type">weekly</field>
+            <field name="recurring_day">5</field>
+            <field name="active">True</field>
+        </record>
+
+        <!-- Custom: weekly team meeting (today 10:00) -->
+        <record id="marker_custom_meeting" model="yodoo.time.view.time.marker">
+            <field name="name">Weekly Team Meeting</field>
+            <field name="type">custom</field>
+            <field name="timestamp" eval="datetime.now().replace(hour=10, minute=0, second=0, microsecond=0)"/>
+            <field name="color">#f39c12</field>
+            <field name="style">solid</field>
+            <field name="width">2</field>
+            <field name="show_label">True</field>
+            <field name="label_position">top</field>
+            <field name="icon">👥</field>
+            <field name="description">Weekly team planning meeting</field>
+            <field name="recurring_type">weekly</field>
+            <field name="recurring_day">0</field>
+            <field name="active">True</field>
+        </record>
+
+        <!-- Custom: code review (today 16:00) -->
+        <record id="marker_custom_review" model="yodoo.time.view.time.marker">
+            <field name="name">Code Review</field>
+            <field name="type">custom</field>
+            <field name="timestamp" eval="datetime.now().replace(hour=16, minute=0, second=0, microsecond=0)"/>
+            <field name="color">#8e44ad</field>
+            <field name="style">solid</field>
+            <field name="width">1</field>
+            <field name="show_label">True</field>
+            <field name="label_position">bottom</field>
+            <field name="icon">🔍</field>
+            <field name="description">Daily code review session</field>
+            <field name="recurring_type">daily</field>
+            <field name="active">True</field>
+        </record>
+
+        <!-- Custom: deploy (d+4 = Friday 17:00) -->
+        <record id="marker_custom_deploy" model="yodoo.time.view.time.marker">
+            <field name="name">Deploy to Production</field>
+            <field name="type">custom</field>
+            <field name="timestamp" eval="datetime.now().replace(hour=17, minute=0, second=0, microsecond=0) + timedelta(days=4)"/>
+            <field name="color">#16a085</field>
+            <field name="style">solid</field>
+            <field name="width">3</field>
+            <field name="show_label">True</field>
+            <field name="label_position">top</field>
+            <field name="icon">🚀</field>
+            <field name="description">Weekly deploy to production</field>
+            <field name="recurring_type">weekly</field>
+            <field name="recurring_day">4</field>
+            <field name="active">True</field>
+        </record>
+
+    </data>
+</odoo>

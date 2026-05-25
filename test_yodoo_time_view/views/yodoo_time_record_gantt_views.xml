@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Gantt View - XML configuration -->
+        <record id="view_yodoo_time_record_gantt" model="ir.ui.view">
+            <field name="name">yodoo.time.view.test.record.gantt</field>
+            <field name="model">yodoo.time.view.test.record</field>
+            <field name="type">gantt</field>
+            <field name="arch" type="xml">
+                <gantt
+                    date_start="datetime_start"
+                    date_stop="datetime_stop"
+                    progress_field="progress"
+                    color="color"
+                    mode="week"
+                    zoom_key="ctrlKey"
+                    event_open_popup="true"
+                    options='{"orientation": {"axis": "both", "item": "top"}}'
+                />
+            </field>
+        </record>
+
+        <!-- Gantt View grouped by record_type -->
+        <record id="view_yodoo_time_record_gantt_by_type" model="ir.ui.view">
+            <field name="name">yodoo.time.view.test.record.gantt.by.type</field>
+            <field name="model">yodoo.time.view.test.record</field>
+            <field name="type">gantt</field>
+            <field name="arch" type="xml">
+                <gantt 
+                    date_start="datetime_start" 
+                    date_stop="datetime_stop"
+                    progress_field="progress"
+                    color="record_type"
+                    default_group_by="record_type"
+                    mode="month"
+                    event_open_popup="false"
+                />
+            </field>
+        </record>
+
+        <!-- Gantt View without grouping (flat view) -->
+        <record id="view_yodoo_time_record_gantt_flat" model="ir.ui.view">
+            <field name="name">yodoo.time.view.test.record.gantt.flat</field>
+            <field name="model">yodoo.time.view.test.record</field>
+            <field name="type">gantt</field>
+            <field name="arch" type="xml">
+                <gantt 
+                    date_start="datetime_start" 
+                    date_stop="datetime_stop"
+                    progress_field="progress"
+                    color="color"
+                    mode="week"
+                    event_open_popup="true"
+                />
+            </field>
+        </record>
+
+        <!-- Action for Gantt -->
+        <record id="action_yodoo_time_record_gantt" model="ir.actions.act_window">
+            <field name="name">Gantt Demo</field>
+            <field name="res_model">yodoo.time.view.test.record</field>
+            <field name="view_mode">gantt,list,form</field>
+            <field name="view_id" ref="view_yodoo_time_record_gantt"/>
+            <field name="context">{
+                'default_record_type': 'type_alpha',
+                'default_kind': 'kind_class_a'
+            }</field>
+        </record>
+
+        <!-- Action for Gantt by type -->
+        <record id="action_yodoo_time_record_gantt_by_type" model="ir.actions.act_window">
+            <field name="name">Gantt by Type</field>
+            <field name="res_model">yodoo.time.view.test.record</field>
+            <field name="view_mode">gantt,list,form</field>
+            <field name="view_id" ref="view_yodoo_time_record_gantt_by_type"/>
+        </record>
+
+        <!-- Action for Flat Gantt -->
+        <record id="action_yodoo_time_record_gantt_flat" model="ir.actions.act_window">
+            <field name="name">Flat Gantt</field>
+            <field name="res_model">yodoo.time.view.test.record</field>
+            <field name="view_mode">gantt,list,form</field>
+            <field name="view_id" ref="view_yodoo_time_record_gantt_flat"/>
+        </record>
+
+        <!-- Menu Items -->
+        <menuitem id="menu_yodoo_time_view_gantt_main"
+                  name="Gantt Views"
+                  parent="base.menu_custom"
+                  sequence="20"/>
+
+        <menuitem id="menu_yodoo_time_view_gantt_demo"
+                  name="Gantt Demo"
+                  parent="menu_yodoo_time_view_gantt_main"
+                  action="action_yodoo_time_record_gantt"
+                  sequence="10"/>
+
+        <menuitem id="menu_yodoo_time_view_gantt_by_type"
+                  name="Gantt by Type"
+                  parent="menu_yodoo_time_view_gantt_main"
+                  action="action_yodoo_time_record_gantt_by_type"
+                  sequence="20"/>
+
+        <menuitem id="menu_yodoo_time_view_gantt_flat"
+                  name="Flat Gantt"
+                  parent="menu_yodoo_time_view_gantt_main"
+                  action="action_yodoo_time_record_gantt_flat"
+                  sequence="30"/>
+    </data>
+</odoo>

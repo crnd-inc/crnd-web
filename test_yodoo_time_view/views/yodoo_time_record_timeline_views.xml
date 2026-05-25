@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Timeline View - XML configuration -->
+        <record id="view_yodoo_time_record_timeline" model="ir.ui.view">
+            <field name="name">yodoo.time.view.test.record.timeline</field>
+            <field name="model">yodoo.time.view.test.record</field>
+            <field name="type">timeline</field>
+            <field name="arch" type="xml">
+                <timeline
+                    date_start="datetime_start"
+                    date_stop="datetime_stop"
+                    color="color"
+                    mode="week"
+                    zoom_key="ctrlKey"
+                    event_open_popup="true"
+                    options='{"orientation": {"axis": "both", "item": "top"}}'
+                />
+            </field>
+        </record>
+
+        <!-- Timeline View grouped by record_type -->
+        <record id="view_yodoo_time_record_timeline_by_type" model="ir.ui.view">
+            <field name="name">yodoo.time.view.test.record.timeline.by.type</field>
+            <field name="model">yodoo.time.view.test.record</field>
+            <field name="type">timeline</field>
+            <field name="arch" type="xml">
+                <timeline 
+                    date_start="datetime_start" 
+                    date_stop="datetime_stop"
+                    default_group_by="record_type"
+                    color="record_type"
+                    mode="month"
+                    event_open_popup="false"
+                />
+            </field>
+        </record>
+
+        <!-- Timeline View for milestones (start date only) -->
+        <record id="view_yodoo_time_record_timeline_milestones" model="ir.ui.view">
+            <field name="name">yodoo.time.view.test.record.timeline.milestones</field>
+            <field name="model">yodoo.time.view.test.record</field>
+            <field name="type">timeline</field>
+            <field name="arch" type="xml">
+                <timeline 
+                    date_start="datetime_start"
+                    default_group_by="kind"
+                    color="color"
+                    mode="week"
+                    event_open_popup="true"
+                />
+            </field>
+        </record>
+
+        <!-- Action for Timeline -->
+        <record id="action_yodoo_time_record_timeline" model="ir.actions.act_window">
+            <field name="name">Timeline Demo</field>
+            <field name="res_model">yodoo.time.view.test.record</field>
+            <field name="view_mode">timeline,list,form</field>
+            <field name="view_id" ref="view_yodoo_time_record_timeline"/>
+            <field name="context">{
+                'default_record_type': 'type_alpha',
+                'default_kind': 'kind_class_a'
+            }</field>
+        </record>
+
+        <!-- Action for Timeline by type -->
+        <record id="action_yodoo_time_record_timeline_by_type" model="ir.actions.act_window">
+            <field name="name">Timeline by Type</field>
+            <field name="res_model">yodoo.time.view.test.record</field>
+            <field name="view_mode">timeline,list,form</field>
+            <field name="view_id" ref="view_yodoo_time_record_timeline_by_type"/>
+        </record>
+
+        <!-- Action for Milestones -->
+        <record id="action_yodoo_time_record_timeline_milestones" model="ir.actions.act_window">
+            <field name="name">Milestones Timeline</field>
+            <field name="res_model">yodoo.time.view.test.record</field>
+            <field name="view_mode">timeline,list,form</field>
+            <field name="view_id" ref="view_yodoo_time_record_timeline_milestones"/>
+            <field name="domain">[('datetime_stop', '=', False)]</field>
+        </record>
+
+        <!-- Menu Items -->
+        <menuitem id="menu_yodoo_time_view_timeline_main"
+                  name="Timeline Views"
+                  parent="base.menu_custom"
+                  sequence="10"/>
+
+        <menuitem id="menu_yodoo_time_view_timeline_demo"
+                  name="Timeline Demo"
+                  parent="menu_yodoo_time_view_timeline_main"
+                  action="action_yodoo_time_record_timeline"
+                  sequence="10"/>
+
+        <menuitem id="menu_yodoo_time_view_timeline_by_type"
+                  name="Timeline by Type"
+                  parent="menu_yodoo_time_view_timeline_main"
+                  action="action_yodoo_time_record_timeline_by_type"
+                  sequence="20"/>
+
+        <menuitem id="menu_yodoo_time_view_timeline_milestones"
+                  name="Milestones"
+                  parent="menu_yodoo_time_view_timeline_main"
+                  action="action_yodoo_time_record_timeline_milestones"
+                  sequence="30"/>
+    </data>
+</odoo>

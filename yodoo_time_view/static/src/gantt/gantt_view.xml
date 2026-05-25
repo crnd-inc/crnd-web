@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+    <t t-name="yodoo_time_view.GanttController">
+        <div class="o_gantt_view o_timeline_view o_view_controller" t-att-class="props.className" style="display:flex; flex-direction:column; height:100%;">
+            <Layout display="props.display">
+                <t t-set-slot="control-panel-additional-actions">
+                    <CogMenu/>
+                </t>
+                <t t-set-slot="layout-actions">
+                    <SearchBar toggler="searchBarToggler"/>
+                </t>
+                <t t-set-slot="control-panel-navigation-additional">
+                    <t t-component="searchBarToggler.component" t-props="searchBarToggler.props"/>
+                </t>
+                <div class="o_timeline_toolbar d-flex align-items-center gap-2 px-3 py-2 border-bottom">
+                    <!-- Scale buttons from mixin toolbar config -->
+                    <div class="btn-group o_timeline_scale_buttons">
+                        <t t-foreach="state.toolbarScales" t-as="scale" t-key="scale">
+                            <button class="btn btn-sm btn-secondary"
+                                    t-att-class="{ active: state.currentScale === scale }"
+                                    t-on-click="() => this.setScale(scale)">
+                                <t t-out="scale.charAt(0).toUpperCase() + scale.slice(1)"/>
+                            </button>
+                        </t>
+                    </div>
+                    <!-- Today / Zoom buttons -->
+                    <div class="btn-group">
+                        <t t-if="state.showToday">
+                            <button class="btn btn-sm btn-secondary" t-on-click="() => this.moveToToday()">
+                                <i class="fa fa-clock-o"/> Today
+                            </button>
+                        </t>
+                        <t t-if="state.showZoom">
+                            <button class="btn btn-sm btn-secondary" t-on-click="() => this.zoomIn()">
+                                <i class="fa fa-search-plus"/>
+                            </button>
+                            <button class="btn btn-sm btn-secondary" t-on-click="() => this.zoomOut()">
+                                <i class="fa fa-search-minus"/>
+                            </button>
+                        </t>
+                    </div>
+                    <!-- Built-in background / marker layer buttons -->
+                    <div class="btn-group o_timeline_bg_buttons">
+                        <t t-if="state.btnWeekends">
+                            <button class="btn btn-sm o_bg_weekends"
+                                    t-att-class="{ active: state.showWeekends }"
+                                    t-on-click="() => this.toggleBackground('weekends')"
+                                    title="Weekends">
+                                <i class="fa fa-calendar"/> Weekends
+                            </button>
+                        </t>
+                        <t t-if="state.btnWorkHours">
+                            <button class="btn btn-sm o_bg_workhours"
+                                    t-att-class="{ active: state.showWorkHours }"
+                                    t-on-click="() => this.toggleBackground('work_hours')"
+                                    t-att-title="'Work Hours ' + state.workHoursLabel">
+                                <i class="fa fa-briefcase"/> Work hrs
+                            </button>
+                        </t>
+                        <t t-if="state.btnNight">
+                            <button class="btn btn-sm o_bg_night"
+                                    t-att-class="{ active: state.showNight }"
+                                    t-on-click="() => this.toggleBackground('night')"
+                                    title="Night 20:00-08:00">
+                                <i class="fa fa-moon-o"/> Night
+                            </button>
+                        </t>
+                        <t t-if="state.btnCurrentTime">
+                            <button class="btn btn-sm o_bg_currenttime"
+                                    t-att-class="{ active: state.showCurrentTime }"
+                                    t-on-click="() => this.toggleCurrentTime()"
+                                    title="Current time marker">
+                                <i class="fa fa-crosshairs"/> Now
+                            </button>
+                        </t>
+                    </div>
+                    <!-- Custom background layer feature-toggle buttons -->
+                    <t t-if="state.customBgLayers.length">
+                        <div class="btn-group o_timeline_custom_bg_buttons">
+                            <t t-foreach="state.customBgLayers" t-as="layer" t-key="layer.key">
+                                <button class="btn btn-sm o_bg_custom"
+                                        t-att-class="{ active: layer.active }"
+                                        t-on-click="() => this.toggleCustomBg(layer.key)"
+                                        t-att-title="layer.label">
+                                    <i class="fa fa-paint-brush"/> <t t-out="layer.label"/>
+                                </button>
+                            </t>
+                        </div>
+                    </t>
+                    <!-- Custom marker layer feature-toggle buttons -->
+                    <t t-if="state.customMkLayers.length">
+                        <div class="btn-group o_timeline_custom_mk_buttons">
+                            <t t-foreach="state.customMkLayers" t-as="layer" t-key="layer.key">
+                                <button class="btn btn-sm o_mk_custom"
+                                        t-att-class="{ active: layer.active }"
+                                        t-on-click="() => this.toggleCustomMk(layer.key)"
+                                        t-att-title="layer.label">
+                                    <i class="fa fa-flag"/> <t t-out="layer.label"/>
+                                </button>
+                            </t>
+                        </div>
+                    </t>
+                    <!-- Event layer (timestamp_fields) toggle buttons -->
+                    <t t-if="state.eventLayers.length">
+                        <div class="btn-group o_timeline_event_layer_buttons">
+                            <t t-foreach="state.eventLayers" t-as="layer" t-key="layer.key">
+                                <button class="btn btn-sm o_ev_layer"
+                                        t-att-class="{ active: layer.active }"
+                                        t-on-click="() => this.toggleEventLayer(layer.key)"
+                                        t-att-title="layer.label">
+                                    <t t-if="layer.isInherit">
+                                        <i class="fa fa-circle-o"/>
+                                    </t>
+                                    <t t-else="">
+                                        <i class="fa fa-circle" t-att-style="'color: ' + layer.color"/>
+                                    </t>
+                                    <t t-out="layer.label"/>
+                                </button>
+                            </t>
+                        </div>
+                    </t>
+                </div>
+                <div class="o_timeline_wrapper" style="position:relative; flex:1; min-height:0; overflow:hidden;">
+                    <t t-if="state.isLoading">
+                        <div class="o_timeline_loading d-flex align-items-center justify-content-center"
+                             style="position:absolute;inset:0;z-index:10;background:rgba(255,255,255,0.8);">
+                            <div class="spinner-border text-primary" role="status">
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+                        </div>
+                    </t>
+                    <div class="o_timeline_container" t-ref="timeline" style="width:100%; flex:1; min-height:0;"/>
+                </div>
+            </Layout>
+        </div>
+    </t>
+
+</templates>

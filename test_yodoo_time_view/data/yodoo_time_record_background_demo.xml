@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Dates are relative to current day (datetime.now() + timedelta) -->
+<odoo>
+    <data noupdate="1">
+
+        <!-- Weekends: previous (d-8..d-7) and upcoming (d+6..d+7) -->
+        <record id="background_weekend_prev" model="yodoo.time.view.background.period">
+            <field name="name">Weekend (last week)</field>
+            <field name="type">weekend</field>
+            <field name="date_start" eval="datetime.now().replace(hour=0, minute=0, second=0, microsecond=0) + timedelta(days=-8)"/>
+            <field name="date_stop"  eval="datetime.now().replace(hour=23, minute=59, second=59, microsecond=0) + timedelta(days=-7)"/>
+            <field name="color">#ff6b6b</field>
+            <field name="opacity">0.2</field>
+            <field name="active">True</field>
+        </record>
+
+        <record id="background_weekend_curr" model="yodoo.time.view.background.period">
+            <field name="name">Weekend (current week)</field>
+            <field name="type">weekend</field>
+            <field name="date_start" eval="datetime.now().replace(hour=0, minute=0, second=0, microsecond=0) + timedelta(days=-1)"/>
+            <field name="date_stop"  eval="datetime.now().replace(hour=23, minute=59, second=59, microsecond=0)"/>
+            <field name="color">#ff6b6b</field>
+            <field name="opacity">0.2</field>
+            <field name="active">True</field>
+        </record>
+
+        <record id="background_weekend_next" model="yodoo.time.view.background.period">
+            <field name="name">Weekend (next week)</field>
+            <field name="type">weekend</field>
+            <field name="date_start" eval="datetime.now().replace(hour=0, minute=0, second=0, microsecond=0) + timedelta(days=6)"/>
+            <field name="date_stop"  eval="datetime.now().replace(hour=23, minute=59, second=59, microsecond=0) + timedelta(days=7)"/>
+            <field name="color">#ff6b6b</field>
+            <field name="opacity">0.2</field>
+            <field name="active">True</field>
+        </record>
+
+        <!-- Public holiday: yesterday (test) -->
+        <record id="background_holiday_today" model="yodoo.time.view.background.period">
+            <field name="name">Public Holiday (yesterday)</field>
+            <field name="type">holiday</field>
+            <field name="date_start" eval="datetime.now().replace(hour=0, minute=0, second=0, microsecond=0) + timedelta(days=-1)"/>
+            <field name="date_stop"  eval="datetime.now().replace(hour=23, minute=59, second=59, microsecond=0) + timedelta(days=-1)"/>
+            <field name="color">#e74c3c</field>
+            <field name="opacity">0.3</field>
+            <field name="active">True</field>
+        </record>
+
+        <!-- Work shifts: today -->
+        <record id="background_shift_1_morning" model="yodoo.time.view.background.period">
+            <field name="name">First Shift (morning)</field>
+            <field name="type">work_shift</field>
+            <field name="date_start" eval="datetime.now().replace(hour=6, minute=0, second=0, microsecond=0)"/>
+            <field name="date_stop"  eval="datetime.now().replace(hour=14, minute=0, second=0, microsecond=0)"/>
+            <field name="color">#3498db</field>
+            <field name="opacity">0.15</field>
+            <field name="active">True</field>
+        </record>
+
+        <record id="background_shift_2_evening" model="yodoo.time.view.background.period">
+            <field name="name">Second Shift (evening)</field>
+            <field name="type">work_shift</field>
+            <field name="date_start" eval="datetime.now().replace(hour=14, minute=0, second=0, microsecond=0)"/>
+            <field name="date_stop"  eval="datetime.now().replace(hour=22, minute=0, second=0, microsecond=0)"/>
+            <field name="color">#9b59b6</field>
+            <field name="opacity">0.15</field>
+            <field name="active">True</field>
+        </record>
+
+        <record id="background_shift_3_night" model="yodoo.time.view.background.period">
+            <field name="name">Third Shift (night)</field>
+            <field name="type">work_shift</field>
+            <field name="date_start" eval="datetime.now().replace(hour=22, minute=0, second=0, microsecond=0)"/>
+            <field name="date_stop"  eval="datetime.now().replace(hour=6, minute=0, second=0, microsecond=0) + timedelta(days=1)"/>
+            <field name="color">#2c3e50</field>
+            <field name="opacity">0.15</field>
+            <field name="active">True</field>
+        </record>
+
+        <!-- Day/Night: today -->
+        <record id="background_daylight_today" model="yodoo.time.view.background.period">
+            <field name="name">Daytime</field>
+            <field name="type">daylight</field>
+            <field name="date_start" eval="datetime.now().replace(hour=8, minute=0, second=0, microsecond=0)"/>
+            <field name="date_stop"  eval="datetime.now().replace(hour=16, minute=0, second=0, microsecond=0)"/>
+            <field name="color">#f39c12</field>
+            <field name="opacity">0.1</field>
+            <field name="active">True</field>
+        </record>
+
+        <record id="background_night_today" model="yodoo.time.view.background.period">
+            <field name="name">Nighttime</field>
+            <field name="type">daylight</field>
+            <field name="date_start" eval="datetime.now().replace(hour=16, minute=0, second=0, microsecond=0)"/>
+            <field name="date_stop"  eval="datetime.now().replace(hour=8, minute=0, second=0, microsecond=0) + timedelta(days=1)"/>
+            <field name="color">#34495e</field>
+            <field name="opacity">0.2</field>
+            <field name="active">True</field>
+        </record>
+
+        <!-- Custom: maintenance window (d+3 .. d+5) -->
+        <record id="background_custom_maintenance" model="yodoo.time.view.background.period">
+            <field name="name">Maintenance Window</field>
+            <field name="type">custom</field>
+            <field name="date_start" eval="datetime.now().replace(hour=0, minute=0, second=0, microsecond=0) + timedelta(days=3)"/>
+            <field name="date_stop"  eval="datetime.now().replace(hour=23, minute=59, second=59, microsecond=0) + timedelta(days=5)"/>
+            <field name="color">#e67e22</field>
+            <field name="opacity">0.25</field>
+            <field name="active">True</field>
+        </record>
+
+        <!-- Custom: training period (d-5 .. d-3) -->
+        <record id="background_custom_training" model="yodoo.time.view.background.period">
+            <field name="name">Training Period</field>
+            <field name="type">custom</field>
+            <field name="date_start" eval="datetime.now().replace(hour=0, minute=0, second=0, microsecond=0) + timedelta(days=-5)"/>
+            <field name="date_stop"  eval="datetime.now().replace(hour=23, minute=59, second=59, microsecond=0) + timedelta(days=-3)"/>
+            <field name="color">#27ae60</field>
+            <field name="opacity">0.2</field>
+            <field name="active">True</field>
+        </record>
+
+    </data>
+</odoo>

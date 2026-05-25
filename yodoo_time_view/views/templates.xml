@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Timeline View Template -->
+        <template id="TimelineView" name="Timeline View">
+            <Layout className="o_kanban_view">
+                <div class="o_kanban_view o_view_controller">
+                    <div class="o_content">
+                        <div class="yodoo-timeline-view">
+                            <!-- Toolbar -->
+                            <div class="yodoo-timeline-toolbar btn-toolbar mb-3">
+                                <div class="btn-group me-2">
+                                    <button class="btn btn-sm btn-secondary" t-on-click="() => this.zoomIn()">
+                                        <i class="fa fa-search-plus"></i>
+                                    </button>
+                                    <button class="btn btn-sm btn-secondary" t-on-click="() => this.moveToCurrentTime()">
+                                        <i class="fa fa-clock-o"></i> Now
+                                    </button>
+                                    <button class="btn btn-sm btn-secondary" t-on-click="() => this.zoomOut()">
+                                        <i class="fa fa-search-minus"></i>
+                                    </button>
+                                </div>
+                                
+                                <div class="btn-group me-2">
+                                    <button class="btn btn-sm btn-secondary" 
+                                            t-att-class="state.currentScale === 'day' ? 'active' : ''"
+                                            t-on-click="() => this.setScale('day')">Day</button>
+                                    <button class="btn btn-sm btn-secondary" 
+                                            t-att-class="state.currentScale === 'week' ? 'active' : ''"
+                                            t-on-click="() => this.setScale('week')">Week</button>
+                                    <button class="btn btn-sm btn-secondary" 
+                                            t-att-class="state.currentScale === 'month' ? 'active' : ''"
+                                            t-on-click="() => this.setScale('month')">Month</button>
+                                    <button class="btn btn-sm btn-secondary" 
+                                            t-att-class="state.currentScale === 'year' ? 'active' : ''"
+                                            t-on-click="() => this.setScale('year')">Year</button>
+                                </div>
+                                
+                                <div class="btn-group me-2">
+                                    <button class="btn btn-sm btn-secondary" 
+                                            t-att-class="state.backgroundEnabled ? 'active' : ''"
+                                            t-on-click="() => this.toggleBackground()">
+                                        <i class="fa fa-paint-brush"></i> Background
+                                    </button>
+                                    <button class="btn btn-sm btn-secondary" 
+                                            t-att-class="state.markersEnabled ? 'active' : ''"
+                                            t-on-click="() => this.toggleMarkers()">
+                                        <i class="fa fa-map-marker"></i> Markers
+                                    </button>
+                                </div>
+                                
+                                <div class="btn-group">
+                                    <button class="btn btn-sm btn-primary" t-on-click="() => this.refresh()">
+                                        <i class="fa fa-refresh"></i> Refresh
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <!-- Loading State -->
+                            <div t-if="state.isLoading" class="yodoo-timeline-loading text-center p-4">
+                                <div class="spinner-border text-primary" role="status">
+                                    <span class="visually-hidden">Loading...</span>
+                                </div>
+                                <div class="mt-2">Loading Timeline...</div>
+                            </div>
+                            
+                            <!-- Timeline Container -->
+                            <div t-else="" class="yodoo-timeline-container" 
+                                 style="height: 600px; border: 1px solid #dee2e6; border-radius: 4px;"
+                                 t-ref="timeline">
+                                <!-- Timeline буде ініціалізований тут -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </Layout>
+        </template>
+    </data>
+</odoo>

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- List View -->
+        <record id="view_yodoo_time_record_list" model="ir.ui.view">
+            <field name="name">yodoo.time.view.test.record.list</field>
+            <field name="model">yodoo.time.view.test.record</field>
+            <field name="arch" type="xml">
+                <list string="Yodoo Time Records">
+                    <field name="name"/>
+                    <field name="record_type"/>
+                    <field name="kind"/>
+                    <field name="datetime_start"/>
+                    <field name="datetime_stop"/>
+                    <field name="datetime_3"/>
+                    <field name="datetime_4"/>
+                    <field name="datetime_5"/>
+                    <field name="color" widget="color"/>
+                    <field name="progress"/>
+                </list>
+            </field>
+        </record>
+
+        <!-- Form View -->
+        <record id="view_yodoo_time_record_form" model="ir.ui.view">
+            <field name="name">yodoo.time.view.test.record.form</field>
+            <field name="model">yodoo.time.view.test.record</field>
+            <field name="arch" type="xml">
+                <form string="Yodoo Time Record">
+                    <sheet>
+                        <group string="General Information">
+                            <field name="name"/>
+                            <field name="record_type"/>
+                            <field name="kind"/>
+                        </group>
+                        <group string="Main Dates">
+                            <field name="datetime_start"/>
+                            <field name="datetime_stop"/>
+                        </group>
+                        <group string="Additional Dates for Multi-Events">
+                            <field name="datetime_3"/>
+                            <field name="datetime_4"/>
+                            <field name="datetime_5"/>
+                            <html><div style="color: #666; font-size: 12px; margin-top: 10px;">
+                                💡 Event types for testing:<br/>
+                                • 1 date (datetime_start) = Milestone<br/>
+                                • 2 dates (start + stop) = Task Bar<br/>
+                                • 5 dates (start + stop + 3/4/5) = Multi-Events
+                            </div></html>
+                        </group>
+                        <group string="Visualization">
+                            <field name="color" widget="color"/>
+                            <field name="progress"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Search View -->
+        <record id="view_yodoo_time_record_search" model="ir.ui.view">
+            <field name="name">yodoo.time.view.test.record.search</field>
+            <field name="model">yodoo.time.view.test.record</field>
+            <field name="arch" type="xml">
+                <search string="Search Time Records">
+                    <field name="name"/>
+                    <field name="record_type"/>
+                    <field name="kind"/>
+                    <filter string="Type Alpha" name="filter_type_alpha" domain="[('record_type', '=', 'type_alpha')]"/>
+                    <filter string="Type Beta" name="filter_type_beta" domain="[('record_type', '=', 'type_beta')]"/>
+                    <filter string="Type Gamma" name="filter_type_gamma" domain="[('record_type', '=', 'type_gamma')]"/>
+                    <filter string="Type Delta" name="filter_type_delta" domain="[('record_type', '=', 'type_delta')]"/>
+                    <filter string="Type Epsilon" name="filter_type_epsilon" domain="[('record_type', '=', 'type_epsilon')]"/>
+                    <separator/>
+                    <filter string="Class A" name="filter_kind_a" domain="[('kind', '=', 'kind_class_a')]"/>
+                    <filter string="Class B" name="filter_kind_b" domain="[('kind', '=', 'kind_class_b')]"/>
+                    <filter string="Class C" name="filter_kind_c" domain="[('kind', '=', 'kind_class_c')]"/>
+                    <filter string="Class D" name="filter_kind_d" domain="[('kind', '=', 'kind_class_d')]"/>
+                    <separator/>
+                    <filter string="Today" name="filter_today" domain="[('datetime_start', '&gt;=', context_today().strftime('%Y-%m-%d 00:00:00')), ('datetime_start', '&lt;=', context_today().strftime('%Y-%m-%d 23:59:59'))]"/>
+                    <group expand="0" string="Group By">
+                        <filter string="Event Type" name="group_by_type" context="{'group_by': 'record_type'}"/>
+                        <filter string="Category" name="group_by_kind" context="{'group_by': 'kind'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <!-- Minimal view records - get_view() will dynamically override them -->
+
+        <!-- Gantt View Stub -->
+        <record id="view_yodoo_time_record_gantt" model="ir.ui.view">
+            <field name="name">yodoo.time.view.test.record.gantt</field>
+            <field name="model">yodoo.time.view.test.record</field>
+            <field name="arch" type="xml">
+                <gantt date_start="datetime_start"/>
+            </field>
+        </record>
+
+        <!-- Timeline View Stub -->
+        <record id="view_yodoo_time_record_timeline" model="ir.ui.view">
+            <field name="name">yodoo.time.view.test.record.timeline</field>
+            <field name="model">yodoo.time.view.test.record</field>
+            <field name="arch" type="xml">
+                <timeline date_start="datetime_start">
+                    <field name="name"/>
+                    <field name="record_type"/>
+                    <field name="kind"/>
+                </timeline>
+            </field>
+        </record>
+
+
+        <!-- Action with Gantt and Timeline view types -->
+        <record id="action_yodoo_time_record" model="ir.actions.act_window">
+            <field name="name">Yodoo Time Records</field>
+            <field name="res_model">yodoo.time.view.test.record</field>
+            <field name="view_mode">list,gantt,timeline,form</field>
+        </record>
+
+        <!-- Menu -->
+        <menuitem id="menu_yodoo_time_root" name="Yodoo Time View" sequence="90"/>
+        <menuitem id="menu_yodoo_time_records" name="Test Time Records"
+                  parent="menu_yodoo_time_root" action="action_yodoo_time_record"/>
+    </data>
+</odoo>
