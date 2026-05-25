@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Dates are relative to current day (datetime.now() + timedelta) -->
-<odoo>
-    <data noupdate="1">
+<odoo noupdate="1">
 
         <!-- Weekends: previous (d-8..d-7) and upcoming (d+6..d+7) -->
         <record id="background_weekend_prev" model="yodoo.time.view.background.period">
@@ -119,5 +118,4 @@
             <field name="active">True</field>
         </record>
 
-    </data>
 </odoo>

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Dates are relative to current day (datetime.now() + timedelta) -->
 <odoo noupdate="0">
-    <data>
         <!-- === type_alpha: tasks around current week === -->
         <record id="yodoo_gantt_demo_record_1" model="yodoo.time.view.test.record">
             <field name="name">Task Alpha 1</field>
@@ -285,5 +284,4 @@
             <field name="color">#eb984e</field>
             <field name="progress">45</field>
         </record>
-    </data>
 </odoo>
