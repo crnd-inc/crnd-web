@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'Yodoo Time View',
-    'version': '18.0.2.0.0',
+    'version': '18.0.0.1.0',
     'category': 'Web',
     'summary': 'Universal Timeline/Gantt views with background layers',
     'author': 'Center of Research and Development',

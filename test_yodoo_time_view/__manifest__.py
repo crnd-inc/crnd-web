@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'Yodoo Time View Test',
-    'version': '18.0.2.0.0',
+    'version': '18.0.0.1.0',
     'summary': 'Test data for Yodoo Time View',
     'category': 'Tools',
     'license': 'LGPL-3',
