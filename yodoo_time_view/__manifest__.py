@@ -9,7 +9,6 @@
     'license': 'LGPL-3',
     'depends': ['web'],
     'data': [
-        'security/ir.model.access.csv',
         'views/templates.xml',
     ],
     'assets': {
