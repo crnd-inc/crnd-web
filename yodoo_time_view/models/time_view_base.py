@@ -3,7 +3,7 @@
 import copy
 import json
 import logging
-import xml.etree.ElementTree as ET
+from lxml import etree as ET
 from odoo import api, models
 from odoo.exceptions import ValidationError
 
