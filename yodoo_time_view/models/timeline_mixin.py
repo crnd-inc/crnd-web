@@ -1,9 +1,8 @@
 # -*- coding: utf-8 -*-
+from odoo import models
 
-from .time_view_base import TimeViewBaseMixin
 
-
-class TimelineMixin(TimeViewBaseMixin):
+class TimelineMixin(models.AbstractModel):
     """Mixin for attaching Timeline view to a model.
 
     Configure via _time_view_config on your model.

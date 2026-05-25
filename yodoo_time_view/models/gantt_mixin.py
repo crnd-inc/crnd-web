@@ -1,11 +1,10 @@
 # -*- coding: utf-8 -*-
 
-from odoo import api, fields
+from odoo import api, fields, models
 from odoo.exceptions import ValidationError
-from .time_view_base import TimeViewBaseMixin
 
 
-class GanttMixin(TimeViewBaseMixin):
+class GanttMixin(models.AbstractModel):
     """Mixin for attaching Gantt view to a model.
 
     Provides fields (datetime_start, datetime_stop, color, progress)
