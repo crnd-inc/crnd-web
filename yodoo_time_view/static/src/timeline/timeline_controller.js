@@ -37,6 +37,7 @@ export class TimelineController extends TimeBaseController {
                 items.push({
                     id:      recId,
                     content: displayName,
+                    title:   this._buildTooltipHtml(data, archInfo),
                     start:   new Date(start),
                     end:     end ? new Date(end) : undefined,
                     group:   groupId,

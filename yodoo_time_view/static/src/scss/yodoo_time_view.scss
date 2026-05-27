@@ -333,6 +333,66 @@
 }
 
 
+// Hover tooltip — rendered inside .vis-tooltip div by vis-timeline
+.vis-tooltip {
+    padding: 0 !important;
+    background: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+
+    .o_yodoo_tooltip {
+        background: #fff;
+        border: 1px solid #dee2e6;
+        border-radius: 6px;
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.14);
+        padding: 8px 12px;
+        min-width: 180px;
+        max-width: 300px;
+        font-size: 12px;
+        line-height: 1.4;
+        color: #212529;
+        pointer-events: none;
+
+        .o_yodoo_tt_header {
+            font-weight: 600;
+            font-size: 13px;
+            color: #212529;
+            margin-bottom: 5px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #dee2e6;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .o_yodoo_tt_dates {
+            color: #6c757d;
+            font-size: 11px;
+            margin-bottom: 4px;
+        }
+
+        .o_yodoo_tt_row {
+            display: flex;
+            gap: 4px;
+            margin-top: 2px;
+
+            .o_yodoo_tt_label {
+                color: #6c757d;
+                flex-shrink: 0;
+                white-space: nowrap;
+            }
+
+            .o_yodoo_tt_value {
+                color: #212529;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+        }
+    }
+}
+
 // Timestamp marker overlay — absolute px coordinates computed from timeline window.
 // Placed inside .vis-panel.vis-center .vis-content, sibling of .vis-itemset.
 .yodoo-ts-marker-overlay {

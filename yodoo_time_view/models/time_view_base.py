@@ -285,7 +285,11 @@ class TimeViewBaseMixin(models.AbstractModel):
                 existing = {f.get('name') for f in root.findall('.//field')}
                 extra = []
                 for ev in tv_config.get('events', []):
-                    for tf in ev.get('timestamp_fields', []):
+                    # timestamp_fields and tooltip_fields must be fetched
+                    for tf in (
+                        list(ev.get('timestamp_fields', []))
+                        + list(ev.get('tooltip_fields', []))
+                    ):
                         fname = tf.get('field') if isinstance(tf, dict) else tf
                         if fname and fname not in extra:
                             extra.append(fname)

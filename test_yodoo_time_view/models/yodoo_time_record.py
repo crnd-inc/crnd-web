@@ -35,6 +35,10 @@ class YodooTimeViewTestRecord(models.Model):
                         'color': 'inherit', 'lighten': 0.6, 'active': False,
                     },
                 ],
+                'tooltip_fields': [
+                    {'field': 'record_type', 'label': "Type"},
+                    {'field': 'kind', 'label': "Category"},
+                ],
                 'marker_fields': [
                     {
                         'field': 'datetime_5',

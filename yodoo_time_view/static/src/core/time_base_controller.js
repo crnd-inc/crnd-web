@@ -165,7 +165,7 @@ export class TimeBaseController extends Component {
             await this._initTimeline();
             this._initLayers();
             this._renderData();
-            this.adapter.on('click', (props) => this._onItemClick(props));
+            this.adapter.on('doubleClick', (props) => this._onItemClick(props));
         });
 
         onWillUnmount(() => {
@@ -446,6 +446,80 @@ export class TimeBaseController extends Component {
 
     // ---- Other handlers ----
 
+    /**
+     * Return a human-readable display value for a single field value.
+     * Handles Luxon DateTime, M2O objects, Selection (via props.fields), Boolean.
+     */
+    _getFieldDisplayValue(fieldName, val) {
+        if (val === null || val === undefined || val === false) return null;
+        // Luxon DateTime
+        if (typeof val === 'object' && typeof val.toFormat === 'function') {
+            return val.toFormat('dd MMM yyyy HH:mm');
+        }
+        // M2O / Many2one relation object
+        if (typeof val === 'object') {
+            return val.display_name || val.displayName || val.name || null;
+        }
+        // Boolean
+        if (typeof val === 'boolean') return val ? 'Yes' : 'No';
+        // Selection — resolve label from field definition
+        const fieldDef = this.props.fields?.[fieldName];
+        if (fieldDef?.type === 'selection' && Array.isArray(fieldDef.selection)) {
+            const opt = fieldDef.selection.find(([key]) => key === val);
+            if (opt) return opt[1];
+        }
+        return String(val);
+    }
+
+    /**
+     * Build HTML string for the vis-timeline tooltip (title attribute).
+     * Shows display_name header, date range, and configured tooltip_fields.
+     *
+     * @param {object} data      - record.data map
+     * @param {object} archInfo  - view archInfo (dateStart, dateStop)
+     * @returns {string} HTML string
+     */
+    _buildTooltipHtml(data, archInfo) {
+        const { dateStart, dateStop } = archInfo;
+        const displayName = data.display_name || data.name || '';
+
+        const fmtDate = (val) => this._getFieldDisplayValue(dateStart, val) || '?';
+
+        const startVal = data[dateStart];
+        const endVal = dateStop ? data[dateStop] : null;
+
+        let html = '<div class="o_yodoo_tooltip">';
+        if (displayName) {
+            html += `<div class="o_yodoo_tt_header">${displayName}</div>`;
+        }
+
+        // Date range row
+        const startStr = startVal ? fmtDate(startVal) : '?';
+        const endStr   = endVal   ? fmtDate(endVal)   : null;
+        html += '<div class="o_yodoo_tt_dates">';
+        html += endStr
+            ? `${startStr} &rarr; ${endStr}`
+            : startStr;
+        html += '</div>';
+
+        // Configured tooltip_fields
+        const mainEv = this._eventsConfig.find(e => e.source === 'self_fields');
+        for (const tf of (mainEv?.tooltip_fields || [])) {
+            const fieldName = typeof tf === 'string' ? tf : tf.field;
+            const label     = typeof tf === 'string' ? fieldName : (tf.label || fieldName);
+            const val = data[fieldName];
+            const displayVal = this._getFieldDisplayValue(fieldName, val);
+            if (!displayVal) continue;
+            html += '<div class="o_yodoo_tt_row">'
+                + `<span class="o_yodoo_tt_label">${label}:</span>`
+                + `<span class="o_yodoo_tt_value">${displayVal}</span>`
+                + '</div>';
+        }
+
+        html += '</div>';
+        return html;
+    }
+
     _onItemClick(props) {
         const resId = props.item;
         if (!resId) return;
@@ -498,6 +572,7 @@ export class TimeBaseController extends Component {
             items.push({
                 id:      recId,
                 content: '&nbsp;',
+                title:   this._buildTooltipHtml(data, archInfo),
                 start:   new Date(start),
                 end:     end ? new Date(end) : undefined,
                 group:   groupId,
