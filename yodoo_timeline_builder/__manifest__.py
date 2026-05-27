@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'Yodoo Timeline Builder',
-    'version': '18.0.1.0.0',
+    'version': '18.0.1.1.0',
     'category': 'Reporting',
     'summary': 'Build dynamic Timeline / Gantt views for any Odoo model',
     'author': 'CRND',
@@ -12,14 +12,6 @@
         'views/timeline_template_views.xml',
         'views/menus.xml',
     ],
-    'assets': {
-        'web.assets_backend': [
-            'yodoo_timeline_builder/static/src/timeline_builder/'
-            'timeline_builder_action.xml',
-            'yodoo_timeline_builder/static/src/timeline_builder/'
-            'timeline_builder_action.js',
-        ],
-    },
     'installable': True,
     'application': True,
     'license': 'OPL-1',

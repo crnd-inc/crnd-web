@@ -55,6 +55,8 @@
                                    placeholder="Default: Yodoo Timelines"/>
                             <field name="menu_id" readonly="1"
                                    options="{'no_create': True, 'no_open': True}"/>
+                            <field name="action_id" readonly="1"
+                                   options="{'no_create': True, 'no_open': True}"/>
                         </group>
                     </group>
 
