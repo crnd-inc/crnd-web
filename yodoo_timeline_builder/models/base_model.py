@@ -16,7 +16,7 @@ class Base(models.AbstractModel):
 
     _inherit = 'base'
 
-    # ── get_views override ────────────────────────────────────────────────────
+    # ── get_views override ──────────────────────────────────────────────────
 
     @api.model
     def get_views(self, views, options=None):
@@ -70,7 +70,7 @@ class Base(models.AbstractModel):
                 )
         return result
 
-    # ── get_time_view_data fallback ───────────────────────────────────────────
+    # ── get_time_view_data fallback ─────────────────────────────────────────
 
     @api.model
     def get_time_view_data(self, records, view_type='timeline'):

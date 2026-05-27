@@ -18,7 +18,6 @@ class YodooTimelineTemplateField(models.Model):
 
     template_id = fields.Many2one(
         'yodoo.timeline.template',
-        string='Template',
         required=True,
         ondelete='cascade',
     )
@@ -26,19 +25,16 @@ class YodooTimelineTemplateField(models.Model):
 
     field_id = fields.Many2one(
         'ir.model.fields',
-        string='Field',
         required=True,
         ondelete='cascade',
         domain="[('model_id', '=', parent.base_model_id),"
                " ('ttype', 'not in', ['binary', 'one2many', 'many2many'])]",
     )
     label = fields.Char(
-        string='Label',
         help='Display label. Defaults to field description if empty.',
     )
     role = fields.Selection(
         ROLE_SELECTION,
-        string='Role',
         required=True,
         default='search',
     )

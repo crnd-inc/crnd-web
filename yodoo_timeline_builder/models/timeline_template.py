@@ -24,14 +24,13 @@ class YodooTimelineTemplate(models.Model):
     _description = 'Yodoo Timeline Template'
     _order = 'name'
 
-    name = fields.Char(string='Name', required=True)
+    name = fields.Char(required=True)
     active = fields.Boolean(default=True)
 
-    # ── Data source ───────────────────────────────────────────────────────────
+    # ── Data source ─────────────────────────────────────────────────────────
 
     base_model_id = fields.Many2one(
         'ir.model',
-        string='Base Model',
         required=True,
         ondelete='cascade',
         domain=[('transient', '=', False)],
@@ -43,16 +42,15 @@ class YodooTimelineTemplate(models.Model):
         readonly=True,
     )
 
-    # ── View type ─────────────────────────────────────────────────────────────
+    # ── View type ───────────────────────────────────────────────────────────
 
     view_type = fields.Selection(
         [('timeline', 'Timeline'), ('gantt', 'Gantt')],
-        string='View Type',
         required=True,
         default='timeline',
     )
 
-    # ── Date / color fields ───────────────────────────────────────────────────
+    # ── Date / color fields ─────────────────────────────────────────────────
 
     date_start_field_id = fields.Many2one(
         'ir.model.fields',
@@ -71,13 +69,12 @@ class YodooTimelineTemplate(models.Model):
     )
     color_field_id = fields.Many2one(
         'ir.model.fields',
-        string='Color Field',
         ondelete='set null',
         domain="[('model_id', '=', base_model_id)]",
         help='Field containing a CSS colour string (e.g. type_color).',
     )
 
-    # ── Columns: groupby / search / tooltip fields ────────────────────────────
+    # ── Columns: groupby / search / tooltip fields ──────────────────────────
 
     field_ids = fields.One2many(
         'yodoo.timeline.template.field',
@@ -86,7 +83,7 @@ class YodooTimelineTemplate(models.Model):
         copy=True,
     )
 
-    # ── Related event overlays ────────────────────────────────────────────────
+    # ── Related event overlays ──────────────────────────────────────────────
 
     event_ids = fields.One2many(
         'yodoo.timeline.template.event',
@@ -95,7 +92,7 @@ class YodooTimelineTemplate(models.Model):
         copy=True,
     )
 
-    # ── Default domain filter ─────────────────────────────────────────────────
+    # ── Default domain filter ───────────────────────────────────────────────
 
     domain = fields.Char(
         string='Default Domain',
@@ -103,16 +100,15 @@ class YodooTimelineTemplate(models.Model):
         help='Domain applied when opening the timeline.',
     )
 
-    # ── Scale / toolbar ───────────────────────────────────────────────────────
+    # ── Scale / toolbar ─────────────────────────────────────────────────────
 
     default_scale = fields.Selection(
         [('day', 'Day'), ('week', 'Week'),
          ('month', 'Month'), ('year', 'Year')],
-        string='Default Scale',
         default='week',
     )
 
-    # ── Background layer defaults ─────────────────────────────────────────────
+    # ── Background layer defaults ───────────────────────────────────────────
 
     bg_weekends = fields.Boolean(
         string='Show Weekends',
@@ -125,7 +121,7 @@ class YodooTimelineTemplate(models.Model):
         help='Highlight work-hour bands when the view opens.',
     )
 
-    # ── Access control ────────────────────────────────────────────────────────
+    # ── Access control ──────────────────────────────────────────────────────
 
     group_ids = fields.Many2many(
         'res.groups',
@@ -138,12 +134,11 @@ class YodooTimelineTemplate(models.Model):
     )
     parent_menu_id = fields.Many2one(
         'ir.ui.menu',
-        string='Parent Menu',
         help='Where to place the auto-generated menu item.',
         copy=False,
     )
 
-    # ── Auto-generated records (read-only) ────────────────────────────────────
+    # ── Auto-generated records (read-only) ──────────────────────────────────
 
     view_id = fields.Many2one(
         'ir.ui.view',
@@ -154,14 +149,12 @@ class YodooTimelineTemplate(models.Model):
     )
     search_view_id = fields.Many2one(
         'ir.ui.view',
-        string='Search View',
         readonly=True,
         copy=False,
         ondelete='set null',
     )
     action_id = fields.Many2one(
         'ir.actions.act_window',
-        string='Action',
         readonly=True,
         copy=False,
         ondelete='set null',
@@ -174,7 +167,7 @@ class YodooTimelineTemplate(models.Model):
         ondelete='set null',
     )
 
-    # ── Stat / summary helpers ────────────────────────────────────────────────
+    # ── Stat / summary helpers ──────────────────────────────────────────────
 
     groupby_count = fields.Integer(
         compute='_compute_field_counts',
@@ -202,7 +195,7 @@ class YodooTimelineTemplate(models.Model):
         for rec in self:
             rec.event_count = len(rec.event_ids)
 
-    # ── ORM hooks ─────────────────────────────────────────────────────────────
+    # ── ORM hooks ───────────────────────────────────────────────────────────
 
     @api.model_create_multi
     def create(self, vals_list):
@@ -228,7 +221,7 @@ class YodooTimelineTemplate(models.Model):
             rec._delete_generated_records()
         return super().unlink()
 
-    # ── Generated-record helpers ──────────────────────────────────────────────
+    # ── Generated-record helpers ────────────────────────────────────────────
 
     def _get_parent_menu(self):
         self.ensure_one()
@@ -369,7 +362,8 @@ class YodooTimelineTemplate(models.Model):
             action = self.action_id
         else:
             action = IrAction.create(action_vals)
-            self.with_context(no_recompute=True).write({'action_id': action.id})
+            self.with_context(no_recompute=True).write(
+                {'action_id': action.id})
 
         # Set explicit view for the timeline/gantt mode so Odoo uses our arch
         ActWindowView = self.env['ir.actions.act_window.view'].sudo()
@@ -443,7 +437,7 @@ class YodooTimelineTemplate(models.Model):
         if self.search_view_id and self.search_view_id.exists():
             self.search_view_id.sudo().unlink()
 
-    # ── Open action shortcut ──────────────────────────────────────────────────
+    # ── Open action shortcut ────────────────────────────────────────────────
 
     def action_open_timeline(self):
         """Open the timeline/gantt view for this template."""
@@ -462,7 +456,7 @@ class YodooTimelineTemplate(models.Model):
             'target': 'current',
         }
 
-    # ── layer_options builder (used by base.get_views) ────────────────────────
+    # ── layer_options builder (used by base.get_views) ──────────────────────
 
     def _build_layer_options(self):
         """Build the layer_options dict consumed by the JS TimeBaseController.
@@ -528,10 +522,11 @@ class YodooTimelineTemplate(models.Model):
             'timestamp_style': 'markers',
         }
 
-    # ── Related-events data (called from base.get_time_view_data) ─────────────
+    # ── Related-events data (called from base.get_time_view_data) ───────────
 
     @api.model
-    def _get_related_events(self, template, record_ids, view_type):
+    def _get_related_events(  # pylint: disable=too-many-locals,too-many-branches
+            self, template, record_ids, view_type):
         """Load related events from all configured event overlays.
 
         Returns a list of event dicts compatible with the JS controller's
@@ -610,7 +605,7 @@ class YodooTimelineTemplate(models.Model):
 
     @api.model
     def _resolve_event_domain(self, domain_template, ref_field, parent_id):
-        """Substitute ``__id__`` placeholder with the actual parent record id."""
+        """Substitute ``__id__`` placeholder with the actual parent id."""
         placeholder = '__id__'
         resolved = []
         for cond in domain_template:
@@ -623,7 +618,7 @@ class YodooTimelineTemplate(models.Model):
                 resolved.append(cond)
         return resolved
 
-    # ── Legacy API kept for compatibility ─────────────────────────────────────
+    # ── Legacy API kept for compatibility ───────────────────────────────────
 
     @api.model
     def get_builder_config(self, template_id):
@@ -678,7 +673,7 @@ class YodooTimelineTemplate(models.Model):
     @api.model
     def get_builder_data(self, template_id, domain_override, filters,
                          view_type='timeline'):
-        """Fetch records and related events (legacy JS API, kept for compat)."""
+        """Fetch records and related events (legacy JS API)."""
         template = self.browse(template_id)
         template.ensure_one()
 
@@ -716,7 +711,9 @@ class YodooTimelineTemplate(models.Model):
     @api.model
     def _filters_to_domain(self, filters, config):
         """Convert inline filter list to an Odoo domain list."""
-        search_field_map = {f['key']: f for f in config.get('search_fields', [])}
+        search_field_map = {
+            f['key']: f for f in config.get('search_fields', [])
+        }
         clauses = []
         for flt in filters:
             key = flt.get('key')

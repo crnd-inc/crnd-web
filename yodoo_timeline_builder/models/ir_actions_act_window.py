@@ -10,5 +10,8 @@ class IrActionsActWindow(models.Model):
     yodoo_template_id = fields.Char(
         string='Yodoo Template ID',
         index=True,
-        help='Set by yodoo_timeline_builder to identify auto-generated actions.',
+        help=(
+            'Set by yodoo_timeline_builder to identify'
+            ' auto-generated actions.'
+        ),
     )

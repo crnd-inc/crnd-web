@@ -20,19 +20,16 @@ class YodooTimelineTemplateEvent(models.Model):
 
     template_id = fields.Many2one(
         'yodoo.timeline.template',
-        string='Template',
         required=True,
         ondelete='cascade',
     )
     sequence = fields.Integer(default=10)
 
     key = fields.Char(
-        string='Key',
         required=True,
         help='Unique technical identifier for this event layer.',
     )
     label = fields.Char(
-        string='Label',
         required=True,
         help='Human-readable name shown in toolbar toggle button.',
     )
@@ -46,7 +43,6 @@ class YodooTimelineTemplateEvent(models.Model):
     # Source model
     source_model_id = fields.Many2one(
         'ir.model',
-        string='Source Model',
         required=True,
         ondelete='cascade',
         domain=[('transient', '=', False)],
@@ -92,7 +88,6 @@ class YodooTimelineTemplateEvent(models.Model):
     )
     color_field_id = fields.Many2one(
         'ir.model.fields',
-        string='Color Field',
         ondelete='set null',
         domain="[('model_id', '=', source_model_id)]",
     )
@@ -130,7 +125,10 @@ class YodooTimelineTemplateEvent(models.Model):
     @api.depends('key', 'label')
     def _display_name_field(self):
         for rec in self:
-            rec.display_name = '%s (%s)' % (rec.label, rec.key) if rec.key else rec.label
+            rec.display_name = (
+                '%s (%s)' % (rec.label, rec.key)
+                if rec.key else rec.label
+            )
 
     def _build_event_config(self):
         """Return a _time_view_config-compatible event dict for this record."""

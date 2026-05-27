@@ -12,7 +12,6 @@
         'views/timeline_template_views.xml',
         'views/menus.xml',
     ],
-    'installable': True,
     'application': True,
     'license': 'OPL-1',
 }
