@@ -105,12 +105,14 @@ class TimeViewBaseMixin(models.AbstractModel):
 
     # Supported event types
     SUPPORTED_EVENT_TYPES = [
-        'unit',      # Single event (point in time)
-        'marker',    # Marker (vertical line)
-        'base',      # Base event (interval)
-        'multi',     # Multi-event (multiple intervals)
-        'process',   # Process (with progress)
-        'histogram',  # Histogram
+        'unit',        # Single event (point in time)
+        'marker',      # Marker (vertical line)
+        'base',        # Base event (interval)
+        'range',       # Range bar (vis-timeline native type)
+        'background',  # Background shading item
+        'multi',       # Multi-event (multiple intervals)
+        'process',     # Process (with progress)
+        'histogram',   # Histogram
     ]
 
     # Supported scales
@@ -601,6 +603,11 @@ class TimeViewBaseMixin(models.AbstractModel):
                     color_val = getattr(rel, color_field, None)
                     if color_val:
                         item['color'] = str(color_val)
+                # When open_form is set the JS layer opens related model form
+                if event_config.get('open_form'):
+                    item['open_form'] = True
+                    item['rel_model'] = related_model_name
+                    item['rel_id'] = rel.id
                 events.append(item)
         return events
 

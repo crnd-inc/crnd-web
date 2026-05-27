@@ -140,6 +140,9 @@ export class TimeBaseController extends Component {
         this.bgLayer = null;
         this.mkLayer = null;
         this.archInfo = this.props.archInfo;
+        // Maps related item id → {rel_model, rel_id} for open_form items.
+        // Rebuilt on every _appendRelatedItems call.
+        this._relatedItemMeta = {};
 
         // Build reactive state from layerOptions (Python mixin config)
         this.state = useState(this._buildLayerState(this.archInfo.layerOptions));
@@ -523,8 +526,24 @@ export class TimeBaseController extends Component {
     _onItemClick(props) {
         const resId = props.item;
         if (!resId) return;
-        // Skip synthetic ids: timestamps (ts_*) and related events (rel_*)
-        if (typeof resId === 'string') return;
+
+        // String ids are synthetic (timestamps ts_*, related events rel_*).
+        // Check if the related item registered open_form metadata.
+        if (typeof resId === 'string') {
+            const meta = this._relatedItemMeta[resId];
+            if (meta && meta.rel_model && meta.rel_id) {
+                this.actionService.doAction({
+                    type: 'ir.actions.act_window',
+                    res_model: meta.rel_model,
+                    res_id: meta.rel_id,
+                    views: [[false, 'form']],
+                    target: 'new',
+                });
+            }
+            return;
+        }
+
+        // Numeric id → open main record form
         this.actionService.doAction({
             type: 'ir.actions.act_window',
             res_model: this.props.resModel,
@@ -610,6 +629,9 @@ export class TimeBaseController extends Component {
      *                                  assigning background items to the right row
      */
     _appendRelatedItems(items, relatedEvents, recIdToGroupId = {}) {
+        // Rebuild open_form metadata map on every render cycle
+        this._relatedItemMeta = {};
+
         for (const ev of relatedEvents) {
             if (!ev.start) continue;
             // Resolve vis group: prefer parent record's row, fall back to ev.group
@@ -631,15 +653,28 @@ export class TimeBaseController extends Component {
                         : undefined,
                 });
             } else {
-                items.push({
+                // Range / unit / other foreground related item
+                const item = {
                     id:        ev.id,
-                    content:   ev.name || '',
+                    content:   ev.name || '&nbsp;',
                     start:     startDate,
                     end:       endDate,
                     type:      ev.type || 'range',
                     group:     groupId,
-                    className: 'o_vis_related_item',
-                });
+                    className: `o_vis_related_item o_vis_related_item_${
+                        ev.source_key || 'default'}`,
+                };
+                if (ev.color) {
+                    item.style = `background-color: ${ev.color}; border-color: ${ev.color};`;
+                }
+                // Register open_form metadata so double-click opens the related form
+                if (ev.open_form && ev.rel_model && ev.rel_id) {
+                    this._relatedItemMeta[ev.id] = {
+                        rel_model: ev.rel_model,
+                        rel_id:    ev.rel_id,
+                    };
+                }
+                items.push(item);
             }
         }
     }
