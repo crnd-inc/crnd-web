@@ -16,6 +16,7 @@ export class GanttController extends TimeBaseController {
         const tsMarkerMap = {};
         const recIdToGroupId = {};
         let groupIdSeq = 1;
+        const hasOverlay = this._overlaySourceKeys.size > 0;
 
         const addRecord = (record, groupId) => {
             const data = record.data || record;
@@ -33,14 +34,15 @@ export class GanttController extends TimeBaseController {
             const segStyle = this._buildSegmentStyle(markerData, startMs, stopMs, color);
 
             items.push({
-                id:      recId,
-                content: '&nbsp;',
-                title:   this._buildTooltipHtml(data, archInfo),
-                start:   new Date(start),
-                end:     end ? new Date(end) : undefined,
-                group:   groupId,
-                style:   segStyle || undefined,
-                color:   segStyle ? undefined : (color || undefined),
+                id:       recId,
+                content:  '&nbsp;',
+                title:    this._buildTooltipHtml(data, archInfo),
+                start:    new Date(start),
+                end:      end ? new Date(end) : undefined,
+                group:    groupId,
+                subgroup: hasOverlay ? 'main' : undefined,
+                style:    segStyle || undefined,
+                color:    segStyle ? undefined : (color || undefined),
             });
         };
 
@@ -73,7 +75,8 @@ export class GanttController extends TimeBaseController {
                         const displayName = data.display_name || data.name || String(record.resId || record.id);
                         const rowId = groupIdSeq++;
                         recordIds.push(rowId);
-                        groups.push({ id: rowId, content: displayName, treeLevel: 3 });
+                        groups.push({ id: rowId, content: displayName, treeLevel: 3,
+                            subgroupStack: hasOverlay ? { main: false } : undefined });
                         addRecord(record, rowId);
                     }
 
@@ -101,7 +104,8 @@ export class GanttController extends TimeBaseController {
                     const displayName = data.display_name || data.name || String(record.resId || record.id);
                     const rowId = groupIdSeq++;
                     recordIds.push(rowId);
-                    groups.push({ id: rowId, content: displayName, treeLevel: 2 });
+                    groups.push({ id: rowId, content: displayName, treeLevel: 2,
+                        subgroupStack: hasOverlay ? { main: false } : undefined });
                     addRecord(record, rowId);
                 }
 

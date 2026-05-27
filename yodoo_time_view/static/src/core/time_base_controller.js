@@ -93,6 +93,19 @@ export class TimeBaseController extends Component {
             }
         }
 
+        // Build toolbar toggles for related events that declare toolbar_button
+        const relatedToggles = [];
+        for (const ev of eventsConfig) {
+            if (!ev.toolbar_button) continue;
+            const btn = ev.toolbar_button;
+            relatedToggles.push({
+                key:    ev.key,
+                label:  btn.label || ev.key,
+                icon:   btn.icon  || 'fa-circle',
+                active: btn.active !== false,
+            });
+        }
+
         return {
             isLoading: true,
             currentScale: "week",
@@ -129,6 +142,8 @@ export class TimeBaseController extends Component {
             })),
             // Event layers from timestamp_fields — [{key, field, label, color, active}]
             eventLayers,
+            // Related event group toggles — [{key, label, icon, active}]
+            relatedToggles,
         };
     }
 
@@ -267,6 +282,18 @@ export class TimeBaseController extends Component {
         return this.archInfo?.layerOptions?.events_config || [];
     }
 
+    /**
+     * Set of event keys that have overlay:true — their items should be
+     * rendered on the same vis row as the parent record bar (subgroup 'main').
+     */
+    get _overlaySourceKeys() {
+        return new Set(
+            this._eventsConfig
+                .filter(ev => ev.overlay)
+                .map(ev => ev.key)
+        );
+    }
+
     // ---- Toolbar toggle handlers ----
 
     toggleBackground(key) {
@@ -299,6 +326,13 @@ export class TimeBaseController extends Component {
 
     toggleEventLayer(key) {
         const entry = this.state.eventLayers.find(l => l.key === key);
+        if (!entry) return;
+        entry.active = !entry.active;
+        this._renderData();
+    }
+
+    toggleRelatedEvent(key) {
+        const entry = this.state.relatedToggles.find(t => t.key === key);
         if (!entry) return;
         entry.active = !entry.active;
         this._renderData();
@@ -568,6 +602,9 @@ export class TimeBaseController extends Component {
         const tsMarkerMap = {};
         const recIdToGroupId = {};
         let groupIdSeq = 1;
+        // If any related event uses overlay, put main items in subgroup 'main'
+        // so overlay items can share the same row without stacking.
+        const hasOverlay = this._overlaySourceKeys.size > 0;
 
         for (const record of records) {
             const data = record.data || record;
@@ -577,7 +614,13 @@ export class TimeBaseController extends Component {
             if (!start) continue;
 
             const groupId = groupIdSeq++;
-            groups.push({ id: groupId, content: displayName });
+            groups.push({
+                id: groupId,
+                content: displayName,
+                // Disable stacking within 'main' subgroup so overlay items
+                // appear on the same row as the parent record bar.
+                subgroupStack: hasOverlay ? { main: false } : undefined,
+            });
             const color = this._getItemColor(data, archInfo.color);
             const recId = record.resId || record.id;
             const startMs = new Date(start).getTime();
@@ -589,14 +632,15 @@ export class TimeBaseController extends Component {
             const segStyle = this._buildSegmentStyle(markerData, startMs, stopMs, color);
 
             items.push({
-                id:      recId,
-                content: '&nbsp;',
-                title:   this._buildTooltipHtml(data, archInfo),
-                start:   new Date(start),
-                end:     end ? new Date(end) : undefined,
-                group:   groupId,
-                style:   segStyle || undefined,
-                color:   segStyle ? undefined : (color || undefined),
+                id:       recId,
+                content:  '&nbsp;',
+                title:    this._buildTooltipHtml(data, archInfo),
+                start:    new Date(start),
+                end:      end ? new Date(end) : undefined,
+                group:    groupId,
+                subgroup: hasOverlay ? 'main' : undefined,
+                style:    segStyle || undefined,
+                color:    segStyle ? undefined : (color || undefined),
             });
         }
 
@@ -632,8 +676,18 @@ export class TimeBaseController extends Component {
         // Rebuild open_form metadata map on every render cycle
         this._relatedItemMeta = {};
 
+        // Build set of source_keys that have an active toggle button.
+        // Keys present in relatedToggles but inactive → their items are hidden.
+        const toggledOffKeys = new Set(
+            (this.state.relatedToggles || [])
+                .filter(t => !t.active)
+                .map(t => t.key)
+        );
+
         for (const ev of relatedEvents) {
             if (!ev.start) continue;
+            // Skip if source_key has a toggled-off button
+            if (ev.source_key && toggledOffKeys.has(ev.source_key)) continue;
             // Resolve vis group: prefer parent record's row, fall back to ev.group
             const groupId = recIdToGroupId[ev.parent_record_id] ?? ev.group ?? undefined;
             const startDate = this._parseEvDate(ev.start);
@@ -654,6 +708,8 @@ export class TimeBaseController extends Component {
                 });
             } else {
                 // Range / unit / other foreground related item
+                const overlayKeys = this._overlaySourceKeys;
+                const isOverlay = ev.source_key && overlayKeys.has(ev.source_key);
                 const item = {
                     id:        ev.id,
                     content:   ev.name || '&nbsp;',
@@ -661,6 +717,9 @@ export class TimeBaseController extends Component {
                     end:       endDate,
                     type:      ev.type || 'range',
                     group:     groupId,
+                    // Overlay items share subgroup 'main' with the parent bar
+                    // so they render on the same row instead of stacking below.
+                    subgroup:  isOverlay ? 'main' : undefined,
                     className: `o_vis_related_item o_vis_related_item_${
                         ev.source_key || 'default'}`,
                 };

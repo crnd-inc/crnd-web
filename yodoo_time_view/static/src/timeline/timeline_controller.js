@@ -16,6 +16,7 @@ export class TimelineController extends TimeBaseController {
         const tsMarkerMap = {};
         const recIdToGroupId = {};
         let groupIdSeq = 1;
+        const hasOverlay = this._overlaySourceKeys.size > 0;
 
         const addRecords = (recordList, groupId) => {
             for (const record of (recordList || [])) {
@@ -35,17 +36,24 @@ export class TimelineController extends TimeBaseController {
                 const segStyle = this._buildSegmentStyle(markerData, startMs, stopMs, color);
 
                 items.push({
-                    id:      recId,
-                    content: displayName,
-                    title:   this._buildTooltipHtml(data, archInfo),
-                    start:   new Date(start),
-                    end:     end ? new Date(end) : undefined,
-                    group:   groupId,
-                    style:   segStyle || undefined,
-                    color:   segStyle ? undefined : (color || undefined),
+                    id:       recId,
+                    content:  displayName,
+                    title:    this._buildTooltipHtml(data, archInfo),
+                    start:    new Date(start),
+                    end:      end ? new Date(end) : undefined,
+                    group:    groupId,
+                    subgroup: hasOverlay ? 'main' : undefined,
+                    style:    segStyle || undefined,
+                    color:    segStyle ? undefined : (color || undefined),
                 });
             }
         };
+
+        const makeGroup = (id, content, extra = {}) => ({
+            id, content,
+            subgroupStack: hasOverlay ? { main: false } : undefined,
+            ...extra,
+        });
 
         for (const group1 of modelGroups) {
             const label1 = group1.displayName ?? String(group1.value ?? "—");
@@ -55,7 +63,7 @@ export class TimelineController extends TimeBaseController {
                 for (const group2 of subGroups) {
                     const label2 = group2.displayName ?? String(group2.value ?? "—");
                     const groupId = groupIdSeq++;
-                    groups.push({ id: groupId, content: `${label1} / ${label2}` });
+                    groups.push(makeGroup(groupId, `${label1} / ${label2}`));
                     const g2subGroups = group2.list?.groups;
                     let g2records;
                     if (g2subGroups && g2subGroups.length > 0) {
@@ -70,7 +78,7 @@ export class TimelineController extends TimeBaseController {
                 }
             } else {
                 const groupId = groupIdSeq++;
-                groups.push({ id: groupId, content: label1 });
+                groups.push(makeGroup(groupId, label1));
                 addRecords(group1.list?.records || group1.records || [], groupId);
             }
         }

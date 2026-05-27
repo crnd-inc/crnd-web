@@ -120,6 +120,20 @@
                             </t>
                         </div>
                     </t>
+                    <!-- Related event group toggle buttons (e.g. Timesheets) -->
+                    <t t-if="state.relatedToggles.length">
+                        <div class="btn-group o_timeline_related_toggle_buttons">
+                            <t t-foreach="state.relatedToggles" t-as="toggle" t-key="toggle.key">
+                                <button class="btn btn-sm o_related_toggle"
+                                        t-att-class="{ active: toggle.active }"
+                                        t-on-click="() => this.toggleRelatedEvent(toggle.key)"
+                                        t-att-title="toggle.label">
+                                    <i t-att-class="'fa ' + toggle.icon"/>
+                                    <t t-out="' ' + toggle.label"/>
+                                </button>
+                            </t>
+                        </div>
+                    </t>
                 </div>
                 <div class="o_timeline_wrapper" style="position:relative; flex:1; min-height:0; overflow:hidden;">
                     <t t-if="state.isLoading">
