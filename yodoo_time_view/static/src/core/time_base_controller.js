@@ -165,7 +165,7 @@ export class TimeBaseController extends Component {
             await this._initTimeline();
             this._initLayers();
             this._renderData();
-            this.adapter.on('doubleClick', (props) => this._onItemDoubleClick(props));
+            this.adapter.on('click', (props) => this._onItemClick(props));
         });
 
         onWillUnmount(() => {
@@ -446,10 +446,11 @@ export class TimeBaseController extends Component {
 
     // ---- Other handlers ----
 
-    _onItemDoubleClick(props) {
+    _onItemClick(props) {
         const resId = props.item;
         if (!resId) return;
-        if (typeof resId === 'string' && resId.startsWith('ts_')) return;
+        // Skip synthetic ids: timestamps (ts_*) and related events (rel_*)
+        if (typeof resId === 'string') return;
         this.actionService.doAction({
             type: 'ir.actions.act_window',
             res_model: this.props.resModel,
@@ -472,6 +473,7 @@ export class TimeBaseController extends Component {
         const groups = [];
         const items = [];
         const tsMarkerMap = {};
+        const recIdToGroupId = {};
         let groupIdSeq = 1;
 
         for (const record of records) {
@@ -488,6 +490,7 @@ export class TimeBaseController extends Component {
             const startMs = new Date(start).getTime();
             const stopMs  = end ? new Date(end).getTime() : null;
 
+            recIdToGroupId[recId] = groupId;
             const markerData = this._getMarkerData(data, startMs, stopMs, color);
             if (markerData.length && this.state.timestampStyle !== 'segments') tsMarkerMap[recId] = markerData;
             const segStyle = this._buildSegmentStyle(markerData, startMs, stopMs, color);
@@ -503,25 +506,66 @@ export class TimeBaseController extends Component {
             });
         }
 
-        this._appendRelatedItems(items, relatedEvents);
+        this._appendRelatedItems(items, relatedEvents, recIdToGroupId);
         this.adapter.setGroups(groups);
         this.adapter.setItems(items);
         this.adapter.setTsMarkers(tsMarkerMap);
     }
 
-    _appendRelatedItems(items, relatedEvents) {
+    /**
+     * Normalize Odoo UTC datetime string "YYYY-MM-DD HH:MM:SS" → Date (UTC).
+     * Handles both plain strings from RPC and any other parseable values.
+     */
+    _parseEvDate(s) {
+        if (!s) return null;
+        const str = String(s);
+        // "2024-01-15 10:30:00" → "2024-01-15T10:30:00Z"
+        const normalized = /^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}$/.test(str)
+            ? str.replace(' ', 'T') + 'Z'
+            : str;
+        return new Date(normalized);
+    }
+
+    /**
+     * Append related events (from Python get_time_view_data) to the items array.
+     *
+     * @param {Array}  items          - vis-timeline items array (mutated in place)
+     * @param {Array}  relatedEvents  - events returned by get_time_view_data
+     * @param {Object} recIdToGroupId - map of record id → vis group id for
+     *                                  assigning background items to the right row
+     */
+    _appendRelatedItems(items, relatedEvents, recIdToGroupId = {}) {
         for (const ev of relatedEvents) {
             if (!ev.start) continue;
-            if (ev.type === 'background') continue;
-            items.push({
-                id: ev.id,
-                content: ev.name || '',
-                start: new Date(ev.start),
-                end: ev.end ? new Date(ev.end) : undefined,
-                type: ev.type || 'range',
-                group: ev.group || undefined,
-                className: 'o_vis_related_item',
-            });
+            // Resolve vis group: prefer parent record's row, fall back to ev.group
+            const groupId = recIdToGroupId[ev.parent_record_id] ?? ev.group ?? undefined;
+            const startDate = this._parseEvDate(ev.start);
+            const endDate   = ev.end ? this._parseEvDate(ev.end) : undefined;
+
+            if (ev.type === 'background') {
+                items.push({
+                    id:        ev.id,
+                    start:     startDate,
+                    end:       endDate,
+                    type:      'background',
+                    group:     groupId,
+                    className: `o_vis_related_bg o_vis_related_bg_${
+                        ev.source_key || 'default'}`,
+                    style: ev.color
+                        ? `background-color: ${ev.color}; opacity: 0.35;`
+                        : undefined,
+                });
+            } else {
+                items.push({
+                    id:        ev.id,
+                    content:   ev.name || '',
+                    start:     startDate,
+                    end:       endDate,
+                    type:      ev.type || 'range',
+                    group:     groupId,
+                    className: 'o_vis_related_item',
+                });
+            }
         }
     }
 

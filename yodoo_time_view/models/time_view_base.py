@@ -86,6 +86,23 @@ class TimeViewBaseMixin(models.AbstractModel):
         },
     }
 
+    @api.model
+    def _get_time_view_config(self):
+        """Return time view configuration for this model.
+
+        Override this method in your model to provide dynamic configuration
+        (e.g. conditionally add events based on installed modules, user
+        groups, or record state).
+
+        The base implementation returns a deep copy of the class-level
+        _time_view_config dict so the caller may safely modify the result
+        without affecting the class attribute.
+
+        Returns:
+            dict: Time view configuration
+        """
+        return copy.deepcopy(self._time_view_config)
+
     # Supported event types
     SUPPORTED_EVENT_TYPES = [
         'unit',      # Single event (point in time)
@@ -173,7 +190,8 @@ class TimeViewBaseMixin(models.AbstractModel):
                 if custom is not None:
                     config[section]['custom'] = custom
 
-        model_layers = self._time_view_config.get('layers', {})
+        tv_config = self._get_time_view_config()
+        model_layers = tv_config.get('layers', {})
         config = copy.deepcopy(defaults)
         config['timestamp_style'] = 'both'
 
@@ -199,7 +217,7 @@ class TimeViewBaseMixin(models.AbstractModel):
                 entry.get('key', ''), view_type)
 
         # Expose events config so JS can detect related sources without RPC
-        config['events_config'] = self._time_view_config.get('events', [])
+        config['events_config'] = tv_config.get('events', [])
 
         return config
 
@@ -263,9 +281,10 @@ class TimeViewBaseMixin(models.AbstractModel):
                 # Collect timestamp_fields so Odoo includes them in the model's
                 # field metadata (props.fields) so the model fetches them.
                 # Inject <field> elements — the standard Odoo mechanism.
+                tv_config = self._get_time_view_config()
                 existing = {f.get('name') for f in root.findall('.//field')}
                 extra = []
-                for ev in self._time_view_config.get('events', []):
+                for ev in tv_config.get('events', []):
                     for tf in ev.get('timestamp_fields', []):
                         fname = tf.get('field') if isinstance(tf, dict) else tf
                         if fname and fname not in extra:
@@ -398,7 +417,7 @@ class TimeViewBaseMixin(models.AbstractModel):
         """
         if records and isinstance(records[0], int):
             records = self.browse(records)
-        config = self._time_view_config
+        config = self._get_time_view_config()
 
         # Get data only for related events (self_fields are rendered by view)
         events_data = []
@@ -459,6 +478,7 @@ class TimeViewBaseMixin(models.AbstractModel):
         Returns:
             list: Event data
         """
+        tv_config = self._get_time_view_config()
         events = []
         start_field = event_config['start_field']
         stop_field = event_config.get('stop_field')
@@ -482,7 +502,7 @@ class TimeViewBaseMixin(models.AbstractModel):
 
             # Add group if present
             group_by = (event_config.get('group_by') or
-                        self._time_view_config['form'].get('default_group_by'))
+                        tv_config['form'].get('default_group_by'))
             if group_by and hasattr(record, group_by):
                 group_value = getattr(record, group_by)
                 if group_value:
@@ -572,6 +592,11 @@ class TimeViewBaseMixin(models.AbstractModel):
                     end = getattr(rel, stop_field, None)
                     if end:
                         item['end'] = end
+                color_field = event_config.get('color_field')
+                if color_field:
+                    color_val = getattr(rel, color_field, None)
+                    if color_val:
+                        item['color'] = str(color_val)
                 events.append(item)
         return events
 

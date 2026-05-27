@@ -14,6 +14,7 @@ export class TimelineController extends TimeBaseController {
         const groups = [];
         const items = [];
         const tsMarkerMap = {};
+        const recIdToGroupId = {};
         let groupIdSeq = 1;
 
         const addRecords = (recordList, groupId) => {
@@ -28,6 +29,7 @@ export class TimelineController extends TimeBaseController {
                 const startMs = new Date(start).getTime();
                 const stopMs  = end ? new Date(end).getTime() : null;
 
+                recIdToGroupId[recId] = groupId;
                 const markerData = this._getMarkerData(data, startMs, stopMs, color);
                 if (markerData.length && this.state.timestampStyle !== 'segments') tsMarkerMap[recId] = markerData;
                 const segStyle = this._buildSegmentStyle(markerData, startMs, stopMs, color);
@@ -72,7 +74,7 @@ export class TimelineController extends TimeBaseController {
             }
         }
 
-        this._appendRelatedItems(items, relatedEvents);
+        this._appendRelatedItems(items, relatedEvents, recIdToGroupId);
         this.adapter.setGroups(groups);
         this.adapter.setItems(items);
         this.adapter.setTsMarkers(tsMarkerMap);

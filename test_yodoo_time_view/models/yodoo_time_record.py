@@ -147,6 +147,22 @@ class YodooTimeViewTestRecord(models.Model):
     datetime_5 = fields.Datetime(string="Fifth Date")
 
     @api.model
+    def _get_time_view_config(self):
+        """Dynamic config: activate datetime_5 timestamp in debug mode."""
+        config = super()._get_time_view_config()
+        # In debug mode make the 'Fifth Date' timestamp active so developers
+        # can easily see all available timestamp markers during testing.
+        if not self.env.context.get('debug'):
+            return config
+        for event in config.get('events', []):
+            if event.get('key') != 'demo_interval':
+                continue
+            for ts in event.get('timestamp_fields', []):
+                if ts.get('field') == 'datetime_5':
+                    ts['active'] = True
+        return config
+
+    @api.model
     def _get_custom_bg_items(self, key, view_type=None):
         if key == 'lunch_break':
             items = []
