@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+<t t-name="yodoo_timeline_builder.TimelineBuilderAction">
+    <div class="o_timeline_builder_view o_view_controller"
+         style="display:flex; flex-direction:column; height:100%;">
+
+        <!-- ── Toolbar ──────────────────────────────────────────────────── -->
+        <div class="o_timeline_toolbar d-flex align-items-center flex-wrap gap-2 px-3 py-2 border-bottom">
+
+            <!-- Scale buttons -->
+            <div class="btn-group o_timeline_scale_buttons">
+                <t t-foreach="state.toolbarScales" t-as="scale" t-key="scale">
+                    <button class="btn btn-sm btn-secondary"
+                            t-att-class="{ active: state.currentScale === scale }"
+                            t-on-click="() => this.setScale(scale)">
+                        <t t-out="scale.charAt(0).toUpperCase() + scale.slice(1)"/>
+                    </button>
+                </t>
+            </div>
+
+            <!-- Today / Zoom -->
+            <div class="btn-group">
+                <t t-if="state.showToday">
+                    <button class="btn btn-sm btn-secondary" t-on-click="() => this.moveToToday()">
+                        <i class="fa fa-clock-o"/> Today
+                    </button>
+                </t>
+                <t t-if="state.showZoom">
+                    <button class="btn btn-sm btn-secondary" t-on-click="() => this.zoomIn()">
+                        <i class="fa fa-search-plus"/>
+                    </button>
+                    <button class="btn btn-sm btn-secondary" t-on-click="() => this.zoomOut()">
+                        <i class="fa fa-search-minus"/>
+                    </button>
+                </t>
+            </div>
+
+            <!-- Built-in background buttons -->
+            <div class="btn-group o_timeline_bg_buttons">
+                <t t-if="state.btnWeekends">
+                    <button class="btn btn-sm o_bg_weekends"
+                            t-att-class="{ active: state.showWeekends }"
+                            t-on-click="() => this.toggleBackground('weekends')"
+                            title="Weekends">
+                        <i class="fa fa-calendar"/> Weekends
+                    </button>
+                </t>
+                <t t-if="state.btnWorkHours">
+                    <button class="btn btn-sm o_bg_workhours"
+                            t-att-class="{ active: state.showWorkHours }"
+                            t-on-click="() => this.toggleBackground('work_hours')"
+                            t-att-title="'Work Hours ' + (state.workHoursLabel || '')">
+                        <i class="fa fa-briefcase"/> Work hrs
+                    </button>
+                </t>
+                <t t-if="state.btnNight">
+                    <button class="btn btn-sm o_bg_night"
+                            t-att-class="{ active: state.showNight }"
+                            t-on-click="() => this.toggleBackground('night')"
+                            title="Night 20:00-08:00">
+                        <i class="fa fa-moon-o"/> Night
+                    </button>
+                </t>
+                <t t-if="state.btnCurrentTime">
+                    <button class="btn btn-sm o_bg_currenttime"
+                            t-att-class="{ active: state.showCurrentTime }"
+                            t-on-click="() => this.toggleCurrentTime()"
+                            title="Current time marker">
+                        <i class="fa fa-crosshairs"/> Now
+                    </button>
+                </t>
+            </div>
+
+            <!-- Related event layer toggles -->
+            <t t-if="state.relatedToggles.length">
+                <div class="btn-group o_timeline_related_toggle_buttons">
+                    <t t-foreach="state.relatedToggles" t-as="toggle" t-key="toggle.key">
+                        <button class="btn btn-sm o_related_toggle"
+                                t-att-class="{ active: toggle.active }"
+                                t-on-click="() => this.toggleRelatedEvent(toggle.key)"
+                                t-att-title="toggle.label">
+                            <i t-att-class="'fa ' + toggle.icon"/>
+                            <t t-out="' ' + toggle.label"/>
+                        </button>
+                    </t>
+                </div>
+            </t>
+
+            <!-- Spacer -->
+            <div class="flex-grow-1"/>
+
+            <!-- Filter bar -->
+            <t t-if="searchFields.length">
+                <div class="o_tlb_filter_bar d-flex align-items-center gap-1">
+
+                    <!-- Active filter tags -->
+                    <t t-foreach="state.activeFilters" t-as="flt" t-key="flt.id">
+                        <span class="badge text-bg-primary d-flex align-items-center gap-1">
+                            <t t-out="flt.label"/>
+                            <span class="o_tlb_op_label text-muted ms-1">
+                                <t t-out="flt.operator"/>
+                            </span>
+                            <t t-if="!['is_set','is_not_set'].includes(flt.operator)">
+                                <strong><t t-out="' ' + flt.value"/></strong>
+                            </t>
+                            <button type="button" class="btn-close btn-close-white btn-sm ms-1"
+                                    style="font-size:0.6rem;"
+                                    t-on-click="() => this.removeFilter(flt.id)"/>
+                        </span>
+                    </t>
+                    <t t-if="state.activeFilters.length">
+                        <button class="btn btn-sm btn-outline-secondary"
+                                t-on-click="() => this.clearAllFilters()"
+                                title="Clear all filters">
+                            <i class="fa fa-times"/>
+                        </button>
+                    </t>
+
+                    <!-- Add filter -->
+                    <t t-if="!state.addFilterMode">
+                        <button class="btn btn-sm btn-outline-secondary"
+                                t-on-click="() => { this.state.addFilterMode = true; }">
+                            <i class="fa fa-filter"/> Filter
+                        </button>
+                    </t>
+                    <t t-if="state.addFilterMode">
+                        <div class="d-flex align-items-center gap-1">
+                            <select class="form-select form-select-sm"
+                                    t-on-change="onFilterFieldChange"
+                                    style="min-width:120px;">
+                                <option value="">— field —</option>
+                                <t t-foreach="searchFields" t-as="sf" t-key="sf.key">
+                                    <option t-att-value="sf.key"
+                                            t-att-selected="state.draftFilter.key === sf.key">
+                                        <t t-out="sf.label"/>
+                                    </option>
+                                </t>
+                            </select>
+                            <t t-if="state.draftFilter.key">
+                                <select class="form-select form-select-sm"
+                                        t-on-change="onFilterOperatorChange"
+                                        style="min-width:100px;">
+                                    <t t-if="['integer','float','monetary'].includes(state.draftFilter.ttype || '')">
+                                        <option value="=">=</option>
+                                        <option value="!=">!=</option>
+                                        <option value="&lt;">&lt;</option>
+                                        <option value="&lt;=">&lt;=</option>
+                                        <option value="&gt;">&gt;</option>
+                                        <option value="&gt;=">&gt;=</option>
+                                        <option value="is_set">is set</option>
+                                        <option value="is_not_set">is not set</option>
+                                    </t>
+                                    <t t-else="">
+                                        <option value="contains">contains</option>
+                                        <option value="not_contains">does not contain</option>
+                                        <option value="=">=</option>
+                                        <option value="!=">!=</option>
+                                        <option value="is_set">is set</option>
+                                        <option value="is_not_set">is not set</option>
+                                    </t>
+                                </select>
+                                <t t-if="!['is_set','is_not_set'].includes(state.draftFilter.operator)">
+                                    <input class="form-control form-control-sm"
+                                           style="width:120px;"
+                                           t-att-value="state.draftFilter.value"
+                                           t-on-input="onFilterValueInput"
+                                           t-on-keydown="(ev) => ev.key === 'Enter' &amp;&amp; this.applyDraft()"/>
+                                </t>
+                                <button class="btn btn-sm btn-primary" t-on-click="() => this.applyDraft()">
+                                    <i class="fa fa-check"/>
+                                </button>
+                            </t>
+                            <button class="btn btn-sm btn-outline-secondary"
+                                    t-on-click="() => { this.state.addFilterMode = false; }">
+                                <i class="fa fa-times"/>
+                            </button>
+                        </div>
+                    </t>
+                </div>
+            </t>
+        </div>
+
+        <!-- ── Timeline container ──────────────────────────────────────── -->
+        <div class="o_timeline_wrapper" style="position:relative; flex:1; min-height:0; overflow:hidden;">
+            <t t-if="state.isLoading">
+                <div class="o_timeline_loading d-flex align-items-center justify-content-center"
+                     style="position:absolute;inset:0;z-index:10;background:rgba(255,255,255,0.8);">
+                    <div class="spinner-border text-primary" role="status">
+                        <span class="visually-hidden">Loading…</span>
+                    </div>
+                </div>
+            </t>
+            <div class="o_timeline_container" t-ref="timeline"
+                 style="width:100%; height:100%;"/>
+        </div>
+
+    </div>
+</t>
+
+</templates>

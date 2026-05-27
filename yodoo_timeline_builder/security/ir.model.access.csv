@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_timeline_template_user,yodoo.timeline.template user,model_yodoo_timeline_template,group_user,1,0,0,0
+access_timeline_template_manager,yodoo.timeline.template manager,model_yodoo_timeline_template,group_manager,1,1,1,1
+access_timeline_template_field_user,yodoo.timeline.template.field user,model_yodoo_timeline_template_field,group_user,1,0,0,0
+access_timeline_template_field_manager,yodoo.timeline.template.field manager,model_yodoo_timeline_template_field,group_manager,1,1,1,1
+access_timeline_template_event_user,yodoo.timeline.template.event user,model_yodoo_timeline_template_event,group_user,1,0,0,0
+access_timeline_template_event_manager,yodoo.timeline.template.event manager,model_yodoo_timeline_template_event,group_manager,1,1,1,1

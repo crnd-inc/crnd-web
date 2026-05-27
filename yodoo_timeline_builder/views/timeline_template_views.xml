@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- ================================================================
+         List view
+    ================================================================ -->
+    <record id="view_yodoo_timeline_template_list" model="ir.ui.view">
+        <field name="name">yodoo.timeline.template.list</field>
+        <field name="model">yodoo.timeline.template</field>
+        <field name="arch" type="xml">
+            <list string="Timeline Templates">
+                <field name="name"/>
+                <field name="base_model_id"/>
+                <field name="view_type"/>
+                <field name="groupby_count" string="Group By"/>
+                <field name="event_count" string="Events"/>
+                <field name="active" column_invisible="True"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- ================================================================
+         Form view
+    ================================================================ -->
+    <record id="view_yodoo_timeline_template_form" model="ir.ui.view">
+        <field name="name">yodoo.timeline.template.form</field>
+        <field name="model">yodoo.timeline.template</field>
+        <field name="arch" type="xml">
+            <form string="Timeline Template">
+                <header>
+                    <button name="action_open_timeline"
+                            string="Open Timeline"
+                            type="object"
+                            class="btn-primary"
+                            invisible="not action_id"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" placeholder="Template Name"/>
+                        </h1>
+                    </div>
+
+                    <group>
+                        <group string="Data Source">
+                            <field name="base_model_id"
+                                   options="{'no_create': True, 'no_open': True}"/>
+                            <field name="base_model_name" invisible="1"/>
+                            <field name="view_type"/>
+                            <field name="default_scale"/>
+                        </group>
+                        <group string="Menu">
+                            <field name="parent_menu_id"
+                                   options="{'no_create': True}"
+                                   placeholder="Default: Yodoo Timelines"/>
+                            <field name="menu_id" readonly="1"
+                                   options="{'no_create': True, 'no_open': True}"/>
+                        </group>
+                    </group>
+
+                    <group string="Access Control">
+                        <field name="group_ids" widget="many2many_tags"
+                               placeholder="Leave empty for all users"/>
+                    </group>
+
+                    <group string="Default Domain Filter">
+                        <field name="domain"
+                               widget="domain"
+                               options="{'model_field': 'base_model_name'}"
+                               nolabel="1"/>
+                    </group>
+
+                    <notebook>
+                        <!-- ── Tab 1: Columns ── -->
+                        <page string="Columns" name="columns">
+                            <group string="Date / Color Fields">
+                                <group>
+                                    <field name="date_start_field_id"
+                                           options="{'no_create': True}"
+                                           domain="[('model_id','=',base_model_id),('ttype','in',['date','datetime'])]"/>
+                                    <field name="date_stop_field_id"
+                                           options="{'no_create': True}"
+                                           domain="[('model_id','=',base_model_id),('ttype','in',['date','datetime'])]"/>
+                                </group>
+                                <group>
+                                    <field name="color_field_id"
+                                           options="{'no_create': True}"
+                                           domain="[('model_id','=',base_model_id)]"/>
+                                </group>
+                            </group>
+
+                            <separator string="Group By / Search / Tooltip Fields"/>
+                            <field name="field_ids" context="{'default_template_id': id}">
+                                <list editable="bottom">
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="field_id"
+                                           domain="[('model_id','=',parent.base_model_id),('ttype','not in',['binary','one2many','many2many'])]"
+                                           options="{'no_create': True}"/>
+                                    <field name="label"
+                                           placeholder="Auto from field description"/>
+                                    <field name="role"/>
+                                    <field name="field_ttype" string="Type" readonly="1"/>
+                                </list>
+                            </field>
+                        </page>
+
+                        <!-- ── Tab 2: Related Events ── -->
+                        <page string="Related Events" name="events">
+                            <field name="event_ids" context="{'default_template_id': id}">
+                                <list editable="bottom">
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="key"/>
+                                    <field name="label"/>
+                                    <field name="event_type"/>
+                                    <field name="source_model_id"
+                                           options="{'no_create': True}"
+                                           domain="[('transient','=',False)]"/>
+                                    <field name="date_start_field_id"
+                                           domain="[('model_id','=',source_model_id),('ttype','in',['date','datetime'])]"
+                                           options="{'no_create': True}"/>
+                                    <field name="date_stop_field_id"
+                                           domain="[('model_id','=',source_model_id),('ttype','in',['date','datetime'])]"
+                                           options="{'no_create': True}"/>
+                                    <field name="overlay"/>
+                                    <field name="toolbar_button"/>
+                                    <field name="toolbar_active"
+                                           invisible="not toolbar_button"/>
+                                </list>
+                                <form string="Related Event">
+                                    <group>
+                                        <group string="Identity">
+                                            <field name="key"/>
+                                            <field name="label"/>
+                                            <field name="event_type"/>
+                                        </group>
+                                        <group string="Source">
+                                            <field name="source_model_id"
+                                                   options="{'no_create': True}"
+                                                   domain="[('transient','=',False)]"/>
+                                            <field name="source_model_name" invisible="1"/>
+                                            <field name="domain_ref_field"
+                                                   placeholder="e.g. request_id"/>
+                                            <field name="domain"
+                                                   widget="char"
+                                                   placeholder="e.g. [('request_id','=','__id__')]"/>
+                                        </group>
+                                    </group>
+                                    <group>
+                                        <group string="Date / Color Fields">
+                                            <field name="date_start_field_id"
+                                                   domain="[('model_id','=',source_model_id),('ttype','in',['date','datetime'])]"
+                                                   options="{'no_create': True}"/>
+                                            <field name="date_stop_field_id"
+                                                   domain="[('model_id','=',source_model_id),('ttype','in',['date','datetime'])]"
+                                                   options="{'no_create': True}"/>
+                                            <field name="color_field_id"
+                                                   domain="[('model_id','=',source_model_id)]"
+                                                   options="{'no_create': True}"/>
+                                        </group>
+                                        <group string="Rendering">
+                                            <field name="overlay"/>
+                                            <field name="open_form"/>
+                                            <field name="toolbar_button"/>
+                                            <field name="toolbar_icon"
+                                                   invisible="not toolbar_button"/>
+                                            <field name="toolbar_active"
+                                                   invisible="not toolbar_button"/>
+                                        </group>
+                                    </group>
+                                </form>
+                            </field>
+                        </page>
+
+                        <!-- ── Tab 3: Display ── -->
+                        <page string="Display" name="display">
+                            <group string="Background Layers">
+                                <field name="bg_weekends"/>
+                                <field name="bg_work_hours"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- ================================================================
+         Search view
+    ================================================================ -->
+    <record id="view_yodoo_timeline_template_search" model="ir.ui.view">
+        <field name="name">yodoo.timeline.template.search</field>
+        <field name="model">yodoo.timeline.template</field>
+        <field name="arch" type="xml">
+            <search string="Timeline Templates">
+                <field name="name"/>
+                <field name="base_model_id"/>
+                <filter string="Archived" name="inactive"
+                        domain="[('active', '=', False)]"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- ================================================================
+         Action
+    ================================================================ -->
+    <record id="action_yodoo_timeline_template" model="ir.actions.act_window">
+        <field name="name">Timeline Templates</field>
+        <field name="res_model">yodoo.timeline.template</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="view_yodoo_timeline_template_search"/>
+        <field name="context">{'search_default_active': 1}</field>
+    </record>
+
+</odoo>

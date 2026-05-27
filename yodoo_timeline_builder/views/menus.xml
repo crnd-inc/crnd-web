@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Root application menu -->
+    <menuitem id="menu_yodoo_timelines_root"
+              name="Yodoo Timelines"
+              web_icon="yodoo_timeline_builder,static/description/icon.png"
+              sequence="100"/>
+
+    <!-- Templates management sub-menu (managers only) -->
+    <menuitem id="menu_yodoo_timeline_templates"
+              name="Timeline Templates"
+              parent="menu_yodoo_timelines_root"
+              action="action_yodoo_timeline_template"
+              groups="group_manager"
+              sequence="100"/>
+</odoo>
