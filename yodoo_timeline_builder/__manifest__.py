@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'Yodoo Timeline Builder',
-    'version': '18.0.1.1.0',
+    'version': '18.0.0.2.0',
     'category': 'Reporting',
     'summary': 'Build dynamic Timeline / Gantt views for any Odoo model',
     'author': 'CRND',

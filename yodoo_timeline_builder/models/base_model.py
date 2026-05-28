@@ -36,7 +36,7 @@ class Base(models.AbstractModel):
                 continue
             try:
                 root = ET.fromstring(arch_str)
-            except Exception:
+            except ET.XMLSyntaxError:
                 continue
             template_id_str = root.get('yodoo_template_id')
             if not template_id_str:
