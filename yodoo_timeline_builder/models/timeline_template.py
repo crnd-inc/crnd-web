@@ -525,8 +525,8 @@ class YodooTimelineTemplate(models.Model):
     # ── Related-events data (called from base.get_time_view_data) ───────────
 
     @api.model
-    def _get_related_events(  # pylint: disable=too-many-locals,too-many-branches
-            self, template, record_ids, view_type):
+    def _get_related_events(self, template, record_ids, view_type):
+        # pylint: disable=too-many-locals,too-many-branches
         """Load related events from all configured event overlays.
 
         Returns a list of event dicts compatible with the JS controller's
