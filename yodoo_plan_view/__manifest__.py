@@ -46,6 +46,4 @@
             'yodoo_plan_view/static/src/js/plan_view.js',
         ],
     },
-    'installable': True,
-    'auto_install': False,
 }

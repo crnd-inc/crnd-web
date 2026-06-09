@@ -24,7 +24,6 @@ class Floor(models.Model):
     )
 
     floor_number = fields.Integer(
-        string='Floor Number',
         help='Floor number (0 = Ground, 1 = 1st, etc.)'
     )
 
@@ -40,11 +39,10 @@ class Floor(models.Model):
         string='Rooms'
     )
     room_count = fields.Integer(
-        string='Room Count',
         compute='_compute_room_count'
     )
 
-    notes = fields.Text(string='Notes')
+    notes = fields.Text()
 
     def _compute_total_area(self):
         """Обчислити загальну площу з полігонів"""

@@ -18,7 +18,4 @@
     'demo': [
         'demo/floor_demo.xml',
     ],
-    'installable': True,
-    'auto_install': False,
-    'application': False,
 }

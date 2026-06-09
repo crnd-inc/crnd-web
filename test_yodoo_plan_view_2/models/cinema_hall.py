@@ -9,7 +9,6 @@ class CinemaHall(models.Model):
 
     name = fields.Char(string='Hall Name', required=True)
     capacity = fields.Integer(
-        string='Capacity',
         compute='_compute_capacity',
         store=True
     )

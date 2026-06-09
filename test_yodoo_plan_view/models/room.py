@@ -17,13 +17,11 @@ class Room(models.Model):
     )
 
     room_number = fields.Char(
-        string='Room Number',
         help='Room number or code'
     )
 
     floor_id = fields.Many2one(
         'building.floor',
-        string='Floor',
         required=True,
         ondelete='cascade'
     )
@@ -36,7 +34,7 @@ class Room(models.Model):
         ('storage', 'Storage'),
         ('corridor', 'Corridor'),
         ('other', 'Other'),
-    ], string='Room Type', default='office')
+    ], default='office')
 
     area = fields.Float(
         string='Area (m²)',
@@ -44,11 +42,10 @@ class Room(models.Model):
     )
 
     capacity = fields.Integer(
-        string='Capacity',
         help='Maximum number of people'
     )
 
-    notes = fields.Text(string='Notes')
+    notes = fields.Text()
 
     # Зв'язок з полігоном на плані
     polygon_id = fields.Many2one(
@@ -91,6 +88,7 @@ class Room(models.Model):
             'res_id': self.floor_id.id,
             'target': 'current',
             'context': {
-                'selected_polygon_id': self.polygon_id.id if self.polygon_id else None,
+                'selected_polygon_id': (
+                    self.polygon_id.id if self.polygon_id else None),
             },
         }

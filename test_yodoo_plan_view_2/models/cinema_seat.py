@@ -7,27 +7,27 @@ class CinemaSeat(models.Model):
     _description = 'Cinema Seat'
 
     name = fields.Char(string='Seat Number', required=True)
-    row = fields.Char(string='Row')
+    row = fields.Char()
     seat_number = fields.Integer(string='Seat Number in Row')
-    hall_id = fields.Many2one('cinema.hall', string='Hall', required=True, ondelete='cascade')
+    hall_id = fields.Many2one(
+        'cinema.hall', required=True, ondelete='cascade')
     seat_type = fields.Selection([
         ('standard', 'Standard'),
         ('vip', 'VIP'),
         ('disabled', 'For Disabled'),
-    ], string='Seat Type', default='standard')
-    
-    # Зв'язок з полігоном на плані
+    ], default='standard')
+
     polygon_id = fields.Many2one('plan.polygon', string='Plan Polygon')
-    
-    # Relations
-    booking_ids = fields.One2many('cinema.booking', 'seat_id', string='Bookings')
-    
+
+    booking_ids = fields.One2many(
+        'cinema.booking', 'seat_id', string='Bookings')
+
     def action_open_on_plan(self):
         """Відкрити план залу з виділенням цього місця"""
         self.ensure_one()
         if not self.hall_id:
             return False
-        
+
         return {
             'name': f'{self.hall_id.name} - План залу',
             'res_model': 'cinema.hall',
@@ -37,6 +37,7 @@ class CinemaSeat(models.Model):
             'res_id': self.hall_id.id,
             'target': 'current',
             'context': {
-                'selected_polygon_id': self.polygon_id.id if self.polygon_id else None,
+                'selected_polygon_id': (
+                    self.polygon_id.id if self.polygon_id else None),
             },
         }

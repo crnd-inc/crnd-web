@@ -11,7 +11,6 @@ class PlanViewMixin(models.AbstractModel):
 
     # Зображення плану (растр або SVG)
     plan_image = fields.Binary(
-        string='Plan Image',
         help='Background image for the plan (PNG, JPG, or SVG)'
     )
     plan_image_filename = fields.Char(string='Image Filename')

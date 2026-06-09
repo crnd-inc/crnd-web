@@ -1,5 +1,9 @@
-from odoo import fields, models, api
+import logging
 import json
+
+from odoo import fields, models, api
+
+_logger = logging.getLogger(__name__)
 
 
 class PlanPolygon(models.Model):
@@ -12,7 +16,6 @@ class PlanPolygon(models.Model):
     _order = 'sequence, id'
 
     name = fields.Char(
-        string='Name',
         compute='_compute_name',
         store=True
     )
@@ -20,32 +23,27 @@ class PlanPolygon(models.Model):
 
     # Прив'язка до плану
     plan_id = fields.Reference(
-        string='Plan',
         selection='_selection_plan_models',
         required=True,
         index=True
     )
     plan_model = fields.Char(
-        string='Plan Model',
         compute='_compute_plan_model',
         store=True
     )
 
     # Координати полігону (JSON array of [x, y] points)
     points = fields.Text(
-        string='Points',
         required=True,
         help='JSON array of polygon points: [[x1,y1], [x2,y2], ...]'
     )
 
     # Центроїд (для відображення інформації)
     centroid_x = fields.Float(
-        string='Centroid X',
         compute='_compute_centroid',
         store=True
     )
     centroid_y = fields.Float(
-        string='Centroid Y',
         compute='_compute_centroid',
         store=True
     )
@@ -64,7 +62,6 @@ class PlanPolygon(models.Model):
 
     # Прив'язка до запису (generic Many2one)
     related_model = fields.Char(
-        string='Related Model',
         help='Model name of the related record'
     )
     related_id = fields.Integer(
@@ -79,22 +76,18 @@ class PlanPolygon(models.Model):
 
     # Стиль відображення
     fill_color = fields.Char(
-        string='Fill Color',
         default='#3498db',
         help='Polygon fill color (hex)'
     )
     stroke_color = fields.Char(
-        string='Stroke Color',
         default='#2980b9',
         help='Polygon border color (hex)'
     )
     stroke_width = fields.Integer(
-        string='Stroke Width',
         default=2,
         help='Border width in pixels'
     )
     opacity = fields.Float(
-        string='Opacity',
         default=0.5,
         help='Fill opacity (0.0 - 1.0)'
     )
@@ -109,7 +102,6 @@ class PlanPolygon(models.Model):
         help='Y coordinate for label position (defaults to centroid_y)'
     )
     label_text = fields.Char(
-        string='Label Text',
         compute='_compute_label_text',
         help='Text to display on polygon label'
     )
@@ -117,9 +109,10 @@ class PlanPolygon(models.Model):
     @api.model
     def _selection_plan_models(self):
         """Повернути список моделей, які мають plan.view.mixin"""
-        models = self.env['ir.model'].search([])
+        # pylint: disable=no-search-all
+        ir_models = self.env['ir.model'].search([], limit=None)
         result = []
-        for model in models:
+        for model in ir_models:
             try:
                 model_obj = self.env[model.model]
                 if hasattr(model_obj, '_inherit'):
@@ -129,7 +122,8 @@ class PlanPolygon(models.Model):
                     if 'plan.view.mixin' in (inherits or []):
                         result.append((model.model, model.name))
             except Exception:
-                pass
+                _logger.debug(
+                    'Skipping model %s in plan selection', model.model)
         return result
 
     @api.depends('plan_id')
@@ -147,7 +141,8 @@ class PlanPolygon(models.Model):
         for record in self:
             if record.related_model and record.related_id:
                 try:
-                    related = self.env[record.related_model].browse(record.related_id)
+                    related = self.env[record.related_model].browse(
+                        record.related_id)
                     if related.exists():
                         record.name = related.display_name
                     else:
@@ -163,7 +158,8 @@ class PlanPolygon(models.Model):
         for record in self:
             if record.related_model and record.related_id:
                 try:
-                    related = self.env[record.related_model].browse(record.related_id)
+                    related = self.env[record.related_model].browse(
+                        record.related_id)
                     if related.exists():
                         record.related_name = related.display_name
                     else:
@@ -177,11 +173,10 @@ class PlanPolygon(models.Model):
     def _compute_label_text(self):
         """Обчислити текст для label"""
         for record in self:
-            # Якщо об'єкт не прив'язаний - порожній лейбл
             if not record.related_model or not record.related_id:
                 record.label_text = ''
                 continue
-            
+
             # For building.room, show room_number if available
             if record.related_model == 'building.room':
                 try:
@@ -203,7 +198,6 @@ class PlanPolygon(models.Model):
                 except Exception:
                     record.label_text = ''
             else:
-                # Для інших моделей - показати related_name
                 record.label_text = record.related_name or ''
 
     @api.depends('points')
@@ -261,7 +255,6 @@ class PlanPolygon(models.Model):
         """Обчислити площу в метрах квадратних"""
         for record in self:
             if record.area_pixels and record.plan_id:
-                # Отримати plan_scale_coefficient з Reference поля
                 plan_obj = record.plan_id
                 coeff = getattr(plan_obj, 'plan_scale_coefficient', 0)
                 if coeff:
@@ -274,15 +267,12 @@ class PlanPolygon(models.Model):
 
     @api.model_create_multi
     def create(self, vals_list):
-        """Override create to ensure computed fields are calculated"""
         records = super().create(vals_list)
-        # Force compute and save centroid and label_text for new records
         for record in records:
             record._compute_centroid()
             record._compute_label_text()
-            # Explicitly save computed values
             if record.centroid_x or record.centroid_y or record.label_text:
-                super(PlanPolygon, record).write({
+                record.write({
                     'centroid_x': record.centroid_x,
                     'centroid_y': record.centroid_y,
                     'label_text': record.label_text,

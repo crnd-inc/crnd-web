@@ -1,4 +1,4 @@
-from odoo import models, fields, api, _
+from odoo import models, fields, api
 from odoo.exceptions import UserError
 
 
@@ -28,7 +28,6 @@ class PlanSettings(models.Model):
         help='Size of grid cells in pixels'
     )
     grid_color = fields.Char(
-        string='Grid Color',
         default='#E0E0E0',
         help='Color of grid lines (hex)'
     )
@@ -40,83 +39,68 @@ class PlanSettings(models.Model):
 
     # Polygon Style Settings
     default_fill_color = fields.Char(
-        string='Default Fill Color',
         default='#3498db',
         help='Default polygon fill color (hex)'
     )
     default_stroke_color = fields.Char(
-        string='Default Stroke Color',
         default='#2980b9',
         help='Default polygon border color (hex)'
     )
     default_stroke_width = fields.Integer(
-        string='Default Stroke Width',
         default=2,
         help='Default border width in pixels'
     )
     default_opacity = fields.Float(
-        string='Default Opacity',
         default=0.5,
         help='Default fill opacity (0.0 - 1.0)'
     )
 
     # Highlight Settings (for selected polygons)
     highlight_fill_color = fields.Char(
-        string='Highlight Fill Color',
         default='#e74c3c',
         help='Fill color for selected polygon'
     )
     highlight_stroke_color = fields.Char(
-        string='Highlight Stroke Color',
         default='#c0392b',
         help='Stroke color for selected polygon'
     )
     highlight_stroke_width = fields.Integer(
-        string='Highlight Stroke Width',
         default=3,
         help='Stroke width for selected polygon'
     )
 
     # Point/Vertex Settings
     point_radius = fields.Integer(
-        string='Point Radius',
         default=5,
         help='Radius of polygon vertex points in pixels'
     )
     point_color = fields.Char(
-        string='Point Color',
         default='#ffffff',
         help='Color of vertex points'
     )
     point_stroke_color = fields.Char(
-        string='Point Stroke Color',
         default='#2c3e50',
         help='Stroke color of vertex points'
     )
     point_stroke_width = fields.Integer(
-        string='Point Stroke Width',
         default=2,
         help='Stroke width of vertex points'
     )
 
     # Ruler/Measurement Settings
     ruler_color = fields.Char(
-        string='Ruler Color',
         default='#e67e22',
         help='Color of ruler line'
     )
     ruler_width = fields.Integer(
-        string='Ruler Width',
         default=3,
         help='Width of ruler line in pixels'
     )
     measurement_font_size = fields.Integer(
-        string='Measurement Font Size',
         default=14,
         help='Font size for measurements'
     )
     measurement_color = fields.Char(
-        string='Measurement Color',
         default='#2c3e50',
         help='Color of measurement text'
     )
@@ -135,22 +119,18 @@ class PlanSettings(models.Model):
 
     # Label Settings
     label_font_size = fields.Integer(
-        string='Label Font Size',
         default=12,
         help='Font size for polygon labels'
     )
     label_font_family = fields.Char(
-        string='Label Font Family',
         default='Arial',
         help='Font family for labels'
     )
     label_color = fields.Char(
-        string='Label Color',
         default='#2c3e50',
         help='Color of polygon labels'
     )
     show_area_labels = fields.Boolean(
-        string='Show Area Labels',
         default=True,
         help='Display area on polygon centroids'
     )
@@ -158,7 +138,6 @@ class PlanSettings(models.Model):
     # Context (для model-specific settings)
     context_model = fields.Many2one(
         'ir.model',
-        string='Context Model',
         help='Model for context-specific settings. '
              'Leave empty for default settings.'
     )
@@ -183,12 +162,12 @@ class PlanSettings(models.Model):
                     ('active', '=', True)
                 ])
                 if other_defaults:
-                    raise UserError(_(
+                    raise UserError(self.env._(
                         'Only one active default settings record '
                         '(without context_model) is allowed!'
                     ))
             if not record.context_model and not record.active:
-                raise UserError(_(
+                raise UserError(self.env._(
                     'At least one active default plan settings must exist!'
                 ))
 
@@ -198,7 +177,6 @@ class PlanSettings(models.Model):
         Отримати налаштування для моделі.
         Якщо є model-specific - повертає їх, інакше default.
         """
-        # Спочатку шукаємо default
         default_settings = self.sudo().search([
             ('context_model', '=', False),
             ('active', '=', True)
@@ -207,7 +185,6 @@ class PlanSettings(models.Model):
         if not model_name:
             return default_settings or self._create_default_settings()
 
-        # Шукаємо model-specific
         model_record = self.env['ir.model'].sudo().search([
             ('model', '=', model_name)
         ], limit=1)

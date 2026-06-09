@@ -7,10 +7,10 @@ class CinemaSession(models.Model):
     _description = 'Cinema Session'
 
     name = fields.Char(string='Session Name', required=True)
-    movie_name = fields.Char(string='Movie Name', required=True)
-    hall_id = fields.Many2one('cinema.hall', string='Hall', required=True)
-    start_time = fields.Datetime(string='Start Time', required=True)
-    end_time = fields.Datetime(string='End Time')
+    movie_name = fields.Char(required=True)
+    hall_id = fields.Many2one('cinema.hall', required=True)
+    start_time = fields.Datetime(required=True)
+    end_time = fields.Datetime()
     price = fields.Float(string='Ticket Price')
 
     # Relations
@@ -20,7 +20,6 @@ class CinemaSession(models.Model):
         string='Bookings'
     )
     available_seats = fields.Integer(
-        string='Available Seats',
         compute='_compute_available_seats'
     )
 
