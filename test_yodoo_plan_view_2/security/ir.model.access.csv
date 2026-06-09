@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_cinema_hall,access_cinema_hall,model_cinema_hall,base.group_user,1,1,1,1
+access_cinema_seat,access_cinema_seat,model_cinema_seat,base.group_user,1,1,1,1
+access_cinema_session,access_cinema_session,model_cinema_session,base.group_user,1,1,1,1
+access_cinema_booking,access_cinema_booking,model_cinema_booking,base.group_user,1,1,1,1

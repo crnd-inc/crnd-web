@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_cinema_root" name="Cinema" sequence="10"/>
+    
+    <menuitem id="menu_cinema_hall"
+              name="Halls"
+              parent="menu_cinema_root"
+              action="action_cinema_hall"
+              sequence="10"/>
+
+    <menuitem id="menu_cinema_seat"
+              name="Seats"
+              parent="menu_cinema_root"
+              action="action_cinema_seat"
+              sequence="15"/>
+    
+    <menuitem id="menu_cinema_session" 
+              name="Sessions" 
+              parent="menu_cinema_root" 
+              action="action_cinema_session" 
+              sequence="20"/>
+    
+    <menuitem id="menu_cinema_booking" 
+              name="Bookings" 
+              parent="menu_cinema_root" 
+              action="action_cinema_booking" 
+              sequence="30"/>
+</odoo>
