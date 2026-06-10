@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_plan_polygon_user,plan.polygon.user,model_plan_polygon,base.group_user,1,1,1,1
+access_plan_settings_user,plan.settings.user,model_plan_settings,base.group_user,1,0,0,0
+access_plan_settings_manager,plan.settings.manager,model_plan_settings,base.group_system,1,1,1,1

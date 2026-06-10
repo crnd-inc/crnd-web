@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+    <!-- Cinema Sidebar Extension -->
+    <t t-name="cinema.plan.sidebar" t-inherit="yodoo_plan_view.Renderer" t-inherit-mode="extension">
+        <xpath expr="//div[hasclass('o_plan_sidebar')]" position="replace">
+            <div class="o_plan_sidebar" t-att-style="'width: ' + (state.sidebarVisible ? '300px' : '0') + '; border-right: 1px solid #dee2e6; overflow-y: auto; background: white; transition: width 0.3s ease;' + (state.sidebarVisible ? '' : ' overflow: hidden;')">
+                <div class="p-3">
+                    <t t-if="isCinemaSession">
+                        <!-- Cinema Session Sidebar -->
+                        <h5 class="mb-3">
+                            <i class="fa fa-ticket"/> Обрані місця
+                        </h5>
+                        
+                        <t t-if="selectedSeats and selectedSeats.length > 0">
+                            <div class="list-group mb-3">
+                                <t t-foreach="selectedSeats" t-as="seat" t-key="seat.id">
+                                    <div class="list-group-item">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <span t-esc="seat.name"/>
+                                            <button class="btn btn-sm btn-link text-danger p-0" 
+                                                    t-on-click="() => this.deselectSeat(seat.id)">
+                                                <i class="fa fa-times"/>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </t>
+                            </div>
+                            
+                            <button class="btn btn-primary w-100" 
+                                    t-on-click="() => this.createBookings()">
+                                <i class="fa fa-check"/> Бронювати (<t t-esc="selectedSeats.length"/>)
+                            </button>
+                        </t>
+                        <t t-else="">
+                            <div class="alert alert-info">
+                                <i class="fa fa-info-circle"/> Оберіть місця для бронювання
+                            </div>
+                        </t>
+                    </t>
+                    <t t-else="">
+                        <!-- Default Sidebar -->
+                        <h5 class="mb-3">
+                            <i class="fa fa-list"/> Об'єкти
+                        </h5>
+                        <t t-if="state.data.relatedObjects and state.data.relatedObjects.length > 0">
+                            <div class="list-group">
+                                <t t-foreach="state.data.relatedObjects" t-as="obj" t-key="obj.id">
+                                    <a href="#" 
+                                       t-att-class="'list-group-item list-group-item-action ' + (state.selectedObjectId === obj.id ? 'active' : '')"
+                                       t-on-click.prevent="() => this.onObjectClick(obj)"
+                                       t-on-dblclick.prevent="() => this.onObjectDblClick(obj)">
+                                        <div class="d-flex w-100 justify-content-between align-items-baseline">
+                                            <h6 class="mb-0" t-esc="obj.name"/>
+                                            <small t-if="obj.roomNumber" class="text-muted" t-esc="obj.roomNumber"/>
+                                        </div>
+                                        <small t-if="obj.roomType" class="text-muted" t-esc="obj.roomType"/>
+                                    </a>
+                                </t>
+                            </div>
+                        </t>
+                        <t t-else="">
+                            <div class="alert alert-info">
+                                <i class="fa fa-info-circle"/> Немає об'єктів
+                            </div>
+                        </t>
+                    </t>
+                </div>
+            </div>
+        </xpath>
+    </t>
+
+</templates>

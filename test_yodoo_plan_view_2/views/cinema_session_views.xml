@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_cinema_session_form" model="ir.ui.view">
+        <field name="name">cinema.session.form</field>
+        <field name="model">cinema.session</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_open_booking"
+                            string="Бронювати місця"
+                            type="object"
+                            class="oe_highlight"
+                            icon="fa-ticket"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="movie_name"/>
+                        <field name="hall_id"/>
+                        <field name="start_time"/>
+                        <field name="end_time"/>
+                        <field name="price"/>
+                        <field name="available_seats"/>
+                    </group>
+                    <notebook>
+                        <page string="Бронювання" name="bookings">
+                            <field name="booking_ids">
+                                <list>
+                                    <field name="seat_id"/>
+                                    <field name="customer_name"/>
+                                    <field name="state"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_cinema_session_list" model="ir.ui.view">
+        <field name="name">cinema.session.list</field>
+        <field name="model">cinema.session</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="movie_name"/>
+                <field name="hall_id"/>
+                <field name="start_time"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_cinema_session_plan" model="ir.ui.view">
+        <field name="name">cinema.session.plan</field>
+        <field name="model">cinema.session</field>
+        <field name="arch" type="xml">
+            <plan>
+                <field name="name"/>
+                <field name="movie_name"/>
+                <field name="hall_id"/>
+                <field name="start_time"/>
+                <field name="available_seats"/>
+            </plan>
+        </field>
+    </record>
+
+    <record id="action_cinema_session" model="ir.actions.act_window">
+        <field name="name">Cinema Sessions</field>
+        <field name="res_model">cinema.session</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

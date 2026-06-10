@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    
+    <!-- Seat Form View -->
+    <record id="view_cinema_seat_form" model="ir.ui.view">
+        <field name="name">cinema.seat.form</field>
+        <field name="model">cinema.seat</field>
+        <field name="arch" type="xml">
+            <form string="Seat">
+                <header>
+                    <button name="action_open_on_plan"
+                            string="Show on Plan"
+                            type="object"
+                            class="oe_highlight"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="row"/>
+                            <field name="hall_id"/>
+                        </group>
+                        <group>
+                            <field name="seat_type"/>
+                            <field name="seat_number"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    
+    <!-- Seat List View -->
+    <record id="view_cinema_seat_list" model="ir.ui.view">
+        <field name="name">cinema.seat.list</field>
+        <field name="model">cinema.seat</field>
+        <field name="arch" type="xml">
+            <list string="Seats">
+                <field name="name"/>
+                <field name="row"/>
+                <field name="hall_id"/>
+                <field name="seat_type"/>
+                <button name="action_open_on_plan"
+                        string="Show on Plan"
+                        type="object"
+                        icon="fa-map-marker"
+                        class="btn-primary"/>
+            </list>
+        </field>
+    </record>
+    
+    <!-- Seat Action -->
+    <record id="action_cinema_seat" model="ir.actions.act_window">
+        <field name="name">Seats</field>
+        <field name="res_model">cinema.seat</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    
+
+</odoo>

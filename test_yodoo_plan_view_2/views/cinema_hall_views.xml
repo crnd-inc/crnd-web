@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_cinema_hall_plan" model="ir.ui.view">
+        <field name="name">cinema.hall.plan</field>
+        <field name="model">cinema.hall</field>
+        <field name="arch" type="xml">
+            <plan>
+                <field name="plan_image"/>
+                <field name="plan_scale_coefficient"/>
+            </plan>
+        </field>
+    </record>
+
+    <record id="view_cinema_hall_form" model="ir.ui.view">
+        <field name="name">cinema.hall.form</field>
+        <field name="model">cinema.hall</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_open_plan_view" 
+                            string="План розсадки" 
+                            type="object" 
+                            class="btn-primary"
+                            icon="fa-map"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="capacity"/>
+                    </group>
+                    <notebook>
+                        <page string="Місця" name="seats">
+                            <field name="seat_ids">
+                                <list editable="bottom">
+                                    <field name="name"/>
+                                    <field name="row"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="План залу" name="plan">
+                            <group>
+                                <field name="plan_image" widget="image"/>
+                                <field name="plan_scale_coefficient"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_cinema_hall_list" model="ir.ui.view">
+        <field name="name">cinema.hall.list</field>
+        <field name="model">cinema.hall</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="capacity"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_cinema_hall" model="ir.actions.act_window">
+        <field name="name">Cinema Halls</field>
+        <field name="res_model">cinema.hall</field>
+        <field name="view_mode">list,form,plan</field>
+    </record>
+</odoo>

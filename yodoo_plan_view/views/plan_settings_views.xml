@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    
+    <!-- Plan Settings Form View -->
+    <record id="view_plan_settings_form" model="ir.ui.view">
+        <field name="name">plan.settings.form</field>
+        <field name="model">plan.settings</field>
+        <field name="arch" type="xml">
+            <form string="Plan Settings">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="context_model"/>
+                            <field name="active"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Grid" name="grid">
+                            <group>
+                                <group>
+                                    <field name="grid_enabled"/>
+                                    <field name="grid_size"/>
+                                </group>
+                                <group>
+                                    <field name="grid_color" widget="color"/>
+                                    <field name="grid_snap"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Polygon Style" name="polygon">
+                            <group>
+                                <group string="Default">
+                                    <field name="default_fill_color" widget="color"/>
+                                    <field name="default_stroke_color" widget="color"/>
+                                    <field name="default_stroke_width"/>
+                                    <field name="default_opacity"/>
+                                </group>
+                                <group string="Highlight">
+                                    <field name="highlight_fill_color" widget="color"/>
+                                    <field name="highlight_stroke_color" widget="color"/>
+                                    <field name="highlight_stroke_width"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Points" name="points">
+                            <group>
+                                <group>
+                                    <field name="point_radius"/>
+                                    <field name="point_color" widget="color"/>
+                                </group>
+                                <group>
+                                    <field name="point_stroke_color" widget="color"/>
+                                    <field name="point_stroke_width"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Measurements" name="measurements">
+                            <group>
+                                <group string="Ruler">
+                                    <field name="ruler_color" widget="color"/>
+                                    <field name="ruler_width"/>
+                                </group>
+                                <group string="Text">
+                                    <field name="measurement_font_size"/>
+                                    <field name="measurement_color" widget="color"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Labels" name="labels">
+                            <group>
+                                <group>
+                                    <field name="label_font_size"/>
+                                    <field name="label_font_family"/>
+                                </group>
+                                <group>
+                                    <field name="label_color" widget="color"/>
+                                    <field name="show_area_labels"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Origin" name="origin">
+                            <group>
+                                <group>
+                                    <field name="origin_color" widget="color"/>
+                                    <field name="origin_size"/>
+                                </group>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    
+    <!-- Plan Settings List View -->
+    <record id="view_plan_settings_list" model="ir.ui.view">
+        <field name="name">plan.settings.list</field>
+        <field name="model">plan.settings</field>
+        <field name="arch" type="xml">
+            <list string="Plan Settings">
+                <field name="name"/>
+                <field name="context_model"/>
+                <field name="active"/>
+            </list>
+        </field>
+    </record>
+    
+    <!-- Plan Settings Action -->
+    <record id="action_plan_settings" model="ir.actions.act_window">
+        <field name="name">Plan Settings</field>
+        <field name="res_model">plan.settings</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    
+    <!-- Menu in Settings -->
+    <menuitem id="menu_plan_settings"
+              name="Plan"
+              parent="base.menu_administration"
+              action="action_plan_settings"
+              sequence="100"/>
+    
+</odoo>

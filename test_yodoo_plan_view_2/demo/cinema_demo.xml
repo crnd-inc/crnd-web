@@ -1,0 +1,405 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Cinema Halls -->
+    <record id="cinema_hall_1" model="cinema.hall">
+        <field name="name">Hall 1 (Small)</field>
+    </record>
+
+    <record id="cinema_hall_2" model="cinema.hall">
+        <field name="name">Hall 2 (Large)</field>
+    </record>
+
+    <!-- Hall 1 Seats (15 seats: 3 rows x 5 seats) -->
+    <record id="seat_h1_r1_s1" model="cinema.seat">
+        <field name="name">A1</field>
+        <field name="row">A</field>
+        <field name="seat_number">1</field>
+        <field name="hall_id" ref="cinema_hall_1"/>
+        <field name="seat_type">standard</field>
+    </record>
+    <record id="seat_h1_r1_s2" model="cinema.seat">
+        <field name="name">A2</field>
+        <field name="row">A</field>
+        <field name="seat_number">2</field>
+        <field name="hall_id" ref="cinema_hall_1"/>
+        <field name="seat_type">standard</field>
+    </record>
+    <record id="seat_h1_r1_s3" model="cinema.seat">
+        <field name="name">A3</field>
+        <field name="row">A</field>
+        <field name="seat_number">3</field>
+        <field name="hall_id" ref="cinema_hall_1"/>
+        <field name="seat_type">vip</field>
+    </record>
+    <record id="seat_h1_r1_s4" model="cinema.seat">
+        <field name="name">A4</field>
+        <field name="row">A</field>
+        <field name="seat_number">4</field>
+        <field name="hall_id" ref="cinema_hall_1"/>
+        <field name="seat_type">standard</field>
+    </record>
+    <record id="seat_h1_r1_s5" model="cinema.seat">
+        <field name="name">A5</field>
+        <field name="row">A</field>
+        <field name="seat_number">5</field>
+        <field name="hall_id" ref="cinema_hall_1"/>
+        <field name="seat_type">standard</field>
+    </record>
+
+    <record id="seat_h1_r2_s1" model="cinema.seat">
+        <field name="name">B1</field>
+        <field name="row">B</field>
+        <field name="seat_number">1</field>
+        <field name="hall_id" ref="cinema_hall_1"/>
+        <field name="seat_type">standard</field>
+    </record>
+    <record id="seat_h1_r2_s2" model="cinema.seat">
+        <field name="name">B2</field>
+        <field name="row">B</field>
+        <field name="seat_number">2</field>
+        <field name="hall_id" ref="cinema_hall_1"/>
+        <field name="seat_type">vip</field>
+    </record>
+    <record id="seat_h1_r2_s3" model="cinema.seat">
+        <field name="name">B3</field>
+        <field name="row">B</field>
+        <field name="seat_number">3</field>
+        <field name="hall_id" ref="cinema_hall_1"/>
+        <field name="seat_type">vip</field>
+    </record>
+    <record id="seat_h1_r2_s4" model="cinema.seat">
+        <field name="name">B4</field>
+        <field name="row">B</field>
+        <field name="seat_number">4</field>
+        <field name="hall_id" ref="cinema_hall_1"/>
+        <field name="seat_type">vip</field>
+    </record>
+    <record id="seat_h1_r2_s5" model="cinema.seat">
+        <field name="name">B5</field>
+        <field name="row">B</field>
+        <field name="seat_number">5</field>
+        <field name="hall_id" ref="cinema_hall_1"/>
+        <field name="seat_type">standard</field>
+    </record>
+
+    <record id="seat_h1_r3_s1" model="cinema.seat">
+        <field name="name">C1</field>
+        <field name="row">C</field>
+        <field name="seat_number">1</field>
+        <field name="hall_id" ref="cinema_hall_1"/>
+        <field name="seat_type">standard</field>
+    </record>
+    <record id="seat_h1_r3_s2" model="cinema.seat">
+        <field name="name">C2</field>
+        <field name="row">C</field>
+        <field name="seat_number">2</field>
+        <field name="hall_id" ref="cinema_hall_1"/>
+        <field name="seat_type">standard</field>
+    </record>
+    <record id="seat_h1_r3_s3" model="cinema.seat">
+        <field name="name">C3</field>
+        <field name="row">C</field>
+        <field name="seat_number">3</field>
+        <field name="hall_id" ref="cinema_hall_1"/>
+        <field name="seat_type">standard</field>
+    </record>
+    <record id="seat_h1_r3_s4" model="cinema.seat">
+        <field name="name">C4</field>
+        <field name="row">C</field>
+        <field name="seat_number">4</field>
+        <field name="hall_id" ref="cinema_hall_1"/>
+        <field name="seat_type">standard</field>
+    </record>
+    <record id="seat_h1_r3_s5" model="cinema.seat">
+        <field name="name">C5</field>
+        <field name="row">C</field>
+        <field name="seat_number">5</field>
+        <field name="hall_id" ref="cinema_hall_1"/>
+        <field name="seat_type">disabled</field>
+    </record>
+
+    <!-- Hall 2 Seats (20 seats: 4 rows x 5 seats) -->
+    <record id="seat_h2_r1_s1" model="cinema.seat">
+        <field name="name">A1</field>
+        <field name="row">A</field>
+        <field name="seat_number">1</field>
+        <field name="hall_id" ref="cinema_hall_2"/>
+        <field name="seat_type">standard</field>
+    </record>
+    <record id="seat_h2_r1_s2" model="cinema.seat">
+        <field name="name">A2</field>
+        <field name="row">A</field>
+        <field name="seat_number">2</field>
+        <field name="hall_id" ref="cinema_hall_2"/>
+        <field name="seat_type">standard</field>
+    </record>
+    <record id="seat_h2_r1_s3" model="cinema.seat">
+        <field name="name">A3</field>
+        <field name="row">A</field>
+        <field name="seat_number">3</field>
+        <field name="hall_id" ref="cinema_hall_2"/>
+        <field name="seat_type">standard</field>
+    </record>
+    <record id="seat_h2_r1_s4" model="cinema.seat">
+        <field name="name">A4</field>
+        <field name="row">A</field>
+        <field name="seat_number">4</field>
+        <field name="hall_id" ref="cinema_hall_2"/>
+        <field name="seat_type">standard</field>
+    </record>
+    <record id="seat_h2_r1_s5" model="cinema.seat">
+        <field name="name">A5</field>
+        <field name="row">A</field>
+        <field name="seat_number">5</field>
+        <field name="hall_id" ref="cinema_hall_2"/>
+        <field name="seat_type">standard</field>
+    </record>
+
+    <record id="seat_h2_r2_s1" model="cinema.seat">
+        <field name="name">B1</field>
+        <field name="row">B</field>
+        <field name="seat_number">1</field>
+        <field name="hall_id" ref="cinema_hall_2"/>
+        <field name="seat_type">standard</field>
+    </record>
+    <record id="seat_h2_r2_s2" model="cinema.seat">
+        <field name="name">B2</field>
+        <field name="row">B</field>
+        <field name="seat_number">2</field>
+        <field name="hall_id" ref="cinema_hall_2"/>
+        <field name="seat_type">vip</field>
+    </record>
+    <record id="seat_h2_r2_s3" model="cinema.seat">
+        <field name="name">B3</field>
+        <field name="row">B</field>
+        <field name="seat_number">3</field>
+        <field name="hall_id" ref="cinema_hall_2"/>
+        <field name="seat_type">vip</field>
+    </record>
+    <record id="seat_h2_r2_s4" model="cinema.seat">
+        <field name="name">B4</field>
+        <field name="row">B</field>
+        <field name="seat_number">4</field>
+        <field name="hall_id" ref="cinema_hall_2"/>
+        <field name="seat_type">vip</field>
+    </record>
+    <record id="seat_h2_r2_s5" model="cinema.seat">
+        <field name="name">B5</field>
+        <field name="row">B</field>
+        <field name="seat_number">5</field>
+        <field name="hall_id" ref="cinema_hall_2"/>
+        <field name="seat_type">standard</field>
+    </record>
+
+    <record id="seat_h2_r3_s1" model="cinema.seat">
+        <field name="name">C1</field>
+        <field name="row">C</field>
+        <field name="seat_number">1</field>
+        <field name="hall_id" ref="cinema_hall_2"/>
+        <field name="seat_type">standard</field>
+    </record>
+    <record id="seat_h2_r3_s2" model="cinema.seat">
+        <field name="name">C2</field>
+        <field name="row">C</field>
+        <field name="seat_number">2</field>
+        <field name="hall_id" ref="cinema_hall_2"/>
+        <field name="seat_type">vip</field>
+    </record>
+    <record id="seat_h2_r3_s3" model="cinema.seat">
+        <field name="name">C3</field>
+        <field name="row">C</field>
+        <field name="seat_number">3</field>
+        <field name="hall_id" ref="cinema_hall_2"/>
+        <field name="seat_type">vip</field>
+    </record>
+    <record id="seat_h2_r3_s4" model="cinema.seat">
+        <field name="name">C4</field>
+        <field name="row">C</field>
+        <field name="seat_number">4</field>
+        <field name="hall_id" ref="cinema_hall_2"/>
+        <field name="seat_type">vip</field>
+    </record>
+    <record id="seat_h2_r3_s5" model="cinema.seat">
+        <field name="name">C5</field>
+        <field name="row">C</field>
+        <field name="seat_number">5</field>
+        <field name="hall_id" ref="cinema_hall_2"/>
+        <field name="seat_type">standard</field>
+    </record>
+
+    <record id="seat_h2_r4_s1" model="cinema.seat">
+        <field name="name">D1</field>
+        <field name="row">D</field>
+        <field name="seat_number">1</field>
+        <field name="hall_id" ref="cinema_hall_2"/>
+        <field name="seat_type">standard</field>
+    </record>
+    <record id="seat_h2_r4_s2" model="cinema.seat">
+        <field name="name">D2</field>
+        <field name="row">D</field>
+        <field name="seat_number">2</field>
+        <field name="hall_id" ref="cinema_hall_2"/>
+        <field name="seat_type">standard</field>
+    </record>
+    <record id="seat_h2_r4_s3" model="cinema.seat">
+        <field name="name">D3</field>
+        <field name="row">D</field>
+        <field name="seat_number">3</field>
+        <field name="hall_id" ref="cinema_hall_2"/>
+        <field name="seat_type">standard</field>
+    </record>
+    <record id="seat_h2_r4_s4" model="cinema.seat">
+        <field name="name">D4</field>
+        <field name="row">D</field>
+        <field name="seat_number">4</field>
+        <field name="hall_id" ref="cinema_hall_2"/>
+        <field name="seat_type">standard</field>
+    </record>
+    <record id="seat_h2_r4_s5" model="cinema.seat">
+        <field name="name">D5</field>
+        <field name="row">D</field>
+        <field name="seat_number">5</field>
+        <field name="hall_id" ref="cinema_hall_2"/>
+        <field name="seat_type">disabled</field>
+    </record>
+
+    <!-- Cinema Sessions for Hall 1 -->
+    <record id="session_h1_1" model="cinema.session">
+        <field name="name">Morning Show - Avatar 3</field>
+        <field name="movie_name">Avatar 3</field>
+        <field name="hall_id" ref="cinema_hall_1"/>
+        <field name="start_time" eval="(datetime.now() + timedelta(days=1)).replace(hour=10, minute=0)"/>
+        <field name="end_time" eval="(datetime.now() + timedelta(days=1)).replace(hour=13, minute=0)"/>
+        <field name="price">150.0</field>
+    </record>
+
+    <record id="session_h1_2" model="cinema.session">
+        <field name="name">Afternoon Show - Dune 3</field>
+        <field name="movie_name">Dune 3</field>
+        <field name="hall_id" ref="cinema_hall_1"/>
+        <field name="start_time" eval="(datetime.now() + timedelta(days=1)).replace(hour=14, minute=30)"/>
+        <field name="end_time" eval="(datetime.now() + timedelta(days=1)).replace(hour=17, minute=0)"/>
+        <field name="price">180.0</field>
+    </record>
+
+    <record id="session_h1_3" model="cinema.session">
+        <field name="name">Evening Show - Interstellar 2</field>
+        <field name="movie_name">Interstellar 2</field>
+        <field name="hall_id" ref="cinema_hall_1"/>
+        <field name="start_time" eval="(datetime.now() + timedelta(days=1)).replace(hour=19, minute=0)"/>
+        <field name="end_time" eval="(datetime.now() + timedelta(days=1)).replace(hour=22, minute=0)"/>
+        <field name="price">200.0</field>
+    </record>
+
+    <!-- Cinema Sessions for Hall 2 -->
+    <record id="session_h2_1" model="cinema.session">
+        <field name="name">Morning Show - Matrix 5</field>
+        <field name="movie_name">Matrix 5</field>
+        <field name="hall_id" ref="cinema_hall_2"/>
+        <field name="start_time" eval="(datetime.now() + timedelta(days=2)).replace(hour=10, minute=0)"/>
+        <field name="end_time" eval="(datetime.now() + timedelta(days=2)).replace(hour=12, minute=30)"/>
+        <field name="price">160.0</field>
+    </record>
+
+    <record id="session_h2_2" model="cinema.session">
+        <field name="name">Afternoon Show - Inception 2</field>
+        <field name="movie_name">Inception 2</field>
+        <field name="hall_id" ref="cinema_hall_2"/>
+        <field name="start_time" eval="(datetime.now() + timedelta(days=2)).replace(hour=15, minute=0)"/>
+        <field name="end_time" eval="(datetime.now() + timedelta(days=2)).replace(hour=17, minute=30)"/>
+        <field name="price">190.0</field>
+    </record>
+
+    <record id="session_h2_3" model="cinema.session">
+        <field name="name">Evening Show - Blade Runner 2099</field>
+        <field name="movie_name">Blade Runner 2099</field>
+        <field name="hall_id" ref="cinema_hall_2"/>
+        <field name="start_time" eval="(datetime.now() + timedelta(days=2)).replace(hour=20, minute=0)"/>
+        <field name="end_time" eval="(datetime.now() + timedelta(days=2)).replace(hour=23, minute=0)"/>
+        <field name="price">220.0</field>
+    </record>
+
+    <!-- Bookings for Hall 1 Session 1 (4 bookings) -->
+    <record id="booking_h1_s1_1" model="cinema.booking">
+        <field name="name">BOOK-H1-S1-001</field>
+        <field name="session_id" ref="session_h1_1"/>
+        <field name="seat_id" ref="seat_h1_r1_s1"/>
+        <field name="customer_name">John Doe</field>
+        <field name="customer_phone">+380501234567</field>
+        <field name="state">confirmed</field>
+    </record>
+    <record id="booking_h1_s1_2" model="cinema.booking">
+        <field name="name">BOOK-H1-S1-002</field>
+        <field name="session_id" ref="session_h1_1"/>
+        <field name="seat_id" ref="seat_h1_r1_s2"/>
+        <field name="customer_name">Jane Smith</field>
+        <field name="customer_phone">+380502345678</field>
+        <field name="state">confirmed</field>
+    </record>
+    <record id="booking_h1_s1_3" model="cinema.booking">
+        <field name="name">BOOK-H1-S1-003</field>
+        <field name="session_id" ref="session_h1_1"/>
+        <field name="seat_id" ref="seat_h1_r2_s3"/>
+        <field name="customer_name">Bob Johnson</field>
+        <field name="customer_phone">+380503456789</field>
+        <field name="state">confirmed</field>
+    </record>
+    <record id="booking_h1_s1_4" model="cinema.booking">
+        <field name="name">BOOK-H1-S1-004</field>
+        <field name="session_id" ref="session_h1_1"/>
+        <field name="seat_id" ref="seat_h1_r2_s4"/>
+        <field name="customer_name">Alice Brown</field>
+        <field name="customer_phone">+380504567890</field>
+        <field name="state">confirmed</field>
+    </record>
+
+    <!-- Bookings for Hall 2 Session 2 (6 bookings) -->
+    <record id="booking_h2_s2_1" model="cinema.booking">
+        <field name="name">BOOK-H2-S2-001</field>
+        <field name="session_id" ref="session_h2_2"/>
+        <field name="seat_id" ref="seat_h2_r2_s2"/>
+        <field name="customer_name">Charlie Wilson</field>
+        <field name="customer_phone">+380505678901</field>
+        <field name="state">confirmed</field>
+    </record>
+    <record id="booking_h2_s2_2" model="cinema.booking">
+        <field name="name">BOOK-H2-S2-002</field>
+        <field name="session_id" ref="session_h2_2"/>
+        <field name="seat_id" ref="seat_h2_r2_s3"/>
+        <field name="customer_name">Diana Martinez</field>
+        <field name="customer_phone">+380506789012</field>
+        <field name="state">confirmed</field>
+    </record>
+    <record id="booking_h2_s2_3" model="cinema.booking">
+        <field name="name">BOOK-H2-S2-003</field>
+        <field name="session_id" ref="session_h2_2"/>
+        <field name="seat_id" ref="seat_h2_r2_s4"/>
+        <field name="customer_name">Edward Lee</field>
+        <field name="customer_phone">+380507890123</field>
+        <field name="state">confirmed</field>
+    </record>
+    <record id="booking_h2_s2_4" model="cinema.booking">
+        <field name="name">BOOK-H2-S2-004</field>
+        <field name="session_id" ref="session_h2_2"/>
+        <field name="seat_id" ref="seat_h2_r3_s2"/>
+        <field name="customer_name">Fiona Garcia</field>
+        <field name="customer_phone">+380508901234</field>
+        <field name="state">confirmed</field>
+    </record>
+    <record id="booking_h2_s2_5" model="cinema.booking">
+        <field name="name">BOOK-H2-S2-005</field>
+        <field name="session_id" ref="session_h2_2"/>
+        <field name="seat_id" ref="seat_h2_r3_s3"/>
+        <field name="customer_name">George Taylor</field>
+        <field name="customer_phone">+380509012345</field>
+        <field name="state">confirmed</field>
+    </record>
+    <record id="booking_h2_s2_6" model="cinema.booking">
+        <field name="name">BOOK-H2-S2-006</field>
+        <field name="session_id" ref="session_h2_2"/>
+        <field name="seat_id" ref="seat_h2_r3_s4"/>
+        <field name="customer_name">Helen Anderson</field>
+        <field name="customer_phone">+380500123456</field>
+        <field name="state">confirmed</field>
+    </record>
+</odoo>
