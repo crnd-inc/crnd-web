@@ -64,7 +64,6 @@ pylint:
         - odood venv pip -- install -r /tmp/py-requirements.txt
     script:
         - odood venv run -- pylint --rcfile=.pylintrc --valid_odoo_versions=$SERIES_BRANCH -d manifest-required-author $(odood addons list --installable --by-path .)
-    allow_failure: true
     <<: *except_auto_commits
 
 stylelint:
