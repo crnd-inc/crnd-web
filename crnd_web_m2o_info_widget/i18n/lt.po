@@ -18,6 +18,12 @@ msgstr ""
 #. module: crnd_web_m2o_info_widget
 #. odoo-javascript
 #: code:addons/crnd_web_m2o_info_widget/static/src/js/m2o_info_widget.js:0
+msgid "Cannot copy to clipboard"
+msgstr ""
+
+#. module: crnd_web_m2o_info_widget
+#. odoo-javascript
+#: code:addons/crnd_web_m2o_info_widget/static/src/js/m2o_info_widget.js:0
 msgid "Cannot load info: invalid info_method"
 msgstr ""
 
@@ -25,6 +31,12 @@ msgstr ""
 #. odoo-javascript
 #: code:addons/crnd_web_m2o_info_widget/static/src/js/m2o_info_widget.js:0
 msgid "Copied"
+msgstr ""
+
+#. module: crnd_web_m2o_info_widget
+#. odoo-javascript
+#: code:addons/crnd_web_m2o_info_widget/static/src/js/m2o_info_widget.js:0
+msgid "Some fields are not available and were skipped"
 msgstr ""
 
 #. module: crnd_web_m2o_info_widget

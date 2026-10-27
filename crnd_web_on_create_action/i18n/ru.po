@@ -16,6 +16,16 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: crnd_web_on_create_action
+#: model:ir.model.fields,field_description:crnd_web_on_create_action.field_ir_ui_view__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: crnd_web_on_create_action
+#: model:ir.model.fields,field_description:crnd_web_on_create_action.field_ir_ui_view__id
+msgid "ID"
+msgstr ""
+
+#. module: crnd_web_on_create_action
 #: model:ir.model,name:crnd_web_on_create_action.model_ir_ui_view
 msgid "View"
 msgstr ""
