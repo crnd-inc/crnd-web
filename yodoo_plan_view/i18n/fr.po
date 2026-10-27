@@ -1,0 +1,1012 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* yodoo_plan_view
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-27 06:19+0000\n"
+"PO-Revision-Date: 2026-10-27 06:19+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: yodoo_plan_view
+#. odoo-javascript
+#: code:addons/yodoo_plan_view/static/src/xml/plan_templates.xml:0
+msgid "\"Edit\""
+msgstr ""
+
+#. module: yodoo_plan_view
+#. odoo-javascript
+#: code:addons/yodoo_plan_view/static/src/xml/plan_templates.xml:0
+msgid "\"Plan Image\""
+msgstr ""
+
+#. module: yodoo_plan_view
+#. odoo-javascript
+#: code:addons/yodoo_plan_view/static/src/xml/plan_templates.xml:0
+msgid "\"Plan\""
+msgstr ""
+
+#. module: yodoo_plan_view
+#: model:ir.model,name:yodoo_plan_view.model_ir_actions_act_window_view
+msgid "Action Window View"
+msgstr "Vue de la fenêtre d'action"
+
+#. module: yodoo_plan_view
+#: model:ir.model.fields,field_description:yodoo_plan_view.field_plan_settings__active
+msgid "Active"
+msgstr ""
+
+#. module: yodoo_plan_view
+#: model:ir.model.fields,field_description:yodoo_plan_view.field_plan_polygon__area_meters
+msgid "Area (m²)"
+msgstr ""
+
+#. module: yodoo_plan_view
+#: model:ir.model.fields,field_description:yodoo_plan_view.field_plan_polygon__area_pixels
+msgid "Area (pixels²)"
+msgstr ""
+
+#. module: yodoo_plan_view
+#. odoo-python
+#: code:addons/yodoo_plan_view/models/plan_settings.py:0
+msgid "At least one active default plan settings must exist!"
+msgstr ""
+
+#. module: yodoo_plan_view
+#. odoo-javascript
+#: code:addons/yodoo_plan_view/static/src/xml/plan_templates.xml:0
+msgid "Attach Object to Polygon"
+msgstr ""
+
+#. module: yodoo_plan_view
+#: model:ir.model.fields,help:yodoo_plan_view.field_plan_settings__grid_snap
+msgid "Automatically snap polygon points to grid"
+msgstr ""
+
+#. module: yodoo_plan_view
+#: model:ir.model.fields,help:yodoo_plan_view.field_plan_view_mixin__plan_image
+msgid "Background image for the plan (PNG, JPG, or SVG)"
+msgstr ""
+
+#. module: yodoo_plan_view
+#: model:ir.model.fields,help:yodoo_plan_view.field_plan_polygon__stroke_width
+msgid "Border width in pixels"
+msgstr ""
+
+#. module: yodoo_plan_view
+#. odoo-javascript
+#: code:addons/yodoo_plan_view/static/src/xml/plan_templates.xml:0
+msgid "Cancel"
+msgstr ""
+
+#. module: yodoo_plan_view
+#. odoo-javascript
+#: code:addons/yodoo_plan_view/static/src/xml/plan_templates.xml:0
+msgid "Cancel Editing"
+msgstr ""
+
+#. module: yodoo_plan_view
+#: model:ir.model.fields,field_description:yodoo_plan_view.field_plan_polygon__centroid_x
+msgid "Centroid X"
+msgstr ""
+
+#. module: yodoo_plan_view
+#: model:ir.model.fields,field_description:yodoo_plan_view.field_plan_polygon__centroid_y
+msgid "Centroid Y"
+msgstr ""
+
+#. module: yodoo_plan_view
+#: model:ir.model.fields,help:yodoo_plan_view.field_plan_settings__grid_color
+msgid "Color of grid lines (hex)"
+msgstr ""
+
+#. module: yodoo_plan_view
+#: model:ir.model.fields,help:yodoo_plan_view.field_plan_settings__measurement_color
+msgid "Color of measurement text"
+msgstr ""
+
+#. module: yodoo_plan_view
+#: model:ir.model.fields,help:yodoo_plan_view.field_plan_settings__origin_color
+msgid "Color of origin (0,0) marker"
+msgstr ""
+
+#. module: yodoo_plan_view
+#: model:ir.model.fields,help:yodoo_plan_view.field_plan_settings__label_color
+msgid "Color of polygon labels"
+msgstr ""
+
+#. module: yodoo_plan_view
+#: model:ir.model.fields,help:yodoo_plan_view.field_plan_settings__ruler_color
+msgid "Color of ruler line"
+msgstr ""
+
+#. module: yodoo_plan_view
+#: model:ir.model.fields,help:yodoo_plan_view.field_plan_settings__point_color
+msgid "Color of vertex points"
+msgstr ""
+
+#. module: yodoo_plan_view
+#: model:ir.model.fields,field_description:yodoo_plan_view.field_plan_settings__context_model
+msgid "Context Model"
+msgstr ""
+
+#. module: yodoo_plan_view
+#: model:ir.model.fields,field_description:yodoo_plan_view.field_plan_polygon__create_uid
+#: model:ir.model.fields,field_description:yodoo_plan_view.field_plan_settings__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: yodoo_plan_view
+#: model:ir.model.fields,field_description:yodoo_plan_view.field_plan_polygon__create_date
+#: model:ir.model.fields,field_description:yodoo_plan_view.field_plan_settings__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: yodoo_plan_view
+#: model_terms:ir.ui.view,arch_db:yodoo_plan_view.view_plan_settings_form
+msgid "Default"
+msgstr ""
+
+#. module: yodoo_plan_view
+#: model:ir.model.fields,field_description:yodoo_plan_view.field_plan_settings__default_fill_color
+msgid "Default Fill Color"
+msgstr ""
+
+#. module: yodoo_plan_view
+#: model:ir.model.fields,field_description:yodoo_plan_view.field_plan_settings__default_opacity
+msgid "Default Opacity"
+msgstr ""
+
+#. module: yodoo_plan_view
+#: model:plan.settings,name:yodoo_plan_view.default_plan_settings
+msgid "Default Settings"
+msgstr ""
+
+#. module: yodoo_plan_view
+#: model:ir.model.fields,field_description:yodoo_plan_view.field_plan_settings__default_stroke_color
+msgid "Default Stroke Color"
+msgstr ""
+
+#. module: yodoo_plan_view
+#: model:ir.model.fields,field_description:yodoo_plan_view.field_plan_settings__default_stroke_width
+msgid "Default Stroke Width"
+msgstr ""
+
+#. module: yodoo_plan_view
+#: model:ir.model.fields,help:yodoo_plan_view.field_plan_settings__default_stroke_width
+msgid "Default border width in pixels"
+msgstr ""
+
+#. module: yodoo_plan_view
+#: model:ir.model.fields,help:yodoo_plan_view.field_plan_settings__default_opacity
+msgid "Default fill opacity (0.0 - 1.0)"
+msgstr ""
+
+#. module: yodoo_plan_view
+#: model:ir.model.fields,help:yodoo_plan_view.field_plan_settings__default_stroke_color
+msgid "Default polygon border color (hex)"
+msgstr ""
+
+#. module: yodoo_plan_view
+#: model:ir.model.fields,help:yodoo_plan_view.field_plan_settings__default_fill_color
+msgid "Default polygon fill color (hex)"
+msgstr ""
+
+#. module: yodoo_plan_view
+#. odoo-javascript
+#: code:addons/yodoo_plan_view/static/src/xml/plan_templates.xml:0
+msgid "Delete Selected Polygon (Del)"
+msgstr ""
+
+#. module: yodoo_plan_view
+#: model:ir.model.fields,field_description:yodoo_plan_view.field_plan_polygon__display_name
+#: model:ir.model.fields,field_description:yodoo_plan_view.field_plan_settings__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: yodoo_plan_view
+#: model:ir.model.fields,help:yodoo_plan_view.field_plan_settings__show_area_labels
+msgid "Display area on polygon centroids"
+msgstr ""
+
+#. module: yodoo_plan_view
+#: model:ir.model.fields,help:yodoo_plan_view.field_plan_view_mixin__plan_show_grid
+msgid "Display grid overlay"
+msgstr ""
+
+#. module: yodoo_plan_view
+#: model:ir.model.fields,help:yodoo_plan_view.field_plan_view_mixin__plan_show_origin
+msgid "Display origin point marker"
+msgstr ""
+
+#. module: yodoo_plan_view
+#. odoo-javascript
+#: code:addons/yodoo_plan_view/static/src/xml/plan_templates.xml:0
+msgid "Draw"
+msgstr ""
+
+#. module: yodoo_plan_view
+#. odoo-javascript
+#: code:addons/yodoo_plan_view/static/src/xml/plan_templates.xml:0
+msgid "Draw Polygon"
+msgstr ""
+
+#. module: yodoo_plan_view
+#. odoo-javascript
+#: code:addons/yodoo_plan_view/static/src/xml/plan_templates.xml:0
+msgid "Draw Polygon (Ctrl+D)"
+msgstr ""
+
+#. module: yodoo_plan_view
+#. odoo-javascript
+#: code:addons/yodoo_plan_view/static/src/xml/plan_templates.xml:0
+msgid "Edit Selected Polygon"
+msgstr ""
+
+#. module: yodoo_plan_view
+#: model:ir.model.fields,field_description:yodoo_plan_view.field_plan_settings__grid_enabled
+msgid "Enable Grid"
+msgstr ""
+
+#. module: yodoo_plan_view
+#: model:ir.model.fields,field_description:yodoo_plan_view.field_plan_polygon__fill_color
+msgid "Fill Color"
+msgstr ""
+
+#. module: yodoo_plan_view
+#: model:ir.model.fields,help:yodoo_plan_view.field_plan_settings__highlight_fill_color
+msgid "Fill color for selected polygon"
+msgstr ""
+
+#. module: yodoo_plan_view
+#: model:ir.model.fields,help:yodoo_plan_view.field_plan_polygon__opacity
+msgid "Fill opacity (0.0 - 1.0)"
+msgstr ""
+
+#. module: yodoo_plan_view
+#: model:ir.model.fields,help:yodoo_plan_view.field_plan_settings__label_font_family
+msgid "Font family for labels"
+msgstr ""
+
+#. module: yodoo_plan_view
+#: model:ir.model.fields,help:yodoo_plan_view.field_plan_settings__measurement_font_size
+msgid "Font size for measurements"
+msgstr ""
+
+#. module: yodoo_plan_view
+#: model:ir.model.fields,help:yodoo_plan_view.field_plan_settings__label_font_size
+msgid "Font size for polygon labels"
+msgstr ""
+
+#. module: yodoo_plan_view
+#: model_terms:ir.ui.view,arch_db:yodoo_plan_view.view_plan_settings_form
+msgid "Grid"
+msgstr ""
+
+#. module: yodoo_plan_view
+#: model:ir.model.fields,field_description:yodoo_plan_view.field_plan_settings__grid_size
+msgid "Grid Cell Size"
+msgstr ""
+
+#. module: yodoo_plan_view
+#: model:ir.model.fields,field_description:yodoo_plan_view.field_plan_settings__grid_color
+msgid "Grid Color"
+msgstr ""
+
+#. module: yodoo_plan_view
+#: model:ir.model.fields,field_description:yodoo_plan_view.field_plan_view_mixin__plan_grid_size
+msgid "Grid Size"
+msgstr ""
+
+#. module: yodoo_plan_view
+#: model:ir.model.fields,help:yodoo_plan_view.field_plan_view_mixin__plan_grid_size
+msgid "Grid cell size in pixels"
+msgstr ""
+
+#. module: yodoo_plan_view
+#: model_terms:ir.ui.view,arch_db:yodoo_plan_view.view_plan_settings_form
+msgid "Highlight"
+msgstr ""
+
+#. module: yodoo_plan_view
+#: model:ir.model.fields,field_description:yodoo_plan_view.field_plan_settings__highlight_fill_color
+msgid "Highlight Fill Color"
+msgstr ""
+
+#. module: yodoo_plan_view
+#: model:ir.model.fields,field_description:yodoo_plan_view.field_plan_settings__highlight_stroke_color
+msgid "Highlight Stroke Color"
+msgstr ""
+
+#. module: yodoo_plan_view
+#: model:ir.model.fields,field_description:yodoo_plan_view.field_plan_settings__highlight_stroke_width
+msgid "Highlight Stroke Width"
+msgstr ""
+
+#. module: yodoo_plan_view
+#: model:ir.model.fields,field_description:yodoo_plan_view.field_plan_polygon__id
+#: model:ir.model.fields,field_description:yodoo_plan_view.field_plan_settings__id
+msgid "ID"
+msgstr ""
+
+#. module: yodoo_plan_view
+#: model:ir.model.fields,help:yodoo_plan_view.field_plan_polygon__related_id
+msgid "ID of the related record"
+msgstr ""
+
+#. module: yodoo_plan_view
+#. odoo-javascript
+#: code:addons/yodoo_plan_view/static/src/xml/plan_templates.xml:0
+msgid "ID:"
+msgstr ""
+
+#. module: yodoo_plan_view
+#: model:ir.model.fields,field_description:yodoo_plan_view.field_plan_view_mixin__plan_image_filename
+msgid "Image Filename"
+msgstr ""
+
+#. module: yodoo_plan_view
+#: model:ir.model.fields,field_description:yodoo_plan_view.field_plan_view_mixin__plan_image_type
+msgid "Image Type"
+msgstr ""
+
+#. module: yodoo_plan_view
+#: model:ir.model.fields,help:yodoo_plan_view.field_plan_polygon__points
+msgid "JSON array of polygon points: [[x1,y1], [x2,y2], ...]"
+msgstr ""
+
+#. module: yodoo_plan_view
+#: model:ir.model.fields,field_description:yodoo_plan_view.field_plan_settings__label_color
+msgid "Label Color"
+msgstr ""
+
+#. module: yodoo_plan_view
+#: model:ir.model.fields,field_description:yodoo_plan_view.field_plan_settings__label_font_family
+msgid "Label Font Family"
+msgstr ""
+
+#. module: yodoo_plan_view
+#: model:ir.model.fields,field_description:yodoo_plan_view.field_plan_settings__label_font_size
+msgid "Label Font Size"
+msgstr ""
+
+#. module: yodoo_plan_view
+#: model:ir.model.fields,field_description:yodoo_plan_view.field_plan_polygon__label_text
+msgid "Label Text"
+msgstr ""
+
+#. module: yodoo_plan_view
+#: model:ir.model.fields,field_description:yodoo_plan_view.field_plan_polygon__label_x
+msgid "Label X Position"
+msgstr ""
+
+#. module: yodoo_plan_view
+#: model:ir.model.fields,field_description:yodoo_plan_view.field_plan_polygon__label_y
+msgid "Label Y Position"
+msgstr ""
+
+#. module: yodoo_plan_view
+#: model_terms:ir.ui.view,arch_db:yodoo_plan_view.view_plan_settings_form
+msgid "Labels"
+msgstr ""
+
+#. module: yodoo_plan_view
+#: model:ir.model.fields,field_description:yodoo_plan_view.field_plan_polygon__write_uid
+#: model:ir.model.fields,field_description:yodoo_plan_view.field_plan_settings__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: yodoo_plan_view
+#: model:ir.model.fields,field_description:yodoo_plan_view.field_plan_polygon__write_date
+#: model:ir.model.fields,field_description:yodoo_plan_view.field_plan_settings__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: yodoo_plan_view
+#. odoo-javascript
+#: code:addons/yodoo_plan_view/static/src/xml/plan_templates.xml:0
+msgid "Measure"
+msgstr ""
+
+#. module: yodoo_plan_view
+#: model:ir.model.fields,field_description:yodoo_plan_view.field_plan_settings__measurement_color
+msgid "Measurement Color"
+msgstr ""
+
+#. module: yodoo_plan_view
+#: model:ir.model.fields,field_description:yodoo_plan_view.field_plan_settings__measurement_font_size
+msgid "Measurement Font Size"
+msgstr ""
+
+#. module: yodoo_plan_view
+#: model_terms:ir.ui.view,arch_db:yodoo_plan_view.view_plan_settings_form
+msgid "Measurements"
+msgstr ""
+
+#. module: yodoo_plan_view
+#: model:ir.model.fields,help:yodoo_plan_view.field_plan_settings__context_model
+msgid "Model for context-specific settings. Leave empty for default settings."
+msgstr ""
+
+#. module: yodoo_plan_view
+#: model:ir.model.fields,help:yodoo_plan_view.field_plan_polygon__related_model
+msgid "Model name of the related record"
+msgstr ""
+
+#. module: yodoo_plan_view
+#. odoo-javascript
+#: code:addons/yodoo_plan_view/static/src/xml/plan_templates.xml:0
+msgid "Model:"
+msgstr ""
+
+#. module: yodoo_plan_view
+#: model:ir.model.fields,field_description:yodoo_plan_view.field_plan_polygon__name
+#: model:ir.model.fields,field_description:yodoo_plan_view.field_plan_settings__name
+msgid "Name"
+msgstr ""
+
+#. module: yodoo_plan_view
+#. odoo-python
+#: code:addons/yodoo_plan_view/models/plan_settings.py:0
+msgid ""
+"Only one active default settings record (without context_model) is allowed!"
+msgstr ""
+
+#. module: yodoo_plan_view
+#: model:ir.model.constraint,message:yodoo_plan_view.constraint_plan_settings_unique_context_model
+msgid "Only one settings record per model is allowed!"
+msgstr ""
+
+#. module: yodoo_plan_view
+#: model:ir.model.fields,field_description:yodoo_plan_view.field_plan_polygon__opacity
+msgid "Opacity"
+msgstr ""
+
+#. module: yodoo_plan_view
+#: model_terms:ir.ui.view,arch_db:yodoo_plan_view.view_plan_settings_form
+msgid "Origin"
+msgstr ""
+
+#. module: yodoo_plan_view
+#: model:ir.model.fields,field_description:yodoo_plan_view.field_plan_settings__origin_color
+msgid "Origin Point Color"
+msgstr ""
+
+#. module: yodoo_plan_view
+#: model:ir.model.fields,field_description:yodoo_plan_view.field_plan_settings__origin_size
+msgid "Origin Point Size"
+msgstr ""
+
+#. module: yodoo_plan_view
+#: model:ir.model.fields,field_description:yodoo_plan_view.field_plan_view_mixin__plan_origin_x
+msgid "Origin X"
+msgstr ""
+
+#. module: yodoo_plan_view
+#: model:ir.model.fields,field_description:yodoo_plan_view.field_plan_view_mixin__plan_origin_y
+msgid "Origin Y"
+msgstr ""
+
+#. module: yodoo_plan_view
+#. odoo-javascript
+#: code:addons/yodoo_plan_view/static/src/xml/plan_templates.xml:0
+msgid "Pan"
+msgstr ""
+
+#. module: yodoo_plan_view
+#: model:ir.model.fields,help:yodoo_plan_view.field_plan_view_mixin__plan_scale_coefficient
+msgid "Pixels per meter. Set using the ruler tool."
+msgstr ""
+
+#. module: yodoo_plan_view
+#. odoo-javascript
+#: code:addons/yodoo_plan_view/static/src/js/plan_view.js:0
+#: model:ir.model.fields,field_description:yodoo_plan_view.field_plan_polygon__plan_id
+#: model:ir.model.fields.selection,name:yodoo_plan_view.selection__ir_actions_act_window_view__view_mode__plan
+#: model:ir.model.fields.selection,name:yodoo_plan_view.selection__ir_ui_view__type__plan
+#: model:ir.ui.menu,name:yodoo_plan_view.menu_plan_settings
+msgid "Plan"
+msgstr ""
+
+#. module: yodoo_plan_view
+#: model:ir.model.fields,field_description:yodoo_plan_view.field_plan_view_mixin__plan_image
+msgid "Plan Image"
+msgstr ""
+
+#. module: yodoo_plan_view
+#: model:ir.model.fields,field_description:yodoo_plan_view.field_plan_polygon__plan_model
+msgid "Plan Model"
+msgstr ""
+
+#. module: yodoo_plan_view
+#: model:ir.model,name:yodoo_plan_view.model_plan_polygon
+msgid "Plan Polygon"
+msgstr ""
+
+#. module: yodoo_plan_view
+#: model:ir.actions.act_window,name:yodoo_plan_view.action_plan_settings
+#: model_terms:ir.ui.view,arch_db:yodoo_plan_view.view_plan_settings_form
+#: model_terms:ir.ui.view,arch_db:yodoo_plan_view.view_plan_settings_list
+msgid "Plan Settings"
+msgstr ""
+
+#. module: yodoo_plan_view
+#: model:ir.model,name:yodoo_plan_view.model_plan_view_mixin
+msgid "Plan View Mixin"
+msgstr ""
+
+#. module: yodoo_plan_view
+#: model:ir.model,name:yodoo_plan_view.model_plan_settings
+msgid "Plan View Settings"
+msgstr ""
+
+#. module: yodoo_plan_view
+#: model:ir.model.fields,field_description:yodoo_plan_view.field_plan_settings__point_color
+msgid "Point Color"
+msgstr ""
+
+#. module: yodoo_plan_view
+#: model:ir.model.fields,field_description:yodoo_plan_view.field_plan_settings__point_radius
+msgid "Point Radius"
+msgstr ""
+
+#. module: yodoo_plan_view
+#: model:ir.model.fields,field_description:yodoo_plan_view.field_plan_settings__point_stroke_color
+msgid "Point Stroke Color"
+msgstr ""
+
+#. module: yodoo_plan_view
+#: model:ir.model.fields,field_description:yodoo_plan_view.field_plan_settings__point_stroke_width
+msgid "Point Stroke Width"
+msgstr ""
+
+#. module: yodoo_plan_view
+#: model:ir.model.fields,field_description:yodoo_plan_view.field_plan_polygon__points
+#: model_terms:ir.ui.view,arch_db:yodoo_plan_view.view_plan_settings_form
+msgid "Points"
+msgstr ""
+
+#. module: yodoo_plan_view
+#: model_terms:ir.ui.view,arch_db:yodoo_plan_view.view_plan_settings_form
+msgid "Polygon Style"
+msgstr ""
+
+#. module: yodoo_plan_view
+#: model:ir.model.fields,help:yodoo_plan_view.field_plan_polygon__stroke_color
+msgid "Polygon border color (hex)"
+msgstr ""
+
+#. module: yodoo_plan_view
+#: model:ir.model.fields,help:yodoo_plan_view.field_plan_polygon__fill_color
+msgid "Polygon fill color (hex)"
+msgstr ""
+
+#. module: yodoo_plan_view
+#: model:ir.model.fields,field_description:yodoo_plan_view.field_plan_view_mixin__plan_polygon_ids
+msgid "Polygons"
+msgstr ""
+
+#. module: yodoo_plan_view
+#: model:ir.model.fields,help:yodoo_plan_view.field_plan_settings__point_radius
+msgid "Radius of polygon vertex points in pixels"
+msgstr ""
+
+#. module: yodoo_plan_view
+#: model:ir.model.fields.selection,name:yodoo_plan_view.selection__building_floor__plan_image_type__raster
+#: model:ir.model.fields.selection,name:yodoo_plan_view.selection__cinema_hall__plan_image_type__raster
+#: model:ir.model.fields.selection,name:yodoo_plan_view.selection__plan_view_mixin__plan_image_type__raster
+msgid "Raster (PNG/JPG)"
+msgstr ""
+
+#. module: yodoo_plan_view
+#: model:ir.model.fields,field_description:yodoo_plan_view.field_plan_polygon__related_model
+msgid "Related Model"
+msgstr ""
+
+#. module: yodoo_plan_view
+#: model:ir.model.fields,field_description:yodoo_plan_view.field_plan_polygon__related_name
+msgid "Related Record"
+msgstr ""
+
+#. module: yodoo_plan_view
+#: model:ir.model.fields,field_description:yodoo_plan_view.field_plan_polygon__related_id
+msgid "Related Record ID"
+msgstr ""
+
+#. module: yodoo_plan_view
+#. odoo-javascript
+#: code:addons/yodoo_plan_view/static/src/xml/plan_templates.xml:0
+msgid "Reset Zoom"
+msgstr ""
+
+#. module: yodoo_plan_view
+#: model_terms:ir.ui.view,arch_db:yodoo_plan_view.view_plan_settings_form
+msgid "Ruler"
+msgstr ""
+
+#. module: yodoo_plan_view
+#: model:ir.model.fields,field_description:yodoo_plan_view.field_plan_settings__ruler_color
+msgid "Ruler Color"
+msgstr ""
+
+#. module: yodoo_plan_view
+#: model:ir.model.fields,field_description:yodoo_plan_view.field_plan_settings__ruler_width
+msgid "Ruler Width"
+msgstr ""
+
+#. module: yodoo_plan_view
+#: model:ir.model.fields,field_description:yodoo_plan_view.field_plan_view_mixin__plan_svg_content
+msgid "SVG Content"
+msgstr ""
+
+#. module: yodoo_plan_view
+#: model:ir.model.fields,help:yodoo_plan_view.field_plan_view_mixin__plan_svg_content
+msgid "SVG XML content for vector backgrounds"
+msgstr ""
+
+#. module: yodoo_plan_view
+#. odoo-javascript
+#: code:addons/yodoo_plan_view/static/src/xml/plan_templates.xml:0
+msgid "Save"
+msgstr ""
+
+#. module: yodoo_plan_view
+#. odoo-javascript
+#: code:addons/yodoo_plan_view/static/src/xml/plan_templates.xml:0
+msgid "Save Changes"
+msgstr ""
+
+#. module: yodoo_plan_view
+#: model:ir.model.fields,field_description:yodoo_plan_view.field_plan_view_mixin__plan_scale_coefficient
+msgid "Scale Coefficient"
+msgstr ""
+
+#. module: yodoo_plan_view
+#. odoo-javascript
+#: code:addons/yodoo_plan_view/static/src/xml/plan_templates.xml:0
+msgid "Select"
+msgstr ""
+
+#. module: yodoo_plan_view
+#: model:ir.model.fields,field_description:yodoo_plan_view.field_plan_polygon__sequence
+msgid "Sequence"
+msgstr ""
+
+#. module: yodoo_plan_view
+#: model:ir.model.fields,field_description:yodoo_plan_view.field_plan_settings__show_area_labels
+msgid "Show Area Labels"
+msgstr ""
+
+#. module: yodoo_plan_view
+#: model:ir.model.fields,field_description:yodoo_plan_view.field_plan_view_mixin__plan_show_grid
+msgid "Show Grid"
+msgstr ""
+
+#. module: yodoo_plan_view
+#: model:ir.model.fields,field_description:yodoo_plan_view.field_plan_view_mixin__plan_show_origin
+msgid "Show Origin"
+msgstr ""
+
+#. module: yodoo_plan_view
+#: model:ir.model.fields,help:yodoo_plan_view.field_plan_settings__grid_enabled
+msgid "Show grid overlay"
+msgstr ""
+
+#. module: yodoo_plan_view
+#: model:ir.model.fields,help:yodoo_plan_view.field_plan_settings__grid_size
+msgid "Size of grid cells in pixels"
+msgstr ""
+
+#. module: yodoo_plan_view
+#: model:ir.model.fields,help:yodoo_plan_view.field_plan_settings__origin_size
+msgid "Size of origin marker in pixels"
+msgstr ""
+
+#. module: yodoo_plan_view
+#: model:ir.model.fields,help:yodoo_plan_view.field_plan_view_mixin__plan_snap_to_grid
+msgid "Snap polygon points to grid"
+msgstr ""
+
+#. module: yodoo_plan_view
+#. odoo-javascript
+#: code:addons/yodoo_plan_view/static/src/xml/plan_templates.xml:0
+#: model:ir.model.fields,field_description:yodoo_plan_view.field_plan_settings__grid_snap
+#: model:ir.model.fields,field_description:yodoo_plan_view.field_plan_view_mixin__plan_snap_to_grid
+msgid "Snap to Grid"
+msgstr ""
+
+#. module: yodoo_plan_view
+#: model:ir.model.fields,field_description:yodoo_plan_view.field_plan_polygon__stroke_color
+msgid "Stroke Color"
+msgstr ""
+
+#. module: yodoo_plan_view
+#: model:ir.model.fields,field_description:yodoo_plan_view.field_plan_polygon__stroke_width
+msgid "Stroke Width"
+msgstr ""
+
+#. module: yodoo_plan_view
+#: model:ir.model.fields,help:yodoo_plan_view.field_plan_settings__highlight_stroke_color
+msgid "Stroke color for selected polygon"
+msgstr ""
+
+#. module: yodoo_plan_view
+#: model:ir.model.fields,help:yodoo_plan_view.field_plan_settings__point_stroke_color
+msgid "Stroke color of vertex points"
+msgstr ""
+
+#. module: yodoo_plan_view
+#: model:ir.model.fields,help:yodoo_plan_view.field_plan_settings__highlight_stroke_width
+msgid "Stroke width for selected polygon"
+msgstr ""
+
+#. module: yodoo_plan_view
+#: model:ir.model.fields,help:yodoo_plan_view.field_plan_settings__point_stroke_width
+msgid "Stroke width of vertex points"
+msgstr ""
+
+#. module: yodoo_plan_view
+#: model_terms:ir.ui.view,arch_db:yodoo_plan_view.view_plan_settings_form
+msgid "Text"
+msgstr ""
+
+#. module: yodoo_plan_view
+#: model:ir.model.fields,help:yodoo_plan_view.field_plan_polygon__label_text
+msgid "Text to display on polygon label"
+msgstr ""
+
+#. module: yodoo_plan_view
+#. odoo-javascript
+#: code:addons/yodoo_plan_view/static/src/xml/plan_templates.xml:0
+msgid "Toggle Edit Mode"
+msgstr ""
+
+#. module: yodoo_plan_view
+#. odoo-javascript
+#: code:addons/yodoo_plan_view/static/src/xml/plan_templates.xml:0
+msgid "Toggle Grid"
+msgstr ""
+
+#. module: yodoo_plan_view
+#: model:ir.model.fields.selection,name:yodoo_plan_view.selection__building_floor__plan_image_type__svg
+#: model:ir.model.fields.selection,name:yodoo_plan_view.selection__cinema_hall__plan_image_type__svg
+#: model:ir.model.fields.selection,name:yodoo_plan_view.selection__plan_view_mixin__plan_image_type__svg
+msgid "Vector (SVG)"
+msgstr ""
+
+#. module: yodoo_plan_view
+#: model:ir.model,name:yodoo_plan_view.model_ir_ui_view
+msgid "View"
+msgstr "Vue"
+
+#. module: yodoo_plan_view
+#: model:ir.model.fields,field_description:yodoo_plan_view.field_ir_actions_act_window_view__view_mode
+#: model:ir.model.fields,field_description:yodoo_plan_view.field_ir_ui_view__type
+msgid "View Type"
+msgstr "Type de vue"
+
+#. module: yodoo_plan_view
+#: model:ir.model.fields,help:yodoo_plan_view.field_plan_settings__ruler_width
+msgid "Width of ruler line in pixels"
+msgstr ""
+
+#. module: yodoo_plan_view
+#: model:ir.model.fields,help:yodoo_plan_view.field_plan_polygon__label_x
+msgid "X coordinate for label position (defaults to centroid_x)"
+msgstr ""
+
+#. module: yodoo_plan_view
+#: model:ir.model.fields,help:yodoo_plan_view.field_plan_view_mixin__plan_origin_x
+msgid "X coordinate of origin point (0,0)"
+msgstr ""
+
+#. module: yodoo_plan_view
+#: model:ir.model.fields,help:yodoo_plan_view.field_plan_polygon__label_y
+msgid "Y coordinate for label position (defaults to centroid_y)"
+msgstr ""
+
+#. module: yodoo_plan_view
+#: model:ir.model.fields,help:yodoo_plan_view.field_plan_view_mixin__plan_origin_y
+msgid "Y coordinate of origin point (0,0)"
+msgstr ""
+
+#. module: yodoo_plan_view
+#. odoo-javascript
+#: code:addons/yodoo_plan_view/static/src/xml/plan_templates.xml:0
+msgid "Zoom In"
+msgstr ""
+
+#. module: yodoo_plan_view
+#. odoo-javascript
+#: code:addons/yodoo_plan_view/static/src/xml/plan_templates.xml:0
+msgid "Zoom In (Ctrl + Scroll Up)"
+msgstr ""
+
+#. module: yodoo_plan_view
+#. odoo-javascript
+#: code:addons/yodoo_plan_view/static/src/xml/plan_templates.xml:0
+msgid "Zoom Out"
+msgstr ""
+
+#. module: yodoo_plan_view
+#. odoo-javascript
+#: code:addons/yodoo_plan_view/static/src/xml/plan_templates.xml:0
+msgid "Zoom Out (Ctrl + Scroll Down)"
+msgstr ""
+
+#. module: yodoo_plan_view
+#. odoo-javascript
+#: code:addons/yodoo_plan_view/static/src/xml/plan_templates.xml:0
+msgid ""
+"m\n"
+"                ("
+msgstr ""
+
+#. module: yodoo_plan_view
+#. odoo-javascript
+#: code:addons/yodoo_plan_view/static/src/xml/plan_templates.xml:0
+msgid "m²"
+msgstr ""
+
+#. module: yodoo_plan_view
+#. odoo-javascript
+#: code:addons/yodoo_plan_view/static/src/xml/plan_templates.xml:0
+msgid "px)"
+msgstr ""
+
+#. module: yodoo_plan_view
+#. odoo-javascript
+#: code:addons/yodoo_plan_view/static/src/xml/plan_templates.xml:0
+msgid "Ім'я клієнта:"
+msgstr ""
+
+#. module: yodoo_plan_view
+#. odoo-javascript
+#: code:addons/yodoo_plan_view/static/src/xml/plan_templates.xml:0
+msgid "Бронювання"
+msgstr ""
+
+#. module: yodoo_plan_view
+#. odoo-javascript
+#: code:addons/yodoo_plan_view/static/src/xml/plan_templates.xml:0
+msgid "Бронювати ("
+msgstr ""
+
+#. module: yodoo_plan_view
+#. odoo-javascript
+#: code:addons/yodoo_plan_view/static/src/xml/plan_templates.xml:0
+msgid "Введіть ім'я"
+msgstr ""
+
+#. module: yodoo_plan_view
+#. odoo-javascript
+#: code:addons/yodoo_plan_view/static/src/xml/plan_templates.xml:0
+msgid "Вибране"
+msgstr ""
+
+#. module: yodoo_plan_view
+#. odoo-javascript
+#: code:addons/yodoo_plan_view/static/src/xml/plan_templates.xml:0
+msgid "Вибрані ("
+msgstr ""
+
+#. module: yodoo_plan_view
+#. odoo-javascript
+#: code:addons/yodoo_plan_view/static/src/xml/plan_templates.xml:0
+msgid "Відв'язати"
+msgstr ""
+
+#. module: yodoo_plan_view
+#. odoo-javascript
+#: code:addons/yodoo_plan_view/static/src/xml/plan_templates.xml:0
+msgid "Вільне"
+msgstr ""
+
+#. module: yodoo_plan_view
+#. odoo-javascript
+#: code:addons/yodoo_plan_view/static/src/xml/plan_templates.xml:0
+msgid "Заброньоване"
+msgstr ""
+
+#. module: yodoo_plan_view
+#. odoo-javascript
+#: code:addons/yodoo_plan_view/static/src/xml/plan_templates.xml:0
+msgid "Завантаження плану..."
+msgstr ""
+
+#. module: yodoo_plan_view
+#. odoo-javascript
+#: code:addons/yodoo_plan_view/static/src/xml/plan_templates.xml:0
+msgid "Завантажте зображення в поле"
+msgstr ""
+
+#. module: yodoo_plan_view
+#. odoo-javascript
+#: code:addons/yodoo_plan_view/static/src/xml/plan_templates.xml:0
+msgid "Збережіть та поверніться до Plan View"
+msgstr ""
+
+#. module: yodoo_plan_view
+#. odoo-javascript
+#: code:addons/yodoo_plan_view/static/src/xml/plan_templates.xml:0
+msgid "Зображення плану відсутнє"
+msgstr ""
+
+#. module: yodoo_plan_view
+#. odoo-javascript
+#: code:addons/yodoo_plan_view/static/src/xml/plan_templates.xml:0
+msgid "Клікніть на місця на плані щоб вибрати їх"
+msgstr ""
+
+#. module: yodoo_plan_view
+#. odoo-javascript
+#: code:addons/yodoo_plan_view/static/src/xml/plan_templates.xml:0
+msgid "Легенда:"
+msgstr ""
+
+#. module: yodoo_plan_view
+#. odoo-javascript
+#: code:addons/yodoo_plan_view/static/src/xml/plan_templates.xml:0
+msgid "Натисніть кнопку"
+msgstr ""
+
+#. module: yodoo_plan_view
+#. odoo-javascript
+#: code:addons/yodoo_plan_view/static/src/xml/plan_templates.xml:0
+msgid "Немає об'єктів"
+msgstr ""
+
+#. module: yodoo_plan_view
+#. odoo-javascript
+#: code:addons/yodoo_plan_view/static/src/xml/plan_templates.xml:0
+msgid "Об'єкти"
+msgstr ""
+
+#. module: yodoo_plan_view
+#. odoo-javascript
+#: code:addons/yodoo_plan_view/static/src/xml/plan_templates.xml:0
+msgid "Оберіть об'єкт для прив'язки до вибраного полігона:"
+msgstr ""
+
+#. module: yodoo_plan_view
+#. odoo-javascript
+#: code:addons/yodoo_plan_view/static/src/xml/plan_templates.xml:0
+msgid "Перейдіть на вкладку"
+msgstr ""
+
+#. module: yodoo_plan_view
+#. odoo-javascript
+#: code:addons/yodoo_plan_view/static/src/xml/plan_templates.xml:0
+msgid "Прибрати"
+msgstr ""
+
+#. module: yodoo_plan_view
+#. odoo-javascript
+#: code:addons/yodoo_plan_view/static/src/xml/plan_templates.xml:0
+msgid "Прив'язати об'єкт до полігона"
+msgstr ""
+
+#. module: yodoo_plan_view
+#. odoo-javascript
+#: code:addons/yodoo_plan_view/static/src/xml/plan_templates.xml:0
+msgid "Скасувати"
+msgstr ""
+
+#. module: yodoo_plan_view
+#. odoo-javascript
+#: code:addons/yodoo_plan_view/static/src/xml/plan_templates.xml:0
+msgid "Щоб використовувати Plan View, завантажте зображення плану поверху:"
+msgstr ""
+
+#. module: yodoo_plan_view
+#. odoo-javascript
+#: code:addons/yodoo_plan_view/static/src/xml/plan_templates.xml:0
+msgid "вгорі"
+msgstr ""

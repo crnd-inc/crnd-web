@@ -1,0 +1,701 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* test_yodoo_time_view
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-27 06:20+0000\n"
+"PO-Revision-Date: 2026-10-27 06:20+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: test_yodoo_time_view
+#: model:ir.model.fields,field_description:test_yodoo_time_view.field_yodoo_time_view_background_period__active
+#: model:ir.model.fields,field_description:test_yodoo_time_view.field_yodoo_time_view_time_marker__active
+msgid "Active"
+msgstr ""
+
+#. module: test_yodoo_time_view
+#: model_terms:ir.ui.view,arch_db:test_yodoo_time_view.view_yodoo_time_record_form
+msgid "Additional Dates for Multi-Events"
+msgstr ""
+
+#. module: test_yodoo_time_view
+#: model:ir.model.fields,help:test_yodoo_time_view.field_yodoo_time_view_background_period__color
+msgid "Background color in HEX format"
+msgstr ""
+
+#. module: test_yodoo_time_view
+#: model:ir.model.fields,help:test_yodoo_time_view.field_yodoo_time_view_background_period__opacity
+msgid "Background opacity (0.0 - 1.0)"
+msgstr ""
+
+#. module: test_yodoo_time_view
+#: model:ir.model.fields.selection,name:test_yodoo_time_view.selection__yodoo_time_view_time_marker__label_position__bottom
+msgid "Bottom"
+msgstr ""
+
+#. module: test_yodoo_time_view
+#: model:ir.model.fields.selection,name:test_yodoo_time_view.selection__yodoo_time_view_time_marker__type__breakpoint
+msgid "Breakpoint"
+msgstr ""
+
+#. module: test_yodoo_time_view
+#: model:ir.model.fields,field_description:test_yodoo_time_view.field_yodoo_time_view_test_record__kind
+#: model_terms:ir.ui.view,arch_db:test_yodoo_time_view.view_yodoo_time_record_search
+msgid "Category"
+msgstr ""
+
+#. module: test_yodoo_time_view
+#: model:ir.model.fields,help:test_yodoo_time_view.field_yodoo_time_view_test_record__kind
+msgid "Category for alternative grouping"
+msgstr ""
+
+#. module: test_yodoo_time_view
+#: model:ir.model.fields.selection,name:test_yodoo_time_view.selection__yodoo_time_view_test_record__kind__kind_class_a
+#: model_terms:ir.ui.view,arch_db:test_yodoo_time_view.view_yodoo_time_record_search
+msgid "Class A"
+msgstr ""
+
+#. module: test_yodoo_time_view
+#: model:ir.model.fields.selection,name:test_yodoo_time_view.selection__yodoo_time_view_test_record__kind__kind_class_b
+#: model_terms:ir.ui.view,arch_db:test_yodoo_time_view.view_yodoo_time_record_search
+msgid "Class B"
+msgstr ""
+
+#. module: test_yodoo_time_view
+#: model:ir.model.fields.selection,name:test_yodoo_time_view.selection__yodoo_time_view_test_record__kind__kind_class_c
+#: model_terms:ir.ui.view,arch_db:test_yodoo_time_view.view_yodoo_time_record_search
+msgid "Class C"
+msgstr ""
+
+#. module: test_yodoo_time_view
+#: model:ir.model.fields.selection,name:test_yodoo_time_view.selection__yodoo_time_view_test_record__kind__kind_class_d
+#: model_terms:ir.ui.view,arch_db:test_yodoo_time_view.view_yodoo_time_record_search
+msgid "Class D"
+msgstr ""
+
+#. module: test_yodoo_time_view
+#: model:ir.model.fields,field_description:test_yodoo_time_view.field_yodoo_time_view_background_period__color
+#: model:ir.model.fields,field_description:test_yodoo_time_view.field_yodoo_time_view_test_record__color
+#: model:ir.model.fields,field_description:test_yodoo_time_view.field_yodoo_time_view_time_marker__color
+msgid "Color"
+msgstr ""
+
+#. module: test_yodoo_time_view
+#: model:ir.model.fields,help:test_yodoo_time_view.field_yodoo_time_view_test_record__color
+msgid "Color for the task in Gantt (HEX format)"
+msgstr ""
+
+#. module: test_yodoo_time_view
+#: model:ir.model.fields,field_description:test_yodoo_time_view.field_yodoo_time_view_background_period__create_uid
+#: model:ir.model.fields,field_description:test_yodoo_time_view.field_yodoo_time_view_test_record__create_uid
+#: model:ir.model.fields,field_description:test_yodoo_time_view.field_yodoo_time_view_time_marker__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: test_yodoo_time_view
+#: model:ir.model.fields,field_description:test_yodoo_time_view.field_yodoo_time_view_background_period__create_date
+#: model:ir.model.fields,field_description:test_yodoo_time_view.field_yodoo_time_view_test_record__create_date
+#: model:ir.model.fields,field_description:test_yodoo_time_view.field_yodoo_time_view_time_marker__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: test_yodoo_time_view
+#: model:ir.model.fields.selection,name:test_yodoo_time_view.selection__yodoo_time_view_time_marker__type__current_time
+msgid "Current Time"
+msgstr ""
+
+#. module: test_yodoo_time_view
+#: model:ir.model.fields.selection,name:test_yodoo_time_view.selection__yodoo_time_view_background_period__type__custom
+#: model:ir.model.fields.selection,name:test_yodoo_time_view.selection__yodoo_time_view_time_marker__type__custom
+msgid "Custom"
+msgstr ""
+
+#. module: test_yodoo_time_view
+#: model:ir.model.fields.selection,name:test_yodoo_time_view.selection__yodoo_time_view_background_period__recurring_type__daily
+#: model:ir.model.fields.selection,name:test_yodoo_time_view.selection__yodoo_time_view_time_marker__recurring_type__daily
+msgid "Daily"
+msgstr ""
+
+#. module: test_yodoo_time_view
+#: model:ir.model.fields.selection,name:test_yodoo_time_view.selection__yodoo_time_view_time_marker__style__dashed
+msgid "Dashed"
+msgstr ""
+
+#. module: test_yodoo_time_view
+#: model:ir.model.fields,help:test_yodoo_time_view.field_yodoo_time_view_background_period__recurring_day
+#: model:ir.model.fields,help:test_yodoo_time_view.field_yodoo_time_view_time_marker__recurring_day
+msgid "Day for recurrence (0-6 for weekly, 1-31 for monthly)"
+msgstr ""
+
+#. module: test_yodoo_time_view
+#: model:ir.model.fields.selection,name:test_yodoo_time_view.selection__yodoo_time_view_background_period__type__daylight
+msgid "Daylight"
+msgstr ""
+
+#. module: test_yodoo_time_view
+#: model:ir.model.fields.selection,name:test_yodoo_time_view.selection__yodoo_time_view_time_marker__type__deadline
+msgid "Deadline"
+msgstr ""
+
+#. module: test_yodoo_time_view
+#: model:ir.model.fields,field_description:test_yodoo_time_view.field_yodoo_time_view_background_period__description
+#: model:ir.model.fields,field_description:test_yodoo_time_view.field_yodoo_time_view_time_marker__description
+msgid "Description"
+msgstr ""
+
+#. module: test_yodoo_time_view
+#: model:ir.model.fields,field_description:test_yodoo_time_view.field_yodoo_time_view_background_period__display_name
+#: model:ir.model.fields,field_description:test_yodoo_time_view.field_yodoo_time_view_test_record__display_name
+#: model:ir.model.fields,field_description:test_yodoo_time_view.field_yodoo_time_view_time_marker__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: test_yodoo_time_view
+#: model:ir.model.fields.selection,name:test_yodoo_time_view.selection__yodoo_time_view_time_marker__style__dotted
+msgid "Dotted"
+msgstr ""
+
+#. module: test_yodoo_time_view
+#: model:ir.model.fields,field_description:test_yodoo_time_view.field_yodoo_time_view_background_period__duration_hours
+msgid "Duration (Hours)"
+msgstr ""
+
+#. module: test_yodoo_time_view
+#: model:ir.model.fields,field_description:test_yodoo_time_view.field_yodoo_time_view_background_period__date_stop
+#: model:ir.model.fields,field_description:test_yodoo_time_view.field_yodoo_time_view_test_record__datetime_stop
+msgid "End Date"
+msgstr ""
+
+#. module: test_yodoo_time_view
+#: model:ir.model.fields,help:test_yodoo_time_view.field_yodoo_time_view_test_record__datetime_stop
+msgid "End date and time for Gantt view"
+msgstr ""
+
+#. module: test_yodoo_time_view
+#. odoo-python
+#: code:addons/test_yodoo_time_view/models/background_period.py:0
+msgid "End date must be after start date"
+msgstr ""
+
+#. module: test_yodoo_time_view
+#: model_terms:ir.ui.view,arch_db:test_yodoo_time_view.view_yodoo_time_record_search
+msgid "Event Type"
+msgstr ""
+
+#. module: test_yodoo_time_view
+#: model:ir.model.fields,field_description:test_yodoo_time_view.field_yodoo_time_view_test_record__datetime_5
+msgid "Fifth Date"
+msgstr ""
+
+#. module: test_yodoo_time_view
+#: model:ir.actions.act_window,name:test_yodoo_time_view.action_yodoo_time_record_gantt_flat
+#: model:ir.ui.menu,name:test_yodoo_time_view.menu_yodoo_time_view_gantt_flat
+msgid "Flat Gantt"
+msgstr ""
+
+#. module: test_yodoo_time_view
+#. odoo-python
+#: code:addons/test_yodoo_time_view/models/background_period.py:0
+#: code:addons/test_yodoo_time_view/models/time_marker.py:0
+msgid "For monthly recurring, day must be between 1 and 31"
+msgstr ""
+
+#. module: test_yodoo_time_view
+#. odoo-python
+#: code:addons/test_yodoo_time_view/models/background_period.py:0
+#: code:addons/test_yodoo_time_view/models/time_marker.py:0
+msgid "For weekly recurring, day must be between 0 (Sunday) and 6 (Saturday)"
+msgstr ""
+
+#. module: test_yodoo_time_view
+#: model:ir.model.fields,field_description:test_yodoo_time_view.field_yodoo_time_view_test_record__datetime_4
+msgid "Fourth Date"
+msgstr ""
+
+#. module: test_yodoo_time_view
+#: model:ir.actions.act_window,name:test_yodoo_time_view.action_yodoo_time_record_gantt
+#: model:ir.ui.menu,name:test_yodoo_time_view.menu_yodoo_time_view_gantt_demo
+msgid "Gantt Demo"
+msgstr ""
+
+#. module: test_yodoo_time_view
+#: model:ir.ui.menu,name:test_yodoo_time_view.menu_yodoo_time_view_gantt_main
+msgid "Gantt Views"
+msgstr ""
+
+#. module: test_yodoo_time_view
+#: model:ir.actions.act_window,name:test_yodoo_time_view.action_yodoo_time_record_gantt_by_type
+#: model:ir.ui.menu,name:test_yodoo_time_view.menu_yodoo_time_view_gantt_by_type
+msgid "Gantt by Type"
+msgstr ""
+
+#. module: test_yodoo_time_view
+#: model_terms:ir.ui.view,arch_db:test_yodoo_time_view.view_yodoo_time_record_form
+msgid "General Information"
+msgstr ""
+
+#. module: test_yodoo_time_view
+#: model_terms:ir.ui.view,arch_db:test_yodoo_time_view.view_yodoo_time_record_search
+msgid "Group By"
+msgstr ""
+
+#. module: test_yodoo_time_view
+#: model:ir.model.fields.selection,name:test_yodoo_time_view.selection__yodoo_time_view_background_period__type__holiday
+msgid "Holiday"
+msgstr ""
+
+#. module: test_yodoo_time_view
+#: model:ir.model.fields,help:test_yodoo_time_view.field_yodoo_time_view_time_marker__recurring_hour
+msgid "Hour for recurrence (0-23)"
+msgstr ""
+
+#. module: test_yodoo_time_view
+#: model:ir.model.fields,field_description:test_yodoo_time_view.field_yodoo_time_view_background_period__id
+#: model:ir.model.fields,field_description:test_yodoo_time_view.field_yodoo_time_view_test_record__id
+#: model:ir.model.fields,field_description:test_yodoo_time_view.field_yodoo_time_view_time_marker__id
+msgid "ID"
+msgstr ""
+
+#. module: test_yodoo_time_view
+#: model:ir.model.fields,field_description:test_yodoo_time_view.field_yodoo_time_view_time_marker__icon
+msgid "Icon"
+msgstr ""
+
+#. module: test_yodoo_time_view
+#: model:ir.model.fields,field_description:test_yodoo_time_view.field_yodoo_time_view_time_marker__label
+msgid "Label"
+msgstr ""
+
+#. module: test_yodoo_time_view
+#: model:ir.model.fields,field_description:test_yodoo_time_view.field_yodoo_time_view_time_marker__label_position
+msgid "Label Position"
+msgstr ""
+
+#. module: test_yodoo_time_view
+#: model:ir.model.fields,help:test_yodoo_time_view.field_yodoo_time_view_time_marker__label_position
+msgid "Label position"
+msgstr ""
+
+#. module: test_yodoo_time_view
+#: model:ir.model.fields,field_description:test_yodoo_time_view.field_yodoo_time_view_background_period__write_uid
+#: model:ir.model.fields,field_description:test_yodoo_time_view.field_yodoo_time_view_test_record__write_uid
+#: model:ir.model.fields,field_description:test_yodoo_time_view.field_yodoo_time_view_time_marker__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: test_yodoo_time_view
+#: model:ir.model.fields,field_description:test_yodoo_time_view.field_yodoo_time_view_background_period__write_date
+#: model:ir.model.fields,field_description:test_yodoo_time_view.field_yodoo_time_view_test_record__write_date
+#: model:ir.model.fields,field_description:test_yodoo_time_view.field_yodoo_time_view_time_marker__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: test_yodoo_time_view
+#: model_terms:ir.ui.view,arch_db:test_yodoo_time_view.view_yodoo_time_record_form
+msgid "Main Dates"
+msgstr ""
+
+#. module: test_yodoo_time_view
+#: model:ir.model.fields,help:test_yodoo_time_view.field_yodoo_time_view_time_marker__color
+msgid "Marker color in HEX format"
+msgstr ""
+
+#. module: test_yodoo_time_view
+#: model:ir.model.fields,help:test_yodoo_time_view.field_yodoo_time_view_time_marker__description
+msgid "Marker description"
+msgstr ""
+
+#. module: test_yodoo_time_view
+#: model:ir.model.fields,help:test_yodoo_time_view.field_yodoo_time_view_time_marker__icon
+msgid "Marker icon (emoji or icon class)"
+msgstr ""
+
+#. module: test_yodoo_time_view
+#: model:ir.model.fields,help:test_yodoo_time_view.field_yodoo_time_view_time_marker__label
+msgid "Marker label text"
+msgstr ""
+
+#. module: test_yodoo_time_view
+#: model:ir.model.fields,help:test_yodoo_time_view.field_yodoo_time_view_time_marker__style
+msgid "Marker line style"
+msgstr ""
+
+#. module: test_yodoo_time_view
+#: model:ir.model.fields,help:test_yodoo_time_view.field_yodoo_time_view_time_marker__width
+msgid "Marker line width in pixels"
+msgstr ""
+
+#. module: test_yodoo_time_view
+#: model:ir.model.fields,help:test_yodoo_time_view.field_yodoo_time_view_time_marker__name
+msgid "Marker name"
+msgstr ""
+
+#. module: test_yodoo_time_view
+#: model:ir.model.fields,help:test_yodoo_time_view.field_yodoo_time_view_time_marker__timestamp
+msgid "Marker timestamp"
+msgstr ""
+
+#. module: test_yodoo_time_view
+#: model:ir.model.fields.selection,name:test_yodoo_time_view.selection__yodoo_time_view_time_marker__type__milestone
+msgid "Milestone"
+msgstr ""
+
+#. module: test_yodoo_time_view
+#: model:ir.ui.menu,name:test_yodoo_time_view.menu_yodoo_time_view_timeline_milestones
+msgid "Milestones"
+msgstr ""
+
+#. module: test_yodoo_time_view
+#: model:ir.actions.act_window,name:test_yodoo_time_view.action_yodoo_time_record_timeline_milestones
+msgid "Milestones Timeline"
+msgstr ""
+
+#. module: test_yodoo_time_view
+#: model:ir.model.fields,help:test_yodoo_time_view.field_yodoo_time_view_time_marker__recurring_minute
+msgid "Minute for recurrence (0-59)"
+msgstr ""
+
+#. module: test_yodoo_time_view
+#: model:ir.model.fields.selection,name:test_yodoo_time_view.selection__yodoo_time_view_background_period__recurring_type__monthly
+#: model:ir.model.fields.selection,name:test_yodoo_time_view.selection__yodoo_time_view_time_marker__recurring_type__monthly
+msgid "Monthly"
+msgstr ""
+
+#. module: test_yodoo_time_view
+#: model:ir.model.fields,field_description:test_yodoo_time_view.field_yodoo_time_view_background_period__name
+#: model:ir.model.fields,field_description:test_yodoo_time_view.field_yodoo_time_view_test_record__name
+#: model:ir.model.fields,field_description:test_yodoo_time_view.field_yodoo_time_view_time_marker__name
+msgid "Name"
+msgstr ""
+
+#. module: test_yodoo_time_view
+#: model:ir.model.fields,field_description:test_yodoo_time_view.field_yodoo_time_view_background_period__opacity
+msgid "Opacity"
+msgstr ""
+
+#. module: test_yodoo_time_view
+#. odoo-python
+#: code:addons/test_yodoo_time_view/models/background_period.py:0
+msgid "Opacity must be between 0.0 and 1.0"
+msgstr ""
+
+#. module: test_yodoo_time_view
+#: model:ir.model.fields,help:test_yodoo_time_view.field_yodoo_time_view_test_record__progress
+msgid "Percentage of completion (0-100)"
+msgstr ""
+
+#. module: test_yodoo_time_view
+#: model:ir.model.fields,help:test_yodoo_time_view.field_yodoo_time_view_background_period__description
+msgid "Period description"
+msgstr ""
+
+#. module: test_yodoo_time_view
+#: model:ir.model.fields,help:test_yodoo_time_view.field_yodoo_time_view_background_period__duration_hours
+msgid "Period duration in hours"
+msgstr ""
+
+#. module: test_yodoo_time_view
+#: model:ir.model.fields,help:test_yodoo_time_view.field_yodoo_time_view_background_period__date_stop
+msgid "Period end date and time"
+msgstr ""
+
+#. module: test_yodoo_time_view
+#: model:ir.model.fields,help:test_yodoo_time_view.field_yodoo_time_view_background_period__name
+msgid "Period name"
+msgstr ""
+
+#. module: test_yodoo_time_view
+#: model:ir.model.fields,help:test_yodoo_time_view.field_yodoo_time_view_background_period__date_start
+msgid "Period start date and time"
+msgstr ""
+
+#. module: test_yodoo_time_view
+#: model:ir.model.fields,field_description:test_yodoo_time_view.field_yodoo_time_view_test_record__progress
+msgid "Progress (%)"
+msgstr ""
+
+#. module: test_yodoo_time_view
+#: model:ir.model.fields,field_description:test_yodoo_time_view.field_yodoo_time_view_test_record__record_type
+msgid "Record Type"
+msgstr ""
+
+#. module: test_yodoo_time_view
+#: model:ir.model.fields,help:test_yodoo_time_view.field_yodoo_time_view_background_period__recurring_type
+#: model:ir.model.fields,help:test_yodoo_time_view.field_yodoo_time_view_time_marker__recurring_type
+msgid "Recurrence type"
+msgstr ""
+
+#. module: test_yodoo_time_view
+#: model:ir.model.fields,field_description:test_yodoo_time_view.field_yodoo_time_view_background_period__recurring
+#: model:ir.model.fields,field_description:test_yodoo_time_view.field_yodoo_time_view_time_marker__recurring
+msgid "Recurring"
+msgstr ""
+
+#. module: test_yodoo_time_view
+#: model:ir.model.fields,field_description:test_yodoo_time_view.field_yodoo_time_view_background_period__recurring_day
+#: model:ir.model.fields,field_description:test_yodoo_time_view.field_yodoo_time_view_time_marker__recurring_day
+msgid "Recurring Day"
+msgstr ""
+
+#. module: test_yodoo_time_view
+#: model:ir.model.fields,field_description:test_yodoo_time_view.field_yodoo_time_view_time_marker__recurring_hour
+msgid "Recurring Hour"
+msgstr ""
+
+#. module: test_yodoo_time_view
+#: model:ir.model.fields,field_description:test_yodoo_time_view.field_yodoo_time_view_time_marker__recurring_minute
+msgid "Recurring Minute"
+msgstr ""
+
+#. module: test_yodoo_time_view
+#: model:ir.model.fields,field_description:test_yodoo_time_view.field_yodoo_time_view_background_period__recurring_type
+#: model:ir.model.fields,field_description:test_yodoo_time_view.field_yodoo_time_view_time_marker__recurring_type
+msgid "Recurring Type"
+msgstr ""
+
+#. module: test_yodoo_time_view
+#. odoo-python
+#: code:addons/test_yodoo_time_view/models/time_marker.py:0
+msgid "Recurring hour must be between 0 and 23"
+msgstr ""
+
+#. module: test_yodoo_time_view
+#. odoo-python
+#: code:addons/test_yodoo_time_view/models/time_marker.py:0
+msgid "Recurring minute must be between 0 and 59"
+msgstr ""
+
+#. module: test_yodoo_time_view
+#: model_terms:ir.ui.view,arch_db:test_yodoo_time_view.view_yodoo_time_record_search
+msgid "Search Time Records"
+msgstr ""
+
+#. module: test_yodoo_time_view
+#: model:ir.model.fields.selection,name:test_yodoo_time_view.selection__yodoo_time_view_background_period__type__season
+msgid "Season"
+msgstr ""
+
+#. module: test_yodoo_time_view
+#: model:ir.model.fields,field_description:test_yodoo_time_view.field_yodoo_time_view_time_marker__show_label
+msgid "Show Label"
+msgstr ""
+
+#. module: test_yodoo_time_view
+#: model:ir.model.fields.selection,name:test_yodoo_time_view.selection__yodoo_time_view_time_marker__style__solid
+msgid "Solid"
+msgstr ""
+
+#. module: test_yodoo_time_view
+#: model:ir.model.fields,field_description:test_yodoo_time_view.field_yodoo_time_view_background_period__date_start
+#: model:ir.model.fields,field_description:test_yodoo_time_view.field_yodoo_time_view_test_record__datetime_start
+msgid "Start Date"
+msgstr ""
+
+#. module: test_yodoo_time_view
+#: model:ir.model.fields,help:test_yodoo_time_view.field_yodoo_time_view_test_record__datetime_start
+msgid "Start date and time for Gantt view"
+msgstr ""
+
+#. module: test_yodoo_time_view
+#: model:ir.model.fields,field_description:test_yodoo_time_view.field_yodoo_time_view_time_marker__style
+msgid "Style"
+msgstr ""
+
+#. module: test_yodoo_time_view
+#: model:ir.ui.menu,name:test_yodoo_time_view.menu_yodoo_time_records
+msgid "Test Time Records"
+msgstr ""
+
+#. module: test_yodoo_time_view
+#: model:ir.model.fields,field_description:test_yodoo_time_view.field_yodoo_time_view_test_record__datetime_3
+msgid "Third Date"
+msgstr ""
+
+#. module: test_yodoo_time_view
+#: model:ir.actions.act_window,name:test_yodoo_time_view.action_yodoo_time_record_timeline
+#: model:ir.ui.menu,name:test_yodoo_time_view.menu_yodoo_time_view_timeline_demo
+msgid "Timeline Demo"
+msgstr ""
+
+#. module: test_yodoo_time_view
+#: model:ir.ui.menu,name:test_yodoo_time_view.menu_yodoo_time_view_timeline_main
+msgid "Timeline Views"
+msgstr ""
+
+#. module: test_yodoo_time_view
+#: model:ir.actions.act_window,name:test_yodoo_time_view.action_yodoo_time_record_timeline_by_type
+#: model:ir.ui.menu,name:test_yodoo_time_view.menu_yodoo_time_view_timeline_by_type
+msgid "Timeline by Type"
+msgstr ""
+
+#. module: test_yodoo_time_view
+#: model:ir.model.fields,field_description:test_yodoo_time_view.field_yodoo_time_view_time_marker__timestamp
+msgid "Timestamp"
+msgstr ""
+
+#. module: test_yodoo_time_view
+#: model_terms:ir.ui.view,arch_db:test_yodoo_time_view.view_yodoo_time_record_search
+msgid "Today"
+msgstr ""
+
+#. module: test_yodoo_time_view
+#: model:ir.model.fields.selection,name:test_yodoo_time_view.selection__yodoo_time_view_time_marker__label_position__top
+msgid "Top"
+msgstr ""
+
+#. module: test_yodoo_time_view
+#: model:ir.model.fields,field_description:test_yodoo_time_view.field_yodoo_time_view_background_period__type
+#: model:ir.model.fields,field_description:test_yodoo_time_view.field_yodoo_time_view_time_marker__type
+msgid "Type"
+msgstr ""
+
+#. module: test_yodoo_time_view
+#: model:ir.model.fields.selection,name:test_yodoo_time_view.selection__yodoo_time_view_test_record__record_type__type_alpha
+#: model_terms:ir.ui.view,arch_db:test_yodoo_time_view.view_yodoo_time_record_search
+msgid "Type Alpha"
+msgstr ""
+
+#. module: test_yodoo_time_view
+#: model:ir.model.fields.selection,name:test_yodoo_time_view.selection__yodoo_time_view_test_record__record_type__type_beta
+#: model_terms:ir.ui.view,arch_db:test_yodoo_time_view.view_yodoo_time_record_search
+msgid "Type Beta"
+msgstr ""
+
+#. module: test_yodoo_time_view
+#: model:ir.model.fields.selection,name:test_yodoo_time_view.selection__yodoo_time_view_test_record__record_type__type_delta
+#: model_terms:ir.ui.view,arch_db:test_yodoo_time_view.view_yodoo_time_record_search
+msgid "Type Delta"
+msgstr ""
+
+#. module: test_yodoo_time_view
+#: model:ir.model.fields.selection,name:test_yodoo_time_view.selection__yodoo_time_view_test_record__record_type__type_epsilon
+#: model_terms:ir.ui.view,arch_db:test_yodoo_time_view.view_yodoo_time_record_search
+msgid "Type Epsilon"
+msgstr ""
+
+#. module: test_yodoo_time_view
+#: model:ir.model.fields.selection,name:test_yodoo_time_view.selection__yodoo_time_view_test_record__record_type__type_gamma
+#: model_terms:ir.ui.view,arch_db:test_yodoo_time_view.view_yodoo_time_record_search
+msgid "Type Gamma"
+msgstr ""
+
+#. module: test_yodoo_time_view
+#: model:ir.model.fields,help:test_yodoo_time_view.field_yodoo_time_view_background_period__type
+msgid "Type of background period"
+msgstr ""
+
+#. module: test_yodoo_time_view
+#: model:ir.model.fields,help:test_yodoo_time_view.field_yodoo_time_view_time_marker__type
+msgid "Type of time marker"
+msgstr ""
+
+#. module: test_yodoo_time_view
+#: model_terms:ir.ui.view,arch_db:test_yodoo_time_view.view_yodoo_time_record_form
+msgid "Visualization"
+msgstr ""
+
+#. module: test_yodoo_time_view
+#: model:ir.model.fields.selection,name:test_yodoo_time_view.selection__yodoo_time_view_background_period__type__weekend
+msgid "Weekend"
+msgstr ""
+
+#. module: test_yodoo_time_view
+#: model:ir.model.fields.selection,name:test_yodoo_time_view.selection__yodoo_time_view_background_period__recurring_type__weekly
+#: model:ir.model.fields.selection,name:test_yodoo_time_view.selection__yodoo_time_view_time_marker__recurring_type__weekly
+msgid "Weekly"
+msgstr ""
+
+#. module: test_yodoo_time_view
+#: model:ir.model.fields,help:test_yodoo_time_view.field_yodoo_time_view_time_marker__active
+msgid "Whether the marker is active"
+msgstr ""
+
+#. module: test_yodoo_time_view
+#: model:ir.model.fields,help:test_yodoo_time_view.field_yodoo_time_view_time_marker__recurring
+msgid "Whether the marker recurs"
+msgstr ""
+
+#. module: test_yodoo_time_view
+#: model:ir.model.fields,help:test_yodoo_time_view.field_yodoo_time_view_background_period__active
+msgid "Whether the period is active"
+msgstr ""
+
+#. module: test_yodoo_time_view
+#: model:ir.model.fields,help:test_yodoo_time_view.field_yodoo_time_view_background_period__recurring
+msgid "Whether the period recurs"
+msgstr ""
+
+#. module: test_yodoo_time_view
+#: model:ir.model.fields,help:test_yodoo_time_view.field_yodoo_time_view_time_marker__show_label
+msgid "Whether to show the marker label"
+msgstr ""
+
+#. module: test_yodoo_time_view
+#: model:ir.model.fields,field_description:test_yodoo_time_view.field_yodoo_time_view_time_marker__width
+msgid "Width"
+msgstr ""
+
+#. module: test_yodoo_time_view
+#. odoo-python
+#: code:addons/test_yodoo_time_view/models/time_marker.py:0
+msgid "Width must be between 1 and 10 pixels"
+msgstr ""
+
+#. module: test_yodoo_time_view
+#: model:ir.model.fields.selection,name:test_yodoo_time_view.selection__yodoo_time_view_background_period__type__work_shift
+msgid "Work Shift"
+msgstr ""
+
+#. module: test_yodoo_time_view
+#: model:ir.model.fields.selection,name:test_yodoo_time_view.selection__yodoo_time_view_background_period__recurring_type__yearly
+#: model:ir.model.fields.selection,name:test_yodoo_time_view.selection__yodoo_time_view_time_marker__recurring_type__yearly
+msgid "Yearly"
+msgstr ""
+
+#. module: test_yodoo_time_view
+#: model_terms:ir.ui.view,arch_db:test_yodoo_time_view.view_yodoo_time_record_form
+msgid "Yodoo Time Record"
+msgstr ""
+
+#. module: test_yodoo_time_view
+#: model:ir.actions.act_window,name:test_yodoo_time_view.action_yodoo_time_record
+#: model_terms:ir.ui.view,arch_db:test_yodoo_time_view.view_yodoo_time_record_list
+msgid "Yodoo Time Records"
+msgstr ""
+
+#. module: test_yodoo_time_view
+#: model:ir.ui.menu,name:test_yodoo_time_view.menu_yodoo_time_root
+msgid "Yodoo Time View"
+msgstr ""
+
+#. module: test_yodoo_time_view
+#: model:ir.model,name:test_yodoo_time_view.model_yodoo_time_view_background_period
+msgid "Yodoo Time View Background Period"
+msgstr ""
+
+#. module: test_yodoo_time_view
+#: model:ir.model,name:test_yodoo_time_view.model_yodoo_time_view_test_record
+msgid "Yodoo Time View Test Record"
+msgstr ""
+
+#. module: test_yodoo_time_view
+#: model:ir.model,name:test_yodoo_time_view.model_yodoo_time_view_time_marker
+msgid "Yodoo Time View Time Marker"
+msgstr ""
+
+#. module: test_yodoo_time_view
+#: model_terms:ir.ui.view,arch_db:test_yodoo_time_view.view_yodoo_time_record_form
+msgid ""
+"💡 Event types for testing:<br/>\n"
+"                                • 1 date (datetime_start) = Milestone<br/>\n"
+"                                • 2 dates (start + stop) = Task Bar<br/>\n"
+"                                • 5 dates (start + stop + 3/4/5) = Multi-Events"
+msgstr ""

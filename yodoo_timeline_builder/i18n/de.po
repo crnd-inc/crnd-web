@@ -1,0 +1,694 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* yodoo_timeline_builder
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-27 06:19+0000\n"
+"PO-Revision-Date: 2026-10-27 06:19+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: yodoo_timeline_builder
+#: model_terms:ir.ui.view,arch_db:yodoo_timeline_builder.view_yodoo_timeline_template_form
+msgid "Access Control"
+msgstr ""
+
+#. module: yodoo_timeline_builder
+#: model:ir.model.fields,field_description:yodoo_timeline_builder.field_yodoo_timeline_template__action_id
+msgid "Action"
+msgstr ""
+
+#. module: yodoo_timeline_builder
+#: model:ir.model,name:yodoo_timeline_builder.model_ir_actions_act_window
+msgid "Action Window"
+msgstr "Aktionsfenster"
+
+#. module: yodoo_timeline_builder
+#: model:ir.model.fields,field_description:yodoo_timeline_builder.field_yodoo_timeline_template__active
+msgid "Active"
+msgstr ""
+
+#. module: yodoo_timeline_builder
+#: model:ir.model.fields,field_description:yodoo_timeline_builder.field_yodoo_timeline_template_event__toolbar_active
+msgid "Active by Default"
+msgstr ""
+
+#. module: yodoo_timeline_builder
+#: model_terms:ir.ui.view,arch_db:yodoo_timeline_builder.view_yodoo_timeline_template_search
+msgid "Archived"
+msgstr ""
+
+#. module: yodoo_timeline_builder
+#: model_terms:ir.ui.view,arch_db:yodoo_timeline_builder.view_yodoo_timeline_template_form
+msgid "Auto from field description"
+msgstr ""
+
+#. module: yodoo_timeline_builder
+#: model_terms:ir.ui.view,arch_db:yodoo_timeline_builder.view_yodoo_timeline_template_form
+msgid "Background Layers"
+msgstr ""
+
+#. module: yodoo_timeline_builder
+#: model:ir.model.fields.selection,name:yodoo_timeline_builder.selection__yodoo_timeline_template_event__event_type__background
+msgid "Background Shading"
+msgstr ""
+
+#. module: yodoo_timeline_builder
+#: model:ir.model,name:yodoo_timeline_builder.model_base
+msgid "Base"
+msgstr "Basis"
+
+#. module: yodoo_timeline_builder
+#: model:ir.model.fields,field_description:yodoo_timeline_builder.field_yodoo_timeline_template__base_model_id
+msgid "Base Model"
+msgstr ""
+
+#. module: yodoo_timeline_builder
+#: model:ir.model.fields,field_description:yodoo_timeline_builder.field_yodoo_timeline_template_event__toolbar_icon
+msgid "Button Icon"
+msgstr ""
+
+#. module: yodoo_timeline_builder
+#. odoo-javascript
+#: code:addons/yodoo_timeline_builder/static/src/timeline_builder/timeline_builder_action.xml:0
+msgid "Clear all filters"
+msgstr ""
+
+#. module: yodoo_timeline_builder
+#: model:ir.model.fields,field_description:yodoo_timeline_builder.field_yodoo_timeline_template__color_field_id
+#: model:ir.model.fields,field_description:yodoo_timeline_builder.field_yodoo_timeline_template_event__color_field_id
+msgid "Color Field"
+msgstr ""
+
+#. module: yodoo_timeline_builder
+#: model_terms:ir.ui.view,arch_db:yodoo_timeline_builder.view_yodoo_timeline_template_form
+msgid "Columns"
+msgstr ""
+
+#. module: yodoo_timeline_builder
+#: model:ir.model.fields,field_description:yodoo_timeline_builder.field_yodoo_timeline_template__create_uid
+#: model:ir.model.fields,field_description:yodoo_timeline_builder.field_yodoo_timeline_template_event__create_uid
+#: model:ir.model.fields,field_description:yodoo_timeline_builder.field_yodoo_timeline_template_field__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: yodoo_timeline_builder
+#: model:ir.model.fields,field_description:yodoo_timeline_builder.field_yodoo_timeline_template__create_date
+#: model:ir.model.fields,field_description:yodoo_timeline_builder.field_yodoo_timeline_template_event__create_date
+#: model:ir.model.fields,field_description:yodoo_timeline_builder.field_yodoo_timeline_template_field__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: yodoo_timeline_builder
+#. odoo-javascript
+#: code:addons/yodoo_timeline_builder/static/src/timeline_builder/timeline_builder_action.xml:0
+msgid "Current time marker"
+msgstr ""
+
+#. module: yodoo_timeline_builder
+#: model_terms:ir.ui.view,arch_db:yodoo_timeline_builder.view_yodoo_timeline_template_form
+msgid "Data Source"
+msgstr ""
+
+#. module: yodoo_timeline_builder
+#: model_terms:ir.ui.view,arch_db:yodoo_timeline_builder.view_yodoo_timeline_template_form
+msgid "Date / Color Fields"
+msgstr ""
+
+#. module: yodoo_timeline_builder
+#: model:ir.model.fields.selection,name:yodoo_timeline_builder.selection__yodoo_timeline_template__default_scale__day
+msgid "Day"
+msgstr ""
+
+#. module: yodoo_timeline_builder
+#: model:ir.model.fields,field_description:yodoo_timeline_builder.field_yodoo_timeline_template__domain
+msgid "Default Domain"
+msgstr ""
+
+#. module: yodoo_timeline_builder
+#: model_terms:ir.ui.view,arch_db:yodoo_timeline_builder.view_yodoo_timeline_template_form
+msgid "Default Domain Filter"
+msgstr ""
+
+#. module: yodoo_timeline_builder
+#: model:ir.model.fields,field_description:yodoo_timeline_builder.field_yodoo_timeline_template__default_scale
+msgid "Default Scale"
+msgstr ""
+
+#. module: yodoo_timeline_builder
+#: model_terms:ir.ui.view,arch_db:yodoo_timeline_builder.view_yodoo_timeline_template_form
+msgid "Default: Yodoo Timelines"
+msgstr ""
+
+#. module: yodoo_timeline_builder
+#: model_terms:ir.ui.view,arch_db:yodoo_timeline_builder.view_yodoo_timeline_template_form
+msgid "Display"
+msgstr ""
+
+#. module: yodoo_timeline_builder
+#: model:ir.model.fields,field_description:yodoo_timeline_builder.field_yodoo_timeline_template__display_name
+#: model:ir.model.fields,field_description:yodoo_timeline_builder.field_yodoo_timeline_template_event__display_name
+#: model:ir.model.fields,field_description:yodoo_timeline_builder.field_yodoo_timeline_template_field__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: yodoo_timeline_builder
+#: model:ir.model.fields,help:yodoo_timeline_builder.field_yodoo_timeline_template_field__label
+msgid "Display label. Defaults to field description if empty."
+msgstr ""
+
+#. module: yodoo_timeline_builder
+#: model:ir.model.fields,help:yodoo_timeline_builder.field_yodoo_timeline_template_event__domain
+msgid ""
+"Domain applied to the source model to find related records. Use \"__id__\" "
+"as placeholder for the parent record id, e.g. [(\"request_id\", \"=\", "
+"\"__id__\")]."
+msgstr ""
+
+#. module: yodoo_timeline_builder
+#: model:ir.model.fields,help:yodoo_timeline_builder.field_yodoo_timeline_template__domain
+msgid "Domain applied when opening the timeline."
+msgstr ""
+
+#. module: yodoo_timeline_builder
+#: model:ir.model.fields,field_description:yodoo_timeline_builder.field_yodoo_timeline_template_event__open_form
+msgid "Double-click Opens Form"
+msgstr ""
+
+#. module: yodoo_timeline_builder
+#: model:ir.model.fields,help:yodoo_timeline_builder.field_yodoo_timeline_template_event__open_form
+msgid "Double-clicking a related item opens its form view."
+msgstr ""
+
+#. module: yodoo_timeline_builder
+#: model:ir.model.fields,field_description:yodoo_timeline_builder.field_yodoo_timeline_template__event_count
+msgid "Event Overlays"
+msgstr ""
+
+#. module: yodoo_timeline_builder
+#: model_terms:ir.ui.view,arch_db:yodoo_timeline_builder.view_yodoo_timeline_template_list
+msgid "Events"
+msgstr ""
+
+#. module: yodoo_timeline_builder
+#: model:ir.model.fields,field_description:yodoo_timeline_builder.field_yodoo_timeline_template_field__field_id
+msgid "Field"
+msgstr ""
+
+#. module: yodoo_timeline_builder
+#: model:ir.model.fields,field_description:yodoo_timeline_builder.field_yodoo_timeline_template_field__field_name
+msgid "Field Name"
+msgstr ""
+
+#. module: yodoo_timeline_builder
+#: model:ir.model.fields,field_description:yodoo_timeline_builder.field_yodoo_timeline_template_field__field_ttype
+msgid "Field Type"
+msgstr ""
+
+#. module: yodoo_timeline_builder
+#: model:ir.model.fields,help:yodoo_timeline_builder.field_yodoo_timeline_template__color_field_id
+msgid "Field containing a CSS colour string (e.g. type_color)."
+msgstr ""
+
+#. module: yodoo_timeline_builder
+#: model:ir.model.fields,help:yodoo_timeline_builder.field_yodoo_timeline_template_event__domain_ref_field
+msgid ""
+"Field on the source model that links to the parent record id (used for "
+"efficient batch loading)."
+msgstr ""
+
+#. module: yodoo_timeline_builder
+#: model:ir.model.fields,field_description:yodoo_timeline_builder.field_yodoo_timeline_template__field_ids
+msgid "Fields"
+msgstr ""
+
+#. module: yodoo_timeline_builder
+#. odoo-javascript
+#: code:addons/yodoo_timeline_builder/static/src/timeline_builder/timeline_builder_action.xml:0
+msgid "Filter"
+msgstr ""
+
+#. module: yodoo_timeline_builder
+#: model:ir.model.fields,field_description:yodoo_timeline_builder.field_yodoo_timeline_template_event__domain
+msgid "Filter Domain"
+msgstr ""
+
+#. module: yodoo_timeline_builder
+#: model:ir.model.fields,help:yodoo_timeline_builder.field_yodoo_timeline_template_event__toolbar_icon
+msgid "FontAwesome icon class for the toolbar button."
+msgstr ""
+
+#. module: yodoo_timeline_builder
+#: model:ir.model.fields.selection,name:yodoo_timeline_builder.selection__yodoo_timeline_template__view_type__gantt
+msgid "Gantt"
+msgstr ""
+
+#. module: yodoo_timeline_builder
+#: model:ir.model.fields.selection,name:yodoo_timeline_builder.selection__yodoo_timeline_template_field__role__groupby
+#: model_terms:ir.ui.view,arch_db:yodoo_timeline_builder.view_yodoo_timeline_template_list
+msgid "Group By"
+msgstr ""
+
+#. module: yodoo_timeline_builder
+#: model_terms:ir.ui.view,arch_db:yodoo_timeline_builder.view_yodoo_timeline_template_form
+msgid "Group By / Search / Tooltip Fields"
+msgstr ""
+
+#. module: yodoo_timeline_builder
+#: model:ir.model.fields,field_description:yodoo_timeline_builder.field_yodoo_timeline_template__groupby_count
+msgid "Group By Fields"
+msgstr ""
+
+#. module: yodoo_timeline_builder
+#: model:ir.model.fields,help:yodoo_timeline_builder.field_yodoo_timeline_template__bg_weekends
+msgid "Highlight weekend columns when the view opens."
+msgstr ""
+
+#. module: yodoo_timeline_builder
+#: model:ir.model.fields,help:yodoo_timeline_builder.field_yodoo_timeline_template__bg_work_hours
+msgid "Highlight work-hour bands when the view opens."
+msgstr ""
+
+#. module: yodoo_timeline_builder
+#: model:ir.model.fields,help:yodoo_timeline_builder.field_yodoo_timeline_template_event__label
+msgid "Human-readable name shown in toolbar toggle button."
+msgstr ""
+
+#. module: yodoo_timeline_builder
+#: model:ir.model.fields,field_description:yodoo_timeline_builder.field_yodoo_timeline_template__id
+#: model:ir.model.fields,field_description:yodoo_timeline_builder.field_yodoo_timeline_template_event__id
+#: model:ir.model.fields,field_description:yodoo_timeline_builder.field_yodoo_timeline_template_field__id
+msgid "ID"
+msgstr ""
+
+#. module: yodoo_timeline_builder
+#: model_terms:ir.ui.view,arch_db:yodoo_timeline_builder.view_yodoo_timeline_template_form
+msgid "Identity"
+msgstr ""
+
+#. module: yodoo_timeline_builder
+#: model:ir.model.fields,field_description:yodoo_timeline_builder.field_yodoo_timeline_template_event__key
+msgid "Key"
+msgstr ""
+
+#. module: yodoo_timeline_builder
+#: model:ir.model.fields,field_description:yodoo_timeline_builder.field_yodoo_timeline_template_event__label
+#: model:ir.model.fields,field_description:yodoo_timeline_builder.field_yodoo_timeline_template_field__label
+msgid "Label"
+msgstr ""
+
+#. module: yodoo_timeline_builder
+#: model:ir.model.fields,field_description:yodoo_timeline_builder.field_yodoo_timeline_template__write_uid
+#: model:ir.model.fields,field_description:yodoo_timeline_builder.field_yodoo_timeline_template_event__write_uid
+#: model:ir.model.fields,field_description:yodoo_timeline_builder.field_yodoo_timeline_template_field__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: yodoo_timeline_builder
+#: model:ir.model.fields,field_description:yodoo_timeline_builder.field_yodoo_timeline_template__write_date
+#: model:ir.model.fields,field_description:yodoo_timeline_builder.field_yodoo_timeline_template_event__write_date
+#: model:ir.model.fields,field_description:yodoo_timeline_builder.field_yodoo_timeline_template_field__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: yodoo_timeline_builder
+#: model_terms:ir.ui.view,arch_db:yodoo_timeline_builder.view_yodoo_timeline_template_form
+msgid "Leave empty for all users"
+msgstr ""
+
+#. module: yodoo_timeline_builder
+#. odoo-javascript
+#: code:addons/yodoo_timeline_builder/static/src/timeline_builder/timeline_builder_action.xml:0
+msgid "Loading…"
+msgstr ""
+
+#. module: yodoo_timeline_builder
+#: model:res.groups,name:yodoo_timeline_builder.group_manager
+msgid "Manager"
+msgstr ""
+
+#. module: yodoo_timeline_builder
+#: model:ir.model,name:yodoo_timeline_builder.model_ir_ui_menu
+#: model_terms:ir.ui.view,arch_db:yodoo_timeline_builder.view_yodoo_timeline_template_form
+msgid "Menu"
+msgstr "Menü"
+
+#. module: yodoo_timeline_builder
+#: model:ir.model.fields,field_description:yodoo_timeline_builder.field_yodoo_timeline_template__menu_id
+msgid "Menu Item"
+msgstr ""
+
+#. module: yodoo_timeline_builder
+#: model:ir.model.fields,field_description:yodoo_timeline_builder.field_yodoo_timeline_template__base_model_name
+#: model:ir.model.fields,field_description:yodoo_timeline_builder.field_yodoo_timeline_template_event__source_model_name
+msgid "Model Name"
+msgstr ""
+
+#. module: yodoo_timeline_builder
+#: model:ir.model.fields.selection,name:yodoo_timeline_builder.selection__yodoo_timeline_template__default_scale__month
+msgid "Month"
+msgstr ""
+
+#. module: yodoo_timeline_builder
+#: model:ir.model.fields,field_description:yodoo_timeline_builder.field_yodoo_timeline_template__name
+msgid "Name"
+msgstr ""
+
+#. module: yodoo_timeline_builder
+#. odoo-javascript
+#: code:addons/yodoo_timeline_builder/static/src/timeline_builder/timeline_builder_action.xml:0
+msgid "Night"
+msgstr ""
+
+#. module: yodoo_timeline_builder
+#. odoo-javascript
+#: code:addons/yodoo_timeline_builder/static/src/timeline_builder/timeline_builder_action.xml:0
+msgid "Night 20:00-08:00"
+msgstr ""
+
+#. module: yodoo_timeline_builder
+#. odoo-javascript
+#: code:addons/yodoo_timeline_builder/static/src/timeline_builder/timeline_builder_action.xml:0
+msgid "Now"
+msgstr ""
+
+#. module: yodoo_timeline_builder
+#: model:ir.model.fields,help:yodoo_timeline_builder.field_yodoo_timeline_template__group_ids
+msgid ""
+"Only users in these groups can access this report. Leave empty for all "
+"users."
+msgstr ""
+
+#. module: yodoo_timeline_builder
+#: model_terms:ir.ui.view,arch_db:yodoo_timeline_builder.view_yodoo_timeline_template_form
+msgid "Open Timeline"
+msgstr ""
+
+#. module: yodoo_timeline_builder
+#: model:ir.model.fields,field_description:yodoo_timeline_builder.field_yodoo_timeline_template_event__overlay
+msgid "Overlay on Main Row"
+msgstr ""
+
+#. module: yodoo_timeline_builder
+#: model:ir.model.fields,field_description:yodoo_timeline_builder.field_yodoo_timeline_template__parent_menu_id
+msgid "Parent Menu"
+msgstr ""
+
+#. module: yodoo_timeline_builder
+#: model:ir.model.fields.selection,name:yodoo_timeline_builder.selection__yodoo_timeline_template_event__event_type__range
+msgid "Range Bar"
+msgstr ""
+
+#. module: yodoo_timeline_builder
+#: model:ir.model.fields,field_description:yodoo_timeline_builder.field_yodoo_timeline_template_event__domain_ref_field
+msgid "Reference Field"
+msgstr ""
+
+#. module: yodoo_timeline_builder
+#: model_terms:ir.ui.view,arch_db:yodoo_timeline_builder.view_yodoo_timeline_template_form
+msgid "Related Event"
+msgstr ""
+
+#. module: yodoo_timeline_builder
+#: model:ir.model.fields,field_description:yodoo_timeline_builder.field_yodoo_timeline_template__event_ids
+#: model_terms:ir.ui.view,arch_db:yodoo_timeline_builder.view_yodoo_timeline_template_form
+msgid "Related Events"
+msgstr ""
+
+#. module: yodoo_timeline_builder
+#: model:ir.model.fields,help:yodoo_timeline_builder.field_yodoo_timeline_template_event__overlay
+msgid ""
+"Render these items on the same row as the parent record bar instead of in a "
+"separate sub-row."
+msgstr ""
+
+#. module: yodoo_timeline_builder
+#: model_terms:ir.ui.view,arch_db:yodoo_timeline_builder.view_yodoo_timeline_template_form
+msgid "Rendering"
+msgstr ""
+
+#. module: yodoo_timeline_builder
+#: model:ir.model.fields,field_description:yodoo_timeline_builder.field_yodoo_timeline_template_field__role
+msgid "Role"
+msgstr ""
+
+#. module: yodoo_timeline_builder
+#: model:ir.model.fields.selection,name:yodoo_timeline_builder.selection__yodoo_timeline_template_field__role__search
+msgid "Search / Filter"
+msgstr ""
+
+#. module: yodoo_timeline_builder
+#: model:ir.model.fields,field_description:yodoo_timeline_builder.field_yodoo_timeline_template__search_count
+msgid "Search Fields"
+msgstr ""
+
+#. module: yodoo_timeline_builder
+#: model:ir.model.fields,field_description:yodoo_timeline_builder.field_yodoo_timeline_template__search_view_id
+msgid "Search View"
+msgstr ""
+
+#. module: yodoo_timeline_builder
+#: model:ir.model.fields,field_description:yodoo_timeline_builder.field_yodoo_timeline_template_event__sequence
+#: model:ir.model.fields,field_description:yodoo_timeline_builder.field_yodoo_timeline_template_field__sequence
+msgid "Sequence"
+msgstr ""
+
+#. module: yodoo_timeline_builder
+#: model:ir.model.fields,help:yodoo_timeline_builder.field_ir_actions_act_window__yodoo_template_id
+msgid "Set by yodoo_timeline_builder to identify auto-generated actions."
+msgstr ""
+
+#. module: yodoo_timeline_builder
+#: model:ir.model.fields,help:yodoo_timeline_builder.field_ir_ui_menu__yodoo_template_id
+msgid "Set by yodoo_timeline_builder to identify auto-generated menus."
+msgstr ""
+
+#. module: yodoo_timeline_builder
+#: model:ir.model.fields,help:yodoo_timeline_builder.field_ir_ui_view__yodoo_template_id
+msgid "Set by yodoo_timeline_builder to identify auto-generated views."
+msgstr ""
+
+#. module: yodoo_timeline_builder
+#: model:ir.model.fields,field_description:yodoo_timeline_builder.field_yodoo_timeline_template_event__toolbar_button
+msgid "Show Toolbar Button"
+msgstr ""
+
+#. module: yodoo_timeline_builder
+#: model:ir.model.fields,field_description:yodoo_timeline_builder.field_yodoo_timeline_template__bg_weekends
+msgid "Show Weekends"
+msgstr ""
+
+#. module: yodoo_timeline_builder
+#: model:ir.model.fields,field_description:yodoo_timeline_builder.field_yodoo_timeline_template__bg_work_hours
+msgid "Show Work Hours"
+msgstr ""
+
+#. module: yodoo_timeline_builder
+#: model:ir.model.fields,help:yodoo_timeline_builder.field_yodoo_timeline_template_event__toolbar_button
+msgid "Show a toggle button in the toolbar to show/hide this layer."
+msgstr ""
+
+#. module: yodoo_timeline_builder
+#: model_terms:ir.ui.view,arch_db:yodoo_timeline_builder.view_yodoo_timeline_template_form
+msgid "Source"
+msgstr ""
+
+#. module: yodoo_timeline_builder
+#: model:ir.model.fields,field_description:yodoo_timeline_builder.field_yodoo_timeline_template_event__source_model_id
+msgid "Source Model"
+msgstr ""
+
+#. module: yodoo_timeline_builder
+#: model:ir.model.fields,field_description:yodoo_timeline_builder.field_yodoo_timeline_template__date_start_field_id
+#: model:ir.model.fields,field_description:yodoo_timeline_builder.field_yodoo_timeline_template_event__date_start_field_id
+msgid "Start Date Field"
+msgstr ""
+
+#. module: yodoo_timeline_builder
+#: model:ir.model.fields,field_description:yodoo_timeline_builder.field_yodoo_timeline_template__date_stop_field_id
+#: model:ir.model.fields,field_description:yodoo_timeline_builder.field_yodoo_timeline_template_event__date_stop_field_id
+msgid "Stop Date Field"
+msgstr ""
+
+#. module: yodoo_timeline_builder
+#: model:ir.model.fields,field_description:yodoo_timeline_builder.field_yodoo_timeline_template_event__template_id
+#: model:ir.model.fields,field_description:yodoo_timeline_builder.field_yodoo_timeline_template_field__template_id
+msgid "Template"
+msgstr ""
+
+#. module: yodoo_timeline_builder
+#: model_terms:ir.ui.view,arch_db:yodoo_timeline_builder.view_yodoo_timeline_template_form
+msgid "Template Name"
+msgstr ""
+
+#. module: yodoo_timeline_builder
+#: model:ir.model.fields.selection,name:yodoo_timeline_builder.selection__yodoo_timeline_template__view_type__timeline
+msgid "Timeline"
+msgstr ""
+
+#. module: yodoo_timeline_builder
+#: model_terms:ir.ui.view,arch_db:yodoo_timeline_builder.view_yodoo_timeline_template_form
+msgid "Timeline Template"
+msgstr ""
+
+#. module: yodoo_timeline_builder
+#: model:ir.actions.act_window,name:yodoo_timeline_builder.action_yodoo_timeline_template
+#: model:ir.ui.menu,name:yodoo_timeline_builder.menu_yodoo_timeline_templates
+#: model_terms:ir.ui.view,arch_db:yodoo_timeline_builder.view_yodoo_timeline_template_list
+#: model_terms:ir.ui.view,arch_db:yodoo_timeline_builder.view_yodoo_timeline_template_search
+msgid "Timeline Templates"
+msgstr ""
+
+#. module: yodoo_timeline_builder
+#: model:ir.model.fields,field_description:yodoo_timeline_builder.field_yodoo_timeline_template__view_id
+msgid "Timeline View"
+msgstr ""
+
+#. module: yodoo_timeline_builder
+#. odoo-javascript
+#: code:addons/yodoo_timeline_builder/static/src/timeline_builder/timeline_builder_action.xml:0
+msgid "Today"
+msgstr ""
+
+#. module: yodoo_timeline_builder
+#: model:ir.model.fields.selection,name:yodoo_timeline_builder.selection__yodoo_timeline_template_field__role__tooltip
+msgid "Tooltip"
+msgstr ""
+
+#. module: yodoo_timeline_builder
+#: model:ir.model.fields,field_description:yodoo_timeline_builder.field_yodoo_timeline_template_event__event_type
+#: model_terms:ir.ui.view,arch_db:yodoo_timeline_builder.view_yodoo_timeline_template_form
+msgid "Type"
+msgstr ""
+
+#. module: yodoo_timeline_builder
+#: model:ir.model.fields,help:yodoo_timeline_builder.field_yodoo_timeline_template_event__key
+msgid "Unique technical identifier for this event layer."
+msgstr ""
+
+#. module: yodoo_timeline_builder
+#: model:res.groups,name:yodoo_timeline_builder.group_user
+msgid "User"
+msgstr ""
+
+#. module: yodoo_timeline_builder
+#: model:ir.model.fields,field_description:yodoo_timeline_builder.field_yodoo_timeline_template__group_ids
+msgid "User Groups"
+msgstr ""
+
+#. module: yodoo_timeline_builder
+#: model:ir.model,name:yodoo_timeline_builder.model_ir_ui_view
+msgid "View"
+msgstr "Ansicht"
+
+#. module: yodoo_timeline_builder
+#: model:ir.model.fields,field_description:yodoo_timeline_builder.field_yodoo_timeline_template__view_type
+msgid "View Type"
+msgstr ""
+
+#. module: yodoo_timeline_builder
+#: model:ir.model.fields.selection,name:yodoo_timeline_builder.selection__yodoo_timeline_template__default_scale__week
+msgid "Week"
+msgstr ""
+
+#. module: yodoo_timeline_builder
+#. odoo-javascript
+#: code:addons/yodoo_timeline_builder/static/src/timeline_builder/timeline_builder_action.xml:0
+msgid "Weekends"
+msgstr ""
+
+#. module: yodoo_timeline_builder
+#: model:ir.model.fields,help:yodoo_timeline_builder.field_yodoo_timeline_template__parent_menu_id
+msgid "Where to place the auto-generated menu item."
+msgstr ""
+
+#. module: yodoo_timeline_builder
+#: model:ir.model.fields,help:yodoo_timeline_builder.field_yodoo_timeline_template_event__toolbar_active
+msgid "Whether this layer is visible when the view first loads."
+msgstr ""
+
+#. module: yodoo_timeline_builder
+#. odoo-javascript
+#: code:addons/yodoo_timeline_builder/static/src/timeline_builder/timeline_builder_action.xml:0
+msgid "Work hrs"
+msgstr ""
+
+#. module: yodoo_timeline_builder
+#: model:ir.model.fields.selection,name:yodoo_timeline_builder.selection__yodoo_timeline_template__default_scale__year
+msgid "Year"
+msgstr ""
+
+#. module: yodoo_timeline_builder
+#: model:ir.model.fields,field_description:yodoo_timeline_builder.field_ir_actions_act_window__yodoo_template_id
+#: model:ir.model.fields,field_description:yodoo_timeline_builder.field_ir_ui_menu__yodoo_template_id
+#: model:ir.model.fields,field_description:yodoo_timeline_builder.field_ir_ui_view__yodoo_template_id
+msgid "Yodoo Template ID"
+msgstr ""
+
+#. module: yodoo_timeline_builder
+#: model:ir.model,name:yodoo_timeline_builder.model_yodoo_timeline_template
+msgid "Yodoo Timeline Template"
+msgstr ""
+
+#. module: yodoo_timeline_builder
+#: model:ir.model,name:yodoo_timeline_builder.model_yodoo_timeline_template_event
+msgid "Yodoo Timeline Template Event"
+msgstr ""
+
+#. module: yodoo_timeline_builder
+#: model:ir.model,name:yodoo_timeline_builder.model_yodoo_timeline_template_field
+msgid "Yodoo Timeline Template Field"
+msgstr ""
+
+#. module: yodoo_timeline_builder
+#: model:ir.module.category,name:yodoo_timeline_builder.module_category_yodoo_timelines
+#: model:ir.ui.menu,name:yodoo_timeline_builder.menu_yodoo_timelines_root
+msgid "Yodoo Timelines"
+msgstr ""
+
+#. module: yodoo_timeline_builder
+#. odoo-javascript
+#: code:addons/yodoo_timeline_builder/static/src/timeline_builder/timeline_builder_action.xml:0
+msgid "contains"
+msgstr ""
+
+#. module: yodoo_timeline_builder
+#. odoo-javascript
+#: code:addons/yodoo_timeline_builder/static/src/timeline_builder/timeline_builder_action.xml:0
+msgid "does not contain"
+msgstr ""
+
+#. module: yodoo_timeline_builder
+#: model_terms:ir.ui.view,arch_db:yodoo_timeline_builder.view_yodoo_timeline_template_form
+msgid "e.g. [('request_id','=','__id__')]"
+msgstr ""
+
+#. module: yodoo_timeline_builder
+#: model_terms:ir.ui.view,arch_db:yodoo_timeline_builder.view_yodoo_timeline_template_form
+msgid "e.g. request_id"
+msgstr ""
+
+#. module: yodoo_timeline_builder
+#. odoo-javascript
+#: code:addons/yodoo_timeline_builder/static/src/timeline_builder/timeline_builder_action.xml:0
+msgid "is not set"
+msgstr ""
+
+#. module: yodoo_timeline_builder
+#. odoo-javascript
+#: code:addons/yodoo_timeline_builder/static/src/timeline_builder/timeline_builder_action.xml:0
+msgid "is set"
+msgstr ""
+
+#. module: yodoo_timeline_builder
+#. odoo-javascript
+#: code:addons/yodoo_timeline_builder/static/src/timeline_builder/timeline_builder_action.xml:0
+msgid "— field —"
+msgstr ""

@@ -1,0 +1,269 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* yodoo_time_view
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-27 06:20+0000\n"
+"PO-Revision-Date: 2026-10-27 06:20+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: yodoo_time_view
+#: model_terms:ir.ui.view,arch_db:yodoo_time_view.TimelineView
+msgid "<i class=\"fa fa-clock-o\"/> Now"
+msgstr ""
+
+#. module: yodoo_time_view
+#: model_terms:ir.ui.view,arch_db:yodoo_time_view.TimelineView
+msgid "<i class=\"fa fa-map-marker\"/> Markers"
+msgstr ""
+
+#. module: yodoo_time_view
+#: model_terms:ir.ui.view,arch_db:yodoo_time_view.TimelineView
+msgid "<i class=\"fa fa-paint-brush\"/> Background"
+msgstr ""
+
+#. module: yodoo_time_view
+#: model_terms:ir.ui.view,arch_db:yodoo_time_view.TimelineView
+msgid "<i class=\"fa fa-refresh\"/> Refresh"
+msgstr ""
+
+#. module: yodoo_time_view
+#: model_terms:ir.ui.view,arch_db:yodoo_time_view.TimelineView
+msgid "<span class=\"visually-hidden\">Loading...</span>"
+msgstr ""
+
+#. module: yodoo_time_view
+#: model:ir.model,name:yodoo_time_view.model_ir_actions_act_window_view
+msgid "Action Window View"
+msgstr "Ansicht des Aktionsfensters"
+
+#. module: yodoo_time_view
+#: model:ir.model.fields,field_description:yodoo_time_view.field_gantt_mixin__color
+msgid "Color"
+msgstr ""
+
+#. module: yodoo_time_view
+#: model:ir.model.fields,help:yodoo_time_view.field_gantt_mixin__color
+msgid "Color for the task in Gantt (HEX format)"
+msgstr ""
+
+#. module: yodoo_time_view
+#. odoo-javascript
+#: code:addons/yodoo_time_view/static/src/gantt/gantt_view.xml:0
+#: code:addons/yodoo_time_view/static/src/timeline/timeline_view.xml:0
+msgid "Current time marker"
+msgstr ""
+
+#. module: yodoo_time_view
+#: model_terms:ir.ui.view,arch_db:yodoo_time_view.TimelineView
+msgid "Day"
+msgstr ""
+
+#. module: yodoo_time_view
+#: model:ir.model.fields,field_description:yodoo_time_view.field_gantt_mixin__datetime_stop
+msgid "End Date"
+msgstr ""
+
+#. module: yodoo_time_view
+#: model:ir.model.fields,help:yodoo_time_view.field_gantt_mixin__datetime_stop
+msgid "End date and time for Gantt view"
+msgstr ""
+
+#. module: yodoo_time_view
+#. odoo-python
+#: code:addons/yodoo_time_view/models/time_view_base.py:0
+msgid "Event configuration must contain '%(field)s' field"
+msgstr ""
+
+#. module: yodoo_time_view
+#. odoo-python
+#: code:addons/yodoo_time_view/models/time_view_base.py:0
+msgid "Event with 'self_fields' source must have 'start_field'"
+msgstr ""
+
+#. module: yodoo_time_view
+#. odoo-javascript
+#: code:addons/yodoo_time_view/static/src/gantt/gantt_view.js:0
+#: model:ir.model.fields.selection,name:yodoo_time_view.selection__ir_actions_act_window_view__view_mode__gantt
+#: model:ir.model.fields.selection,name:yodoo_time_view.selection__ir_ui_view__type__gantt
+msgid "Gantt"
+msgstr ""
+
+#. module: yodoo_time_view
+#: model:ir.model,name:yodoo_time_view.model_gantt_mixin
+msgid "Gantt View Mixin"
+msgstr ""
+
+#. module: yodoo_time_view
+#: model_terms:ir.ui.view,arch_db:yodoo_time_view.TimelineView
+msgid "Loading Timeline..."
+msgstr ""
+
+#. module: yodoo_time_view
+#. odoo-javascript
+#: code:addons/yodoo_time_view/static/src/gantt/gantt_view.xml:0
+#: code:addons/yodoo_time_view/static/src/timeline/timeline_view.xml:0
+msgid "Loading..."
+msgstr ""
+
+#. module: yodoo_time_view
+#: model_terms:ir.ui.view,arch_db:yodoo_time_view.TimelineView
+msgid "Month"
+msgstr ""
+
+#. module: yodoo_time_view
+#. odoo-javascript
+#: code:addons/yodoo_time_view/static/src/gantt/gantt_view.xml:0
+#: code:addons/yodoo_time_view/static/src/timeline/timeline_view.xml:0
+msgid "Night"
+msgstr ""
+
+#. module: yodoo_time_view
+#. odoo-javascript
+#: code:addons/yodoo_time_view/static/src/gantt/gantt_view.xml:0
+#: code:addons/yodoo_time_view/static/src/timeline/timeline_view.xml:0
+msgid "Night 20:00-08:00"
+msgstr ""
+
+#. module: yodoo_time_view
+#. odoo-javascript
+#: code:addons/yodoo_time_view/static/src/gantt/gantt_view.xml:0
+#: code:addons/yodoo_time_view/static/src/timeline/timeline_view.xml:0
+msgid "Now"
+msgstr ""
+
+#. module: yodoo_time_view
+#: model:ir.model.fields,help:yodoo_time_view.field_gantt_mixin__progress
+msgid "Percentage of completion (0-100)"
+msgstr ""
+
+#. module: yodoo_time_view
+#: model:ir.model.fields,field_description:yodoo_time_view.field_gantt_mixin__progress
+msgid "Progress (%)"
+msgstr ""
+
+#. module: yodoo_time_view
+#. odoo-python
+#: code:addons/yodoo_time_view/models/gantt_mixin.py:0
+msgid "Progress must be between 0 and 100"
+msgstr ""
+
+#. module: yodoo_time_view
+#: model:ir.model.fields,field_description:yodoo_time_view.field_gantt_mixin__datetime_start
+msgid "Start Date"
+msgstr ""
+
+#. module: yodoo_time_view
+#: model:ir.model.fields,help:yodoo_time_view.field_gantt_mixin__datetime_start
+msgid "Start date and time for Gantt view"
+msgstr ""
+
+#. module: yodoo_time_view
+#: model:ir.model,name:yodoo_time_view.model_time_view_base_mixin
+msgid "Time View Base Mixin"
+msgstr ""
+
+#. module: yodoo_time_view
+#. odoo-python
+#: code:addons/yodoo_time_view/models/time_view_base.py:0
+msgid "Time view configuration must be a dictionary"
+msgstr ""
+
+#. module: yodoo_time_view
+#. odoo-python
+#: code:addons/yodoo_time_view/models/time_view_base.py:0
+msgid "Time view configuration must contain 'events' key"
+msgstr ""
+
+#. module: yodoo_time_view
+#. odoo-python
+#: code:addons/yodoo_time_view/models/time_view_base.py:0
+msgid "Time view events must be a non-empty list"
+msgstr ""
+
+#. module: yodoo_time_view
+#. odoo-javascript
+#: code:addons/yodoo_time_view/static/src/timeline/timeline_view.js:0
+#: model:ir.model.fields.selection,name:yodoo_time_view.selection__ir_actions_act_window_view__view_mode__timeline
+#: model:ir.model.fields.selection,name:yodoo_time_view.selection__ir_ui_view__type__timeline
+msgid "Timeline"
+msgstr ""
+
+#. module: yodoo_time_view
+#: model:ir.model,name:yodoo_time_view.model_timeline_mixin
+msgid "Timeline View Mixin"
+msgstr ""
+
+#. module: yodoo_time_view
+#. odoo-javascript
+#: code:addons/yodoo_time_view/static/src/gantt/gantt_view.xml:0
+#: code:addons/yodoo_time_view/static/src/timeline/timeline_view.xml:0
+msgid "Today"
+msgstr ""
+
+#. module: yodoo_time_view
+#. odoo-python
+#: code:addons/yodoo_time_view/models/time_view_base.py:0
+msgid "Unsupported allowed scale '%(scale)s'. Supported: %(supported)s"
+msgstr ""
+
+#. module: yodoo_time_view
+#. odoo-python
+#: code:addons/yodoo_time_view/models/time_view_base.py:0
+msgid "Unsupported default scale '%(scale)s'. Supported: %(supported)s"
+msgstr ""
+
+#. module: yodoo_time_view
+#. odoo-python
+#: code:addons/yodoo_time_view/models/time_view_base.py:0
+msgid "Unsupported event source '%(source)s'"
+msgstr ""
+
+#. module: yodoo_time_view
+#. odoo-python
+#: code:addons/yodoo_time_view/models/time_view_base.py:0
+msgid "Unsupported event type '%(type)s'. Supported types: %(supported)s"
+msgstr ""
+
+#. module: yodoo_time_view
+#: model:ir.model,name:yodoo_time_view.model_ir_ui_view
+msgid "View"
+msgstr "Ansicht"
+
+#. module: yodoo_time_view
+#: model:ir.model.fields,field_description:yodoo_time_view.field_ir_actions_act_window_view__view_mode
+#: model:ir.model.fields,field_description:yodoo_time_view.field_ir_ui_view__type
+msgid "View Type"
+msgstr "Ansichtstyp"
+
+#. module: yodoo_time_view
+#: model_terms:ir.ui.view,arch_db:yodoo_time_view.TimelineView
+msgid "Week"
+msgstr ""
+
+#. module: yodoo_time_view
+#. odoo-javascript
+#: code:addons/yodoo_time_view/static/src/gantt/gantt_view.xml:0
+#: code:addons/yodoo_time_view/static/src/timeline/timeline_view.xml:0
+msgid "Weekends"
+msgstr ""
+
+#. module: yodoo_time_view
+#. odoo-javascript
+#: code:addons/yodoo_time_view/static/src/gantt/gantt_view.xml:0
+#: code:addons/yodoo_time_view/static/src/timeline/timeline_view.xml:0
+msgid "Work hrs"
+msgstr ""
+
+#. module: yodoo_time_view
+#: model_terms:ir.ui.view,arch_db:yodoo_time_view.TimelineView
+msgid "Year"
+msgstr ""

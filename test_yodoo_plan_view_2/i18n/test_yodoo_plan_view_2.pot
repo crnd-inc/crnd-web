@@ -1,0 +1,432 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* test_yodoo_plan_view_2
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: test_yodoo_plan_view_2
+#: model:ir.model.fields,field_description:test_yodoo_plan_view_2.field_cinema_session__available_seats
+msgid "Available Seats"
+msgstr ""
+
+#. module: test_yodoo_plan_view_2
+#: model:ir.model.fields,help:test_yodoo_plan_view_2.field_cinema_hall__plan_image
+msgid "Background image for the plan (PNG, JPG, or SVG)"
+msgstr ""
+
+#. module: test_yodoo_plan_view_2
+#: model:ir.model.fields,field_description:test_yodoo_plan_view_2.field_cinema_booking__name
+msgid "Booking Reference"
+msgstr ""
+
+#. module: test_yodoo_plan_view_2
+#: model:ir.model.fields,field_description:test_yodoo_plan_view_2.field_cinema_seat__booking_ids
+#: model:ir.model.fields,field_description:test_yodoo_plan_view_2.field_cinema_session__booking_ids
+#: model:ir.ui.menu,name:test_yodoo_plan_view_2.menu_cinema_booking
+msgid "Bookings"
+msgstr ""
+
+#. module: test_yodoo_plan_view_2
+#: model:ir.model.fields.selection,name:test_yodoo_plan_view_2.selection__cinema_booking__state__cancelled
+msgid "Cancelled"
+msgstr ""
+
+#. module: test_yodoo_plan_view_2
+#: model:ir.model.fields,field_description:test_yodoo_plan_view_2.field_cinema_hall__capacity
+msgid "Capacity"
+msgstr ""
+
+#. module: test_yodoo_plan_view_2
+#: model:ir.ui.menu,name:test_yodoo_plan_view_2.menu_cinema_root
+msgid "Cinema"
+msgstr ""
+
+#. module: test_yodoo_plan_view_2
+#: model:ir.model,name:test_yodoo_plan_view_2.model_cinema_booking
+msgid "Cinema Booking"
+msgstr ""
+
+#. module: test_yodoo_plan_view_2
+#: model:ir.actions.act_window,name:test_yodoo_plan_view_2.action_cinema_booking
+msgid "Cinema Bookings"
+msgstr ""
+
+#. module: test_yodoo_plan_view_2
+#: model:ir.model,name:test_yodoo_plan_view_2.model_cinema_hall
+msgid "Cinema Hall"
+msgstr ""
+
+#. module: test_yodoo_plan_view_2
+#: model:ir.actions.act_window,name:test_yodoo_plan_view_2.action_cinema_hall
+msgid "Cinema Halls"
+msgstr ""
+
+#. module: test_yodoo_plan_view_2
+#: model:ir.model,name:test_yodoo_plan_view_2.model_cinema_seat
+msgid "Cinema Seat"
+msgstr ""
+
+#. module: test_yodoo_plan_view_2
+#: model:ir.model,name:test_yodoo_plan_view_2.model_cinema_session
+msgid "Cinema Session"
+msgstr ""
+
+#. module: test_yodoo_plan_view_2
+#: model:ir.actions.act_window,name:test_yodoo_plan_view_2.action_cinema_session
+msgid "Cinema Sessions"
+msgstr ""
+
+#. module: test_yodoo_plan_view_2
+#: model:ir.model.fields.selection,name:test_yodoo_plan_view_2.selection__cinema_booking__state__confirmed
+msgid "Confirmed"
+msgstr ""
+
+#. module: test_yodoo_plan_view_2
+#: model:ir.model.fields,field_description:test_yodoo_plan_view_2.field_cinema_booking__create_uid
+#: model:ir.model.fields,field_description:test_yodoo_plan_view_2.field_cinema_hall__create_uid
+#: model:ir.model.fields,field_description:test_yodoo_plan_view_2.field_cinema_seat__create_uid
+#: model:ir.model.fields,field_description:test_yodoo_plan_view_2.field_cinema_session__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: test_yodoo_plan_view_2
+#: model:ir.model.fields,field_description:test_yodoo_plan_view_2.field_cinema_booking__create_date
+#: model:ir.model.fields,field_description:test_yodoo_plan_view_2.field_cinema_hall__create_date
+#: model:ir.model.fields,field_description:test_yodoo_plan_view_2.field_cinema_seat__create_date
+#: model:ir.model.fields,field_description:test_yodoo_plan_view_2.field_cinema_session__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: test_yodoo_plan_view_2
+#: model:ir.model.fields,field_description:test_yodoo_plan_view_2.field_cinema_booking__customer_name
+msgid "Customer Name"
+msgstr ""
+
+#. module: test_yodoo_plan_view_2
+#: model:ir.model.fields,field_description:test_yodoo_plan_view_2.field_cinema_booking__customer_phone
+msgid "Customer Phone"
+msgstr ""
+
+#. module: test_yodoo_plan_view_2
+#: model:ir.model.fields,field_description:test_yodoo_plan_view_2.field_cinema_booking__display_name
+#: model:ir.model.fields,field_description:test_yodoo_plan_view_2.field_cinema_hall__display_name
+#: model:ir.model.fields,field_description:test_yodoo_plan_view_2.field_cinema_seat__display_name
+#: model:ir.model.fields,field_description:test_yodoo_plan_view_2.field_cinema_session__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: test_yodoo_plan_view_2
+#: model:ir.model.fields,help:test_yodoo_plan_view_2.field_cinema_hall__plan_show_grid
+msgid "Display grid overlay"
+msgstr ""
+
+#. module: test_yodoo_plan_view_2
+#: model:ir.model.fields,help:test_yodoo_plan_view_2.field_cinema_hall__plan_show_origin
+msgid "Display origin point marker"
+msgstr ""
+
+#. module: test_yodoo_plan_view_2
+#: model:ir.model.fields.selection,name:test_yodoo_plan_view_2.selection__cinema_booking__state__draft
+msgid "Draft"
+msgstr ""
+
+#. module: test_yodoo_plan_view_2
+#: model:ir.model.fields,field_description:test_yodoo_plan_view_2.field_cinema_session__end_time
+msgid "End Time"
+msgstr ""
+
+#. module: test_yodoo_plan_view_2
+#: model:ir.model.fields.selection,name:test_yodoo_plan_view_2.selection__cinema_seat__seat_type__disabled
+msgid "For Disabled"
+msgstr ""
+
+#. module: test_yodoo_plan_view_2
+#: model:ir.model.fields,field_description:test_yodoo_plan_view_2.field_cinema_hall__plan_grid_size
+msgid "Grid Size"
+msgstr ""
+
+#. module: test_yodoo_plan_view_2
+#: model:ir.model.fields,help:test_yodoo_plan_view_2.field_cinema_hall__plan_grid_size
+msgid "Grid cell size in pixels"
+msgstr ""
+
+#. module: test_yodoo_plan_view_2
+#: model:ir.model.fields,field_description:test_yodoo_plan_view_2.field_cinema_seat__hall_id
+#: model:ir.model.fields,field_description:test_yodoo_plan_view_2.field_cinema_session__hall_id
+msgid "Hall"
+msgstr ""
+
+#. module: test_yodoo_plan_view_2
+#: model:ir.model.fields,field_description:test_yodoo_plan_view_2.field_cinema_hall__name
+msgid "Hall Name"
+msgstr ""
+
+#. module: test_yodoo_plan_view_2
+#: model:ir.ui.menu,name:test_yodoo_plan_view_2.menu_cinema_hall
+msgid "Halls"
+msgstr ""
+
+#. module: test_yodoo_plan_view_2
+#: model:ir.model.fields,field_description:test_yodoo_plan_view_2.field_cinema_booking__id
+#: model:ir.model.fields,field_description:test_yodoo_plan_view_2.field_cinema_hall__id
+#: model:ir.model.fields,field_description:test_yodoo_plan_view_2.field_cinema_seat__id
+#: model:ir.model.fields,field_description:test_yodoo_plan_view_2.field_cinema_session__id
+msgid "ID"
+msgstr ""
+
+#. module: test_yodoo_plan_view_2
+#: model:ir.model.fields,field_description:test_yodoo_plan_view_2.field_cinema_hall__plan_image_filename
+msgid "Image Filename"
+msgstr ""
+
+#. module: test_yodoo_plan_view_2
+#: model:ir.model.fields,field_description:test_yodoo_plan_view_2.field_cinema_hall__plan_image_type
+msgid "Image Type"
+msgstr ""
+
+#. module: test_yodoo_plan_view_2
+#: model:ir.model.fields,field_description:test_yodoo_plan_view_2.field_cinema_booking__write_uid
+#: model:ir.model.fields,field_description:test_yodoo_plan_view_2.field_cinema_hall__write_uid
+#: model:ir.model.fields,field_description:test_yodoo_plan_view_2.field_cinema_seat__write_uid
+#: model:ir.model.fields,field_description:test_yodoo_plan_view_2.field_cinema_session__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: test_yodoo_plan_view_2
+#: model:ir.model.fields,field_description:test_yodoo_plan_view_2.field_cinema_booking__write_date
+#: model:ir.model.fields,field_description:test_yodoo_plan_view_2.field_cinema_hall__write_date
+#: model:ir.model.fields,field_description:test_yodoo_plan_view_2.field_cinema_seat__write_date
+#: model:ir.model.fields,field_description:test_yodoo_plan_view_2.field_cinema_session__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: test_yodoo_plan_view_2
+#: model:ir.model.fields,field_description:test_yodoo_plan_view_2.field_cinema_session__movie_name
+msgid "Movie Name"
+msgstr ""
+
+#. module: test_yodoo_plan_view_2
+#: model:ir.model.fields,field_description:test_yodoo_plan_view_2.field_cinema_hall__plan_origin_x
+msgid "Origin X"
+msgstr ""
+
+#. module: test_yodoo_plan_view_2
+#: model:ir.model.fields,field_description:test_yodoo_plan_view_2.field_cinema_hall__plan_origin_y
+msgid "Origin Y"
+msgstr ""
+
+#. module: test_yodoo_plan_view_2
+#: model:ir.model.fields,help:test_yodoo_plan_view_2.field_cinema_hall__plan_scale_coefficient
+msgid "Pixels per meter. Set using the ruler tool."
+msgstr ""
+
+#. module: test_yodoo_plan_view_2
+#: model:ir.model.fields,field_description:test_yodoo_plan_view_2.field_cinema_hall__plan_image
+msgid "Plan Image"
+msgstr ""
+
+#. module: test_yodoo_plan_view_2
+#: model:ir.model.fields,field_description:test_yodoo_plan_view_2.field_cinema_seat__polygon_id
+msgid "Plan Polygon"
+msgstr ""
+
+#. module: test_yodoo_plan_view_2
+#: model:ir.model.fields,field_description:test_yodoo_plan_view_2.field_cinema_hall__plan_polygon_ids
+msgid "Polygons"
+msgstr ""
+
+#. module: test_yodoo_plan_view_2
+#: model:ir.model.fields,field_description:test_yodoo_plan_view_2.field_cinema_seat__row
+msgid "Row"
+msgstr ""
+
+#. module: test_yodoo_plan_view_2
+#: model:ir.model.fields,field_description:test_yodoo_plan_view_2.field_cinema_hall__plan_svg_content
+msgid "SVG Content"
+msgstr ""
+
+#. module: test_yodoo_plan_view_2
+#: model:ir.model.fields,help:test_yodoo_plan_view_2.field_cinema_hall__plan_svg_content
+msgid "SVG XML content for vector backgrounds"
+msgstr ""
+
+#. module: test_yodoo_plan_view_2
+#: model:ir.model.fields,field_description:test_yodoo_plan_view_2.field_cinema_hall__plan_scale_coefficient
+msgid "Scale Coefficient"
+msgstr ""
+
+#. module: test_yodoo_plan_view_2
+#: model:ir.model.fields,field_description:test_yodoo_plan_view_2.field_cinema_booking__seat_id
+#: model_terms:ir.ui.view,arch_db:test_yodoo_plan_view_2.view_cinema_seat_form
+msgid "Seat"
+msgstr ""
+
+#. module: test_yodoo_plan_view_2
+#. odoo-python
+#: code:addons/test_yodoo_plan_view_2/models/cinema_booking.py:0
+msgid "Seat %s is already booked for this session!"
+msgstr ""
+
+#. module: test_yodoo_plan_view_2
+#: model:ir.model.fields,field_description:test_yodoo_plan_view_2.field_cinema_seat__name
+msgid "Seat Number"
+msgstr ""
+
+#. module: test_yodoo_plan_view_2
+#: model:ir.model.fields,field_description:test_yodoo_plan_view_2.field_cinema_seat__seat_number
+msgid "Seat Number in Row"
+msgstr ""
+
+#. module: test_yodoo_plan_view_2
+#: model:ir.model.fields,field_description:test_yodoo_plan_view_2.field_cinema_seat__seat_type
+msgid "Seat Type"
+msgstr ""
+
+#. module: test_yodoo_plan_view_2
+#: model:ir.actions.act_window,name:test_yodoo_plan_view_2.action_cinema_seat
+#: model:ir.model.fields,field_description:test_yodoo_plan_view_2.field_cinema_hall__seat_ids
+#: model:ir.ui.menu,name:test_yodoo_plan_view_2.menu_cinema_seat
+#: model_terms:ir.ui.view,arch_db:test_yodoo_plan_view_2.view_cinema_seat_list
+msgid "Seats"
+msgstr ""
+
+#. module: test_yodoo_plan_view_2
+#: model:ir.model.fields,field_description:test_yodoo_plan_view_2.field_cinema_booking__session_id
+msgid "Session"
+msgstr ""
+
+#. module: test_yodoo_plan_view_2
+#: model:ir.model.fields,field_description:test_yodoo_plan_view_2.field_cinema_session__name
+msgid "Session Name"
+msgstr ""
+
+#. module: test_yodoo_plan_view_2
+#: model:ir.model.fields,field_description:test_yodoo_plan_view_2.field_cinema_hall__session_ids
+#: model:ir.ui.menu,name:test_yodoo_plan_view_2.menu_cinema_session
+msgid "Sessions"
+msgstr ""
+
+#. module: test_yodoo_plan_view_2
+#: model:ir.model.fields,field_description:test_yodoo_plan_view_2.field_cinema_hall__plan_show_grid
+msgid "Show Grid"
+msgstr ""
+
+#. module: test_yodoo_plan_view_2
+#: model:ir.model.fields,field_description:test_yodoo_plan_view_2.field_cinema_hall__plan_show_origin
+msgid "Show Origin"
+msgstr ""
+
+#. module: test_yodoo_plan_view_2
+#: model_terms:ir.ui.view,arch_db:test_yodoo_plan_view_2.view_cinema_seat_form
+#: model_terms:ir.ui.view,arch_db:test_yodoo_plan_view_2.view_cinema_seat_list
+msgid "Show on Plan"
+msgstr ""
+
+#. module: test_yodoo_plan_view_2
+#: model:ir.model.fields,help:test_yodoo_plan_view_2.field_cinema_hall__plan_snap_to_grid
+msgid "Snap polygon points to grid"
+msgstr ""
+
+#. module: test_yodoo_plan_view_2
+#: model:ir.model.fields,field_description:test_yodoo_plan_view_2.field_cinema_hall__plan_snap_to_grid
+msgid "Snap to Grid"
+msgstr ""
+
+#. module: test_yodoo_plan_view_2
+#: model:ir.model.fields.selection,name:test_yodoo_plan_view_2.selection__cinema_seat__seat_type__standard
+msgid "Standard"
+msgstr ""
+
+#. module: test_yodoo_plan_view_2
+#: model:ir.model.fields,field_description:test_yodoo_plan_view_2.field_cinema_session__start_time
+msgid "Start Time"
+msgstr ""
+
+#. module: test_yodoo_plan_view_2
+#: model:ir.model.fields,field_description:test_yodoo_plan_view_2.field_cinema_booking__state
+msgid "State"
+msgstr ""
+
+#. module: test_yodoo_plan_view_2
+#: model:ir.model.fields,field_description:test_yodoo_plan_view_2.field_cinema_session__price
+msgid "Ticket Price"
+msgstr ""
+
+#. module: test_yodoo_plan_view_2
+#: model:ir.model.fields.selection,name:test_yodoo_plan_view_2.selection__cinema_seat__seat_type__vip
+msgid "VIP"
+msgstr ""
+
+#. module: test_yodoo_plan_view_2
+#: model:ir.model.fields,help:test_yodoo_plan_view_2.field_cinema_hall__plan_origin_x
+msgid "X coordinate of origin point (0,0)"
+msgstr ""
+
+#. module: test_yodoo_plan_view_2
+#: model:ir.model.fields,help:test_yodoo_plan_view_2.field_cinema_hall__plan_origin_y
+msgid "Y coordinate of origin point (0,0)"
+msgstr ""
+
+#. module: test_yodoo_plan_view_2
+#: model_terms:ir.ui.view,arch_db:test_yodoo_plan_view_2.view_cinema_session_form
+msgid "Бронювання"
+msgstr ""
+
+#. module: test_yodoo_plan_view_2
+#. odoo-javascript
+#: code:addons/test_yodoo_plan_view_2/static/src/xml/cinema_plan_templates.xml:0
+msgid "Бронювати ("
+msgstr ""
+
+#. module: test_yodoo_plan_view_2
+#: model_terms:ir.ui.view,arch_db:test_yodoo_plan_view_2.view_cinema_session_form
+msgid "Бронювати місця"
+msgstr ""
+
+#. module: test_yodoo_plan_view_2
+#: model_terms:ir.ui.view,arch_db:test_yodoo_plan_view_2.view_cinema_hall_form
+msgid "Місця"
+msgstr ""
+
+#. module: test_yodoo_plan_view_2
+#. odoo-javascript
+#: code:addons/test_yodoo_plan_view_2/static/src/xml/cinema_plan_templates.xml:0
+msgid "Немає об'єктів"
+msgstr ""
+
+#. module: test_yodoo_plan_view_2
+#. odoo-javascript
+#: code:addons/test_yodoo_plan_view_2/static/src/xml/cinema_plan_templates.xml:0
+msgid "Об'єкти"
+msgstr ""
+
+#. module: test_yodoo_plan_view_2
+#. odoo-javascript
+#: code:addons/test_yodoo_plan_view_2/static/src/xml/cinema_plan_templates.xml:0
+msgid "Оберіть місця для бронювання"
+msgstr ""
+
+#. module: test_yodoo_plan_view_2
+#. odoo-javascript
+#: code:addons/test_yodoo_plan_view_2/static/src/xml/cinema_plan_templates.xml:0
+msgid "Обрані місця"
+msgstr ""
+
+#. module: test_yodoo_plan_view_2
+#: model_terms:ir.ui.view,arch_db:test_yodoo_plan_view_2.view_cinema_hall_form
+msgid "План залу"
+msgstr ""
+
+#. module: test_yodoo_plan_view_2
+#: model_terms:ir.ui.view,arch_db:test_yodoo_plan_view_2.view_cinema_hall_form
+msgid "План розсадки"
+msgstr ""
