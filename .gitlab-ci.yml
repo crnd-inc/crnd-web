@@ -158,6 +158,7 @@ update_addons_list_and_trans:
     image: registry.crnd.pro/crnd-opensource/docker/odoo-ci-x:18.0-ci
     stage: deploy
     before_script:
+        - odood addons add --single-branch -r --odoo-requirements=odoo_requirements.txt
         - odood addons link -r .
     script:
         - odood addons list --installable --field name --field license --field version --field summary --field price --csv . > ./ADDONS.csv
