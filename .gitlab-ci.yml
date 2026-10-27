@@ -122,14 +122,9 @@ tests:
     stage: test
     <<: *pip_cache_definition
     before_script:
-        - odood addons link -r .
-        - odood addons add --odoo-requirements odoo_requirements.txt
-        - odood addons link -r .
-        - sudo apt-get remove -y google-chrome-stable
-        - sudo apt-get update -qq && wget -q https://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_127.0.6533.119-1_amd64.deb -O /tmp/chrome.deb && apt install -yqq --no-install-recommends --auto-remove /tmp/chrome.deb && rm /tmp/chrome.deb && rm -rf /var/lib/apt/lists/*
+        - odood addons add --single-branch -r --odoo-requirements=odoo_requirements.txt
+        - odood addons link -f -r .
         - google-chrome --version
-        # Install a specific version of Google Chrome (127.0.6533.119) to ensure stability
-        # Version 128.0.6613.84 caused test tours to fail, so we're using 127 to avoid issues
     script:
         - odood test -t --isw --error-report --coverage --coverage-report --coverage-skip-covered --coverage-fail-under 30 --dir .
     <<: *except_auto_commits
@@ -143,13 +138,8 @@ migration_tests:
     <<: *pip_cache_definition
     before_script:
 #        - git fetch origin $SERIES_BRANCH
-        - odood addons link -r .
-        - odood addons add --odoo-requirements odoo_requirements.txt
-        - odood addons link -r .
-        # Install a specific version of Google Chrome (127.0.6533.119) to ensure stability
-        # Version 128.0.6613.84 caused test tours to fail, so we're using 127 to avoid issues
-        - apt-get remove -y google-chrome-stable
-        - apt-get update -qq && wget -q https://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_127.0.6533.119-1_amd64.deb -O /tmp/chrome.deb && apt install -yqq --no-install-recommends --auto-remove /tmp/chrome.deb && rm /tmp/chrome.deb && rm -rf /var/lib/apt/lists/*
+        - odood addons add --single-branch -r --odoo-requirements=odoo_requirements.txt
+        - odood addons link -f -r .
         - google-chrome --version
     script:
         - odood test -t --migration --isw --error-report --coverage --coverage-report --coverage-skip-covered --coverage-fail-under=30 --dir .
@@ -163,7 +153,7 @@ update_addons_list_and_trans:
     stage: deploy
     before_script:
         - odood addons add --single-branch -r --odoo-requirements=odoo_requirements.txt
-        - odood addons link -r .
+        - odood addons link -f -r .
     script:
         - odood addons list --installable --field name --field license --field version --field summary --field price --csv . > ./ADDONS.csv
         - odood addons list --installable --field name --field license --field version --field summary --field price --md . > ./ADDONS.md
