@@ -10,7 +10,7 @@ class TestCrndWebModels(odoo.tests.HttpCase):
         wizard_count_before = self.env['book.wizard.create'].search_count([])
         self.assertFalse(wizard_count_before)
         self.start_tour(
-            url_path='/web',
+            url_path='/odoo/action-test_crnd_web_models.book_action_window',
             tour_name='test_crnd_web_models_on_create_action_tour',
             login='admin')
         new_record = self.env['test.crnd.web.model.book'].search(
