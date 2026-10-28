@@ -10,7 +10,7 @@ class IrUiView(models.Model):
     _inherit = 'ir.ui.view'
 
     def _postprocess_view(self, node, model_name, editable=True,
-                          parent_name_manager=None, **options):
+                          node_info=None, **options):
         action_name = None
         action_type = None
         view_class = node.attrib.get('class')
@@ -36,4 +36,4 @@ class IrUiView(models.Model):
             node.set('on_create_action_type', action_type)
         return super()._postprocess_view(
             node, model_name, editable=editable,
-            parent_name_manager=parent_name_manager, **options)
+            node_info=node_info, **options)

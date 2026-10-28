@@ -1,6 +1,6 @@
 {
     "name": "Test CRND Web Models",
-    "version": "19.0.0.15.4",
+    "version": "20.0.0.15.4",
     "author": "Center of Research and Development",
     "website": "https://crnd.pro",
     'summary': 'Module for testing web addons.',
@@ -22,7 +22,7 @@
         ]
     },
     'data': [
-        'security/ir.model.access.csv',
+        'security/ir.access.csv',
         'views/menu.xml',
         'views/m2o_info_widget.xml',
         'views/tree_colored_field.xml',

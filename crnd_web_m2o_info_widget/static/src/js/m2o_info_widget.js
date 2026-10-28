@@ -1,5 +1,3 @@
-/** @odoo-module **/
-
 import { browser } from "@web/core/browser/browser";
 import { _t } from "@web/core/l10n/translation";
 import { registry } from "@web/core/registry";
@@ -7,13 +5,20 @@ import { useService } from "@web/core/utils/hooks";
 import {
     buildM2OFieldDescription,
     extractM2OFieldProps,
+    many2OneFieldProps,
     Many2OneField,
 } from "@web/views/fields/many2one/many2one_field";
 import { usePopover } from "@web/core/popover/popover_hook";
 
-import { Component, useRef, useState } from "@odoo/owl";
+import { Component, proxy, signal, t, useProps } from "@odoo/owl";
 
 class M2OInfoPopover extends Component {
+    static template = "crnd_web_m2o_info_widget.popover_template";
+    props = useProps({
+        close: t.function().optional(),
+        info: t.array().optional(),
+    });
+
     setup() {
         this.notification = useService("notification");
     }
@@ -35,19 +40,21 @@ class M2OInfoPopover extends Component {
     }
 }
 
-M2OInfoPopover.template = "crnd_web_m2o_info_widget.popover_template";
-M2OInfoPopover.props = {
-    close: { type: Function, optional: true },
-    info: { type: Array, optional: true },
-};
-
 export class M2OInfoField extends Many2OneField {
+    static template = "crnd_web_m2o_info_widget.M2OInfoField";
+    static components = Many2OneField.components;
+    props = useProps({
+        ...many2OneFieldProps,
+        info_fields: t.array().optional(),
+        info_method: t.string().optional(),
+    });
+    infoIcon = signal.ref();
+
     setup() {
         super.setup();
         this.orm = useService("orm");
         this.notification = useService("notification");
-        this.infoIconRef = useRef("infoIcon");
-        this.popoverState = useState({
+        this.popoverState = proxy({
             isOpen: false,
             loading: false,
             info: [],
@@ -179,21 +186,12 @@ export class M2OInfoField extends Many2OneField {
             this.popoverState.loading = false;
         }
 
-        this.popover.open(this.infoIconRef.el, {
+        this.popover.open(this.infoIcon(), {
             info: this.popoverState.info,
         });
         this.popoverState.isOpen = true;
     }
 }
-
-M2OInfoField.template = "crnd_web_m2o_info_widget.M2OInfoField";
-M2OInfoField.components = Many2OneField.components;
-M2OInfoField.supportedTypes = ["many2one"];
-M2OInfoField.props = {
-    ...Many2OneField.props,
-    info_fields: { type: Array, optional: true },
-    info_method: { type: String, optional: true },
-};
 
 export const m2oInfoField = {
     ...buildM2OFieldDescription(M2OInfoField),

@@ -1,18 +1,16 @@
-/** @odoo-module **/
-
 import { ListController } from '@web/views/list/list_controller';
 import { KanbanController } from '@web/views/kanban/kanban_controller';
 import { FormController } from '@web/views/form/form_controller';
+import { useViewButtonHandler } from "@web/views/view_button/view_button_hook";
 import { patch } from "@web/core/utils/patch";
 import { pick } from "@web/core/utils/objects";
 
 const onCreateActionControllerMixin = {
     onCreateAction() {
         if (this.props.archInfo.onCreateActionParams) {
-            this.env.onClickViewButton({
+            this.onCreateActionViewButtonHandler({
                 clickParams: this.props.archInfo.onCreateActionParams,
                 getResParams: () => pick(this.model.root, "context", "evalContext", "resModel", "resId", "resIds"),
-                beforeExecuteAction: this.beforeExecuteActionButton.bind(this),
             });
             return true;
         }
@@ -20,9 +18,13 @@ const onCreateActionControllerMixin = {
     }
 };
 
-for (let ViewController of [ListController, KanbanController]) {
+for (const ViewController of [ListController, KanbanController]) {
     patch(ViewController.prototype, {
         ...onCreateActionControllerMixin,
+        setup() {
+            super.setup(...arguments);
+            this.onCreateActionViewButtonHandler = useViewButtonHandler();
+        },
         async createRecord() {
             if (!this.onCreateAction()) {
                 await super.createRecord(...arguments);
@@ -33,6 +35,10 @@ for (let ViewController of [ListController, KanbanController]) {
 
 patch(FormController.prototype, {
     ...onCreateActionControllerMixin,
+    setup() {
+        super.setup(...arguments);
+        this.onCreateActionViewButtonHandler = useViewButtonHandler();
+    },
     async create() {
         if (!this.onCreateAction()) {
             await super.create(...arguments);

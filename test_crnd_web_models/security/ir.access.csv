@@ -1,0 +1,5 @@
+id,name,model_id/id,group_id/id,operation,domain
+access_tree_colored_field_user,crnd_web_tree_colored_field,model_tree_colored_field,base.group_system,crud,
+access_book_model,book,model_test_crnd_web_model_book,base.group_system,crud,
+access_book_wizard_create,book_wizard_create,model_book_wizard_create,base.group_system,crud,
+access_m2o_info_widget,crnd_web_m2o_info_widget,model_m2o_info_widget,base.group_system,crud,

@@ -1,14 +1,14 @@
 <templates>
 
-    <t t-name="crnd_web_m2o_info_widget.M2OInfoField" owl="1">
+    <t t-name="crnd_web_m2o_info_widget.M2OInfoField">
         <div class="m2o_info">
             <t t-call="web.Many2OneField" />
-            <t t-if="hasInfoButton">
+            <t t-if="this.hasInfoButton">
                 <button
                     type="button"
                     class="m2o-info-icon btn btn-sm btn-outline-primary ms-2"
-                    t-ref="infoIcon"
-                    t-on-click="onClickInfo"
+                    t-ref="this.infoIcon"
+                    t-on-click="this.onClickInfo"
                 >
                     <i class="fa fa-info" />
                 </button>
@@ -16,14 +16,14 @@
         </div>
     </t>
 
-    <t t-name="crnd_web_m2o_info_widget.popover_template" owl="1">
+    <t t-name="crnd_web_m2o_info_widget.popover_template">
         <div class="m2o-info-popover">
             <table class="table table-sm table-borderless mb-0">
-                <t t-foreach="props.info || []" t-as="field_info" t-key="field_info &amp;&amp; field_info.name ? field_info.name : 'field_info'">
+                <t t-foreach="this.props.info || []" t-as="field_info" t-key="field_info &amp;&amp; field_info.name ? field_info.name : 'field_info'">
                     <t t-if="field_info &amp;&amp; field_info.value">
                         <tr>
-                            <th class="info_label"><t t-esc="field_info.string" />:</th>
-                            <td><t t-esc="field_info.value" /></td>
+                            <th class="info_label"><t t-out="field_info.string" />:</th>
+                            <td><t t-out="field_info.value" /></td>
                             <td>
                                 <button
                                     type="button"
