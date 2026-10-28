@@ -6,11 +6,11 @@
             <t t-if="this.hasInfoButton">
                 <button
                     type="button"
-                    class="m2o-info-icon btn btn-sm btn-outline-primary ms-2"
+                    class="m2o-info-icon btn btn-link btn-sm p-1 ms-2"
                     t-ref="this.infoIcon"
                     t-on-click="this.onClickInfo"
                 >
-                    <i class="fa fa-info" />
+                    <i class="oi" data-icon="info" />
                 </button>
             </t>
         </div>
@@ -30,7 +30,7 @@
                                     class="m2o-info-copy btn btn-sm btn-outline-primary"
                                     t-on-click="() => this.copy(field_info.value)"
                                 >
-                                    <i class="fa fa-copy" />
+                                    <i class="oi" data-icon="content_copy" />
                                 </button>
                             </td>
                         </tr>
