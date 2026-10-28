@@ -1,7 +1,7 @@
-image: registry.crnd.pro/crnd-opensource/docker/odoo-ci-x:19.0-simple
+image: registry.crnd.pro/crnd-opensource/docker/odoo-ci-x:20.0-simple
 
 variables:
-    SERIES_BRANCH: '19.0'
+    SERIES_BRANCH: '20.0'
     ODOO_ADMIN_PASS: admin
     CI_JOB_TOKEN_GIT_HOST: 'gitlab.crnd.pro'
 
@@ -9,11 +9,11 @@ variables:
 
 .only-stable-branch: &only_stable_branch
     only:
-        - "19.0"
+        - "20.0"
 
 .only-dev-branch: &only_dev_branch
     only:
-        - /^19.0-.*$/
+        - /^20.0-.*$/
 
 .except-auto-commits: &except_auto_commits
     except:
@@ -23,7 +23,7 @@ variables:
 
 .except-port-branches: &except_port_branches
     except:
-        - /^19\.0-port.*$/
+        - /^20\.0-port.*$/
 
 # Disable global cache
 cache: {}
@@ -46,7 +46,7 @@ build_env:
         - whoami
         - odood --version
         - odood info
-        - echo "Checking branch compatability $CI_COMMIT_BRANCH" && [[ "$CI_COMMIT_BRANCH" =~ ^19.0(-.*)?$ ]]
+        - echo "Checking branch compatability $CI_COMMIT_BRANCH" && [[ "$CI_COMMIT_BRANCH" =~ ^20.0(-.*)?$ ]]
 
 flake8:
     stage: static-test
@@ -62,8 +62,14 @@ pylint:
         - odood pre-commit init --odoo-helper-compat --force --no-setup .
         - odood addons generate-py-requirements $(odood addons list --installable --by-path . | sed 's/^/--dir=/') -o /tmp/py-requirements.txt
         - odood venv pip -- install -r /tmp/py-requirements.txt
+        # Odoo 20 core uses Python 3.12 syntax (PEP 695: `type X = ...`,
+        # `def f[T](...)`), which old astroid/pylint cannot parse
+        - odood venv pip -- install -U "pylint>=3.3" "pylint-odoo>=9"
+        # pylint >= 3 does not accept underscores in option names any more
+        # (e.g. `license_allowed` in the generated .pylintrc)
+        - "sed -i -E ':a; s/^([a-z0-9-]+)_([a-z0-9_-]*[[:space:]]*=)/\\1-\\2/; ta' .pylintrc"
     script:
-        - odood venv run -- pylint --rcfile=.pylintrc --valid_odoo_versions=$SERIES_BRANCH -d manifest-required-author $(odood addons list --installable --by-path .)
+        - odood venv run -- pylint --rcfile=.pylintrc --valid-odoo-versions=$SERIES_BRANCH -d manifest-required-author,manifest-superfluous-key $(odood addons list --installable --by-path .)
     <<: *except_auto_commits
 
 stylelint:
@@ -122,7 +128,7 @@ ensure-icons:
     <<: *except_auto_commits
 
 tests:
-    image: registry.crnd.pro/crnd-opensource/docker/odoo-ci-x:19.0-ci
+    image: registry.crnd.pro/crnd-opensource/docker/odoo-ci-x:20.0-ci
     stage: test
     <<: *pip_cache_definition
     before_script:
@@ -136,7 +142,7 @@ tests:
     coverage: '/^TOTAL\s+\d+\s+\d+\s+(\d+\%)/'
 
 test_installation_no_demo:
-    image: registry.crnd.pro/crnd-opensource/docker/odoo-ci-x:19.0-ci
+    image: registry.crnd.pro/crnd-opensource/docker/odoo-ci-x:20.0-ci
     stage: test
     variables:
         ODOO_DB_NAME: test-db-clean
@@ -151,7 +157,7 @@ test_installation_no_demo:
     <<: *except_auto_commits
 
 migration_tests:
-    image: registry.crnd.pro/crnd-opensource/docker/odoo-ci-x:19.0-ci
+    image: registry.crnd.pro/crnd-opensource/docker/odoo-ci-x:20.0-ci
     stage: test
     variables:
         ODOO_DB_NAME: test-db
@@ -169,7 +175,7 @@ migration_tests:
     allow_failure: true
 
 update_addons_list_and_trans:
-    image: registry.crnd.pro/crnd-opensource/docker/odoo-ci-x:19.0-ci
+    image: registry.crnd.pro/crnd-opensource/docker/odoo-ci-x:20.0-ci
     stage: deploy
     before_script:
         - odood addons add --single-branch -r --odoo-requirements=odoo_requirements.txt
