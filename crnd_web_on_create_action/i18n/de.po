@@ -16,6 +16,71 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: crnd_web_on_create_action
+#: model:ir.module.module,description:base.module_crnd_web_on_create_action
+msgid ""
+"CRND Web On Create Action\n"
+"=========================\n"
+"\n"
+".. |badge2| image:: https://img.shields.io/badge/license-LGPL--3-blue.png\n"
+"    :target: http://www.gnu.org/licenses/lgpl-3.0-standalone.html\n"
+"    :alt: License: LGPL-3\n"
+"\n"
+".. |badge3| image:: https://img.shields.io/badge/powered%20by-yodoo.systems-00a09d.png\n"
+"    :target: https://yodoo.systems\n"
+"\n"
+".. |badge5| image:: https://img.shields.io/badge/maintainer-CR&D-purple.png\n"
+"    :target: https://crnd.pro/\n"
+"\n"
+".. |badge4| image:: https://img.shields.io/badge/docs-Website_Service_Desk-yellowgreen.png\n"
+"    :target: https://crnd.pro/doc-bureaucrat-itsm/11.0/en/Website_Service_Desk_eng/\n"
+"\n"
+"\n"
+"|badge2| |badge4| |badge5|\n"
+"\n"
+"CRND Web On Create Action allows you to redefine\n"
+"the action of the button *create* in the list, kanban and form view,\n"
+"specifying the name and type of the action in the class as ``on-create-action-name-ACTION_NAME`` and ``on-create-action-name-ACTION_TYPE``.\n"
+"\n"
+"In this case, the ``ACTION_NAME`` param have to be set to XML ID or method name of action to call on click of ``create`` button.\n"
+"If the ``ACTION_TYPE`` is not set, then the default type is ``object``\n"
+"\n"
+"This module is part of the Bureaucrat ITSM project.\n"
+"You can try it by the references below.\n"
+"\n"
+"Launch your own ITSM system in 60 seconds:\n"
+"''''''''''''''''''''''''''''''''''''''''''\n"
+"\n"
+"Create your own `Bureaucrat ITSM <https://yodoo.systems/saas/template/bureaucrat-itsm-demo-data-95>`__ database\n"
+"\n"
+"|badge3|\n"
+"\n"
+"\n"
+"Bug Tracker\n"
+"===========\n"
+"\n"
+"Bugs are tracked on `https://crnd.pro/requests <https://crnd.pro/requests>`_.\n"
+"In case of trouble, please report there.\n"
+"\n"
+"\n"
+"Maintainer\n"
+"''''''''''\n"
+".. image:: https://crnd.pro/web/image/3699/300x140/crnd.png\n"
+"\n"
+"Our web site: https://crnd.pro/\n"
+"\n"
+"This module is maintained by the Center of Research & Development company.\n"
+"\n"
+"We can provide you further Odoo Support, Odoo implementation, Odoo customization, Odoo 3rd Party development and integration software, consulting services. Our main goal is to provide the best quality product for you.\n"
+"\n"
+"For any questions `contact us <mailto:info@crnd.pro>`__.\n"
+msgstr ""
+
+#. module: crnd_web_on_create_action
+#: model:ir.module.module,shortdesc:base.module_crnd_web_on_create_action
+msgid "CRND web on create action"
+msgstr ""
+
+#. module: crnd_web_on_create_action
 #: model:ir.model.fields,field_description:crnd_web_on_create_action.field_ir_ui_view__display_name
 msgid "Display Name"
 msgstr ""
@@ -23,6 +88,11 @@ msgstr ""
 #. module: crnd_web_on_create_action
 #: model:ir.model.fields,field_description:crnd_web_on_create_action.field_ir_ui_view__id
 msgid "ID"
+msgstr ""
+
+#. module: crnd_web_on_create_action
+#: model:ir.module.module,summary:base.module_crnd_web_on_create_action
+msgid "Make it possible to use wizards to create records"
 msgstr ""
 
 #. module: crnd_web_on_create_action

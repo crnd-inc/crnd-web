@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 19.0\n"
+"Project-Id-Version: Odoo Server 20.0\n"
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -41,6 +41,13 @@ msgstr ""
 #. module: test_crnd_web_models
 #: model:ir.ui.menu,name:test_crnd_web_models.crnd_web_tests
 msgid "CRND Web Tests"
+msgstr ""
+
+#. module: test_crnd_web_models
+#: model:ir.module.module,description:base.module_test_crnd_web_models
+msgid ""
+"CRND Web Tests Models\n"
+"=====================\n"
 msgstr ""
 
 #. module: test_crnd_web_models
@@ -201,6 +208,11 @@ msgid "Many2one widget Model"
 msgstr ""
 
 #. module: test_crnd_web_models
+#: model:ir.module.module,summary:base.module_test_crnd_web_models
+msgid "Module for testing web addons."
+msgstr ""
+
+#. module: test_crnd_web_models
 #: model:ir.model.fields,field_description:test_crnd_web_models.field_m2o_info_widget__name
 #: model:ir.model.fields,field_description:test_crnd_web_models.field_tree_colored_field__name
 msgid "Name"
@@ -220,6 +232,11 @@ msgstr ""
 #. module: test_crnd_web_models
 #: model_terms:ir.ui.view,arch_db:test_crnd_web_models.view_m2o_info_widget_form
 msgid "Partner..."
+msgstr ""
+
+#. module: test_crnd_web_models
+#: model:ir.module.module,shortdesc:base.module_test_crnd_web_models
+msgid "Test CRND Web Models"
 msgstr ""
 
 #. module: test_crnd_web_models
